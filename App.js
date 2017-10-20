@@ -22,9 +22,11 @@ import pvStore from './store'
 
 const MainRoutes = {
   MainScene : {
+    name : "CTR PV",
     screen : MainScene
   },
   ADRScene : {
+    name : "ADR Report Form",
     screen : ADRScene
   }
 }
