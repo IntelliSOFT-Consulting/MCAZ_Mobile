@@ -11,6 +11,7 @@ export default class MainScene extends Component {
     this.showNewADRReport = this.showNewADRReport.bind(this)
     this.showNewSAEFormReport = this.showNewSAEFormReport.bind(this)
     this.showNewAEFIForm = this.showNewAEFIForm.bind(this)
+    this.showNewAEFIReportingForm = this.showNewAEFIReportingForm.bind(this)
   }
 
   showNewADRReport() {
@@ -28,6 +29,11 @@ export default class MainScene extends Component {
     navigate("AEFIInvFormScene")
   }
 
+  showNewAEFIReportingForm() {
+    const { navigate } = this.props.navigation;
+    navigate("AEFIReportingFormScene")
+  }
+
   render() {
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
@@ -41,6 +47,9 @@ export default class MainScene extends Component {
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ this.showNewAEFIForm } title="New AEFI Investigation Form"/>
+          </View>
+          <View style={ AppStyles.button }>
+            <Button onPress={ this.showNewAEFIReportingForm } title="New AEFI Reporting Form"/>
           </View>
         </View>
       </ScrollView>

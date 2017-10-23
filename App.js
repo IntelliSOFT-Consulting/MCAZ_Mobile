@@ -16,6 +16,7 @@ import MainScene  from './scenes/MainScene'
 import ADRScene from './scenes/ADRScene'
 import SAEFormScene from './scenes/SAEFormScene'
 import AEFIInvFormScene from './scenes/AEFIInvFormScene'
+import AEFIReportingFormScene from './scenes/AEFIReportingFormScene'
 
 import { StackNavigator } from 'react-navigation'
 
@@ -36,6 +37,9 @@ const MainRoutes = {
   },
   AEFIInvFormScene: {
     screen : AEFIInvFormScene
+  },
+  AEFIReportingFormScene: {
+    screen : AEFIReportingFormScene
   }
 }
 
