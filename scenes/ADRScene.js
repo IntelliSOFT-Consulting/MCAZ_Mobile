@@ -3,6 +3,7 @@ import { Text, View, TextInput, ScrollView, Button } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
 
+
 import AppStyles from '../styles/AppStyles'
 
 export default class ADRScene extends Component {
@@ -31,7 +32,7 @@ export default class ADRScene extends Component {
 
   render() {
     return (
-      <ScrollView style={ AppStyles.container }>
+      <ScrollView style={ AppStyles.scrollContainer }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
         <TextInputField label="MCAZ Reference Number (MCAZ use only)"/>
@@ -60,9 +61,9 @@ export default class ADRScene extends Component {
           numberOfLines = {4}/>
         <Text style={ AppStyles.boldText }>Current Medication</Text>
 
-        <SelectOneField label="Action taken:"/>
-        <SelectOneField label="Outcome of ADR:"/>
-        <SelectOneField label="Relatedness of suspected medicine(s) to ADR:"/>
+        <SelectOneField label="Action taken:" options={ ["one", "two"]}/>
+        <SelectOneField label="Outcome of ADR:" options={ ["one", "two"]}/>
+        <SelectOneField label="Relatedness of suspected medicine(s) to ADR:" options={ ["one", "two"]}/>
 
         <Text style={ AppStyles.boldText }>Reported by</Text>
         <TextInputField label="Forename(s) and Surname:"/>
@@ -70,9 +71,11 @@ export default class ADRScene extends Component {
         <TextInputField label="Email Address:" keyboardType = 'email-address'/>
         <TextInputField label="Phone number" keyboardType = 'phone-pad'/>
         <TextInputField label="Name &amp; Address of Institution" />
-        <Button onPress={ this.saveAndContinue } title="Save changes"/>
-        <Button onPress={ this.saveAndSubmit } title="Save and Submit"/>
-        <Button onPress={ this.cancel } title="Cancel"/>
+        <View style={ AppStyles.rowButtons }>
+          <Button onPress={ this.saveAndContinue } title="Save changes"/>
+          <Button onPress={ this.saveAndSubmit } title="Save and Submit"/>
+          <Button onPress={ this.cancel } title="Cancel"/>
+        </View>
       </ScrollView>
     );
   }

@@ -14,6 +14,8 @@ import {
 
 import MainScene  from './scenes/MainScene'
 import ADRScene from './scenes/ADRScene'
+import SAEFormScene from './scenes/SAEFormScene'
+import AEFIInvFormScene from './scenes/AEFIInvFormScene'
 
 import { StackNavigator } from 'react-navigation'
 
@@ -28,6 +30,12 @@ const MainRoutes = {
   ADRScene : {
     name : "ADR Report Form",
     screen : ADRScene
+  },
+  SAEFormScene: {
+    screen : SAEFormScene
+  },
+  AEFIInvFormScene: {
+    screen : AEFIInvFormScene
   }
 }
 
