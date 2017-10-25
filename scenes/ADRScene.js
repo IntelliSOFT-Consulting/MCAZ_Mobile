@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, TextInput, ScrollView, Button } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
+import SelectMultipleField from './components/SelectMultipleField'
 
 
 import AppStyles from '../styles/AppStyles'
@@ -52,7 +53,7 @@ export default class ADRScene extends Component {
         <TextInputField label="Description of ADR" multiline = {true}
          numberOfLines = {4}/>
         <SelectOneField label="Serious"/>
-        <SelectOneField label="Reason for Seriousness"/>
+        <SelectMultipleField label="Reason for Seriousness" options={ ["One", "Two", "Three"] }/>
         <TextInputField label="Relevant medical history" multiline = {true}
           numberOfLines = {4}/>
         <TextInputField label="Relevant Past Drug Therapy" multiline = {true}
