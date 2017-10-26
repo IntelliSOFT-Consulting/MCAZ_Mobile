@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Text, View, TextInput, ScrollView, Button } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
+import VaccineDosesTableTableComponent from './components/VaccineDosesTableComponent'
+
 import AppStyles from '../styles/AppStyles'
 
 export default class AEFIInvFormScene extends Component {
@@ -111,6 +113,7 @@ export default class AEFIInvFormScene extends Component {
         <Text>
           Number vaccinated for each antigen at session site. Attach record if available.
         </Text>
+        <VaccineDosesTableTableComponent />
         <TextInputField label="Vaccine name" />
         <TextInputField label="Number of doses" />
         <SelectOneField label="(a) When was the patient vaccinated?" />

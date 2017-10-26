@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, TextInput, ScrollView, Button } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
+import VaccineDilutentTableComponent from './components/VaccineDilutentTableComponent'
 import AppStyles from '../styles/AppStyles'
 
 export default class AEFIReportingFormScene extends Component {
@@ -50,6 +51,7 @@ export default class AEFIReportingFormScene extends Component {
         <TextInputField label="Today’s date (DD/MM/YYYY):"/>
         <TextInputField label="Name of vaccination centre:"/>
         <Text>Table</Text>
+        <VaccineDilutentTableComponent />
         <SelectOneField label="*Adverse event (s):" />
 
         <TextInputField label="Other" />

@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Text, View, TextInput, ScrollView, Button } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
+import StudyDrugsTableComponent from './components/StudyDrugsTableComponent'
+import ConcomitantMedTableComponent from './components/ConcomitantMedTableComponent'
+import LabsTableComponent from './components/LabsTableComponent'
+
 import AppStyles from '../styles/AppStyles'
 
 export default class SAEFormScene extends Component {
@@ -68,9 +72,11 @@ export default class SAEFormScene extends Component {
         <Text style={ AppStyles.boldText }>B</Text>
         <Text>8a. List all study / intervention drugs being taken at the time of onset of the SAE, or within 30 days prior to onset, and describe
           their relationship to the SAE:</Text>
+        <StudyDrugsTableComponent />
         <SelectOneField label="9. Was the patient taking any other drug at the time of onset of the AE?" />
         <Text>10. If yes, then list all concomitant medication being taken at least one month before the onset of the SAE and describe the
           relationship to the SAE:</Text>
+        <ConcomitantMedTableComponent />
         <Text>11. Has the Adverse Event been
           reported to:</Text>
         <SelectOneField label="(a) MCAZ" />
@@ -96,6 +102,7 @@ export default class SAEFormScene extends Component {
         <TextInputField label="(d) Investigations-Laboratory and any other significant
           investigations conducted:" multiline = {true}
           numberOfLines = {4}/>
+        <LabsTableComponent />
         <TextInputField label="(e) Results:" multiline = {true}
           numberOfLines = {4}/>
         <TextInputField label="(f) Management (Include management of study treatment, continued,
