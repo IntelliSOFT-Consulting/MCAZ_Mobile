@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, TextInput, ScrollView, Button } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
-
-
 import AppStyles from '../styles/AppStyles'
 
 export default class AEFIReportingFormScene extends Component {

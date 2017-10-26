@@ -31,5 +31,7 @@ export default AppStyles = StyleSheet.create({
 
   button: {
     height: 40
-  }
+  },
+  tableHead: { height: 40, backgroundColor: '#f1f8ff' },
+  tableHeadText: { marginLeft: 5, marginRight : 5 }
 })

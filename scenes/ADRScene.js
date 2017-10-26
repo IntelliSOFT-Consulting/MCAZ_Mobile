@@ -3,8 +3,7 @@ import { Text, View, TextInput, ScrollView, Button } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
 import SelectMultipleField from './components/SelectMultipleField'
-
-
+import MedicationTableComponent from './components/MedicationTableComponent'
 import AppStyles from '../styles/AppStyles'
 
 export default class ADRScene extends Component {
@@ -60,8 +59,8 @@ export default class ADRScene extends Component {
           numberOfLines = {4}/>
         <TextInputField label="Laboratory test results" multiline = {true}
           numberOfLines = {4}/>
-        <Text style={ AppStyles.boldText }>Current Medication</Text>
-
+        <Text style={ AppStyles.boldText }>Current Medication (Including OTC and herbals)</Text>
+        <MedicationTableComponent />
         <SelectOneField label="Action taken:" options={ ["one", "two"]}/>
         <SelectOneField label="Outcome of ADR:" options={ ["one", "two"]}/>
         <SelectOneField label="Relatedness of suspected medicine(s) to ADR:" options={ ["one", "two"]}/>
