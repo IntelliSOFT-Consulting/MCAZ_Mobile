@@ -2,7 +2,6 @@ import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT } from '../actions/actionTypes'
 const drafts = (state = [], action) => {
   switch(action.type) {
     case SAVE_DRAFT_REPORT:
-      var drafts = status.drafts
       var newReport = action.data
       if(state == null || drafts.length == 0) {
         return [...state, newReport]

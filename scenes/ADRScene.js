@@ -7,7 +7,7 @@ import SelectMultipleField from './components/SelectMultipleField'
 import MedicationTableComponent from './components/MedicationTableComponent'
 import AppStyles from '../styles/AppStyles'
 
-import { saveADR } from '../actions'
+import { saveDraft } from '../actions'
 
 class ADRScene extends Component {
   static navigationOptions = {
@@ -22,8 +22,8 @@ class ADRScene extends Component {
   }
 
   saveAndContinue() {
-    const { saveADR } = this.props
-    saveADR({ test : " data" })
+    const { saveDraft } = this.props
+    saveDraft({ test : " data" })
   }
 
   saveAndSubmit() {
@@ -95,8 +95,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveADR: (data) => {
-      dispatch(saveADR(data))
+    saveDraft: (data) => {
+      dispatch(saveDraft(data))
     },
     dispatch: dispatch
   }

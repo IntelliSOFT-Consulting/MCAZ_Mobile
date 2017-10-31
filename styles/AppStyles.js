@@ -33,5 +33,6 @@ export default AppStyles = StyleSheet.create({
     height: 40
   },
   tableHead: { height: 40, backgroundColor: '#f1f8ff' },
-  tableHeadText: { marginLeft: 5, marginRight : 5 }
+  tableHeadText: { marginLeft: 5, marginRight : 5 },
+  listItem: { height: 44, padding: 10, fontSize: 18 }
 })

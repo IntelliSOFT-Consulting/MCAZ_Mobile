@@ -12,6 +12,7 @@ export default class MainScene extends Component {
     this.showNewSAEFormReport = this.showNewSAEFormReport.bind(this)
     this.showNewAEFIForm = this.showNewAEFIForm.bind(this)
     this.showNewAEFIReportingForm = this.showNewAEFIReportingForm.bind(this)
+    this.showSaved = this.showSaved.bind(this)
   }
 
   showNewADRReport() {
@@ -34,6 +35,11 @@ export default class MainScene extends Component {
     navigate("AEFIReportingFormScene")
   }
 
+  showSaved() {
+    const { navigate } = this.props.navigation;
+    navigate("SavedReportsScene")
+  }
+
   render() {
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
@@ -50,6 +56,9 @@ export default class MainScene extends Component {
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ this.showNewAEFIReportingForm } title="New AEFI Reporting Form"/>
+          </View>
+          <View style={ AppStyles.button }>
+            <Button onPress={ this.showSaved } title="Saved reports"/>
           </View>
         </View>
       </ScrollView>

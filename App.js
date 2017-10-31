@@ -18,6 +18,8 @@ import SAEFormScene from './scenes/SAEFormScene'
 import AEFIInvFormScene from './scenes/AEFIInvFormScene'
 import AEFIReportingFormScene from './scenes/AEFIReportingFormScene'
 import LoadingScene from './scenes/components/LoadingScene'
+import SavedReportsScene from './scenes/SavedReportsScene'
+import ReportsListScene from './scenes/ReportsListScene'
 
 import { StackNavigator } from 'react-navigation'
 
@@ -43,6 +45,12 @@ const MainRoutes = {
   },
   AEFIReportingFormScene: {
     screen : AEFIReportingFormScene
+  },
+  SavedReportsScene: {
+    screen : SavedReportsScene
+  },
+  ReportsListScene: {
+    screen: ReportsListScene
   }
 }
 

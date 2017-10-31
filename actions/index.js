@@ -1,5 +1,5 @@
-
-import { * } from './actionTypes'
+import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT,
+ SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT }  from './actionTypes'
 
 /**
   Saves a draft report

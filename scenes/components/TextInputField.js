@@ -24,7 +24,7 @@ export default class TextInputField extends Component {
     return (
       <View>
         <Text>{ label }</Text>
-        <TextInput {...this.props} onChange={(text) => this.handleChange(value)}/>
+        <TextInput {...this.props} onChange={(text) => this.handleChange(text)}/>
       </View>
     )
   }
