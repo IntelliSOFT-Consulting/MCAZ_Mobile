@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { Text, View, TextInput, ScrollView, Button } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
@@ -6,7 +7,9 @@ import SelectMultipleField from './components/SelectMultipleField'
 import MedicationTableComponent from './components/MedicationTableComponent'
 import AppStyles from '../styles/AppStyles'
 
-export default class ADRScene extends Component {
+import { saveADR } from '../actions'
+
+class ADRScene extends Component {
   static navigationOptions = {
     title: 'ADR Report form',
   }
@@ -19,7 +22,8 @@ export default class ADRScene extends Component {
   }
 
   saveAndContinue() {
-
+    const { saveADR } = this.props
+    saveADR({ test : " data" })
   }
 
   saveAndSubmit() {
@@ -80,3 +84,22 @@ export default class ADRScene extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+
+    //archived: state.currentForms.archived,
+    //formListVisible: (state.currentFormList == null)? false : true
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    saveADR: (data) => {
+      dispatch(saveADR(data))
+    },
+    dispatch: dispatch
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ADRScene)

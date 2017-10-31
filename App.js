@@ -17,11 +17,14 @@ import ADRScene from './scenes/ADRScene'
 import SAEFormScene from './scenes/SAEFormScene'
 import AEFIInvFormScene from './scenes/AEFIInvFormScene'
 import AEFIReportingFormScene from './scenes/AEFIReportingFormScene'
+import LoadingScene from './scenes/components/LoadingScene'
 
 import { StackNavigator } from 'react-navigation'
 
 import { Provider } from 'react-redux'
 import pvStore from './store'
+
+import { PersistGate } from 'redux-persist/lib/integration/react'
 
 const MainRoutes = {
   MainScene : {
@@ -64,13 +67,15 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const store = pvStore({})
+const { store, persistor} = pvStore({})
 
 export default class App extends Component<{}> {
   render() {
     return (
       <Provider store={store}>
-        <MainAppNavigator ref={nav => { this.navigator = nav; }} />
+        <PersistGate persistor={ persistor } store={ store } loading={ <LoadingScene /> }>
+          <MainAppNavigator ref={nav => { this.navigator = nav; }} />
+        </PersistGate>
       </Provider>
     )
   }
