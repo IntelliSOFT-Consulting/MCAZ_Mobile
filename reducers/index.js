@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
-import AdrReport from './AdrReport'
+import drafts from './drafts'
+import completed from './completed'
+import uploaded from './uploaded'
 
-const pvApp = combineReducers({ AdrReport })
+const pvApp = combineReducers({ drafts, completed, uploaded })
 
 export default pvApp
