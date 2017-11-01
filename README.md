@@ -1,18 +1,22 @@
 # MCAZ_Mobile
 
 MCAZ Mobile apps repository.
-This project is developed using React Native.
+This project is developed using React Native, specifically it uses 
 
-To get started with React native, refer to https://facebook.github.io/react-native/docs/getting-started.html
+    react-native init
+   
+ 
+
+To get started with React native, refer to https://facebook.github.io/react-native/docs/getting-started.html the part for **Building projects with Native Code**
 
 This version used react-native init.
 
-Dependencies
+**Dependencies**
 * Node
 * Android SDK (Android)
 * Xcode - (iOS)
 
-App dependencies
+**App dependencies installation**
 
 To install the app dependencies, run the command
 
