@@ -16,12 +16,8 @@ const reducers = persistCombineReducers(config, {
   appState
 });
 
-
-const initialState = {
-  drafts : [], completed: [], uploaded: [], reportFilter: { type : '' }
-}
-const pvStore = () => {
-  const store = createStore(reducers, initialState)
+const pvStore = (state) => {
+  const store = createStore(reducers, state)
   const persistor = persistStore(store);
 
   return { persistor, store };
