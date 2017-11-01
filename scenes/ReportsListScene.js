@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { FlatList, Text, View, TextInput, ScrollView, Button } from 'react-native'
+import { SectionList, Text, View, TextInput, ScrollView, Button } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
 import SelectMultipleField from './components/SelectMultipleField'
@@ -10,26 +10,20 @@ import AppStyles from '../styles/AppStyles'
 import { saveDraft } from '../actions'
 
 class ReportsListScene extends Component {
-  static navigationOptions = {
-    title: 'Saved reports',
-  }
+  static navigationOptions = ({ navigation, screenProps}) => ({
+    title: navigation.state.params.key + ' Reports'
+  })
 
   constructor(props, context) {
     super(props, context)
     this.renderItem = this.renderItem.bind(this)
     this.onItemPressed = this.onItemPressed.bind(this)
-    this.cancel = this.cancel.bind(this)
-  }
-
-  saveAndContinue() {
-    const { saveDraft } = this.props
-    saveDraft({ test : " data" })
   }
 
   renderItem({item}) {
     return(
       <Text style={ AppStyles.listItem } onPress={ () => this.onItemPressed(item) }>
-        { item.key }
+        { item.rid }
       </Text>
     )
   }
@@ -38,26 +32,34 @@ class ReportsListScene extends Component {
     console.log(JSON.stringify(item))
   }
 
-  cancel() {
-
-  }
-
   render() {
     const { navigation } = this.props;
+    const { drafts, completed, uploaded } = this.props
+    const data = ([
+      { title : 'Drafts (' + drafts.length + ')', data : drafts, key: 'drafts' },
+      { title : 'Completed (' + completed.length + ')', data : completed, key: 'completed' },
+      { title : 'Uploaded (' + uploaded.length + ')', data : uploaded, key: 'uploaded' },
+    ])
     //console.log(navigation) navigation.state.params.key
-    console.log("showing " + navigation.state.params.key)
     return (
-      <View style={ AppStyles.scrollContainer }>
-        <FlatList data={[{ key: "asas"}, { key: "asasasas"}, { key: "asasasaqwq" }, ]}
-          renderItem={this.renderItem}/>
+      <View style={ AppStyles.sectionListContainer }>
+        <SectionList sections={ data }
+          renderItem={this.renderItem} renderSectionHeader={ ({ section }) => <Text style={ AppStyles.sectionHeader }>{ section.title }</Text>}/>
       </View>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
+const getVisibleReports = (reports, filter) => {
+  return reports.filter(report => report.type == filter.type)
+}
 
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    drafts : getVisibleReports(state.appState.drafts, state.appState.reportFilter),
+    completed : getVisibleReports(state.appState.completed, state.appState.reportFilter),
+    uploaded : getVisibleReports(state.appState.uploaded, state.appState.reportFilter),
     //archived: state.currentForms.archived,
     //formListVisible: (state.currentFormList == null)? false : true
   }

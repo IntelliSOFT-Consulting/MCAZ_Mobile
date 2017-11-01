@@ -7,11 +7,12 @@ import SelectMultipleField from './components/SelectMultipleField'
 import MedicationTableComponent from './components/MedicationTableComponent'
 import AppStyles from '../styles/AppStyles'
 
-import { saveDraft } from '../actions'
+import { setReportFilter } from '../actions'
+import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 
 class SavedReportsScene extends Component {
   static navigationOptions = {
-    title: '',
+    title: 'Saved Reports',
   }
 
   constructor(props, context) {
@@ -31,7 +32,9 @@ class SavedReportsScene extends Component {
 
   onItemPressed(item) {
     console.log(JSON.stringify(item))
+    const { setReportFilter } = this.props
     const { navigate } = this.props.navigation;
+    setReportFilter(item.type)
     navigate("ReportsListScene", item)
   }
 
@@ -43,7 +46,8 @@ class SavedReportsScene extends Component {
     console.log("showing saved reports")
     return (
       <View style={ AppStyles.scrollContainer }>
-        <FlatList data={[{ key: "ADR"}, { key: "SAE"}, { key: "AEFI" }, ]}
+        <FlatList data={[{ key: "ADR", type : REPORT_TYPE_ADR }, { key: "SAE", type : REPORT_TYPE_SAE },
+          { key: "AEFI", type : REPORT_TYPE_AEFI }, { key: "AEFI Inv.", type : REPORT_TYPE_AEFI_INV } ]}
           renderItem={this.renderItem}/>
       </View>
     );
@@ -60,8 +64,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveDraft: (data) => {
-      dispatch(saveDraft(data))
+    setReportFilter: (filter) => {
+      dispatch(setReportFilter(filter))
     },
     dispatch: dispatch
   }

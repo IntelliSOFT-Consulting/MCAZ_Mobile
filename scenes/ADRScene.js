@@ -6,6 +6,7 @@ import SelectOneField from './components/SelectOneField'
 import SelectMultipleField from './components/SelectMultipleField'
 import MedicationTableComponent from './components/MedicationTableComponent'
 import AppStyles from '../styles/AppStyles'
+import { REPORT_TYPE_ADR } from '../utils/Constants'
 
 import { saveDraft } from '../actions'
 
@@ -19,11 +20,18 @@ class ADRScene extends Component {
     this.saveAndContinue = this.saveAndContinue.bind(this)
     this.saveAndSubmit = this.saveAndSubmit.bind(this)
     this.cancel = this.cancel.bind(this)
+
+    var { model } = this.props
+    if(model == null) {
+      model = { rid : Date.now(), type : REPORT_TYPE_ADR }
+    }
+    this.state = { model }
   }
 
   saveAndContinue() {
     const { saveDraft } = this.props
-    saveDraft({ test : " data" })
+    const { model } = this.state
+    saveDraft(model)
   }
 
   saveAndSubmit() {

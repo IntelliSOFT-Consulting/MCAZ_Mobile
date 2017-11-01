@@ -1,5 +1,5 @@
 import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT,
- SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT }  from './actionTypes'
+ SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER }  from './actionTypes'
 
 /**
   Saves a draft report
@@ -26,4 +26,8 @@ export const saveUploaded = (data) => (
 
 export const removeUploaded = (data) => (
   { type : REMOVE_UPLOADED_REPORT, data }
+)
+
+export const setReportFilter = (filter) => (
+  { type : SET_REPORT_FILTER, filter }
 )

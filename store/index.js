@@ -4,7 +4,7 @@ import {
   persistCombineReducers, autoRehydrate
 } from 'redux-persist'
 import { AsyncStorage } from 'react-native'
-import reducer from '../reducers'
+import appState from '../reducers'
 
 const config = {
   key: 'root',
@@ -13,11 +13,15 @@ const config = {
 };
 
 const reducers = persistCombineReducers(config, {
-  reducer,
+  appState
 });
 
-const pvStore = (state) => {
-  const store = createStore(reducers, state)
+
+const initialState = {
+  drafts : [], completed: [], uploaded: [], reportFilter: { type : '' }
+}
+const pvStore = () => {
+  const store = createStore(reducers, initialState)
   const persistor = persistStore(store);
 
   return { persistor, store };

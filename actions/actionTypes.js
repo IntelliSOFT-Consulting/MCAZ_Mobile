@@ -5,3 +5,5 @@ export const SAVE_COMPLETED_REPORT = 'SAVE_COMPLETED_REPORT' // Save a completed
 export const REMOVE_COMPLETED_REPORT = 'SAVE_COMPLETED_REPORT' // Save a completed report
 export const SAVE_UPLOADED_REPORT = 'SAVE_UPLOADED_REPORT' // Save an uploaded report
 export const REMOVE_UPLOADED_REPORT = 'SAVE_UPLOADED_REPORT' // Save an uploaded report
+
+export const SET_REPORT_FILTER = 'SET_REPORT_FILTER' // Sets the report type that should be displayed

@@ -22,7 +22,6 @@ const drafts = (state = [], action) => {
       return state.filter((report) => report.rid != newReport.rid)
     default:
       return state // The main page is the default page.
-
   }
 }
 
