@@ -37,7 +37,7 @@ export default class MainScene extends Component {
 
   showSaved() {
     const { navigate } = this.props.navigation;
-    navigate("SavedReportsScene")
+    navigate("SavedReports")
   }
 
   render() {

@@ -8,6 +8,7 @@ import MedicationTableComponent from './components/MedicationTableComponent'
 import AppStyles from '../styles/AppStyles'
 
 import { saveDraft } from '../actions'
+import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 
 class ReportsListScene extends Component {
   static navigationOptions = ({ navigation, screenProps}) => ({
@@ -30,6 +31,16 @@ class ReportsListScene extends Component {
 
   onItemPressed(item) {
     console.log(JSON.stringify(item))
+    const { navigate } = this.props.navigation;
+    if(item.type == REPORT_TYPE_ADR) {
+      navigate('ADRScene', item)
+    } else if(item.type == REPORT_TYPE_SAE) {
+      navigate('SAEFormScene', item)
+    } else if(item.type == REPORT_TYPE_AEFI_INV) {
+      navigate('AEFIInvFormScene', item)
+    } else if(item.type == REPORT_TYPE_AEFI) {
+      navigate('AEFIReportingFormScene', item)
+    }
   }
 
   render() {

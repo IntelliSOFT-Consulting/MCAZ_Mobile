@@ -45,7 +45,10 @@ const MainRoutes = {
   },
   AEFIReportingFormScene: {
     screen : AEFIReportingFormScene
-  },
+  }
+}
+
+const SavedReportRoutes = {
   SavedReportsScene: {
     screen : SavedReportsScene
   },
@@ -54,6 +57,10 @@ const MainRoutes = {
   }
 }
 
+const SavedReportsNavigator = StackNavigator(SavedReportRoutes, {
+  initialRouteName : 'SavedReportsScene', headerMode : 'float'
+})
+
 const MainNavigator = StackNavigator(MainRoutes, {
   initialRouteName : 'MainScene', //headerMode: "none"
 })
@@ -61,6 +68,9 @@ const MainNavigator = StackNavigator(MainRoutes, {
 const MainAppRoutes = {
   Main: {
     screen: MainNavigator
+  },
+  SavedReports: {
+    screen : SavedReportsNavigator
   }
 }
 
