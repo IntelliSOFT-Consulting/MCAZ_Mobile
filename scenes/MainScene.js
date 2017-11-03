@@ -17,7 +17,7 @@ export default class MainScene extends Component {
 
   showNewADRReport() {
     const { navigate } = this.props.navigation;
-    navigate("ADRScene")
+    navigate("ADRSceneTabbed")
   }
 
   showNewSAEFormReport() {

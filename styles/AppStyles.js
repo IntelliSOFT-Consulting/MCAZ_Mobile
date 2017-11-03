@@ -50,5 +50,8 @@ export default AppStyles = StyleSheet.create({
     paddingRight: 0,
     marginTop: 10,
     marginBottom: 10,
-  }
+  },
+  tabbar: {
+    backgroundColor: '#222',
+  },
 })
