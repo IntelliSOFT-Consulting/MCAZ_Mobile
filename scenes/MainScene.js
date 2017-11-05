@@ -32,7 +32,7 @@ export default class MainScene extends Component {
 
   showNewAEFIReportingForm() {
     const { navigate } = this.props.navigation;
-    navigate("AEFIReportingFormScene")
+    navigate("AEFIReportingFormSceneTabbed")
   }
 
   showSaved() {
