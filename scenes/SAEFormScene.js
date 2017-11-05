@@ -69,7 +69,7 @@ export default class SAEFormScene extends Component {
         <SelectOneField label="6. Name of Drug, Device or Procedure:"/>
         <SelectOneField label="7. Is the drug/device investigational:" />
 
-        <Text style={ AppStyles.boldText }>B</Text>
+        <Text style={ AppStyles.boldText }>C</Text>
         <Text>8a. List all study / intervention drugs being taken at the time of onset of the SAE, or within 30 days prior to onset, and describe
           their relationship to the SAE:</Text>
         <StudyDrugsTableComponent />

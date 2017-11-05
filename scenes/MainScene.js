@@ -22,12 +22,12 @@ export default class MainScene extends Component {
 
   showNewSAEFormReport() {
     const { navigate } = this.props.navigation;
-    navigate("SAEFormScene")
+    navigate("SAEFormSceneTabbed")
   }
 
   showNewAEFIForm() {
     const { navigate } = this.props.navigation;
-    navigate("AEFIInvFormScene")
+    navigate("AEFIInvFormSceneTabbed")
   }
 
   showNewAEFIReportingForm() {

@@ -21,6 +21,8 @@ import LoadingScene from './scenes/components/LoadingScene'
 import SavedReportsScene from './scenes/SavedReportsScene'
 import ReportsListScene from './scenes/ReportsListScene'
 import ADRSceneTabbed from './scenes/ADRSceneTabbed'
+import AEFIInvFormSceneTabbed from './scenes/AEFIInvFormSceneTabbed'
+import SAEFormSceneTabbed from './scenes/SAEFormSceneTabbed'
 
 import { StackNavigator } from 'react-navigation'
 
@@ -49,6 +51,12 @@ const MainRoutes = {
   },
   ADRSceneTabbed: {
     screen: ADRSceneTabbed
+  },
+  AEFIInvFormSceneTabbed: {
+    screen: AEFIInvFormSceneTabbed
+  },
+  SAEFormSceneTabbed: {
+    screen: SAEFormSceneTabbed
   }
 }
 
