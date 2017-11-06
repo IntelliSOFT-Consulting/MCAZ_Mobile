@@ -5,6 +5,7 @@ import { View, ScrollView, Text } from 'react-native';
 import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
+import DateTimeInput from '../components/DateTimeInput'
 
 export default class PatientDetails extends PureComponent {
 
@@ -19,7 +20,7 @@ export default class PatientDetails extends PureComponent {
         <TextInputField label="Clinical/Hospital Number :"/>
         <TextInputField label="Patient Initials:"/>
         <TextInputField label="VCT/OI/TB Number"/>
-        <TextInputField label="Date of birth"/>
+        <DateTimeInput label="Date of birth"/>
         <TextInputField label="Weight(Kg)"/>
         <TextInputField label="Age"/>
         <TextInputField label="Height(meters)"/>
