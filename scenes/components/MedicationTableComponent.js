@@ -4,6 +4,7 @@ import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-ta
 import DateTimeInput from './DateTimeInput'
 import AppStyles from '../../styles/AppStyles'
 import TextInputField from './TextInputField'
+import CheckBoxInput from './CheckBoxInput'
 
 
 export default class MedicationTableComponent extends Component {
@@ -14,7 +15,7 @@ export default class MedicationTableComponent extends Component {
     this.addRow = this.addRow.bind(this)
     this.removeRow = this.removeRow.bind(this)
     this.getRow = this.getRow.bind(this)
-    
+
     const { model, name } = this.props
     var rows = []
     if(model[name]) {
@@ -58,7 +59,7 @@ export default class MedicationTableComponent extends Component {
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" label="" model={ model[name][index] }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" label="" model={ model[name][index] }/>,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="indication" model={ model[name][index] }/>,
-      <CheckBox key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
+      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row

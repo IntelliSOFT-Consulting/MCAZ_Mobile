@@ -8,7 +8,7 @@ import ReporterDetailsScene from './adr/ReporterDetailsScene'
 import AdverseReactionScene from './adr/AdverseReactionScene'
 import { connect } from 'react-redux'
 import { REPORT_TYPE_ADR } from '../utils/Constants'
-import { saveDraft } from '../actions'
+import { saveDraft, uploadData } from '../actions'
 
 class ADRSceneTabbed extends PureComponent {
   static navigationOptions = {
@@ -32,7 +32,7 @@ class ADRSceneTabbed extends PureComponent {
 
     var { model } = this.props
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_ADR, "name_of_institution" : "Nairobi Hosp", "sadr_list_of_drugs" : [ { "brand_name" : "dawa"}] }
+      model = { rid : Date.now(), type : REPORT_TYPE_ADR, "name_of_institution" : "Nairobi Hosp", "sadr_list_of_drugs" : [ { "brand_name" : "dawa", "dose_id" : "1" }] }
     }
     //state.model = model
     this.state = {
@@ -79,6 +79,9 @@ class ADRSceneTabbed extends PureComponent {
 
   saveAndSubmit() {
     const { model } = this.state
+    const { uploadData } = this.props
+
+    uploadData(model)
   }
 
   cancel() {
@@ -88,7 +91,6 @@ class ADRSceneTabbed extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-
     //archived: state.currentForms.archived,
     //formListVisible: (state.currentFormList == null)? false : true
   }
@@ -98,6 +100,9 @@ const mapDispatchToProps = dispatch => {
   return {
     saveDraft: (data) => {
       dispatch(saveDraft(data))
+    },
+    uploadData: (data) => {
+      dispatch(uploadData(data))
     },
     dispatch: dispatch
   }

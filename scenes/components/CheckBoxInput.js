@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, CheckBox } from 'react-native'
+import { Text, View } from 'react-native'
+import CheckBox from 'react-native-check-box'
 
 export default class CheckBoxInput extends Component {
 
@@ -10,23 +11,24 @@ export default class CheckBoxInput extends Component {
     if(name && model) {
       value = model[name]
     }
-    this.state = { value : value }
+    this.state = { checked : (value == "1") ? true : false }
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(value) {
-    this.setState({ value })
+    var { checked } = this.state
     var { name, model } = this.props
     if(model) {
-      model[name] = value
+      model[name] = !checked? "1" : "0"
     }
+    this.setState({ checked : !checked })
   }
 
   render() {
     const { label } = this.props
     return (
       <View>
-        <CheckBox {...this.props} onChange={(text) => this.handleChange(text)} value={ this.state.value }/>
+        <CheckBox {...this.props} onClick={ () => this.handleChange(data)} isChecked={this.state.checked} />
       </View>
     )
   }

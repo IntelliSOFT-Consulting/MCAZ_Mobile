@@ -13,3 +13,5 @@ export const REPORT_TYPE_AEFI = 'REPORT_TYPE_AEFI'
 export const STATUS_DRAFT = 'STATUS_DRAFT'
 export const STATUS_COMPLETED = 'STATUS_COMPLETED'
 export const STATUS_UPLOADED = 'STATUS_UPLOADED'
+
+export const MAIN_URL = 'http://45.79.130.91/api/sadrs'

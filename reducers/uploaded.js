@@ -3,14 +3,14 @@ const uploaded = (state = [], action) => {
   switch(action.type) {
     case SAVE_UPLOADED_REPORT:
       var newReport = action.data
-      if(state == null || drafts.length == 0) {
+      if(state == null || state.length == 0) {
         return [...state, newReport]
       } else {
         const index = state.findIndex((report) => report.rid == newReport.rid )
         if(index == -1) {
           state.push(newReport)
         } else {
-          state[i] = newReport
+          state[index] = newReport
         }
       }
       return [...state]

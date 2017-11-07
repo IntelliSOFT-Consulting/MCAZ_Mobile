@@ -1,6 +1,8 @@
 import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT,
  SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER }  from './actionTypes'
 
+import { MAIN_URL } from '../utils/Constants'
+
 /**
   Saves a draft report
 */
@@ -31,3 +33,24 @@ export const removeUploaded = (data) => (
 export const setReportFilter = (filter) => (
   { type : SET_REPORT_FILTER, filter }
 )
+
+export const uploadData = (data, ) => {
+  return dispatch => {
+    dispatch(saveCompleted(data))
+    return fetch(MAIN_URL, {
+      method : "POST",
+      headers: {
+        "Accept" : "application/json",
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(response => response.json()).then((json) => {
+      if(json.sadr) {
+        dispatch(saveUploaded(json.sadr))
+        dispatch(removeDraft(json.sadr))
+        dispatch(removeCompleted(json.sadr))
+      }
+      console.log(json)
+    })
+  }
+}

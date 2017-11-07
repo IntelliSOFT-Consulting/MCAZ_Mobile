@@ -1,10 +1,11 @@
-import { createStore, compose } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import {
   persistStore,
   persistCombineReducers, autoRehydrate
 } from 'redux-persist'
 import { AsyncStorage } from 'react-native'
 import appState from '../reducers'
+import thunk from 'redux-thunk'
 
 const config = {
   key: 'root',
@@ -17,7 +18,7 @@ const reducers = persistCombineReducers(config, {
 });
 
 const pvStore = (state) => {
-  const store = createStore(reducers, state)
+  const store = createStore(reducers, state, applyMiddleware(thunk))
   const persistor = persistStore(store);
 
   return { persistor, store };
