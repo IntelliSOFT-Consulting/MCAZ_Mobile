@@ -87,7 +87,7 @@ export default class MedicationTableComponent extends Component {
 
   render() {
     const { label } = this.props
-    const tableHead = ['Generic/Brand Name', 'Batch No.', 'Dose', 'Frequency', 'Date Started', 'Date Stopped', "Indication", 'Tick Suspected medicine', ""];
+    const tableHead = ['Generic/Brand Name*', 'Batch No.', 'Dose*', 'Frequency*', 'Date Started*', 'Date Stopped', "Indication", 'Tick Suspected medicine*', ""];
     const widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 30]
     return (
       <View>

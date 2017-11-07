@@ -14,12 +14,12 @@ export default class AdverseReactionScene extends PureComponent {
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
         <Text style={ AppStyles.boldText }>Adverse Reaction</Text>
-        <DateTimeInput model={ model } name="date_of_onset_of_reaction" label="Date of onset"/>
+        <DateTimeInput model={ model } name="date_of_onset_of_reaction" label="Date of onset*"/>
         <SelectOneField model={ model } name="duration_type" label="Duration type"/>
         <TextInputField model={ model } name="duration" label="Duration"/>
-        <TextInputField model={ model } name="description_of_reaction" label="Description of ADR" multiline = {true}
+        <TextInputField model={ model } name="description_of_reaction" label="Description of ADR*" multiline = {true}
          numberOfLines = {4}/>
-        <SelectOneField model={ model } name="severity" label="Serious"/>
+        <SelectOneField model={ model } name="severity" label="Serious*"/>
         <SelectOneField model={ model } name="severity_reason" label="Reason for Seriousness" options={ ["One", "Two", "Three"] }/>
         <TextInputField model={ model } name="medical_history" label="Relevant medical history" multiline = {true}
           numberOfLines = {4}/>
