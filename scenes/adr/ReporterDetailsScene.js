@@ -11,17 +11,18 @@ import AppStyles from '../../styles/AppStyles'
 export default class ReporterDetailsScene extends PureComponent {
 
   render() {
+    const { model, saveAndContinue, cancel, saveAndSubmit } = this.props
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
-        <TextInputField label="Forename(s) and Surname:"/>
-        <TextInputField label="Designation:"/>
-        <TextInputField label="Email Address:" keyboardType = 'email-address'/>
-        <TextInputField label="Phone number" keyboardType = 'phone-pad'/>
-        <TextInputField label="Name &amp; Address of Institution" />
+        <TextInputField model={ model } name="reporter_name" label="Forename(s) and Surname:"/>
+        <TextInputField model={ model } name="designation_id" label="Designation:"/>
+        <TextInputField model={ model } name="reporter_email" label="Email Address:" keyboardType = 'email-address'/>
+        <TextInputField model={ model } name="reporter_phone" label="Phone number" keyboardType = 'phone-pad'/>
+        <TextInputField model={ model } label="Name &amp; Address of Institution" />
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ this.saveAndContinue } title="Save changes"/>
-          <Button onPress={ this.saveAndSubmit } title="Save and Submit"/>
-          <Button onPress={ this.cancel } title="Cancel"/>
+          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndSubmit() } title="Save and Submit"/>
+          <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>
     )

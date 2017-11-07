@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput } from 'react-native'
+import { Text, View, CheckBox } from 'react-native'
 
-export default class TextInputField extends Component {
+export default class CheckBoxInput extends Component {
 
   constructor(props) {
     super(props)
@@ -26,8 +26,7 @@ export default class TextInputField extends Component {
     const { label } = this.props
     return (
       <View>
-        <Text>{ label }</Text>
-        <TextInput {...this.props} onChangeText={(text) => this.handleChange(text)} value={ this.state.value }/>
+        <CheckBox {...this.props} onChange={(text) => this.handleChange(text)} value={ this.state.value }/>
       </View>
     )
   }

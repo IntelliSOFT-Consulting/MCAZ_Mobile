@@ -52,6 +52,9 @@ export default AppStyles = StyleSheet.create({
     marginBottom: 10,
   },
   tabbar: {
-    backgroundColor: '#222',
+    backgroundColor: '#ffffff',
   },
+  tablabelStyle: {
+    color: '#000000'
+  }
 })

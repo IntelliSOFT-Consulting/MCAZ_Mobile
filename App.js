@@ -79,6 +79,12 @@ const SavedReportsNavigator = StackNavigator(SavedReportRoutes, {
 
 const MainNavigator = StackNavigator(MainRoutes, {
   initialRouteName : 'MainScene', //headerMode: "none"
+  navigationOptions: {
+    headerStyle: {
+      elevation: 0,
+      shadowOpacity: 0
+    }
+  }
 })
 
 const MainAppRoutes = {
@@ -91,7 +97,12 @@ const MainAppRoutes = {
 }
 
 const MainAppNavigator = StackNavigator(MainAppRoutes, {
-  initialRouteName : 'Main', headerMode: "none", mode : 'modal'
+  initialRouteName : 'Main', headerMode: "none", mode : 'modal', navigationOptions: {
+    headerStyle: {
+      elevation: 0,
+      shadowOpacity: 0
+    }
+  }
 })
 
 const instructions = Platform.select({
