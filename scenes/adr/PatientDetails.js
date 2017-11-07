@@ -27,10 +27,10 @@ export default class PatientDetails extends PureComponent {
         <TextInputField name="patient_name" model={ model } label="Patient Initials:*"/>
         <TextInputField name="ip_no" model={ model } label="VCT/OI/TB Number"/>
         <DateTimeInput name="date_of_birth" model={ model } label="Date of birth *"/>
-        <TextInputField name="weight" model={ model } label="Weight(Kg)"/>
-        <SelectOneField name="age_group" model={ model } label="Age"/>
-        <TextInputField name="height" model={ model } label="Height(meters)"/>
-        <SelectOneField name="gender" model={ model } label="Sex*"/>
+        <TextInputField name="weight" model={ model } label="Weight(Kg)" keyboardType='numeric'/>
+        <SelectOneField name="age_group" model={ model } label="Age group" options={["", "neonate", "infant", "child", "adolescent", "adult", "elderly"]}/>
+        <TextInputField name="height" model={ model } label="Height(meters)" keyboardType='numeric'/>
+        <SelectOneField name="gender" model={ model } label="Sex*" options={["", "Male", "Female"]}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>

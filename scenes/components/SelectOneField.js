@@ -6,9 +6,13 @@ export default class SelectOneField extends Component {
 
   constructor(props) {
     super(props)
-    const { options } = this.props
+    const { options, model, name } = this.props
     //var state = {}
-    this.state = { value : null }
+    var value = ""
+    if(model && model[name]) {
+      value = model[name]
+    }
+    this.state = { value : "" }
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -34,7 +38,7 @@ export default class SelectOneField extends Component {
         if(typeof option == "object") {
           return  <Picker.Item key={ index } label={ option.label } value={ option.key } /> //<CheckBox label={ option.label } key={ index } checked={ this.state[option.key] } onChange={ (checked) => this.handleCheck(checked) }/>
         } else {
-          return <Picker.Item key={ index } label={ option } value={ option.value } /> //<CheckBox label={ option } key={ index } checked={ this.state[index] } onChange={ (checked) => this.handleCheck(checked) }/>
+          return <Picker.Item key={ index } label={ option } value={ option } /> //<CheckBox label={ option } key={ index } checked={ this.state[index] } onChange={ (checked) => this.handleCheck(checked) }/>
         }
       })
     }

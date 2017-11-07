@@ -4,7 +4,7 @@ import AppStyles from '../styles/AppStyles'
 
 export default class MainScene extends Component {
   static navigationOptions = {
-    title: 'Home',
+    title: 'MCAZ - Home',
   }
   constructor(props, context) {
     super(props, context)
@@ -13,6 +13,7 @@ export default class MainScene extends Component {
     this.showNewAEFIForm = this.showNewAEFIForm.bind(this)
     this.showNewAEFIReportingForm = this.showNewAEFIReportingForm.bind(this)
     this.showSaved = this.showSaved.bind(this)
+    this.uploadReports = this.uploadReports.bind(this)
   }
 
   showNewADRReport() {
@@ -40,10 +41,15 @@ export default class MainScene extends Component {
     navigate("SavedReports")
   }
 
+  uploadReports() {
+
+  }
+
   render() {
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
-        <Text>PV</Text>
+        <Text style={ AppStyles.headerText }>Medicines Control Authourity of Zimbabwe</Text>
+        <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <View style={ AppStyles.columnButtons }>
           <View style={ AppStyles.button }>
             <Button  onPress={ this.showNewADRReport } title="New ADR Report"/>
@@ -59,6 +65,9 @@ export default class MainScene extends Component {
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ this.showSaved } title="Saved reports"/>
+          </View>
+          <View style={ AppStyles.button }>
+            <Button onPress={ this.uploadReports } title="Uploaded completed reports"/>
           </View>
         </View>
       </ScrollView>

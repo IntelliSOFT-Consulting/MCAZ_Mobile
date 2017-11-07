@@ -26,7 +26,8 @@ export default AppStyles = StyleSheet.create({
   columnButtons: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    marginTop: 8
   },
 
   button: {
@@ -56,5 +57,13 @@ export default AppStyles = StyleSheet.create({
   },
   tablabelStyle: {
     color: '#000000'
+  },
+  headerText : {
+    fontSize: 30,
+    textAlign: 'center',
+  },
+  subHeaderText : {
+    fontSize: 15,
+    textAlign: 'center',
   }
 })
