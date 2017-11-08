@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Alert } from 'react-native';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import AppStyles from '../styles/AppStyles'
 import PatientDetails from './adr/PatientDetails'
@@ -29,6 +29,7 @@ class ADRScene extends PureComponent {
     this.saveAndContinue = this.saveAndContinue.bind(this)
     this.saveAndSubmit = this.saveAndSubmit.bind(this)
     this.cancel = this.cancel.bind(this)
+    this.goBack = this.goBack.bind(this)
 
     var { model, connection } = this.props
     if(model == null) {
@@ -82,17 +83,26 @@ class ADRScene extends PureComponent {
   */
   saveAndSubmit() {
     const { model } = this.state
-    const { uploadData, saveCompleted } = this.props
-    if(this.status.isConnected) {
+    const { uploadData, saveCompleted, connection } = this.props
+    if(connection.isConnected) {
       uploadData(model)
     } else {
+      Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
       saveCompleted(data)
     }
+    this.goBack()
   }
 
   cancel() {
-    const { navigate } = this.props.navigation;
-    navigate("MainScene")
+    Alert.alert("Confirm", "Stop data entry?", [
+      {text: 'Yes', onPress: () => this.goBack() },
+      {text: 'No' }
+    ])
+  }
+
+  goBack() {
+    const { goBack } = this.props.navigation;
+    goBack()
   }
 }
 

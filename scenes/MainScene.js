@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo } from 'react-native';
 import AppStyles from '../styles/AppStyles'
 import { changeConnection } from '../actions'
+import { connect } from 'react-redux'
 
 class MainScene extends Component {
   static navigationOptions = {
@@ -81,7 +82,8 @@ class MainScene extends Component {
   */
   changeConnection(isConnected) {
     const { changeConnection } = this.props
-    changeConnection(isConnected)
+    changeConnection({ isConnected : isConnected })
+    console.log(isConnected)
   }
 
   /**
@@ -89,10 +91,17 @@ class MainScene extends Component {
   */
   componentDidMount() {
     NetInfo.isConnected.fetch().then().done(() => {
-      NetInfo.isConnected.addEventListener('change', this.changeConnection);
+      NetInfo.isConnected.addEventListener('connectionChange', this.changeConnection);
     });
   }
 
+}
+
+const mapStateToProps = state => {
+  return {
+    connection: state.appState.connection,
+    //formListVisible: (state.currentFormList == null)? false : true
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -104,4 +113,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapDispatchToProps)(MainScene)
+export default connect(mapStateToProps, mapDispatchToProps)(MainScene)
