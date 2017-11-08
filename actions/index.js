@@ -1,5 +1,5 @@
 import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT,
- SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER }  from './actionTypes'
+ SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS }  from './actionTypes'
 
 import { MAIN_URL } from '../utils/Constants'
 
@@ -32,6 +32,10 @@ export const removeUploaded = (data) => (
 
 export const setReportFilter = (filter) => (
   { type : SET_REPORT_FILTER, filter }
+)
+
+export const changeConnection = (status) => (
+  { type : CHANGE_CONNECTION_STATUS, { isConnected : status }}
 )
 
 export const uploadData = (data, ) => {

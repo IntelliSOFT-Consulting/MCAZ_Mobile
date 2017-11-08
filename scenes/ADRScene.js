@@ -8,7 +8,7 @@ import ReporterDetailsScene from './adr/ReporterDetailsScene'
 import AdverseReactionScene from './adr/AdverseReactionScene'
 import { connect } from 'react-redux'
 import { REPORT_TYPE_ADR } from '../utils/Constants'
-import { saveDraft, uploadData } from '../actions'
+import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
 class ADRScene extends PureComponent {
   static navigationOptions = {
@@ -30,7 +30,7 @@ class ADRScene extends PureComponent {
     this.saveAndSubmit = this.saveAndSubmit.bind(this)
     this.cancel = this.cancel.bind(this)
 
-    var { model } = this.props
+    var { model, connection } = this.props
     if(model == null) {
       model = { rid : Date.now(), type : REPORT_TYPE_ADR, "name_of_institution" : "Nairobi Hosp", "sadr_list_of_drugs" : [ { "brand_name" : "dawa", "dose_id" : "1" }], user: {} }
     }
@@ -44,6 +44,7 @@ class ADRScene extends PureComponent {
         { key: '3', title: 'Medication' },
         { key: '4', title: 'Reported by' },
       ],
+      isConnected: connection.isConnected
     }
   }
 
@@ -76,10 +77,17 @@ class ADRScene extends PureComponent {
     saveDraft(model)
   }
 
+  /**
+    When saved, check connection status.
+  */
   saveAndSubmit() {
     const { model } = this.state
-    const { uploadData } = this.props
-    uploadData(model)
+    const { uploadData, saveCompleted } = this.props
+    if(this.status.isConnected) {
+      uploadData(model)
+    } else {
+      saveCompleted(data)
+    }
   }
 
   cancel() {
@@ -90,7 +98,7 @@ class ADRScene extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    //archived: state.currentForms.archived,
+    connection: state.appState.connection,
     //formListVisible: (state.currentFormList == null)? false : true
   }
 }
@@ -100,8 +108,12 @@ const mapDispatchToProps = dispatch => {
     saveDraft: (data) => {
       dispatch(saveDraft(data))
     },
-    uploadData: (data) => {
+    uploadData: (data) => { // Upload the data.
       dispatch(uploadData(data))
+    },
+    saveCompleted: (data) => { // save the completed data and remove any draft.
+      dispatch(saveCompleted(data))
+      dispatch(removeDraft(data))
     },
     dispatch: dispatch
   }

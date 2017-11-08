@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, Button, View, Alert, ScrollView } from 'react-native';
+import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo } from 'react-native';
 import AppStyles from '../styles/AppStyles'
+import { changeConnection } from '../actions'
 
-export default class MainScene extends Component {
+class MainScene extends Component {
   static navigationOptions = {
     title: 'MCAZ - Home',
   }
@@ -14,6 +15,7 @@ export default class MainScene extends Component {
     this.showNewAEFIReportingForm = this.showNewAEFIReportingForm.bind(this)
     this.showSaved = this.showSaved.bind(this)
     this.uploadReports = this.uploadReports.bind(this)
+    this.changeConnection = this.changeConnection.bind(this)
   }
 
   showNewADRReport() {
@@ -73,4 +75,33 @@ export default class MainScene extends Component {
       </ScrollView>
     );
   }
+
+  /**
+    Listener for changes in connection status.
+  */
+  changeConnection(isConnected) {
+    const { changeConnection } = this.props
+    changeConnection(isConnected)
+  }
+
+  /**
+    When the component is mounted we set the listener for Connection status.
+  */
+  componentDidMount() {
+    NetInfo.isConnected.fetch().then().done(() => {
+      NetInfo.isConnected.addEventListener('change', this.changeConnection);
+    });
+  }
+
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeConnection: (isConnected) => {
+      dispatch(changeConnection(isConnected))
+    },
+    dispatch: dispatch
+  }
+}
+
+export default connect(mapDispatchToProps)(MainScene)
