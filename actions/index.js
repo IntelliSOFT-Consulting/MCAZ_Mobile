@@ -35,10 +35,10 @@ export const setReportFilter = (filter) => (
 )
 
 export const changeConnection = (status) => (
-  { type : CHANGE_CONNECTION_STATUS,  status } 
+  { type : CHANGE_CONNECTION_STATUS,  status }
 )
 
-export const uploadData = (data, ) => {
+export const uploadData = (data) => {
   return dispatch => {
     dispatch(saveCompleted(data))
     return fetch(MAIN_URL, {
@@ -58,3 +58,7 @@ export const uploadData = (data, ) => {
     })
   }
 }
+
+export const uploadCompletedReports = (data) => (
+  { type : "" }
+)

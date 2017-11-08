@@ -22,9 +22,13 @@ class ReportsListScene extends Component {
   }
 
   renderItem({item}) {
+    var title = new Date(item.rid).toGMTString()
+    if(item.type == REPORT_TYPE_ADR) {
+      title = (item.patient_name != null && item.patient_name != "")? item.patient_name : "No name provided " + title
+    }
     return(
       <Text style={ AppStyles.listItem } onPress={ () => this.onItemPressed(item) }>
-        { item.rid }
+        { title }
       </Text>
     )
   }
@@ -54,7 +58,7 @@ class ReportsListScene extends Component {
     //console.log(navigation) navigation.state.params.key
     return (
       <View style={ AppStyles.sectionListContainer }>
-        <SectionList sections={ data }
+        <SectionList sections={ data } keyExtractor={(item, index) => 'key-' + index }
           renderItem={this.renderItem} renderSectionHeader={ ({ section }) => <Text style={ AppStyles.sectionHeader }>{ section.title }</Text>}/>
       </View>
     );

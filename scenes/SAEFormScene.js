@@ -23,7 +23,7 @@ export default class SAEScene extends PureComponent {
 
   _handleIndexChange = index => this.setState({ index });
 
-  _renderHeader = props => <TabBar {...props} scrollEnabled style={AppStyles.tabbar} />;
+  _renderHeader = props => <TabBar {...props} scrollEnabled style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
 
   _renderScene = SceneMap({
     '1': SectionAScene,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo } from 'react-native';
 import AppStyles from '../styles/AppStyles'
-import { changeConnection } from '../actions'
+import { changeConnection, uploadCompletedReports } from '../actions'
 import { connect } from 'react-redux'
 
 class MainScene extends Component {
@@ -45,10 +45,16 @@ class MainScene extends Component {
   }
 
   uploadReports() {
-
+    const { uploadCompletedReports, completed } = this.props
+    if(completed.length == 0) {
+      Alert.alert("Info", "No reports to upload.")
+      return
+    }
+    uploadCompletedReports(completed)
   }
 
   render() {
+    const completedCount = this.props.completed.length
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
         <Text style={ AppStyles.headerText }>Medicines Control Authourity of Zimbabwe</Text>
@@ -70,7 +76,7 @@ class MainScene extends Component {
             <Button onPress={ this.showSaved } title="Saved reports"/>
           </View>
           <View style={ AppStyles.button }>
-            <Button onPress={ this.uploadReports } title="Uploaded completed reports"/>
+            <Button onPress={ this.uploadReports } title={ "Upload completed reports (" + completedCount + ")" }/>
           </View>
         </View>
       </ScrollView>
@@ -100,7 +106,7 @@ class MainScene extends Component {
 const mapStateToProps = state => {
   return {
     connection: state.appState.connection,
-    //formListVisible: (state.currentFormList == null)? false : true
+    completed : state.appState.completed
   }
 }
 
@@ -108,6 +114,9 @@ const mapDispatchToProps = dispatch => {
   return {
     changeConnection: (isConnected) => {
       dispatch(changeConnection(isConnected))
+    },
+    uploadCompletedReports: (reports) => {
+      dispatch(uploadCompletedReports(reports))
     },
     dispatch: dispatch
   }
