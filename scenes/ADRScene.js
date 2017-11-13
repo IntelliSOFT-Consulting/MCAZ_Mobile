@@ -47,9 +47,21 @@ class ADRScene extends PureComponent {
       ],
       isConnected: connection.isConnected
     }
+    this.mandatory = [
+      { name : "patient_name", text : "Patient Initials", page : 1 },
+      { name : "date_of_birth", text: "Date of bith", page : 1},
+      { name : "gender", text : "Sex", page : 1 },
+      { name : "date_of_onset_of_reaction", text : "Date of onset", page : 2 },
+      { name : 'description_of_reaction', text : "Description of ADR", page : 2},
+      { name : "severity", text : "Serious", page : 2 }, { name : "outcome", text : "Outcome", page : 3 },
+      { name : 'action_taken', text : "Action taken", page : 3 },
+      { name : "reporter_name", text : "Forename & Surname", page : 4 },
+      { name : "designation_id", text : "Designation", page : 4 }, { name : "reporter_email", text : "Email Address", page : 4 }]
   }
 
   _handleIndexChange = index => this.setState({ index });
+
+  _updateRoute = index => this.setState({ index })
 
   _renderHeader = props => <TabBar {...props} scrollEnabled style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
 
@@ -68,6 +80,8 @@ class ADRScene extends PureComponent {
         renderScene={this._renderScene}
         renderHeader={this._renderHeader}
         onIndexChange={this._handleIndexChange}
+        changeRoute={this._updateRoute.bind(this)}
+
       />
     );
   }
@@ -75,6 +89,8 @@ class ADRScene extends PureComponent {
   saveAndContinue() {
     const { saveDraft } = this.props
     const { model } = this.state
+    console.log("Saving...")
+    this._updateRoute(2)
     saveDraft(model)
   }
 
@@ -84,6 +100,25 @@ class ADRScene extends PureComponent {
   saveAndSubmit() {
     const { model } = this.state
     const { uploadData, saveCompleted, connection } = this.props
+    var valid = true
+    var names = ""
+    var page = 0
+    this.mandatory.forEach((field) => {
+      if(model[field.name] == null || model[field.name] == "") {
+        valid = false
+        if(names != "") {
+          names += ",\n "
+        } else {
+          page = field.page
+        }
+        names += field.text
+      }
+    })
+    if(!valid) {
+      Alert.alert("Error", "Fill in required fields\n " + names)
+      this._updateRoute(page - 1)
+      return
+    }
     if(connection.isConnected) {
       uploadData(model)
     } else {

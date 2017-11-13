@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, TextInput } from 'react-native'
+import AppStyles from '../../styles/AppStyles'
 
 export default class TextInputField extends Component {
 
@@ -23,10 +24,20 @@ export default class TextInputField extends Component {
   }
 
   render() {
-    const { label } = this.props
+    const { label, required } = this.props
+    var text = null
+    if(required) {
+      text = (
+        <Text>{ label } <Text style={ AppStyles.required }>*</Text></Text>
+      )
+    } else {
+      text =(
+        <Text>{ label }</Text>
+      )
+    }
     return (
       <View>
-        <Text>{ label }</Text>
+        { text }
         <TextInput {...this.props} onChangeText={(text) => this.handleChange(text)} value={ this.state.value }/>
       </View>
     )

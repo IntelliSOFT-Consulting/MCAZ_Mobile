@@ -65,5 +65,13 @@ export default AppStyles = StyleSheet.create({
   subHeaderText : {
     fontSize: 15,
     textAlign: 'center',
+  },
+  required: {
+    color: 'red'
+  },
+  dateTimeInput: {
+    flex: 1,
+    marginTop: 5,
+    marginBottom: 10
   }
 })

@@ -8,9 +8,21 @@ export default class DateTimeInput extends Component {
   constructor(props) {
     super(props)
     const { model, name } = this.props
+    var value = null
+    if(model) {
+      if(model[name]) {
+        const val = model[name]
+        if(val.day && val.month && val.year) {
+          value = new Date();
+          value.setDate(val.day)
+          value.setMonth(parseInt(val.month) - 1)
+          value.setYear(val.year)
+        }
+      }
+    }
     this.state = {
       isDateTimePickerVisible: false,
-      date : new Date()
+      date : value
     };
   }
 
@@ -32,11 +44,26 @@ export default class DateTimeInput extends Component {
   };
 
   render () {
-    const { label } = this.props
+    const { label, required } = this.props
     const { date } = this.state
+    var text = null
+    if(required) {
+      text = (
+        <Text>{ label } <Text style={ AppStyles.required }>*</Text></Text>
+      )
+    } else {
+      text =(
+        <Text>{ label }</Text>
+      )
+    }
+    var dateLabel = "Select date"
+    if(date != null) {
+      dateLabel = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+    }
     return (
-      <View style={{ flex: 1 }}>
-        <Button onPress={this._showDateTimePicker} title={ label + " " + date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() }/>
+      <View style={ AppStyles.dateTimeInput }>
+        <Text>{ text }</Text>
+        <Button onPress={this._showDateTimePicker} title={ dateLabel }/>
 
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}

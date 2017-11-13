@@ -18,8 +18,8 @@ export default class Medication extends PureComponent {
       <ScrollView style={ AppStyles.scrollContainer }>
         <Text style={ AppStyles.boldText }>Current Medication (Including OTC and herbals)</Text>
         <MedicationTableComponent model={ model } name="sadr_list_of_drugs"/>
-        <SelectOneField model={ model } label="Action taken:*" options={ ["one", "two"]}/>
-        <SelectOneField model={ model } name="outcome" label="Outcome of ADR:*" options={ ["one", "two"]}/>
+        <SelectOneField model={ model } label="Action taken:" options={ ["one", "two"]} required={ true }/>
+        <SelectOneField model={ model } name="outcome" label="Outcome of ADR:" options={ ["one", "two"]} required={ true }/>
         <SelectOneField model={ model } label="Relatedness of suspected medicine(s) to ADR:" options={ ["one", "two"]}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
