@@ -54,6 +54,8 @@ class ADRScene extends PureComponent {
       { name : "date_of_onset_of_reaction", text : "Date of onset", page : 2 },
       { name : 'description_of_reaction', text : "Description of ADR", page : 2},
       { name : "severity", text : "Serious", page : 2 }, { name : "outcome", text : "Outcome", page : 3 },
+      { name : "sadr_list_of_drugs", fields: [{ name : "brand_name", text : "Generic/Brand name" }, { name : "dose_id", text : "Dose" },
+        { name : "frequency_id", text : "Frequency" }, { name : "start_date", text : "Start date" }, { name : "suspected_drug", text : "Tick suspected medicine" }]},
       { name : 'action_taken', text : "Action taken", page : 3 },
       { name : "reporter_name", text : "Forename & Surname", page : 4 },
       { name : "designation_id", text : "Designation", page : 4 }, { name : "reporter_email", text : "Email Address", page : 4 }]
@@ -104,18 +106,44 @@ class ADRScene extends PureComponent {
     var names = ""
     var page = 0
     this.mandatory.forEach((field) => {
-      if(model[field.name] == null || model[field.name] == "") {
-        valid = false
-        if(names != "") {
-          names += ",\n "
-        } else {
-          page = field.page
+      if(field.fields) {
+        const fields = field.fields
+        const values = model[field.name]
+        var arrayNames = []
+        if(Array.isArray(values)) {
+          for(let i = 0; i < values.length; i++) {
+            const val = values[i]
+            fields.forEach((f) => {
+              if(val[f.name] == null || val[f.name] == "") {
+                valid = false
+                if(page == 0) {
+                  page = field.page
+                }
+                if(arrayNames.indexOf(f.text) == -1) {
+                  arrayNames.push(f.text)
+                }
+              }
+            })
+          }
         }
-        names += field.text
+        if(names != "") {
+          names += ",\n"
+        }
+        names += arrayNames.join(',\n')
+      } else {
+        if(model[field.name] == null || model[field.name] == "") {
+          valid = false
+          if(names != "") {
+            names += ",\n "
+          } else {
+            page = field.page
+          }
+          names += field.text
+        }
       }
     })
     if(!valid) {
-      Alert.alert("Error", "Fill in required fields\n " + names)
+      Alert.alert("Warning", "Fill in required fields\n " + names)
       this._updateRoute(page - 1)
       return
     }

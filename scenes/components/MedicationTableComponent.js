@@ -15,6 +15,7 @@ export default class MedicationTableComponent extends Component {
     this.addRow = this.addRow.bind(this)
     this.removeRow = this.removeRow.bind(this)
     this.getRow = this.getRow.bind(this)
+    this.getHeader = this.getHeader.bind(this)
 
     const { model, name } = this.props
     var rows = []
@@ -36,6 +37,23 @@ export default class MedicationTableComponent extends Component {
 
     rows.push(this.getRow(index))
     this.setState({ rows : rows })
+  }
+
+  getHeader() {
+    const headers = ['Generic/Brand Name ', 'Batch No.', 'Dose', 'Frequency', 'Date Started', 'Date Stopped', "Indication", 'Tick Suspected medicine', ""];
+    var headerEls = []
+    mandatory = [0, 2, 3, 4, 7] // mandatory indices
+    for(let i = 0; i < headers.length; i++) {
+      if(mandatory.indexOf(i) != -1) {
+        const header = (
+          <Text>{ headers[i] } <Text style={ AppStyles.required }>*</Text></Text>
+        )
+        headerEls[i] = header
+      } else {
+        headerEls[i] = headers[i]
+      }
+    }
+    return headerEls
   }
 
   /**
@@ -87,13 +105,14 @@ export default class MedicationTableComponent extends Component {
 
   render() {
     const { label } = this.props
-    const tableHead = ['Generic/Brand Name*', 'Batch No.', 'Dose*', 'Frequency*', 'Date Started*', 'Date Stopped', "Indication", 'Tick Suspected medicine*', ""];
+    const tableHead = ['Generic/Brand Name', 'Batch No.', 'Dose*', 'Frequency', 'Date Started*', 'Date Stopped', "Indication", 'Tick Suspected medicine*', ""];
     const widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 30]
+    const headerEls = this.getHeader()
     return (
       <View>
         <ScrollView horizontal={true}>
           <Table>
-            <Row data={tableHead} style={AppStyles.tableHead} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
+            <Row data={ headerEls } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } widthArr={ widthArr }/>
             <Rows data={ this.state.rows }  widthArr={widthArr}/>
           </Table>
         </ScrollView>
