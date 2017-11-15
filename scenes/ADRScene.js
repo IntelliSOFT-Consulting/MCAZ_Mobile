@@ -172,7 +172,6 @@ class ADRScene extends PureComponent {
 const mapStateToProps = state => {
   return {
     connection: state.appState.connection,
-    //formListVisible: (state.currentFormList == null)? false : true
   }
 }
 
