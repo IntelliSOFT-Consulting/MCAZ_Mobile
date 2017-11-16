@@ -57,7 +57,7 @@ export default class DateTimeInput extends Component {
       )
     }
     var dateLabel = "Select date"
-    if(date != null) {
+    if(date != null && date != "") {
       dateLabel = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
     }
     return (
@@ -68,7 +68,7 @@ export default class DateTimeInput extends Component {
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}
           onConfirm={this._handleDatePicked}
-          onCancel={this._hideDateTimePicker} date={ this.state.date }
+          onCancel={this._hideDateTimePicker}
         />
       </View>
     );
