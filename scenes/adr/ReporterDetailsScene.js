@@ -7,6 +7,7 @@ import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 
 import AppStyles from '../../styles/AppStyles'
+import { DESIGNATION } from '../../utils/FieldOptions'
 
 export default class ReporterDetailsScene extends PureComponent {
 
@@ -15,7 +16,7 @@ export default class ReporterDetailsScene extends PureComponent {
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
         <TextInputField model={ model } name="reporter_name" label="Forename(s) and Surname: " required={ true }/>
-        <TextInputField model={ user } name="designation_id" label="Designation: " required={ true }/>
+        <SelectOneField model={ user } name="designation_id" label="Designation: " options={ DESIGNATION } required={ true }/>
         <TextInputField model={ model } name="reporter_email" label="Email Address: " keyboardType = 'email-address' required={ true }/>
         <TextInputField model={ model } name="reporter_phone" label="Phone number" keyboardType = 'phone-pad'/>
         <TextInputField model={ user } name="name_of_institution" label="Name &amp; Address of Institution" />

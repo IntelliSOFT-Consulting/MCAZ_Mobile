@@ -34,8 +34,8 @@ export const setReportFilter = (filter) => (
   { type : SET_REPORT_FILTER, filter }
 )
 
-export const changeConnection = (status) => (
-  { type : CHANGE_CONNECTION_STATUS,  status }
+export const changeConnection = (isConnected) => (
+  { type : CHANGE_CONNECTION_STATUS,  isConnected }
 )
 
 export const uploadData = (data) => {

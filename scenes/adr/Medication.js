@@ -10,6 +10,8 @@ import MedicationTableComponent from '../components/MedicationTableComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
+import { OUTCOME } from '../../utils/FieldOptions'
+
 export default class Medication extends PureComponent {
 
   render() {
@@ -19,7 +21,7 @@ export default class Medication extends PureComponent {
         <Text style={ AppStyles.boldText }>Current Medication (Including OTC and herbals)</Text>
         <MedicationTableComponent model={ model } name="sadr_list_of_drugs"/>
         <SelectOneField model={ model } label="Action taken:" options={ ["one", "two"]} required={ true }/>
-        <SelectOneField model={ model } name="outcome" label="Outcome of ADR:" options={ ["one", "two"]} required={ true }/>
+        <SelectOneField model={ model } name="outcome" label="Outcome of ADR:" options={ OUTCOME } required={ true }/>
         <SelectOneField model={ model } label="Relatedness of suspected medicine(s) to ADR:" options={ ["one", "two"]}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>

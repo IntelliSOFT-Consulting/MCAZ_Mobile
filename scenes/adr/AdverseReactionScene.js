@@ -7,6 +7,8 @@ import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import DateTimeInput from '../components/DateTimeInput'
 
+import { SEVERITY_REASON,  } from '../../utils/FieldOptions'
+
 export default class AdverseReactionScene extends PureComponent {
 
   render() {
@@ -19,8 +21,8 @@ export default class AdverseReactionScene extends PureComponent {
 
         <TextInputField model={ model } name="description_of_reaction" label="Description of ADR" multiline = {true}
          numberOfLines = {4} required={ true }/>
-        <SelectOneField model={ model } name="severity" label="Serious " required={ true }/>
-        <SelectOneField model={ model } name="severity_reason" label="Reason for Seriousness" options={ ["One", "Two", "Three"] }/>
+       <SelectOneField model={ model } name="severity" label="Serious " required={ true } options={[ "", "Yes", "No" ]}/>
+        <SelectOneField model={ model } name="severity_reason" label="Reason for Seriousness" options={ SEVERITY_REASON }/>
         <TextInputField model={ model } name="medical_history" label="Relevant medical history" multiline = {true}
           numberOfLines = {4}/>
         <TextInputField model={ model } name="past_drug_therapy" label="Relevant Past Drug Therapy" multiline = {true}

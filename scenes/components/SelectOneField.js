@@ -46,7 +46,7 @@ export default class SelectOneField extends Component {
     if(options != null) {
       checkBoxes = options.map((option, index) => {
         if(typeof option == "object") {
-          return  <Picker.Item key={ index } label={ option.label } value={ option.key } /> //<CheckBox label={ option.label } key={ index } checked={ this.state[option.key] } onChange={ (checked) => this.handleCheck(checked) }/>
+          return  <Picker.Item key={ index } label={ option.value } value={ option.key } /> //<CheckBox label={ option.label } key={ index } checked={ this.state[option.key] } onChange={ (checked) => this.handleCheck(checked) }/>
         } else {
           return <Picker.Item key={ index } label={ option } value={ option } /> //<CheckBox label={ option } key={ index } checked={ this.state[index] } onChange={ (checked) => this.handleCheck(checked) }/>
         }
