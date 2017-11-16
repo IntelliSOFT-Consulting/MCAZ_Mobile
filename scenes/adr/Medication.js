@@ -17,7 +17,7 @@ export default class Medication extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
         <Text style={ AppStyles.boldText }>Current Medication (Including OTC and herbals)</Text>
         <MedicationTableComponent model={ model } name="sadr_list_of_drugs"/>
         <SelectOneField model={ model } label="Action taken:" options={ ["one", "two"]} required={ true }/>

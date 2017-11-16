@@ -14,7 +14,7 @@ export default class AdverseReactionScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ]  }>
         <Text style={ AppStyles.boldText }>Adverse Reaction</Text>
         <DateTimeInput model={ model } name="date_of_onset_of_reaction" label="Date of onset" required={ true }/>
         <DateTimeInput model={ model } name="date_of_onset_of_reaction" label="Date of end of reaction (If ended)" />

@@ -17,7 +17,7 @@ export default class PatientDetails extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.adrBackground] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
         <TextInputField label="MCAZ Reference Number (MCAZ use only)"/>
