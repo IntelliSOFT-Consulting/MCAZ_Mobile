@@ -45,7 +45,8 @@ class ADRScene extends PureComponent {
         { key: '3', title: 'Medication' },
         { key: '4', title: 'Reported by' },
       ],
-      isConnected: connection.isConnected
+      isConnected: connection.isConnected,
+      validate: false
     }
     this.mandatory = [
       { name : "patient_name", text : "Patient Initials", page : 1 },
@@ -68,10 +69,11 @@ class ADRScene extends PureComponent {
   _renderHeader = props => <TabBar {...props} scrollEnabled style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
 
   _renderScene = SceneMap({
-    '1' : () => <PatientDetails model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } />,
-    '2' : () => <AdverseReactionScene saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } />,
-    '3' : () => <Medication model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } />,
-    '4' : () => <ReporterDetailsScene model={ this.state.model } user={ this.state.model.user } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } saveAndSubmit={ this.saveAndSubmit }/>,
+    '1' : () => <PatientDetails model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
+  '2' : () => <AdverseReactionScene saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } model={ this.state.model }/>,
+    '3' : () => <Medication model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
+    '4' : () => <ReporterDetailsScene model={ this.state.model } user={ this.state.model.user } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } saveAndSubmit={ this.saveAndSubmit }
+      validate={ this.state.validate } />,
   });
 
   render() {
@@ -144,6 +146,7 @@ class ADRScene extends PureComponent {
     })
     if(!valid) {
       Alert.alert("Warning", "Fill in required fields\n " + names)
+      this.setState({ validate : true })
       this._updateRoute(page - 1)
       return
     }

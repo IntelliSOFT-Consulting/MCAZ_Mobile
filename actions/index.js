@@ -1,5 +1,5 @@
 import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT,
- SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS }  from './actionTypes'
+ SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS, SAVE_ERROR }  from './actionTypes'
 
 import { MAIN_URL } from '../utils/Constants'
 
@@ -38,6 +38,10 @@ export const changeConnection = (isConnected) => (
   { type : CHANGE_CONNECTION_STATUS,  isConnected }
 )
 
+export const saveError = (error) => {
+  { type : SAVE_ERROR, error }
+}
+
 export const uploadData = (data) => {
   return dispatch => {
     dispatch(saveCompleted(data))
@@ -55,6 +59,8 @@ export const uploadData = (data) => {
         dispatch(removeCompleted(json.sadr))
       }
       console.log(json)
+    }).catch((error) => {
+      dispatch(saveError(error))
     })
   }
 }

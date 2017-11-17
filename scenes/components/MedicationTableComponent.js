@@ -4,7 +4,10 @@ import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-ta
 import DateTimeInput from './DateTimeInput'
 import AppStyles from '../../styles/AppStyles'
 import TextInputField from './TextInputField'
+import SelectOneField from './SelectOneField'
 import CheckBoxInput from './CheckBoxInput'
+
+import { FREQUENCY, ROUTE, DOSE } from '../../utils/FieldOptions'
 
 
 export default class MedicationTableComponent extends Component {
@@ -40,7 +43,7 @@ export default class MedicationTableComponent extends Component {
   }
 
   getHeader() {
-    const headers = ['Generic/Brand Name ', 'Batch No.', 'Dose', 'Frequency', 'Date Started', 'Date Stopped', "Indication", 'Tick Suspected medicine', ""];
+    const headers = ['Generic/Brand Name ', 'Batch No.', 'Dose', '','Route', 'Frequency', 'Date Started', 'Date Stopped', "Indication", 'Tick Suspected medicine', ""];
     var headerEls = []
     mandatory = [0, 2, 3, 4, 7] // mandatory indices
     for(let i = 0; i < headers.length; i++) {
@@ -73,7 +76,9 @@ export default class MedicationTableComponent extends Component {
       <TextInputField key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] }/>,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] }/>,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] }/>,
+      <SelectOneField key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE }/>,
+      <SelectOneField key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE }/>,
+      <SelectOneField key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY}/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" label="" model={ model[name][index] }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" label="" model={ model[name][index] }/>,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="indication" model={ model[name][index] }/>,
@@ -106,7 +111,7 @@ export default class MedicationTableComponent extends Component {
   render() {
     const { label } = this.props
     const tableHead = ['Generic/Brand Name', 'Batch No.', 'Dose*', 'Frequency', 'Date Started*', 'Date Stopped', "Indication", 'Tick Suspected medicine*', ""];
-    const widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 30]
+    const widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 30]
     const headerEls = this.getHeader()
     return (
       <View>

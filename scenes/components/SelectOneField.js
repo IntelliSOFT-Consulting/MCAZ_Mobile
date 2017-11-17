@@ -19,13 +19,16 @@ export default class SelectOneField extends Component {
   handleChange(itemValue, itemIndex) {
     const { options, name, model } = this.props
     const option = options[itemIndex]
+    var value = null
     if(typeof option == "object") {
       this.setState({ value : option.key })
+      value = option.key
     } else {
       this.setState({ value : option })
+      value =option
     }
     if(model) {
-      model[name] = this.state.value
+      model[name] = value
     }
     //this.setState(state)
   }

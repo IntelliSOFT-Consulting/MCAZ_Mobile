@@ -24,11 +24,13 @@ export default class TextInputField extends Component {
   }
 
   render() {
-    const { label, required } = this.props
+    const { label, required, validate } = this.props
+    const { value } = this.state
     var text = null
     if(required) {
+      const colorLabel = (value == "" && validate)? AppStyles.required : {}
       text = (
-        <Text>{ label } <Text style={ AppStyles.required }>*</Text></Text>
+        <Text style={ colorLabel }>{ label } <Text style={ AppStyles.required }>*</Text></Text>
       )
     } else {
       text =(

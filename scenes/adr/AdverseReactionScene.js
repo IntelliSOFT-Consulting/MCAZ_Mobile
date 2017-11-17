@@ -21,7 +21,7 @@ export default class AdverseReactionScene extends PureComponent {
 
         <TextInputField model={ model } name="description_of_reaction" label="Description of ADR" multiline = {true}
          numberOfLines = {4} required={ true }/>
-       <SelectOneField model={ model } name="severity" label="Serious " required={ true } options={[ "", "Yes", "No" ]}/>
+        <SelectOneField model={ model } name="severity" label="Serious " required={ true } options={[ "", "Yes", "No" ]}/>
         <SelectOneField model={ model } name="severity_reason" label="Reason for Seriousness" options={ SEVERITY_REASON }/>
         <TextInputField model={ model } name="medical_history" label="Relevant medical history" multiline = {true}
           numberOfLines = {4}/>
