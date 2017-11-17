@@ -35,9 +35,10 @@ class ReportsListScene extends Component {
 
   onItemPressed(item) {
     console.log(JSON.stringify(item))
+    const model = { model : item }
     const { navigate } = this.props.navigation;
     if(item.type == REPORT_TYPE_ADR) {
-      navigate('ADRScene', item)
+      navigate('ADRScene', model)
     } else if(item.type == REPORT_TYPE_SAE) {
       navigate('SAEFormScene', item)
     } else if(item.type == REPORT_TYPE_AEFI_INV) {

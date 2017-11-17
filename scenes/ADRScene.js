@@ -32,6 +32,12 @@ class ADRScene extends PureComponent {
     this.goBack = this.goBack.bind(this)
 
     var { model, connection } = this.props
+
+    const { navigation } = this.props;
+    if(navigation.state.params && navigation.state.params.model) {
+      model = navigation.state.params.model
+    }
+    console.log(navigation.state.params.item)
     if(model == null) {
       model = { rid : Date.now(), type : REPORT_TYPE_ADR, "name_of_institution" : "Nairobi Hosp", "sadr_list_of_drugs" : [ { "brand_name" : "dawa", "dose_id" : "1" }], user: {} }
     }
