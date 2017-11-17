@@ -37,8 +37,24 @@ class ReportsListScene extends Component {
     console.log(JSON.stringify(item))
     const model = { model : item }
     const { navigate } = this.props.navigation;
+    const { drafts, completed, uploaded } = this.props
+
+    var found = drafts.find((i) => i.rid == item.rid)
+    var scene;
+    if(found) {
+      if(item.type == REPORT_TYPE_ADR) {
+        navigate('ADRScene', model) //
+      } else if(item.type == REPORT_TYPE_SAE) {
+        navigate('SAEFormScene', item)
+      } else if(item.type == REPORT_TYPE_AEFI_INV) {
+        navigate('AEFIInvFormScene', item)
+      } else if(item.type == REPORT_TYPE_AEFI) {
+        navigate('AEFIReportingFormScene', item)
+      }
+      return
+    }
     if(item.type == REPORT_TYPE_ADR) {
-      navigate('ADRScene', model)
+      navigate('ReadOnlyReportScene', model) //ADRScene
     } else if(item.type == REPORT_TYPE_SAE) {
       navigate('SAEFormScene', item)
     } else if(item.type == REPORT_TYPE_AEFI_INV) {
@@ -60,7 +76,7 @@ class ReportsListScene extends Component {
     return (
       <View style={ AppStyles.sectionListContainer }>
         <SectionList sections={ data } keyExtractor={(item, index) => 'key-' + index }
-          renderItem={this.renderItem} renderSectionHeader={ ({ section }) => <Text style={ AppStyles.sectionHeader }>{ section.title }</Text>}/>
+          renderItem={ this.renderItem } renderSectionHeader={ ({ section }) => <Text style={ AppStyles.sectionHeader }>{ section.title }</Text>}/>
       </View>
     );
   }

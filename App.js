@@ -20,6 +20,7 @@ import AEFIReportingFormScene from './scenes/AEFIReportingFormScene'
 import LoadingScene from './scenes/components/LoadingScene'
 import SavedReportsScene from './scenes/SavedReportsScene'
 import ReportsListScene from './scenes/ReportsListScene'
+import ReadOnlyReportScene from './scenes/ReadOnlyReportScene'
 
 import { StackNavigator } from 'react-navigation'
 
@@ -54,6 +55,9 @@ const SavedReportRoutes = {
   },
   ReportsListScene: {
     screen: ReportsListScene
+  },
+  ReadOnlyReportScene: {
+    screen: ReadOnlyReportScene
   }
 }
 
