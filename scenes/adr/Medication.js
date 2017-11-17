@@ -12,7 +12,7 @@ import ConcomitantTableComponent from '../components/ConcomitantTableComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
-import { OUTCOME } from '../../utils/FieldOptions'
+import { OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR } from '../../utils/FieldOptions'
 
 export default class Medication extends PureComponent {
 
@@ -23,9 +23,9 @@ export default class Medication extends PureComponent {
         <Text style={ AppStyles.boldText }>Current Medication (Including OTC and herbals)</Text>
         <MedicationTableComponent model={ model } name="sadr_list_of_drugs"/>
         <ConcomitantTableComponent model={ model } name="sadr_other_drugs" label="Concomitant (Other) drugs taken, including herbal medicines & Dates/period taken:"/>
-        <SelectOneField model={ model } label="Action taken:" name="action_taken" options={ ["one", "two"]} required={ true }/>
+        <SelectOneField model={ model } label="Action taken:" name="action_taken" required={ true } options={ ACTION_TAKEN }/>
         <SelectOneField model={ model } name="outcome" label="Outcome of ADR:" options={ OUTCOME } required={ true }/>
-        <SelectOneField model={ model } label="Relatedness of suspected medicine(s) to ADR:" options={ ["one", "two"]}/>
+        <SelectOneField model={ model } label="Relatedness of suspected medicine(s) to ADR:" options={ RELATEDNESS_TO_ADR }/>
         <FileAttachmentComponent model={ model } name="files" label="Attach any files"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>

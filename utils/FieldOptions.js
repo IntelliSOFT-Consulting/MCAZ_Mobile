@@ -1,11 +1,11 @@
-export const SEVERITY_REASON = [ { key: "", value: "" },
+export const SEVERITY_REASON = [ { key: "", value: "select one" },
   { key : 'Death', value : 'Death'}, { key : 'Life-threatening', value : 'Life-threatening'},
   { key : 'Hospitalizaion/Prolonged', value : 'Hospitalizaion/Prolonged'},
   { key : 'Disabling', value : 'Disabling'}, { key : 'Congenital-anomaly', value : 'Congenital-anomaly'},
   { key : 'Other Medically Important Reason', value : 'Other Medically Important Reason'}
 ]
 
-export const OUTCOME = [ { key : "", value: ""},
+export const OUTCOME = [ { key : "", value: "select one"},
   { key : 'Recovered', value : 'Recovered'}, { key : 'Recovering', value : 'Recovering'},
   { key : 'Not yet recovered', value : 'Not yet recovered'},
   { key : 'Fatal', value : 'Fatal'}, { key : 'Unknown', value : 'Unknown'}
@@ -151,4 +151,16 @@ export const FREQUENCY = [{"key":"1", value: ""},{"key":"2","value":"OD"},{"key"
 export const DESIGNATION = [ { key : "", value: ""},
   { key : "1", value : 'physician' }, { key : "2", value : 'pharmacist' }, { key : "3", value : 'other professional' },
   { key : "5", value : 'consumer or other non health professional' }
+]
+
+export const ACTION_TAKEN = [
+  { key : "", value : "select one"}, { key : "Drug withdrawn", value : "Drug withdrawn" }, { key : "Dose increased", value : "Dose increased"},
+  { key : "Unknown", value : "Unknown"}, { key : "Dose reduced", value : "Dose reduced"}, { key : "Dose not changed", value : "Dose not changed"},
+  { key : "Not applicable", value : "Not applicable"},{ key : "Medical treatment of ADR", value : "Medical treatment of ADR"}
+]
+
+export const RELATEDNESS_TO_ADR = [
+  { key : "", value : "select one"}, { key : "Certain", value : "Certain" }, { key : "Probable / Likely", value : "Probable / Likely"},
+  { key : "Possible", value : "Possible"}, { key : "Unlikely", value : "Unlikely"}, { key : "Conditional / Unclassified", value : "Conditional / Unclassified"},
+  { key : "Unassessable / Unclassifiable", value : "Unassessable / Unclassifiable"}
 ]
