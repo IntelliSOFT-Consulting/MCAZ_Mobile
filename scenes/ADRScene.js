@@ -94,7 +94,6 @@ class ADRScene extends PureComponent {
     const { saveDraft } = this.props
     const { model } = this.state
     console.log("Saving...")
-    this._updateRoute(2)
     saveDraft(model)
   }
 

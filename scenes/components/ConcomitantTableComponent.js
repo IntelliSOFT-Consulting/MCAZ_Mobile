@@ -13,7 +13,7 @@ export default class ConcomitantTableComponent extends TableComponent {
   }
 
   getHeader() {
-    const headers = ['Name of drug', 'Date Started', 'Date Stopped', ''];
+    const headers = ['Name of drug', 'Date Started', 'Date Stopped', 'Tick suspected drug(s)', ''];
     var headerEls = []
     mandatory = [] // mandatory indices
     for(let i = 0; i < headers.length; i++) {
@@ -43,9 +43,10 @@ export default class ConcomitantTableComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] } />,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] }/>,
+      <CheckBox key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
@@ -53,7 +54,7 @@ export default class ConcomitantTableComponent extends TableComponent {
 
   render() {
     const { label } = this.props
-    const widthArr = [120, 120, 120, 30]
+    const widthArr = [150, 120, 120, 120, 30]
     const headerEls = this.getHeader()
     const rows = this.initializeRows()
     return (

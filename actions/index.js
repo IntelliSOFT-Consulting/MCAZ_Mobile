@@ -54,11 +54,14 @@ export const uploadData = (data) => {
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
       if(json.sadr) {
-        dispatch(saveUploaded(json.sadr))
-        dispatch(removeDraft(json.sadr))
-        dispatch(removeCompleted(json.sadr))
+        data.created = json.sadr.created
+        data.modified = json.sadr.modified
+        data.id = json.sadr.id
+        dispatch(saveUploaded(data))
+        dispatch(removeDraft(data))
+        dispatch(removeCompleted(data))
       }
-      console.log(json)
+      
     }).catch((error) => {
       dispatch(saveError(error))
     })

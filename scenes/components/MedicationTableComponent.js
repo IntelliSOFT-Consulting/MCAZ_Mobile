@@ -6,29 +6,18 @@ import AppStyles from '../../styles/AppStyles'
 import TextInputField from './TextInputField'
 import SelectOneField from './SelectOneField'
 import CheckBoxInput from './CheckBoxInput'
+import TableComponent from './TableComponent'
 
 import { FREQUENCY, ROUTE, DOSE } from '../../utils/FieldOptions'
 
 
-export default class MedicationTableComponent extends Component {
+export default class MedicationTableComponent extends TableComponent {
   name = "sadr_list_of_drugs"
   constructor(props) {
     super(props)
-
-    this.addRow = this.addRow.bind(this)
-    this.removeRow = this.removeRow.bind(this)
     this.getRow = this.getRow.bind(this)
     this.getHeader = this.getHeader.bind(this)
-
     const { model, name } = this.props
-    var rows = []
-    if(model[name]) {
-      data = model[name]
-      for(let i = 0; i < data.length; i++) {
-        rows[i] = this.getRow(i)
-      }
-    }
-    this.state = { rows : rows }
   }
 
   /**
@@ -37,8 +26,7 @@ export default class MedicationTableComponent extends Component {
   addRow() {
     var rows = this.state.rows
     const index = rows.length
-
-    rows.push(this.getRow(index))
+    rows.push({})
     this.setState({ rows : rows })
   }
 
@@ -86,42 +74,23 @@ export default class MedicationTableComponent extends Component {
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
-  }
-
-  /**
-    Removes a row from the table.
-    This function then recreates all the rows.
-    This ensures that the delete button gets the new correct index.
-  */
-  removeRow(index) {
-    var rows = this.state.rows
-    rows.splice(index, 1)
-    const { model, name } = this.props
-    model[name].splice(index, 1)
-    const length = rows.length
-    var newRows = []
-    var i = 0
-    while(i < length) {
-      newRows.push(this.getRow(i))
-      i++
-    }
-    this.setState({ rows : newRows })
-  }
+  } // color="#841584"
 
   render() {
     const { label } = this.props
-    const tableHead = ['Generic/Brand Name', 'Batch No.', 'Dose*', 'Frequency', 'Date Started*', 'Date Stopped', "Indication", 'Tick Suspected medicine*', ""];
+    
     const widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 30]
     const headerEls = this.getHeader()
+    const rows = this.initializeRows()
     return (
       <View>
         <ScrollView horizontal={true}>
           <Table>
             <Row data={ headerEls } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } widthArr={ widthArr }/>
-            <Rows data={ this.state.rows }  widthArr={widthArr}/>
+            <Rows data={ rows }  widthArr={widthArr}/>
           </Table>
         </ScrollView>
-        <Button onPress={this.addRow} title="Add row" color="#841584" />
+        <Button onPress={this.addRow} title="Add row"  />
       </View>
     )
   }

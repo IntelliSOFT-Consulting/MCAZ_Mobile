@@ -12,7 +12,7 @@ export default class SelectOneField extends Component {
     if(model && model[name]) {
       value = model[name]
     }
-    this.state = { value : "" }
+    this.state = { value : value }
     this.handleChange = this.handleChange.bind(this)
   }
 

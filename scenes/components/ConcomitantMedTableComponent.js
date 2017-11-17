@@ -33,9 +33,10 @@ export default class ConcomitantMedTableComponent extends Component {
   */
   getRow(index) {
     var row = [
-      <TextInput key={Math.floor(Math.random() * 10000)}/>,
-      <TextInput key={Math.floor(Math.random() * 10000)}/>,
-      <CheckBox key={Math.floor(Math.random() * 10000)}/>,
+      <TextInput key={Math.floor(Math.random() * 10000)} name="drug_name" model={ model[name][index] }/>,
+      <TextInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] }/>,
+      <TextInput key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] }/>,
+      <CheckBox key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
@@ -61,14 +62,14 @@ export default class ConcomitantMedTableComponent extends Component {
 
   render() {
     const { label } = this.props
-    const tableHead = ['Concomitant medication', 'Date commenced', 'Relationsip of SAE to drug', ""];
+    const tableHead = ['Concomitant medication', 'Date started', 'Date stopped', 'Tick suspected drug(s)', ""];
     const widthArr = [120, 120, 120, 30]
     return (
       <View>
         <ScrollView horizontal={true}>
           <Table>
-            <Row data={tableHead} style={AppStyles.tableHead} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
-            <Rows data={ this.state.rows }  widthArr={widthArr}/>
+            <Row data={ tableHead } style={AppStyles.tableHead} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
+            <Rows data={ this.state.rows }  widthArr={ widthArr }/>
           </Table>
         </ScrollView>
         <Button onPress={this.addRow} title="Add row" color="#841584" />
