@@ -121,7 +121,7 @@ class ADRScene extends PureComponent {
           for(let i = 0; i < values.length; i++) {
             const val = values[i]
             fields.forEach((f) => {
-              if(val[f.name] == null || val[f.name] == "") {
+              if(val[f.name] == null || val[f.name] === "") {
                 valid = false
                 if(page == 0) {
                   page = field.page
@@ -138,7 +138,7 @@ class ADRScene extends PureComponent {
         }
         names += arrayNames.join(',\n')
       } else {
-        if(model[field.name] == null || model[field.name] == "") {
+        if(model[field.name] == null || model[field.name] === "") {
           valid = false
           if(names != "") {
             names += ",\n "
@@ -159,7 +159,7 @@ class ADRScene extends PureComponent {
       uploadData(model)
     } else {
       Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
-      saveCompleted(data)
+      saveCompleted(model)
     }
     this.goBack()
   }
