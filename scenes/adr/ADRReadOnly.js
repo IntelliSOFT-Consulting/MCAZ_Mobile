@@ -37,9 +37,12 @@ export default class ADRReadOnly extends Component{
         <ReadOnlyDataRenderer model={ model } name="lab_test_results" label="Laboratory test results" type="text"/>
 
         <Text style={ AppStyles.boldText }>Current Medication (Including OTC and herbals)</Text>
+        <MedicationTableComponent model={ model } name="sadr_list_of_drugs" readonly={ true }/>
+        <ConcomitantTableComponent model={ model } name="sadr_other_drugs" label="Concomitant (Other) drugs taken, including herbal medicines & Dates/period taken:" readonly={ true }/>
         <ReadOnlyDataRenderer model={ model } label="Action taken:" name="action_taken" required={ true } options={ ACTION_TAKEN } type="option"/>
         <ReadOnlyDataRenderer model={ model } name="outcome" label="Outcome of ADR:" options={ OUTCOME } type="option"/>
         <ReadOnlyDataRenderer model={ model } label="Relatedness of suspected medicine(s) to ADR:" options={ RELATEDNESS_TO_ADR } type="option"/>
+        <FileAttachmentComponent model={ model } name="files" label="Attach any files" readonly={ true }/>
 
         <ReadOnlyDataRenderer model={ model } name="reporter_name" label="Forename(s) and Surname: "  type="text"/>
         <ReadOnlyDataRenderer model={ model } name="designation_id" label="Designation: " options={ DESIGNATION }  type="option"/>

@@ -4,6 +4,8 @@ import { Text, View, TextInput, ScrollView, Button, Alert, CheckBox } from 'reac
 import TextInputField from './TextInputField'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
+import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
+
 export default class FileAttachmentComponent extends TableComponent {
 
   constructor(props) {
@@ -12,6 +14,7 @@ export default class FileAttachmentComponent extends TableComponent {
   }
 
   getHeader() {
+    const { readonly } = this.props
     const headers = ['File', 'Description', ''];
     var headerEls = []
     mandatory = [] // mandatory indices
@@ -24,6 +27,9 @@ export default class FileAttachmentComponent extends TableComponent {
       } else {
         headerEls[i] = headers[i]
       }
+    }
+    if(readonly) {
+      return headerEls.splice(2)
     }
     return headerEls
   }
@@ -49,12 +55,36 @@ export default class FileAttachmentComponent extends TableComponent {
     return row
   }
 
+  /**
+    Returns a new row for the given index.
+    It checks the for data within the given index and sets it.
+  */
+  getReadOnlyRow(index) {
+    const rowData = {}
+    const { model, name } = this.props
+    if(!model[name]) {
+      model[name] = []
+    }
+    if(!model[name][index]) {
+      model[name][index] = rowData
+    }
+    var row = [
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] }/>,
+    ]
+    return row
+  }
+
   render() {
     const { label } = this.props
     const widthArr = [120, 120, 30]
     const flexArr=[2, 4, 2]
     const headerEls = this.getHeader()
     const rows = this.initializeRows()
+    var addRowBtn = null
+    if(readonly) {
+      addRowBtn = (<Button onPress={this.addRow} title="Add row"  />)
+    }
     return (
       <View>
         <ScrollView horizontal={true}>
@@ -65,7 +95,7 @@ export default class FileAttachmentComponent extends TableComponent {
             </TableWrapper>
           </Table>
         </ScrollView>
-        <Button onPress={this.addRow} title="Add row" />
+        { addRowBtn }
       </View>
     )
   } //color="#841584"

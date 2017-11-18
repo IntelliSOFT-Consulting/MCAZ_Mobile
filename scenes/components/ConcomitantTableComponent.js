@@ -5,6 +5,8 @@ import TextInputField from './TextInputField'
 import DateTimeInput from './DateTimeInput'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
+import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
+
 export default class ConcomitantTableComponent extends TableComponent {
 
   constructor(props) {
@@ -25,6 +27,9 @@ export default class ConcomitantTableComponent extends TableComponent {
       } else {
         headerEls[i] = headers[i]
       }
+    }
+    if(readonly) {
+      return headerEls.splice(4)
     }
     return headerEls
   }
@@ -52,11 +57,37 @@ export default class ConcomitantTableComponent extends TableComponent {
     return row
   }
 
+  /**
+    Returns a new row for the given index.
+    It checks the for data within the given index and sets it.
+  */
+  getReadOnlyRow(index) {
+    const rowData = {}
+    const { model, name } = this.props
+    if(!model[name]) {
+      model[name] = []
+    }
+    if(!model[name][index]) {
+      model[name][index] = rowData
+    }
+    var row = [
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="drug_name"  model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="start_date" type="date" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="stop_date" type="date" model={ model[name][index] }/>,
+      <CheckBox key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
+    ]
+    return row
+  }
+
   render() {
     const { label } = this.props
     const widthArr = [150, 120, 120, 120, 30]
     const headerEls = this.getHeader()
     const rows = this.initializeRows()
+    var addRowBtn = null
+    if(readonly) {
+      addRowBtn = (<Button onPress={this.addRow} title="Add row"  />)
+    }
     return (
       <View>
         <Text style={ AppStyles.boldText }>{ label }</Text>
@@ -66,7 +97,7 @@ export default class ConcomitantTableComponent extends TableComponent {
             <Rows data={ rows }  widthArr={widthArr}/>
           </Table>
         </ScrollView>
-        <Button onPress={this.addRow} title="Add row" />
+        { addRowBtn }
       </View>
     )
   } //color="#841584"
