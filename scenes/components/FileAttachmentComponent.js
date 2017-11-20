@@ -29,7 +29,7 @@ export default class FileAttachmentComponent extends TableComponent {
       }
     }
     if(readonly) {
-      return headerEls.splice(2)
+      headerEls.splice(2)
     }
     return headerEls
   }
@@ -76,13 +76,14 @@ export default class FileAttachmentComponent extends TableComponent {
   }
 
   render() {
-    const { label } = this.props
-    const widthArr = [120, 120, 30]
+    const { label, readonly } = this.props
+    const widthArr = [120, 120]
     const flexArr=[2, 4, 2]
     const headerEls = this.getHeader()
     const rows = this.initializeRows()
     var addRowBtn = null
-    if(readonly) {
+    if(!readonly) {
+      widthArr.push(30)
       addRowBtn = (<Button onPress={this.addRow} title="Add row"  />)
     }
     return (

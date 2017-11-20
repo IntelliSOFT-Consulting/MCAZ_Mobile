@@ -45,7 +45,7 @@ class ReportsListScene extends Component {
       if(item.type == REPORT_TYPE_ADR) {
         navigate('ADRScene', model) //
       } else if(item.type == REPORT_TYPE_SAE) {
-        navigate('SAEFormScene', item)
+        navigate('SAEFormScene', model)
       } else if(item.type == REPORT_TYPE_AEFI_INV) {
         navigate('AEFIInvFormScene', item)
       } else if(item.type == REPORT_TYPE_AEFI) {

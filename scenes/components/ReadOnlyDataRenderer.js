@@ -14,14 +14,12 @@ export default class ReadOnlyDataRenderer extends Component {
     if(model[name] == null) {
       return ""
     }
-    if(type == "text") {
-      return model[name]
-    } else if(type == 'date') {
+    if(type == 'date') {
       return model[name]['day'] + "/" + model[name]['month'] + "/" + model[name]['year']
     } else if(type == 'option' && options) {
       return model[name]
     }
-    return ''
+    return model[name]
   }
 
   render() {

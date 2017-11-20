@@ -2,75 +2,50 @@ import React, { Component } from 'react';
 import { Text, View, TextInput, ScrollView, Button, Alert, CheckBox } from 'react-native'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import SelectOneField from './SelectOneField'
+import DateTimeInput from './DateTimeInput'
+import TextInputField from './TextInputField'
+import TableComponent from './TableComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
 
-export default class LabsTableComponent extends Component {
+export default class LabsTableComponent extends TableComponent {
 
   constructor(props) {
     super(props)
     const { value, name, data } = this.props
-    this.state = { rows : [] }
-    this.addRow = this.addRow.bind(this)
-    this.removeRow = this.removeRow.bind(this)
     this.getRow = this.getRow.bind(this)
   }
 
-  /**
-    Adds a new row to the table.
-  */
-  addRow() {
-    var rows = this.state.rows
-    const index = rows.length
-
-    rows.push(this.getRow(index))
-    this.setState({ rows : rows })
-  }
 
   /**
     Returns a new row for the given index
   */
   getRow(index) {
+    const { model, name } = this.props
     var row = [
-      <TextInput key={Math.floor(Math.random() * 10000)}/>,
-      <TextInput key={Math.floor(Math.random() * 10000)}/>,
-      <TextInput key={Math.floor(Math.random() * 10000)}/>,
-      <TextInput key={Math.floor(Math.random() * 10000)}/>,
-      <CheckBox key={Math.floor(Math.random() * 10000)}/>,
+      <TextInput key={Math.floor(Math.random() * 10000)} name="lab_test" model={ model[name][index] }/>,
+      <TextInput key={Math.floor(Math.random() * 10000)} name="abnormal_result" model={ model[name][index] }/>,
+      <TextInput key={Math.floor(Math.random() * 10000)} name="site_normal_range" model={ model[name][index] }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="collection_date" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="lab_value" model={ model[name][index] }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="lab_value_date" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
   }
 
-  /**
-    Removes a row from the table.
-    This function then recreates all the rows.
-    This ensures that the delete button gets the new correct index.
-  */
-  removeRow(index) {
-    var rows = this.state.rows
-    rows.splice(index, 1)
-    const length = rows.length
-    var newRows = []
-    var i = 0
-    while(i < length) {
-      newRows.push(this.getRow(i))
-      i++
-    }
-    this.setState({ rows : newRows })
-  }
-
   render() {
     const { label } = this.props
     const tableHead = ['Lab test', 'Abnormal result', 'Site normal range', 'Collection date', 'Lab value previous or subsequent to this event', 'Collection date', ""];
-    const widthArr = [120, 120, 120, 120, 120, 30]
+    const widthArr = [120, 120, 120, 120, 120, 120, 30]
+    const rows = this.initializeRows()
     return (
       <View>
         <ScrollView horizontal={true}>
           <Table>
             <Row data={tableHead} style={AppStyles.tableHead} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
-            <Rows data={ this.state.rows }  widthArr={widthArr}/>
+            <Rows data={ rows }  widthArr={widthArr}/>
           </Table>
         </ScrollView>
         <Button onPress={this.addRow} title="Add row" color="#841584" />

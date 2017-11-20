@@ -49,7 +49,7 @@ export default class MedicationTableComponent extends TableComponent {
       }
     }
     if(readonly) {
-      return headerEls.splice(10)
+      headerEls.splice(10)
     }
     return headerEls
   }
@@ -110,12 +110,13 @@ export default class MedicationTableComponent extends TableComponent {
   render() {
     const { label, readonly } = this.props
 
-    const widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 30]
+    var widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 120]
     const headerEls = this.getHeader()
     const rows = this.initializeRows(readonly)
     var addRowBtn = null
-    if(readonly) {
+    if(!readonly) {
       addRowBtn = (<Button onPress={this.addRow} title="Add row"  />)
+      widthArr.push(30)
     }
     return (
       <View>

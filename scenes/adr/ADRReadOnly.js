@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Button } from 'react-native'
 import ReadOnlyDataRenderer from '../components/ReadOnlyDataRenderer'
+import MedicationTableComponent from '../components/MedicationTableComponent'
+import FileAttachmentComponent from '../components/FileAttachmentComponent'
+import ConcomitantTableComponent from '../components/ConcomitantTableComponent'
+
 import AppStyles from '../../styles/AppStyles'
 
 import { SEVERITY_REASON, OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR, DESIGNATION } from '../../utils/FieldOptions'
@@ -52,11 +56,11 @@ export default class ADRReadOnly extends Component{
         <ReadOnlyDataRenderer model={ model } name="institution_address" label="Address of Institution" type="text" />
         <ReadOnlyDataRenderer model={ model } name="institution_code" label="Institution code"  type="text"/>
         <ReadOnlyDataRenderer model={ model } name="institution_contact" label="Institution contact" type="text"/>
-        <Button title="Edit"/>
+
       </ScrollView>
     )
   }
-  // <ConcomitantTableComponent model={ model } name="sadr_other_drugs" label="Concomitant (Other) drugs taken, including herbal medicines & Dates/period taken:"/>
+  // <Button title="Edit"/> <ConcomitantTableComponent model={ model } name="sadr_other_drugs" label="Concomitant (Other) drugs taken, including herbal medicines & Dates/period taken:"/>
   // <MedicationTableComponent model={ model } name="sadr_list_of_drugs"/>
   //<FileAttachmentComponent model={ model } name="files" label="Attach any files"/>
 }

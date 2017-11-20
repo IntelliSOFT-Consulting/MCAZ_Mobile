@@ -15,6 +15,7 @@ export default class ConcomitantTableComponent extends TableComponent {
   }
 
   getHeader() {
+    const { readonly } = this.props
     const headers = ['Name of drug', 'Date Started', 'Date Stopped', 'Tick suspected drug(s)', ''];
     var headerEls = []
     mandatory = [] // mandatory indices
@@ -29,7 +30,7 @@ export default class ConcomitantTableComponent extends TableComponent {
       }
     }
     if(readonly) {
-      return headerEls.splice(4)
+      headerEls.splice(4)
     }
     return headerEls
   }
@@ -80,13 +81,14 @@ export default class ConcomitantTableComponent extends TableComponent {
   }
 
   render() {
-    const { label } = this.props
-    const widthArr = [150, 120, 120, 120, 30]
+    const { label, readonly } = this.props
+    var widthArr = [150, 120, 120, 120]
     const headerEls = this.getHeader()
     const rows = this.initializeRows()
     var addRowBtn = null
-    if(readonly) {
+    if(!readonly) {
       addRowBtn = (<Button onPress={this.addRow} title="Add row"  />)
+      widthArr.push(30)
     }
     return (
       <View>

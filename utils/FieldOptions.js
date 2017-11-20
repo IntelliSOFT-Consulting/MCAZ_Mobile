@@ -164,3 +164,35 @@ export const RELATEDNESS_TO_ADR = [
   { key : "Possible", value : "Possible"}, { key : "Unlikely", value : "Unlikely"}, { key : "Conditional / Unclassified", value : "Conditional / Unclassified"},
   { key : "Unassessable / Unclassifiable", value : "Unassessable / Unclassifiable"}
 ]
+
+export const SAE_REPORT_TYPE = [
+  { key : "Initial", value : "Initial"}, { key : "Follow-up", value : "Follow-up"}, { key : "Resolution", value : "Resolution"}
+]
+
+export const EVENT_TYPE = [
+  { key : "AE", value : "AE"}, { key : "SAE", value : "SAE"}, { key : "Death", value : "Death"}
+]
+
+export const SAE_EVENT_TYPE = [
+  { key : "", value : "select one"}, { key : "Fatal", value : "Fatal"}, { key : "Life-threatening (an actual risk of death at the time of the event).", value : "Life-threatening (an actual risk of death at the time of the event)."},
+  { key : "Caused or prolonged hospitalization (non-elective).", value : "Caused or prolonged hospitalization (non-elective)."},
+  { key : "Resulted in persistent or significant disability or incapacity.", value : "Resulted in persistent or significant disability or incapacity."},
+  { key : "Any other important medical event.", value : "Any other important medical event."},
+]
+
+export const SAE_TOXICITY_GRADE = [
+  { key : "Grade 1", value : "Grade 1"}, { key : "Grade 2", value : "Grade 2"}, { key : "Grade 3", value : "Grade 3"}, { key : "Grade 4", value : "Grade 4"}, { key : "Grade 5", value : "Grade 5"}
+]
+
+export const LOCATION_ADVERSE_EVENT = [
+  { key : "", value : "select one"}, { key : "Home", value : "1. Home"}, { key : "Clinic/Hospital", value : "2. Clinic/Hospital"}, { key : "Work", value : "3. Work"}, { key : "Study site", value : "4. Study site"} , { key : "Other,", value : "5. Other, Specify"}
+]
+
+export const RESEARCH_INVOLVES = [
+  { key : "", value : "select one"}, { key : "Drug", value : "1. Drug"}, { key : "Device", value : "2. Device"}, { key : "Procedure", value : "3. Procedure"},{ key : "Vaccine", value : "4. Vaccine"}, { key : "Other", value : "5. Other"}
+]
+
+export const RELATIONSHIP_SAE = [
+  { key : "", value : "select one"}, { key : "Definitely related", value : "Definitely related"}, { key : "Probably related", value : "Probably related"}, { key : "Possibly related", value : "Possibly related"}, { key : "Probably not related", value : "Probably not related"},
+  { key : "Not related", value : "Not related"},{ key : "Pending", value : "Pending"}
+]
