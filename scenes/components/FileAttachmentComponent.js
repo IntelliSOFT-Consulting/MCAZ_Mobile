@@ -80,7 +80,7 @@ export default class FileAttachmentComponent extends TableComponent {
     const widthArr = [120, 120]
     const flexArr=[2, 4, 2]
     const headerEls = this.getHeader()
-    const rows = this.initializeRows()
+    const rows = this.initializeRows(readonly)
     var addRowBtn = null
     if(!readonly) {
       widthArr.push(30)

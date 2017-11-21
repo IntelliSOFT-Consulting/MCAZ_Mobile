@@ -42,10 +42,10 @@ export const saveError = (error) => {
   { type : SAVE_ERROR, error }
 }
 
-export const uploadData = (data) => {
+export const uploadData = (data, url) => {
   return dispatch => {
     dispatch(saveCompleted(data))
-    return fetch(MAIN_URL, {
+    return fetch(url, {
       method : "POST",
       headers: {
         "Accept" : "application/json",
@@ -61,7 +61,7 @@ export const uploadData = (data) => {
         dispatch(removeDraft(data))
         dispatch(removeCompleted(data))
       }
-      
+
     }).catch((error) => {
       dispatch(saveError(error))
     })

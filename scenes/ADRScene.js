@@ -7,7 +7,7 @@ import Medication from './adr/Medication'
 import ReporterDetailsScene from './adr/ReporterDetailsScene'
 import AdverseReactionScene from './adr/AdverseReactionScene'
 import { connect } from 'react-redux'
-import { REPORT_TYPE_ADR } from '../utils/Constants'
+import { REPORT_TYPE_ADR, ADR_URL } from '../utils/Constants'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
 class ADRScene extends PureComponent {
@@ -37,7 +37,7 @@ class ADRScene extends PureComponent {
     if(navigation.state.params && navigation.state.params.model) {
       model = navigation.state.params.model
     }
-    console.log(navigation.state.params.item)
+
     if(model == null) {
       model = { rid : Date.now(), type : REPORT_TYPE_ADR, "name_of_institution" : "Nairobi Hosp", "sadr_list_of_drugs" : [ { "brand_name" : "dawa", "dose_id" : "1" }], user: {} }
     }
@@ -156,7 +156,7 @@ class ADRScene extends PureComponent {
       return
     }
     if(connection.isConnected) {
-      uploadData(model)
+      uploadData(model, ADR_URL)
     } else {
       Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
       saveCompleted(model)
@@ -188,8 +188,8 @@ const mapDispatchToProps = dispatch => {
     saveDraft: (data) => {
       dispatch(saveDraft(data))
     },
-    uploadData: (data) => { // Upload the data.
-      dispatch(uploadData(data))
+    uploadData: (data, url) => { // Upload the data.
+      dispatch(uploadData(data, url))
     },
     saveCompleted: (data) => { // save the completed data and remove any draft.
       dispatch(saveCompleted(data))

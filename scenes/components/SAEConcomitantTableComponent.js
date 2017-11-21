@@ -32,11 +32,32 @@ export default class SAEConcomitantTableComponent extends TableComponent {
     return row
   }
 
+  /**
+    Returns a new row for the given index.
+    It checks the for data within the given index and sets it.
+  */
+  getReadOnlyRow(index) {
+    const rowData = {}
+    const { model, name } = this.props
+
+    var row = [
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="drug_name" model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] } type="date"/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] } type="date"/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] } options={ RELATIONSHIP_SAE } type="option"/>,
+    ]
+    return row
+  }
+
   render() {
-    const { label } = this.props
-    const tableHead = ['Concomitant medication', 'Date started', 'Date stopped', 'Relationship of SAE to medication', ""];
-    const widthArr = [120, 120, 120, 120, 30]
-    const rows = this.initializeRows()
+    const { label, readonly } = this.props
+    var tableHead = ['Concomitant medication', 'Date started', 'Date stopped', 'Relationship of SAE to medication'];
+    var widthArr = [120, 120, 120, 120]
+    const rows = this.initializeRows(readonly)
+    if(!readonly) {
+      widthArr.push(30)
+      tableHead.push("")
+    }
     return (
       <View>
         <ScrollView horizontal={true}>

@@ -57,6 +57,7 @@ export default class SectionCScene extends PureComponent {
         <TextInputField label="(g) Outcome:" multiline = {true} model={ model } name="outcome"
           numberOfLines = {4}/>
         <Text>NB If the outcome is death, please complete &amp; attach the death form.</Text>
+        <FileAttachmentComponent model={ model } name="files" label="Attach any files"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>

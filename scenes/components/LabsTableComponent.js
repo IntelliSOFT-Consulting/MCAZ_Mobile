@@ -35,11 +35,34 @@ export default class LabsTableComponent extends TableComponent {
     return row
   }
 
+  /**
+    Returns a new row for the given index.
+    It checks the for data within the given index and sets it.
+  */
+  getReadOnlyRow(index) {
+    const rowData = {}
+    const { model, name } = this.props
+
+    var row = [
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="lab_test" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="abnormal_result" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="site_normal_range" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="collection_date" model={ model[name][index] } type="date"/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="lab_value" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="lab_value_date" model={ model[name][index] } type="date"/>
+    ]
+    return row
+  }
+
   render() {
-    const { label } = this.props
-    const tableHead = ['Lab test', 'Abnormal result', 'Site normal range', 'Collection date', 'Lab value previous or subsequent to this event', 'Collection date', ""];
-    const widthArr = [120, 120, 120, 120, 120, 120, 30]
-    const rows = this.initializeRows()
+    const { label, readonly } = this.props
+    var tableHead = ['Lab test', 'Abnormal result', 'Site normal range', 'Collection date', 'Lab value previous or subsequent to this event', 'Collection date'];
+    var widthArr = [120, 120, 120, 120, 120, 120]
+    const rows = this.initializeRows(readonly)
+    if(!readonly) {
+      widthArr.push(30)
+      tableHead.push("")
+    }
     return (
       <View>
         <ScrollView horizontal={true}>

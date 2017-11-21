@@ -8,7 +8,7 @@ import SectionCScene from './sae/SectionCScene'
 import SectionDScene from './sae/SectionDScene'
 
 import { connect } from 'react-redux'
-import { REPORT_TYPE_SAE } from '../utils/Constants'
+import { REPORT_TYPE_SAE, SAE_URL } from '../utils/Constants'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
 class SAEScene extends PureComponent {
@@ -153,7 +153,7 @@ class SAEScene extends PureComponent {
       return
     }*/
     if(connection.isConnected) {
-      uploadData(model)
+      uploadData(model, SAE_URL)
     } else {
       Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
       saveCompleted(model)
@@ -185,8 +185,8 @@ const mapDispatchToProps = dispatch => {
     saveDraft: (data) => {
       dispatch(saveDraft(data))
     },
-    uploadData: (data) => { // Upload the data.
-      dispatch(uploadData(data))
+    uploadData: (data, url) => { // Upload the data.
+      dispatch(uploadData(data, url))
     },
     saveCompleted: (data) => { // save the completed data and remove any draft.
       dispatch(saveCompleted(data))
