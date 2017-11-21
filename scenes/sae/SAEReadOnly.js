@@ -93,12 +93,12 @@ export default class SAEReadOnly extends Component{
         <ReadOnlyDataRenderer label="(g) Outcome:" multiline = {true} model={ model } name="outcome"
             numberOfLines = {4}/>
         <Text>NB If the outcome is death, please complete &amp; attach the death form.</Text>
-        <FileAttachmentComponent model={ model } name="files" label="Attach any files" readonly={ true }/>
 
         <ReadOnlyDataRenderer label="D1. Was this Adverse Event originally addressed in the protocol and consent form?" model={ model } name="d1_consent_form" options={["Yes", "No"]}/>
         <ReadOnlyDataRenderer label="D2. Was this Adverse Event originally addressed in Investigators Brochure?" model={ model } name="d2_brochure" options={["Yes", "No"]}/>
         <ReadOnlyDataRenderer label="D3. Are changes required to the protocol as a result of this SAE?" model={ model } name="d3_changes_sae" options={["Yes", "No"]}/>
         <ReadOnlyDataRenderer label="D4. Are changes required to the consent form as a result of this SAE?" model={ model } name="d4_consent_sae" options={["Yes", "No"]}/>
+        <FileAttachmentComponent model={ model } name="files" label="Attach any files" readonly={ true }/>
         <Text>If changes are required, please attach a copy of the revised protocol/consent form with changes highlighted with a bright coloured highlighter.</Text>
         <ReadOnlyDataRenderer label="If changes are not required, please explain as to why changes to the protocol /consent
             form are not necessary based on the event." multiline = {true} numberOfLines = {4} model={ model } name="changes_explain"/>

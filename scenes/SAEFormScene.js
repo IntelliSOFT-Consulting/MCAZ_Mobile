@@ -9,6 +9,7 @@ import SectionDScene from './sae/SectionDScene'
 
 import { connect } from 'react-redux'
 import { REPORT_TYPE_SAE, SAE_URL } from '../utils/Constants'
+import { SAE_MANDATORY_FIELS } from '../utils/FormFields'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
 class SAEScene extends PureComponent {
@@ -55,18 +56,6 @@ class SAEScene extends PureComponent {
       isConnected: connection.isConnected,
       validate: false
     }
-    this.mandatory = [
-      { name : "patient_name", text : "Patient Initials", page : 1 },
-      { name : "date_of_birth", text: "Date of bith", page : 1},
-      { name : "gender", text : "Sex", page : 1 },
-      { name : "date_of_onset_of_reaction", text : "Date of onset", page : 2 },
-      { name : 'description_of_reaction', text : "Description of ADR", page : 2},
-      { name : "severity", text : "Serious", page : 2 }, { name : "outcome", text : "Outcome", page : 3 },
-      { name : "sadr_list_of_drugs", fields: [{ name : "brand_name", text : "Generic/Brand name" }, { name : "dose_id", text : "Dose" },
-        { name : "frequency_id", text : "Frequency" }, { name : "start_date", text : "Start date" }, { name : "suspected_drug", text : "Tick suspected medicine" }]},
-      { name : 'action_taken', text : "Action taken", page : 3 },
-      { name : "reporter_name", text : "Forename & Surname", page : 4 },
-      { name : "designation_id", text : "Designation", page : 4 }, { name : "reporter_email", text : "Email Address", page : 4 }]
   }
 
   _handleIndexChange = index => this.setState({ index });
@@ -108,8 +97,8 @@ class SAEScene extends PureComponent {
     const { uploadData, saveCompleted, connection } = this.props
     var valid = true
     var names = ""
-    /*var page = 0
-    this.mandatory.forEach((field) => {
+    var page = 0
+    SAE_MANDATORY_FIELS.forEach((field) => {
       if(field.fields) {
         const fields = field.fields
         const values = model[field.name]
@@ -151,7 +140,8 @@ class SAEScene extends PureComponent {
       this.setState({ validate : true })
       this._updateRoute(page - 1)
       return
-    }*/
+    }
+    
     if(connection.isConnected) {
       uploadData(model, SAE_URL)
     } else {
