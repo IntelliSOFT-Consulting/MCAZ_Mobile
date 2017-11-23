@@ -33,18 +33,22 @@ export default class DateTimeInput extends Component {
   _handleDatePicked = (date) => {
     this.setState({ date : date })
     this._hideDateTimePicker();
-    const { model, name } = this.props
+    const { model, name, showTime } = this.props
     if(model && name) {
       var value = []
       value['day'] = date.getDay()
       value['month'] = date.getMonth()
       value['year'] = date.getFullYear()
+      if(showTime) {
+        value['hour'] = date.getHours()
+        value['minute'] = date.getMinutes()
+      }
       model[name] = value
     }
   };
 
   render () {
-    const { label, required } = this.props
+    const { label, required, showTime } = this.props
     const { date } = this.state
     var text = null
     if(required) {
@@ -60,6 +64,7 @@ export default class DateTimeInput extends Component {
     if(date != null && date != "") {
       dateLabel = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
     }
+    const mode = showTime? "datetime" : "date"
     return (
       <View style={ AppStyles.dateTimeInput }>
         <Text>{ text }</Text>
@@ -68,7 +73,7 @@ export default class DateTimeInput extends Component {
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}
           onConfirm={this._handleDatePicked}
-          onCancel={this._hideDateTimePicker}
+          onCancel={this._hideDateTimePicker} mode={ mode }
         />
       </View>
     );

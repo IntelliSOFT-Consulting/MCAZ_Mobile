@@ -2,28 +2,15 @@ import React, { Component } from 'react';
 import { Text, View, TextInput, ScrollView, Button, Alert, CheckBox } from 'react-native'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import AppStyles from '../../styles/AppStyles'
+import TableComponent from './TableComponent'
 
-
-export default class VaccineDilutentTableComponent extends Component {
+export default class VaccineDilutentTableComponent extends TableComponent {
 
   constructor(props) {
     super(props)
     const { value, name, data } = this.props
-    this.state = { rows : [] }
-    this.addRow = this.addRow.bind(this)
-    this.removeRow = this.removeRow.bind(this)
+
     this.getRow = this.getRow.bind(this)
-  }
-
-  /**
-    Adds a new row to the table.
-  */
-  addRow() {
-    var rows = this.state.rows
-    const index = rows.length
-
-    rows.push(this.getRow(index))
-    this.setState({ rows : rows })
   }
 
   /**
@@ -45,27 +32,8 @@ export default class VaccineDilutentTableComponent extends Component {
     return row
   }
 
-  /**
-    Removes a row from the table.
-    This function then recreates all the rows.
-    This ensures that the delete button gets the new correct index.
-  */
-  removeRow(index) {
-    var rows = this.state.rows
-    Alert.alert("" + index)
-    rows.splice(index, 1)
-    const length = rows.length
-    var newRows = []
-    var i = 0
-    while(i < length) {
-      newRows.push(this.getRow(i))
-      i++
-    }
-    this.setState({ rows : newRows })
-  }
-
   render() {
-    const { label } = this.props
+    const { label, model } = this.props
     const tableHead = ['Name', 'Date of vaccination', 'Time of vaccination', 'Dose (1st, 2nd, etc)', 'Batch/Lot number', "Expiry date", 'Batch/Lot number', 'Expiry date', "Time of reconstitution",""];
     const widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 30]
     return (

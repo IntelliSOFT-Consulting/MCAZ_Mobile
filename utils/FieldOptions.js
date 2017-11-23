@@ -204,3 +204,13 @@ export const BOOLEAN_OPTIONS = [
 export const BOOLEAN_UNKNOWN_OPTIONS = [
   { key : "", value : "select one"}, { key : "Yes", value : "Yes"}, { key : "No", value : "No"}, { key : "Unknown", value : "Unknown"}
 ]
+
+export const GENDER = [
+  { key : "", value : "select one"}, { key : "Male", value : "Male"}, { key : "Female", value : "Female"} //, { key : "Unknown", value : "Unknown"}
+]
+
+export const AEFI_SEVERITY_REASON = [ { key: "", value: "select one" },
+  { key : 'Death', value : 'Death'}, { key : 'Life-threatening', value : 'Life-threatening'},
+  { key : 'Hospitalizaion/Prolonged', value : 'Hospitalizaion/Prolonged'},
+  { key : 'Disabling', value : 'Disabling'}, { key : 'Congenital-anomaly', value : 'Congenital-anomaly' }
+]

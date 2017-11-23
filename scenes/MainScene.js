@@ -71,10 +71,10 @@ class MainScene extends Component {
             <Button onPress={ this.showNewSAEFormReport } title="New SAE Report"/>
           </View>
           <View style={ AppStyles.button }>
-            <Button onPress={ this.showNewAEFIForm } title="New AEFI Investigation Form"/>
+            <Button onPress={ this.showNewAEFIReportingForm } title="New AEFI Reporting Form"/>
           </View>
           <View style={ AppStyles.button }>
-            <Button onPress={ this.showNewAEFIReportingForm } title="New AEFI Reporting Form"/>
+            <Button onPress={ this.showNewAEFIForm } title="New AEFI Investigation Form"/>
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ this.showSaved } title="Saved reports"/>

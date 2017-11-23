@@ -66,3 +66,13 @@ export const SAE_MANDATORY_FIELS  = [
   { name : 'assess_risk', text : "From the data obtained or from currently available information, do you see any need to reassess the risks and benefits to the subjects in this research", page : 3 },
 
 ]
+
+export const AEFI_MANDATORY_FIELS  = [
+  { name : "patient_name", text : "Patient name", page : 1 },
+  { name : "patient_address", text: "Patient Address", page : 1},
+  { name : "date_of_birth", text : "Date of birth", page : 1 },
+  { name : "reporter_name", text : "Reporter’s Name", page : 1 },
+  { name : 'adverse_events', text : "Adverse event", page : 2},
+  { name : "serious", text : "Serious", page : 2 },
+  { name : "outcome", text : "Outcome", page : 3 },
+]
