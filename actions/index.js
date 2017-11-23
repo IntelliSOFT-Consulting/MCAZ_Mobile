@@ -45,6 +45,7 @@ export const saveError = (error) => {
 export const uploadData = (data, url) => {
   return dispatch => {
     dispatch(saveCompleted(data))
+    dispatch(removeDraft(data))
     return fetch(url, {
       method : "POST",
       headers: {
