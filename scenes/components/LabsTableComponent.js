@@ -4,6 +4,7 @@ import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-ta
 import SelectOneField from './SelectOneField'
 import DateTimeInput from './DateTimeInput'
 import TextInputField from './TextInputField'
+import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
 import TableComponent from './TableComponent'
 
 import AppStyles from '../../styles/AppStyles'

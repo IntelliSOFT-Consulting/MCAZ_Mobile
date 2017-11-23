@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Button } from 'react-native'
 import ReadOnlyDataRenderer from '../components/ReadOnlyDataRenderer'
-import MedicationTableComponent from '../components/MedicationTableComponent'
+import SAEDrugsTableComponent from '../components/SAEDrugsTableComponent'
 import FileAttachmentComponent from '../components/FileAttachmentComponent'
-import ConcomitantTableComponent from '../components/ConcomitantTableComponent'
+import SAEConcomitantTableComponent from '../components/SAEConcomitantTableComponent'
+import LabsTableComponent from '../components/LabsTableComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
-import { SEVERITY_REASON, OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR, DESIGNATION } from '../../utils/FieldOptions'
+import { SEVERITY_REASON, OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR, DESIGNATION, REPORT_TYPE_SAE,
+ SAE_TOXICITY_GRADE, EVENT_TYPE, SAE_EVENT_TYPE, BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, LOCATION_ADVERSE_EVENT, RESEARCH_INVOLVES
+ } from '../../utils/FieldOptions'
 
 export default class SAEReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
   render() {
-    const { model } = this.props
+    const { model, goBack } = this.props
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
@@ -94,10 +97,10 @@ export default class SAEReadOnly extends Component{
             numberOfLines = {4}/>
         <Text>NB If the outcome is death, please complete &amp; attach the death form.</Text>
 
-        <ReadOnlyDataRenderer label="D1. Was this Adverse Event originally addressed in the protocol and consent form?" model={ model } name="d1_consent_form" options={["Yes", "No"]}/>
-        <ReadOnlyDataRenderer label="D2. Was this Adverse Event originally addressed in Investigators Brochure?" model={ model } name="d2_brochure" options={["Yes", "No"]}/>
-        <ReadOnlyDataRenderer label="D3. Are changes required to the protocol as a result of this SAE?" model={ model } name="d3_changes_sae" options={["Yes", "No"]}/>
-        <ReadOnlyDataRenderer label="D4. Are changes required to the consent form as a result of this SAE?" model={ model } name="d4_consent_sae" options={["Yes", "No"]}/>
+        <ReadOnlyDataRenderer label="D1. Was this Adverse Event originally addressed in the protocol and consent form?" model={ model } name="d1_consent_form" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
+        <ReadOnlyDataRenderer label="D2. Was this Adverse Event originally addressed in Investigators Brochure?" model={ model } name="d2_brochure" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
+        <ReadOnlyDataRenderer label="D3. Are changes required to the protocol as a result of this SAE?" model={ model } name="d3_changes_sae" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
+        <ReadOnlyDataRenderer label="D4. Are changes required to the consent form as a result of this SAE?" model={ model } name="d4_consent_sae" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
         <FileAttachmentComponent model={ model } name="files" label="Attach any files" readonly={ true }/>
         <Text>If changes are required, please attach a copy of the revised protocol/consent form with changes highlighted with a bright coloured highlighter.</Text>
         <ReadOnlyDataRenderer label="If changes are not required, please explain as to why changes to the protocol /consent
@@ -105,7 +108,9 @@ export default class SAEReadOnly extends Component{
 
         <ReadOnlyDataRenderer label="From the data obtained or from currently available information, do you see any need to reassess the
             risks and benefits to the subjects in this research." model={ model } name="assess_risk" options={ ["Yes", "No"] }/>
-
+        <View style={ AppStyles.rowButtons }>
+          <Button onPress={ () => goBack() } title="Close"/>
+        </View>
 
       </ScrollView>
     )

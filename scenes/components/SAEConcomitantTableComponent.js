@@ -3,7 +3,7 @@ import { Text, View, TextInput, ScrollView, Button, Alert, CheckBox } from 'reac
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import SelectOneField from './SelectOneField'
 import DateTimeInput from './DateTimeInput'
-
+import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
 import TableComponent from './TableComponent'
 import AppStyles from '../../styles/AppStyles'
 import { RELATIONSHIP_SAE } from '../../utils/FieldOptions'

@@ -12,7 +12,7 @@ import { SEVERITY_REASON, OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR, DESIGNATION
 export default class ADRReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
   render() {
-    const { model } = this.props
+    const { model, goBack} = this.props
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
@@ -57,6 +57,9 @@ export default class ADRReadOnly extends Component{
         <ReadOnlyDataRenderer model={ model } name="institution_code" label="Institution code"  type="text"/>
         <ReadOnlyDataRenderer model={ model } name="institution_contact" label="Institution contact" type="text"/>
 
+        <View style={ AppStyles.rowButtons }>
+          <Button onPress={ () => goBack() } title="Close"/>
+        </View>
       </ScrollView>
     )
   }

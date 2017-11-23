@@ -4,10 +4,11 @@ import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-ta
 import SelectOneField from './SelectOneField'
 import DateTimeInput from './DateTimeInput'
 import TableComponent from './TableComponent'
+import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
 
 import AppStyles from '../../styles/AppStyles'
 
-import { DOSE, RELATIONSHIP_SAE, ROUTE, FREQUENCY } from '../../utils/FieldOptions'
+import { DOSE, RELATIONSHIP_SAE, ROUTE, FREQUENCY, BOOLEAN_OPTIONS } from '../../utils/FieldOptions'
 
 export default class SAEDrugsTableComponent extends TableComponent {
 
@@ -29,8 +30,8 @@ export default class SAEDrugsTableComponent extends TableComponent {
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] }/>,
-      <SelectOneField options={ ["Yes", "No"] } key={Math.floor(Math.random() * 10000)}/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE }/>,
+      <SelectOneField options={ BOOLEAN_OPTIONS } key={Math.floor(Math.random() * 10000)} name="taking_drug" model={ model[name][index] }/>,
+      <SelectOneField key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE } model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
@@ -45,14 +46,14 @@ export default class SAEDrugsTableComponent extends TableComponent {
     const { model, name } = this.props
 
     var row = [
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] } type="date"/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] }/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dose" model={ model[name][index] }/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE } type="option"/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE } type="option"/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY } type="option"/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] } type="date"/>,
-      <ReadOnlyDataRenderer options={ ["Yes", "No"] } key={Math.floor(Math.random() * 10000)}/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE } type="option"/>
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] } type="date" />,
+      <ReadOnlyDataRenderer options={ BOOLEAN_OPTIONS } key={Math.floor(Math.random() * 10000)} name="taking_drug" model={ model[name][index] } type="option"/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE } model={ model[name][index] } type="option"/>
     ]
     return row
   }

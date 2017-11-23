@@ -2,15 +2,14 @@ import React, { PureComponent } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import AppStyles from '../styles/AppStyles'
-import PatientDetails from './adr/PatientDetails'
-import Medication from './adr/Medication'
-import ReporterDetailsScene from './adr/ReporterDetailsScene'
-import AdverseReactionScene from './adr/AdverseReactionScene'
+
 import { connect } from 'react-redux'
-import { REPORT_TYPE_ADR } from '../utils/Constants'
+import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI } from '../utils/Constants'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
 import ADRReadOnly from './adr/ADRReadOnly'
+import SAEReadOnly from './sae/SAEReadOnly'
+import AEFIReportReadOnly from './aefi-report/AEFIReportReadOnly'
 
 class ReadOnlyReportScene extends PureComponent {
   static navigationOptions = {
@@ -21,7 +20,6 @@ class ReadOnlyReportScene extends PureComponent {
   constructor(props, context) {
     super(props, context)
 
-    this.cancel = this.cancel.bind(this)
     this.goBack = this.goBack.bind(this)
 
     var { model, connection } = this.props
@@ -31,35 +29,32 @@ class ReadOnlyReportScene extends PureComponent {
       model = navigation.state.params.model
     }
     this.state = {
-      model: model,
-      index: 0,
-      routes: [
-        { key: '1', title: 'Patient details' },
-        { key: '2', title: 'Adverse reaction' },
-        { key: '3', title: 'Medication' },
-        { key: '4', title: 'Reported by' },
-      ],
-      isConnected: connection.isConnected,
-      validate: false
+      model : model
     }
 
   }
 
+  _getReportView = () => {
+    const { model } = this.state
+    switch(model.type) {
+      case REPORT_TYPE_ADR:
+        return (<ADRReadOnly model={ model } goBack={ this.goBack }/>)
+      case REPORT_TYPE_SAE:
+        return (<SAEReadOnly model={ model } goBack={ this.goBack }/>)
+      case REPORT_TYPE_AEFI:
+        return (<AEFIReportReadOnly model={ model } goBack={ this.goBack }/>)
+      default:
+        return null
+    }
+  }
 
   render() {
     const { model } = this.state
-    
+
+    const view = this._getReportView()
     return (
-      <ADRReadOnly model={ model } />
+      view 
     );
-  }
-
-
-  cancel() {
-    Alert.alert("Confirm", "Stop data entry?", [
-      {text: 'Yes', onPress: () => this.goBack() },
-      {text: 'No' }
-    ])
   }
 
   goBack() {

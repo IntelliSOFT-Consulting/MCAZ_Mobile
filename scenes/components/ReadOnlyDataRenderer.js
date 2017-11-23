@@ -15,7 +15,17 @@ export default class ReadOnlyDataRenderer extends Component {
       return ""
     }
     if(type == 'date') {
-      return model[name]['day'] + "/" + model[name]['month'] + "/" + model[name]['year']
+      var date = []
+      if(model[name]['day']) {
+        date.push(model[name]['day'])
+      }
+      if(model[name]['month']) {
+        date.push(model[name]['month'])
+      }
+      if(model[name]['year']) {
+        date.push(model[name]['year'])
+      }
+      return date.join("/")
     } else if(type == 'option' && options) {
       return model[name]
     }
