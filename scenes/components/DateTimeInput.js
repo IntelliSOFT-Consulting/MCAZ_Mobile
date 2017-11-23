@@ -58,7 +58,7 @@ export default class DateTimeInput extends Component {
     }
     var dateLabel = "Select date"
     if(date != null && date != "") {
-      dateLabel = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+      dateLabel = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
     }
     return (
       <View style={ AppStyles.dateTimeInput }>

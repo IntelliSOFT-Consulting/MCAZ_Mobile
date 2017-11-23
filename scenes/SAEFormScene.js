@@ -62,6 +62,7 @@ class SAEScene extends PureComponent {
 
   _renderHeader = props => <TabBar {...props} scrollEnabled style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
 
+  _updateRoute = index => this.setState({ index })
   _renderScene = SceneMap({
     '1' : () => <SectionAScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
     '2' : () => <SectionBScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,

@@ -10,6 +10,10 @@ import SelectMultipleField from '../components/SelectMultipleField'
 import { DESIGNATION, REPORT_TYPE_SAE } from '../../utils/FieldOptions'
 
 export default class SectionAScene extends PureComponent {
+  state = {}
+  constructor(props, context) {
+    super(props,context)
+  }
 
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
@@ -30,7 +34,7 @@ export default class SectionAScene extends PureComponent {
         <TextInputField label="Study Sponsor:" name="study_sponsor" model={ model } validate={ this.state.validate } required={ true }/>
         <DateTimeInput label="Date of Adverse Event:" name="date_of_adverse_event" model={ model } validate={ this.state.validate } required={ true }/>
         <TextInputField label="Participant ID:" name="participant_number" model={ model } validate={ this.state.validate } required={ true }/>
-        <SelectOneField label="Hosp. Num.:" name="institution_code" model={ model } validate={ this.state.validate } required={ true }/>
+        <TextInputField label="Hosp. Num.:" name="institution_code" model={ model } validate={ this.state.validate } required={ true }/>
         <DateTimeInput label="Date of Site Awareness:" name="date_of_site_awareness" model={ model } validate={ this.state.validate } required={ true }/>
         <DateTimeInput label="Date of Birth:" name="date_of_birth" model={ model } validate={ this.state.validate } required={ true }/>
         <SelectOneField label="Gender :" name="gender" model={ model } validate={ this.state.validate } required={ true } options={['Male', 'Female', 'Unknown']}/>

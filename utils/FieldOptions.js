@@ -196,3 +196,11 @@ export const RELATIONSHIP_SAE = [
   { key : "", value : "select one"}, { key : "Definitely related", value : "Definitely related"}, { key : "Probably related", value : "Probably related"}, { key : "Possibly related", value : "Possibly related"}, { key : "Probably not related", value : "Probably not related"},
   { key : "Not related", value : "Not related"},{ key : "Pending", value : "Pending"}
 ]
+
+export const BOOLEAN_OPTIONS = [
+  { key : "", value : "select one"}, { key : "Yes", value : "Yes"}, { key : "No", value : "No"}
+]
+
+export const BOOLEAN_UNKNOWN_OPTIONS = [
+  { key : "", value : "select one"}, { key : "Yes", value : "Yes"}, { key : "No", value : "No"}, { key : "Unknown", value : "Unknown"}
+]

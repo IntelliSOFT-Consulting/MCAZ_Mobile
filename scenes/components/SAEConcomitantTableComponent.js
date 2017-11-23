@@ -26,7 +26,7 @@ export default class SAEConcomitantTableComponent extends TableComponent {
       <TextInput key={Math.floor(Math.random() * 10000)} name="drug_name" model={ model[name][index] }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] }/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] } options={ RELATIONSHIP_SAE }/>,
+      <SelectOneField key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" model={ model[name][index] } options={ RELATIONSHIP_SAE }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row

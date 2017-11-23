@@ -10,7 +10,13 @@ import SAEDrugsTableComponent from '../components/SAEDrugsTableComponent'
 import SAEConcomitantTableComponent from '../components/SAEConcomitantTableComponent'
 import LabsTableComponent from '../components/LabsTableComponent'
 
+import { BOOLEAN_OPTIONS } from '../../utils/FieldOptions'
+
 export default class SectionCScene extends PureComponent {
+  state = {}
+  constructor(props, context) {
+    super(props,context)
+  }
 
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
@@ -19,19 +25,19 @@ export default class SectionCScene extends PureComponent {
         <Text>8a. List all study / intervention drugs being taken at the time of onset of the SAE, or within 30 days prior to onset, and describe
           their relationship to the SAE:</Text>
         <SAEDrugsTableComponent model={ model } validate={ this.state.validate } required={ true } name="adr_list_of_drugs"/>
-        <SelectOneField label="9. Was the patient taking any other drug at the time of onset of the AE?" model={ model } validate={ this.state.validate } required={ true } name="patient_other_drug" options={["Yes", "No"]}/>
+        <SelectOneField label="9. Was the patient taking any other drug at the time of onset of the AE?" model={ model } validate={ this.state.validate } required={ true } name="patient_other_drug" options={ BOOLEAN_OPTIONS }/>
         <Text>10. If yes, then list all concomitant medication being taken at least one month before the onset of the SAE and describe the
           relationship to the SAE:</Text>
         <SAEConcomitantTableComponent model={ model } validate={ this.state.validate } required={ true } name="adr_other_drugs"/>
         <Text>11. Has the Adverse Event been
           reported to:</Text>
-        <SelectOneField label="(a) MCAZ" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcaz" options={["Yes", "No"]}/>
+        <SelectOneField label="(a) MCAZ" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcaz" options={ BOOLEAN_OPTIONS }/>
         <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcaz_date"/>
-        <SelectOneField label="(b) MRCZ" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcrz" options={["Yes", "No"]}/>
+        <SelectOneField label="(b) MRCZ" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcrz" options={ BOOLEAN_OPTIONS }/>
         <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcrz_date"/>
-        <SelectOneField label="(c) Sponsor" model={ model } validate={ this.state.validate } required={ true } name="report_to_sponsor" options={["Yes", "No"]}/>
+        <SelectOneField label="(c) Sponsor" model={ model } validate={ this.state.validate } required={ true } name="report_to_sponsor" options={ BOOLEAN_OPTIONS }/>
         <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_sponsor_date"/>
-        <SelectOneField label="(d) IRB" model={ model } validate={ this.state.validate } required={ true } name="report_to_irb" options={["Yes", "No"]}/>
+        <SelectOneField label="(d) IRB" model={ model } validate={ this.state.validate } required={ true } name="report_to_irb" options={ BOOLEAN_OPTIONS }/>
         <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_irb_date"/>
 
         <Text>12. Describe the SAE with diagnosis, immediate cause or precipitating events, symptoms, any investigations, management,
@@ -57,7 +63,7 @@ export default class SectionCScene extends PureComponent {
         <TextInputField label="(g) Outcome:" multiline = {true} model={ model } validate={ this.state.validate } required={ true } name="outcome"
           numberOfLines = {4}/>
         <Text>NB If the outcome is death, please complete &amp; attach the death form.</Text>
-        <FileAttachmentComponent model={ model } validate={ this.state.validate } required={ true } name="files" label="Attach any files"/>
+
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
