@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Picker } from 'react-native'
 import CheckBox from 'react-native-checkbox'
+import { Dropdown } from 'react-native-material-dropdown';
 
 export default class SelectOneField extends Component {
 
@@ -58,11 +59,17 @@ export default class SelectOneField extends Component {
     return (
       <View>
         { text }
-        <Picker selectedValue={this.state.value}  onValueChange={ (itemValue, itemIndex) => this.handleChange(itemValue, itemIndex) }>
-          { checkBoxes }
-        </Picker>
-
+        <Dropdown
+          label=''
+          data={ options }
+        />
       </View>
     )
   }
 }
+
+/*
+<Picker selectedValue={this.state.value}  onValueChange={ (itemValue, itemIndex) => this.handleChange(itemValue, itemIndex) }>
+  { checkBoxes }
+</Picker>
+*/

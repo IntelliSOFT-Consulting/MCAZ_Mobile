@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
+import Toast, { DURATION } from 'react-native-easy-toast'
+
 import AppStyles from '../styles/AppStyles'
 import PatientDetails from './adr/PatientDetails'
 import Medication from './adr/Medication'
@@ -100,6 +102,7 @@ class ADRScene extends PureComponent {
     const { saveDraft } = this.props
     const { model } = this.state
     console.log("Saving...")
+
     saveDraft(model)
   }
 

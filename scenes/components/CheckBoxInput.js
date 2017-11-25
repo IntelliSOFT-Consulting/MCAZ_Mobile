@@ -28,7 +28,7 @@ export default class CheckBoxInput extends Component {
     const { label } = this.props
     return (
       <View>
-        <CheckBox {...this.props} onClick={ () => this.handleChange(data)} isChecked={this.state.checked} />
+        <CheckBox {...this.props} onClick={ () => this.handleChange()} isChecked={ this.state.checked } />
       </View>
     )
   }

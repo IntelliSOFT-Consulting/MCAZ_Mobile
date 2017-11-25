@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import TableComponent  from './TableComponent'
-import { Text, View, TextInput, ScrollView, Button, Alert, CheckBox } from 'react-native'
+import { Text, View, TextInput, ScrollView, Button, Alert } from 'react-native'
 import TextInputField from './TextInputField'
 import DateTimeInput from './DateTimeInput'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+import CheckBoxInput from './CheckBoxInput'
 
 import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
 
@@ -52,7 +53,7 @@ export default class ConcomitantTableComponent extends TableComponent {
       <TextInputField key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] } />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] }/>,
-      <CheckBox key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
+      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
@@ -75,7 +76,7 @@ export default class ConcomitantTableComponent extends TableComponent {
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="drug_name"  model={ model[name][index] } />,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="start_date" type="date" model={ model[name][index] }/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="stop_date" type="date" model={ model[name][index] }/>,
-      <CheckBox key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
+      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] } readonly={ true }/>,
     ]
     return row
   }

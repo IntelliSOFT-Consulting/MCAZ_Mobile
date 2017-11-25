@@ -214,3 +214,7 @@ export const AEFI_SEVERITY_REASON = [ { key: "", value: "select one" },
   { key : 'Hospitalizaion/Prolonged', value : 'Hospitalizaion/Prolonged'},
   { key : 'Disabling', value : 'Disabling'}, { key : 'Congenital-anomaly', value : 'Congenital-anomaly' }
 ]
+
+export const AGE_GROUP = [ { key : "neonate", value : "neonate"}, { key : "infant", value : "infant"}, { key : "child", value : "child"},
+  { key : "adolescent", value : "adolescent"}, { key : "adult", value : "adult"}, { key : "elderly", value : "elderly"}
+]

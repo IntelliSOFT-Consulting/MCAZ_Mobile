@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Text, View, TextInput } from 'react-native'
 import AppStyles from '../../styles/AppStyles'
 
+import { TextField } from 'react-native-material-textfield'
+
 export default class TextInputField extends Component {
 
   constructor(props) {
@@ -37,11 +39,19 @@ export default class TextInputField extends Component {
         <Text>{ label }</Text>
       )
     }
+    const labelText = label? label : ""
     return (
       <View>
-        { text }
-        <TextInput {...this.props} onChangeText={(text) => this.handleChange(text)} value={ this.state.value }/>
+
+        <TextField {...this.props}
+          label={ labelText }
+          value={ this.state.value }
+          onChangeText={ (text) => this.handleChange(text) }
+        />
+
       </View>
     )
   }
 }
+// { text }
+// <TextInput {...this.props} onChangeText={(text) => this.handleChange(text)} value={ this.state.value }/>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, ScrollView, Button, Alert, CheckBox } from 'react-native'
+import { Text, View, TextInput, ScrollView, Button, Alert } from 'react-native'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import DateTimeInput from './DateTimeInput'
 import AppStyles from '../../styles/AppStyles'

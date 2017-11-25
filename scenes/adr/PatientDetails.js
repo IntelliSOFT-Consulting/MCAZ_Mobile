@@ -7,6 +7,8 @@ import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import DateTimeInput from '../components/DateTimeInput'
 
+import { AGE_GROUP, GENDER } from '../../utils/FieldOptions'
+
 export default class PatientDetails extends PureComponent {
 
   constructor(props, context) {
@@ -28,9 +30,9 @@ export default class PatientDetails extends PureComponent {
         <TextInputField name="ip_no" model={ model } label="VCT/OI/TB Number"/>
         <DateTimeInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate }/>
         <TextInputField name="weight" model={ model } label="Weight(Kg)" keyboardType='numeric'/>
-        <SelectOneField name="age_group" model={ model } label="Age group" options={["", "neonate", "infant", "child", "adolescent", "adult", "elderly"]}/>
+        <SelectOneField name="age_group" model={ model } label="Age group" options={ AGE_GROUP }/>
         <TextInputField name="height" model={ model } label="Height(meters)" keyboardType='numeric'/>
-        <SelectOneField name="gender" model={ model } label="Gender" options={["", "Male", "Female"]} required={ true } validate={ this.props.validate }/>
+        <SelectOneField name="gender" model={ model } label="Gender" options={ GENDER } required={ true } validate={ this.props.validate }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
