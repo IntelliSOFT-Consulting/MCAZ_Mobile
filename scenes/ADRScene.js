@@ -43,6 +43,7 @@ class ADRScene extends PureComponent {
     if(model == null) {
       model = { rid : Date.now(), type : REPORT_TYPE_ADR, "name_of_institution" : "Nairobi Hosp", "sadr_list_of_drugs" : [ { "brand_name" : "dawa", "dose_id" : "1" }], user: {} }
     }
+    model = {"rid":1510853208716,"type":"REPORT_TYPE_ADR","name_of_institution":"Nairobi Hosp","sadr_list_of_drugs":[{"brand_name":"dawa","dose_id":"7","route_id":"4","frequency_id":"4","drug_name":"wwqq","dose":"1","indication":"1","start_date":"1-10-2017","stop_date":"21-10-2017","suspected_drug":""}],"user":{},"patient_name":"xxsss","date_of_birth":"6-4-2015","weight":"34","height":"12","gender":"Male","date_of_onset_of_reaction":"8-2-2017","severity":"No","medical_history":"ss","lab_test_results":"ssds","action_taken":"Dose reduced","outcome":"Recovering","":"Probable / Likely","designation_id":"2","reporter_name":"John","reporter_email":"john@gmail.com","description_of_reaction":"hhhn"}
     //state.model = model
     this.state = {
       model: model,
@@ -64,7 +65,7 @@ class ADRScene extends PureComponent {
       { name : 'description_of_reaction', text : "Description of ADR", page : 2},
       { name : "severity", text : "Serious", page : 2 }, { name : "outcome", text : "Outcome", page : 3 },
       { name : "sadr_list_of_drugs", fields: [{ name : "brand_name", text : "Generic/Brand name" }, { name : "dose_id", text : "Dose" },
-        { name : "frequency_id", text : "Frequency" }, { name : "start_date", text : "Start date" }, { name : "suspected_drug", text : "Tick suspected medicine" }]},
+        { name : "frequency_id", text : "Frequency" }, { name : "start_date", text : "Start date" }, { name : "suspected_drug", text : "Tick suspected medicine" }], page: 3},
       { name : 'action_taken', text : "Action taken", page : 3 },
       { name : "reporter_name", text : "Forename & Surname", page : 4 },
       { name : "designation_id", text : "Designation", page : 4 }, { name : "reporter_email", text : "Email Address", page : 4 }]

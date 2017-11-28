@@ -2,6 +2,7 @@ import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_C
  SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS, SAVE_ERROR }  from './actionTypes'
 
 import { MAIN_URL } from '../utils/Constants'
+import { getRequestPayload } from '../utils/utils'
 
 /**
   Saves a draft report
@@ -52,15 +53,28 @@ export const uploadData = (data, url) => {
         "Accept" : "application/json",
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(getRequestPayload(data))
     }).then(response => response.json()).then((json) => {
       if(json.sadr) {
-        data.created = json.sadr.created
-        data.modified = json.sadr.modified
-        data.id = json.sadr.id
-        dispatch(saveUploaded(data))
-        dispatch(removeDraft(data))
-        dispatch(removeCompleted(data))
+        json.sadr.sadr.id = json.sadr.id
+        dispatch(saveUploaded(json.sadr.sadr))
+        dispatch(removeCompleted(json.sadr.sadr))
+        //dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
+      } else if(json.adr) {
+        json.adr.adr.id = json.adr.id
+        dispatch(saveUploaded(json.adr.adr))
+        dispatch(removeCompleted(json.adr.adr))
+        //dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
+      } else if(json.aefi) {
+        json.aefi.aefi.id = json.aefi.id
+        dispatch(saveUploaded(json.aefi.aefi))
+        dispatch(removeCompleted(json.aefi.aefi))
+        //dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
+      } else if(json.saefi) {
+        json.saefi.saefi.id = json.saefi.id
+        dispatch(saveUploaded(json.saefi.saefi))
+        dispatch(removeCompleted(json.saefi.saefi))
+        //dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
       }
 
     }).catch((error) => {

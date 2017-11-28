@@ -11,12 +11,12 @@ export default class DateTimeInput extends Component {
     var value = null
     if(model) {
       if(model[name]) {
-        const val = model[name]
-        if(val['day'] && val['month'] && val['year']) {
+        if(typeof model[name] == "string") {
+          const v = model[name].split("-")
           value = new Date();
-          value.setDate(val['day'])
-          value.setMonth(parseInt(val['month']) - 1)
-          value.setYear(val['year'])
+          value.setDate(v[0])
+          value.setMonth(parseInt(v[1]) - 1)
+          value.setYear(v[2])
         }
       }
     }
@@ -35,7 +35,7 @@ export default class DateTimeInput extends Component {
     this._hideDateTimePicker();
     const { model, name, showTime } = this.props
     if(model && name) {
-      var value = []
+      var value = {}
       value['day'] = date.getDay()
       value['month'] = date.getMonth()
       value['year'] = date.getFullYear()
@@ -43,7 +43,7 @@ export default class DateTimeInput extends Component {
         value['hour'] = date.getHours()
         value['minute'] = date.getMinutes()
       }
-      model[name] = value
+      model[name] = date.getDay() + "-" + date.getMonth() + "-" + date.getFullYear()
     }
   };
 
