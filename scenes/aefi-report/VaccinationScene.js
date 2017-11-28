@@ -5,7 +5,8 @@ import { View, ScrollView, Text, Button } from 'react-native';
 import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
-import VaccineDilutentTableComponent from '../components/VaccineDilutentTableComponent'
+import VaccineTableComponent from '../components/VaccineTableComponent'
+import AEFIDilutentTableComponent from '../components/AEFIDilutentTableComponent'
 
 export default class VaccinationScene extends PureComponent {
 
@@ -14,7 +15,9 @@ export default class VaccinationScene extends PureComponent {
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
         <TextInputField label="Name of vaccination centre:" name="name_of_vaccination_center" model={ model }/>
-        <VaccineDilutentTableComponent model={ model } name="vaccination"/>
+        <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" readonly={ true }/>
+        <AEFIDilutentTableComponent model={ model } name="aefi_list_of_diluents" readonly={ true }/>
+
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>

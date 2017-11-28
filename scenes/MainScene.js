@@ -93,7 +93,6 @@ class MainScene extends Component {
   changeConnection(isConnected) {
     const { changeConnection } = this.props
     changeConnection({ isConnected : isConnected })
-    console.log(isConnected)
   }
 
   /**

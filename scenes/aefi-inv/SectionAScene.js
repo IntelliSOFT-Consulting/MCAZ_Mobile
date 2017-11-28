@@ -1,35 +1,48 @@
 import React, { PureComponent } from 'react';
 
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, Button } from 'react-native';
 
 import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
+import DateTimeInput from '../components/DateTimeInput'
+
+import { BOOLEAN_OPTIONS, GENDER, STATUS_ON_DATE, DESIGNATION, PLACE_VACCINATION, SITE_TYPE, VACCINATION_IN } from '../../utils/FieldOptions'
 
 export default class SectionAScene extends PureComponent {
 
   render() {
+    const { model, saveAndContinue, cancel, validate } = this.props
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
-        <SelectOneField label="Place of vaccination:"/>
-        <SelectOneField label="Type of site"/>
-        <SelectOneField label="Vaccination in"/>
-        <TextInputField label="Name of Investigating Health Worker:"/>
-        <TextInputField label="Designation / Position:" />
-        <TextInputField label="Telephone # landline (with code):" keyboardType = 'phone-pad'/>
-        <TextInputField label="Mobile:" keyboardType = 'phone-pad'/>
-        <TextInputField label="Email:" keyboardType = 'email-address' />
-        <TextInputField label="Date AEFI reported:"/>
-        <TextInputField label="Date investigation started:"/>
-        <TextInputField label="Date investigation completed:"/>
-        <TextInputField label="Patient Name:"/>
-        <SelectOneField label="Sex:"/>
-        <TextInputField label="Date of hospitalization (DD/MM/YYYY):"/>
-        <SelectOneField label="Status on the date of investigation:" />
-        <TextInputField label="If died, date and time of death:"/>
-        <TextInputField label="Autopsy done?"/>
-        <TextInputField label="Date:" />
-        <TextInputField label="Planned on Date:" />
+        <TextInputField label="Basic details" model={ model } name="basic_details" />
+        <SelectOneField label="Place of vaccination:" model={ model } name="place_vaccination" options={ PLACE_VACCINATION }/>
+        <TextInputField label="If other, specify" model={ model } name="place_vaccination_other" />
+        <SelectOneField label="Type of site" model={ model } name="site_type" options={ SITE_TYPE }/>
+        <TextInputField label="If other, specify" model={ model } name="site_type_other" />
+        <SelectOneField label="Vaccination in" model={ model } name="vaccination_in" options={ VACCINATION_IN }/>
+        <TextInputField label="If other, specify" model={ model } name="vaccination_in_other" />
+        <TextInputField label="Name of Investigating Health Worker:" model={ model } name="reporter_name"/>
+        <SelectOneField label="Designation / Position:" model={ model } name="designation_id" options={ DESIGNATION }/>
+        <TextInputField label="Telephone # landline (with code):" keyboardType = 'phone-pad' model={ model } name="telephone"/>
+        <TextInputField label="Mobile:" keyboardType = 'phone-pad' model={ model } name="mobile"/>
+        <TextInputField label="Email:" keyboardType = 'email-address' model={ model } name="reporter_email"/>
+        <DateTimeInput label="Date AEFI reported:" model={ model } name="report_date"/>
+        <DateTimeInput label="Date investigation started:" model={ model } name="start_date"/>
+        <DateTimeInput label="Date investigation completed:" model={ model } name="complete_date" />
+        <TextInputField label="Patient Name:" model={ model } name="patient_name"/>
+        <SelectOneField label="Gender:" model={ model } name="gender" options={ GENDER }/>
+        <DateTimeInput label="Date of hospitalization (DD/MM/YYYY):" model={ model } name="hospitalization_date"/>
+        <SelectOneField label="Status on the date of investigation:" model={ model } name="status_on_date" options={ STATUS_ON_DATE }/>
+        <DateTimeInput label="If died, date and time of death:" model={ model } name="died_date"/>
+        <SelectOneField label="Autopsy done?" model={ model } name="autopsy_done" options={ BOOLEAN_OPTIONS }/>
+        <DateTimeInput label="Date:" model={ model } name="autopsy_done_date"/>
+        <SelectOneField label="Autopsy planned?" model={ model } name="autopsy_planned" options={ BOOLEAN_OPTIONS }/>
+        <DateTimeInput label="Planned on Date:" model={ model } name="autopsy_planned_date"/>
+        <View style={ AppStyles.rowButtons }>
+          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => cancel() } title="Cancel"/>
+        </View>
       </ScrollView>
     )
   }

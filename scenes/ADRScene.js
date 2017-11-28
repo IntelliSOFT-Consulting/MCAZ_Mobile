@@ -101,8 +101,6 @@ class ADRScene extends PureComponent {
   saveAndContinue() {
     const { saveDraft } = this.props
     const { model } = this.state
-    console.log("Saving...")
-
     saveDraft(model)
   }
 

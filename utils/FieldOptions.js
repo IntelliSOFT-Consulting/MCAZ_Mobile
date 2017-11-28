@@ -218,3 +218,63 @@ export const AEFI_SEVERITY_REASON = [ { key: "", value: "select one" },
 export const AGE_GROUP = [ { key : "neonate", value : "neonate"}, { key : "infant", value : "infant"}, { key : "child", value : "child"},
   { key : "adolescent", value : "adolescent"}, { key : "adult", value : "adult"}, { key : "elderly", value : "elderly"}
 ]
+
+export const STATUS_ON_DATE = [
+  { key : "Died", value: "Died"}, { key : "Disabled", value: "Disabled"},
+  { key : "Recovering", value: "Recovering"}, { key : "Recovered completely", value: "Recovered completely"},
+  { key : "Unknown", value: "Unknown"}
+]
+
+export const INFANT_BIRTH_OPTS = [
+  { key : "full-term", value: "full-term"}, { key : "pre-term", value: "pre-term"},
+  { key : "post-term", value: "post-term"}
+]
+
+export const DELIVERY_OPTS = [
+  { key : "Normal", value: "Normal"}, { key : "Caesarean", value: "Caesarean"},
+  { key : "Assisted (forceps, vacuum etc.)", value: "Assisted (forceps, vacuum etc.)"},
+  { key : "with complication", value: "with complication"}
+]
+
+export const SOURCE_INFO = [
+  { key : "source_examination", value: "Examination by the investigator"}, { key : "source_verbal", value: "Verbal autopsy"},
+  { key : "source_documents", value: "Documents"},
+  { key : "source_other", value: "Other"}
+]
+
+export const WHEN_VACCINATED = [
+  { key : "Within the first vaccinations of the session", value: "Within the first vaccinations of the session" },
+  { key : "Within the last vaccinations of the session", value: "Within the last vaccinations of the session" },
+  { key : "Unknown", value: "Unknown" }
+]
+
+export const MULTI_VIALS = [
+  { key : "within the first few doses of the vial administered", value: "within the first few doses of the vial administered" },
+  { key : "within the last doses of the vial administered", value: "within the last doses of the vial administered" },
+  { key : "Unknown", value: "Unknown" }
+]
+
+export const SYRINGES_USED = [
+  { key : "Glass", value: "Glass" }, { key : "Disposable", value: "Disposable" }, { key : "Recycled disposable", value: "Recycled disposable" },
+  { key : "Other", value: "Other" }
+]
+
+export const PLACE_VACCINATION = [
+  { key : "Govt. health facility", value: "Govt. health facility" },
+  { key : "Private health facility", value: "Private health facility" },
+  { key : "Other", value: "Other" }
+]
+
+export const SITE_TYPE = [
+  { key : "Fixed", value: "Fixed" }, { key : "Mobile", value: 'Mobile' },
+  { key : "Outreach", value: "Outreach" }, { key : "Other", value: "Other" }
+]
+
+export const VACCINATION_IN = [
+  { key : "Campaign", value: "Campaign" }, { key : "Routine", value: "Routine" },
+  { key : "Other", value: "Other" }
+]
+
+export const BOOLEAN_UNABLE_OPTIONS = [
+  { key : "Yes", value : "Yes"}, { key : "No", value : "No"}, { key : "Unable to assess", value : "Unable to assess"}
+]

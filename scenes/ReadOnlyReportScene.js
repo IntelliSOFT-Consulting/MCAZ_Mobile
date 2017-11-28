@@ -43,6 +43,8 @@ class ReadOnlyReportScene extends PureComponent {
         return (<SAEReadOnly model={ model } goBack={ this.goBack }/>)
       case REPORT_TYPE_AEFI:
         return (<AEFIReportReadOnly model={ model } goBack={ this.goBack }/>)
+      case REPORT_TYPE_AEFI_INV:
+        return (<AEFIInvReadOnly model={ model } goBack={ this.goBack }/>)
       default:
         return null
     }
@@ -53,7 +55,7 @@ class ReadOnlyReportScene extends PureComponent {
 
     const view = this._getReportView()
     return (
-      view 
+      view
     );
   }
 

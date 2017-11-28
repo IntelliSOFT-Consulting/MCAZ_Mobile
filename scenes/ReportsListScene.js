@@ -34,7 +34,6 @@ class ReportsListScene extends Component {
   }
 
   onItemPressed(item) {
-    console.log(JSON.stringify(item))
     const model = { model : item }
     const { navigate } = this.props.navigation;
     const { drafts, completed, uploaded } = this.props
@@ -72,7 +71,6 @@ class ReportsListScene extends Component {
       { title : 'Completed (' + completed.length + ')', data : completed, key: 'completed' },
       { title : 'Uploaded (' + uploaded.length + ')', data : uploaded, key: 'uploaded' },
     ])
-    //console.log(navigation) navigation.state.params.key
     return (
       <View style={ AppStyles.sectionListContainer }>
         <SectionList sections={ data } keyExtractor={(item, index) => 'key-' + index }
@@ -87,7 +85,6 @@ const getVisibleReports = (reports, filter) => {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     drafts : getVisibleReports(state.appState.drafts, state.appState.reportFilter),
     completed : getVisibleReports(state.appState.completed, state.appState.reportFilter),

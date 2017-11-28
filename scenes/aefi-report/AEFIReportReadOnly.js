@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Button } from 'react-native'
 import ReadOnlyDataRenderer from '../components/ReadOnlyDataRenderer'
-import VaccineDilutentTableComponent from '../components/MedicationTableComponent'
+import VaccineTableComponent from '../components/VaccineTableComponent'
+import AEFIDilutentTableComponent from '../components/AEFIDilutentTableComponent'
 import FileAttachmentComponent from '../components/FileAttachmentComponent'
 
 import AppStyles from '../../styles/AppStyles'
@@ -36,7 +37,8 @@ export default class AEFIReportReadOnly extends Component{
         <ReadOnlyDataRenderer label="Today’s date (DD/MM/YYYY):" name="adverse_event_type" model={ model }/>
 
         <ReadOnlyDataRenderer label="Name of vaccination centre:" name="name_of_vaccination_center" model={ model }/>
-        <VaccineDilutentTableComponent model={ model } name="vaccination" readonly={ true }/>
+        <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" readonly={ true }/>
+        <AEFIDilutentTableComponent model={ model } name="aefi_list_of_diluents" readonly={ true }/>
 
         <ReadOnlyDataRenderer label="Adverse event (s):" name="adverse_events" model={ model } required={ true } options={ [] }/>
 

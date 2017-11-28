@@ -31,7 +31,6 @@ class SavedReportsScene extends Component {
   }
 
   onItemPressed(item) {
-    console.log(JSON.stringify(item))
     const { setReportFilter } = this.props
     const { navigate } = this.props.navigation;
     setReportFilter(item.type)
@@ -43,7 +42,6 @@ class SavedReportsScene extends Component {
   }
 
   render() {
-    console.log("showing saved reports")
     return (
       <View style={ AppStyles.scrollContainer }>
         <FlatList data={[{ key: "ADR", type : REPORT_TYPE_ADR }, { key: "SAE", type : REPORT_TYPE_SAE },

@@ -55,7 +55,7 @@ class AEFIReportingFormScene extends PureComponent {
   _renderHeader = props => <TabBar {...props} scrollEnabled style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
 
   _updateRoute = index => this.setState({ index })
-  
+
   _renderScene = SceneMap({
     '1' : () => <PatientReporterDetailsScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
     '2' : () => <VaccinationScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
@@ -79,7 +79,6 @@ class AEFIReportingFormScene extends PureComponent {
   saveAndContinue() {
     const { saveDraft } = this.props
     const { model } = this.state
-    console.log("Saving...")
     saveDraft(model)
   }
 

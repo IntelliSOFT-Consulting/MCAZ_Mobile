@@ -41,12 +41,7 @@ export default class FileAttachmentComponent extends TableComponent {
   getRow(index) {
     const rowData = {}
     const { model, name } = this.props
-    if(!model[name]) {
-      model[name] = []
-    }
-    if(!model[name][index]) {
-      model[name][index] = rowData
-    }
+    
     var row = [
       <TextInputField key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] }/>,
