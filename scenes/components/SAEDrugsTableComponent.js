@@ -63,9 +63,13 @@ export default class SAEDrugsTableComponent extends TableComponent {
     var tableHead = ['Drug/Device/Vaccine', 'Dose', "", 'Route', 'Frequency', 'Date commenced', "Taking drug at onset of SAE", 'Relationsip of SAE to drug'];
     var widthArr = [120, 120, 120, 120, 120, 120, 120, 120]
     const rows = this.initializeRows(readonly)
+    var addBtn = null
     if(!readonly) {
       widthArr.push(30)
       tableHead.push("")
+      addBtn = ( <Button onPress={this.addRow} title="Add row" color="#841584" /> )
+    } else {
+
     }
     return (
       <View>
@@ -75,7 +79,7 @@ export default class SAEDrugsTableComponent extends TableComponent {
             <Rows data={ rows }  widthArr={widthArr}/>
           </Table>
         </ScrollView>
-        <Button onPress={this.addRow} title="Add row" color="#841584" />
+        { addBtn }
       </View>
     )
   }

@@ -15,7 +15,8 @@ export default class ReadOnlyDataRenderer extends Component {
       return ""
     }
     if(type == 'date') {
-      var date = []
+      return model[name]
+      /*var date = []
       if(model[name]['day']) {
         date.push(model[name]['day'])
       }
@@ -25,9 +26,13 @@ export default class ReadOnlyDataRenderer extends Component {
       if(model[name]['year']) {
         date.push(model[name]['year'])
       }
-      return date.join("/")
+      return date.join("/")*/
     } else if(type == 'option' && options) {
-      return model[name]
+      const selected = options.find((option) => option.key == model[name] || option == model[name] )
+      if(typeof selected == 'string') {
+        return selected
+      }
+      return selected.value
     }
     return model[name]
   }

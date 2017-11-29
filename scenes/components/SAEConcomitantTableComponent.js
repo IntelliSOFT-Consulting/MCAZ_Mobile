@@ -54,9 +54,11 @@ export default class SAEConcomitantTableComponent extends TableComponent {
     var tableHead = ['Concomitant medication', 'Date started', 'Date stopped', 'Relationship of SAE to medication'];
     var widthArr = [120, 120, 120, 120]
     const rows = this.initializeRows(readonly)
+    var addBtn = null
     if(!readonly) {
       widthArr.push(30)
       tableHead.push("")
+      addBtn = ( <Button onPress={this.addRow} title="Add row" color="#841584" /> )
     }
     return (
       <View>
@@ -66,7 +68,7 @@ export default class SAEConcomitantTableComponent extends TableComponent {
             <Rows data={ rows }  widthArr={ widthArr }/>
           </Table>
         </ScrollView>
-        <Button onPress={this.addRow} title="Add row" color="#841584" />
+        { addBtn }
       </View>
     )
   }
