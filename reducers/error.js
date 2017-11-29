@@ -3,7 +3,7 @@ const reportFilter = (state = null, action) => {
   switch(action.type) {
     case SAVE_ERROR:
       if(action.error) {
-        return Object.assign({}, error)
+        return Object.assign({}, action.error)
       }
       return null
     default:

@@ -17,6 +17,7 @@ class MainScene extends Component {
     this.showSaved = this.showSaved.bind(this)
     this.uploadReports = this.uploadReports.bind(this)
     this.changeConnection = this.changeConnection.bind(this)
+    this.showAlert = this.showAlert.bind(this)
   }
 
   showNewADRReport() {
@@ -104,12 +105,25 @@ class MainScene extends Component {
     });
   }
 
+  showAlert(notification) {
+    Alert.alert("info", notification.message)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { notification } = this.props
+    const nextNotification = nextProps.notification
+    if(nextNotification && ((notification && notification.id != nextNotification.id) || notification == null)) {
+      this.showAlert(nextNotification)
+    }
+  }
+
 }
 
 const mapStateToProps = state => {
   return {
     connection: state.appState.connection,
-    completed : state.appState.completed
+    completed : state.appState.completed,
+    notification: state.appState.notification
   }
 }
 

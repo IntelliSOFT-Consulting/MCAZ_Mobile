@@ -1,8 +1,10 @@
 import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT,
- SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS, SAVE_ERROR }  from './actionTypes'
+ SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS, SAVE_ERROR,
+ RESET_UPLOAD_STATUS, UPDATE_UPLOAD_STATUS, SET_NOTIFICATION }  from './actionTypes'
 
 import { MAIN_URL } from '../utils/Constants'
-import { getRequestPayload } from '../utils/utils'
+import { getRequestPayload, getURL } from '../utils/utils'
+import messages from '../utils/messages.json'
 
 /**
   Saves a draft report
@@ -43,7 +45,7 @@ export const saveError = (error) => {
   { type : SAVE_ERROR, error }
 }
 
-export const uploadData = (data, url) => {
+export const uploadData = (data, url, updateProgress) => {
   return dispatch => {
     dispatch(saveCompleted(data))
     dispatch(removeDraft(data))
@@ -59,30 +61,54 @@ export const uploadData = (data, url) => {
         json.sadr.sadr.id = json.sadr.id
         dispatch(saveUploaded(json.sadr.sadr))
         dispatch(removeCompleted(json.sadr.sadr))
-        //dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
       } else if(json.adr) {
         json.adr.adr.id = json.adr.id
         dispatch(saveUploaded(json.adr.adr))
         dispatch(removeCompleted(json.adr.adr))
-        //dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
       } else if(json.aefi) {
         json.aefi.aefi.id = json.aefi.id
         dispatch(saveUploaded(json.aefi.aefi))
         dispatch(removeCompleted(json.aefi.aefi))
-        //dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
       } else if(json.saefi) {
         json.saefi.saefi.id = json.saefi.id
         dispatch(saveUploaded(json.saefi.saefi))
         dispatch(removeCompleted(json.saefi.saefi))
-        //dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
+      } else {
+        console.log(JSON.stringify(json))
+        return
+      }
+      if(updateProgress) {
+        dispatch(updateUploadStatus())
+      } else {
+        dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
       }
 
     }).catch((error) => {
+      if(updateProgress) {
+        dispatch(updateUploadStatus())
+      }
       dispatch(saveError(error))
     })
   }
 }
 
-export const uploadCompletedReports = (data) => (
-  { type : "" }
+export const resetUploadStatus = (uploaded) => (
+  { type : RESET_UPLOAD_STATUS, uploaded }
+)
+
+export const updateUploadStatus = () => (
+  { type : UPDATE_UPLOAD_STATUS }
+)
+
+export const uploadCompletedReports = (completed) => {
+  return dispatch => {
+    dispatch(resetUploadStatus(completed.length))
+    completed.forEach((data) => {
+      dispatch(uploadData(data, getURL(data), true))
+    })
+  }
+}
+
+export const setNotification = (notification) => (
+  { type : SET_NOTIFICATION, notification }
 )

@@ -10,3 +10,8 @@ export const CHANGE_CONNECTION_STATUS = 'CHANGE_CONNECTION_STATUS' // Change con
 export const SAVE_ERROR = 'SAVE_ERROR'
 
 export const SET_REPORT_FILTER = 'SET_REPORT_FILTER' // Sets the report type that should be displayed
+
+export const RESET_UPLOAD_STATUS = 'RESET_UPLOAD_STATUS' // reset upload status.
+export const UPDATE_UPLOAD_STATUS = 'UPDATE_UPLOAD_STATUS' // update upload status.
+
+export const SET_NOTIFICATION = 'SET_NOTIFICATION' // set notification
