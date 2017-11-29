@@ -12,7 +12,7 @@ export default class SelectOneField extends Component {
     var value = "", label = ""
     if(model && model[name]) {
       value = model[name]
-      const selected = options.find((option) => option.key == value)
+      const selected = options.find((option) => option.key == value || option == value )
       label = selected.value
     }
 
