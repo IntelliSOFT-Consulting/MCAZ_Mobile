@@ -9,11 +9,14 @@ export default class SelectOneField extends Component {
     super(props)
     const { options, model, name } = this.props
     //var state = {}
-    var value = ""
+    var value = "", label = ""
     if(model && model[name]) {
       value = model[name]
+      const selected = options.find((option) => option.key == value)
+      label = selected.value
     }
-    this.state = { value : value }
+
+    this.state = { value : value, label : label }
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -26,12 +29,12 @@ export default class SelectOneField extends Component {
       value = option.key
     } else {
       this.setState({ value : option })
-      value =option
+      value = option
     }
     if(model) {
       model[name] = value
     }
-    //this.setState(state)
+    this.setState({ value })
   }
 
   render() {
@@ -60,8 +63,8 @@ export default class SelectOneField extends Component {
       <View>
         { text }
         <Dropdown
-          label=''
-          data={ options }
+          label='' onChangeText={ this.handleChange }
+          data={ options } value={ this.state.label }
         />
       </View>
     )

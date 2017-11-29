@@ -17,6 +17,6 @@ export const STATUS_UPLOADED = 'STATUS_UPLOADED'
 export const MAIN_URL = 'http://45.79.130.91/api/sadrs'
 
 export const ADR_URL = 'http://45.79.130.91/api/sadrs'
-export const SAE_URL = 'http://45.79.130.91/api/sadrs'
+export const SAE_URL = 'http://45.79.130.91/api/adrs'
 export const AEFI_URL = 'http://45.79.130.91/api/aefis'
 export const SAEFI_URL = 'http://45.79.130.91/api/saefis'

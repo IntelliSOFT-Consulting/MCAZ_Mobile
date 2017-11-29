@@ -7,7 +7,7 @@ import SelectOneField from '../components/SelectOneField'
 import DateTimeInput from '../components/DateTimeInput'
 import SelectMultipleField from '../components/SelectMultipleField'
 
-import { DESIGNATION, REPORT_TYPE_SAE } from '../../utils/FieldOptions'
+import { DESIGNATION, SAE_REPORT_TYPE, GENDER } from '../../utils/FieldOptions'
 
 export default class SectionAScene extends PureComponent {
   state = {}
@@ -37,8 +37,8 @@ export default class SectionAScene extends PureComponent {
         <TextInputField label="Hosp. Num.:" name="institution_code" model={ model } validate={ this.state.validate } required={ true }/>
         <DateTimeInput label="Date of Site Awareness:" name="date_of_site_awareness" model={ model } validate={ this.state.validate } required={ true }/>
         <DateTimeInput label="Date of Birth:" name="date_of_birth" model={ model } validate={ this.state.validate } required={ true }/>
-        <SelectOneField label="Gender :" name="gender" model={ model } validate={ this.state.validate } required={ true } options={['Male', 'Female', 'Unknown']}/>
-        <SelectOneField label="Type of Report:" name="report_type" model={ model } validate={ this.state.validate } required={ true } options={ REPORT_TYPE_SAE }/>
+        <SelectOneField label="Gender :" name="gender" model={ model } validate={ this.state.validate } required={ true } options={ GENDER }/>
+        <SelectOneField label="Type of Report:" name="report_type" model={ model } validate={ this.state.validate } required={ true } options={ SAE_REPORT_TYPE }/>
         <TextInputField label="Study week:-" name="study_week" model={ model } validate={ this.state.validate } required={ true }/>
         <TextInputField label="Visit number:-" name="visit_number" model={ model } validate={ this.state.validate } required={ true }/>
         <View style={ AppStyles.rowButtons }>
