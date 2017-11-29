@@ -38,7 +38,7 @@ export default class SelectOneField extends Component {
   }
 
   render() {
-    const { label, options, required } = this.props
+    const { label, options, required, hideLabel } = this.props
     var text = null
     if(required) {
       text = (
@@ -49,21 +49,13 @@ export default class SelectOneField extends Component {
         <Text>{ label }</Text>
       )
     }
-    var checkBoxes = []
-    if(options != null) {
-      checkBoxes = options.map((option, index) => {
-        if(typeof option == "object") {
-          return  <Picker.Item key={ index } label={ option.value } value={ option.key } /> //<CheckBox label={ option.label } key={ index } checked={ this.state[option.key] } onChange={ (checked) => this.handleCheck(checked) }/>
-        } else {
-          return <Picker.Item key={ index } label={ option } value={ option } /> //<CheckBox label={ option } key={ index } checked={ this.state[index] } onChange={ (checked) => this.handleCheck(checked) }/>
-        }
-      })
-    }
+
+    text = (hideLabel || label == null)? null : text
     return (
       <View>
         { text }
         <Dropdown
-          label='' onChangeText={ this.handleChange }
+          label='' labelHeight={ 0 } onChangeText={ this.handleChange }
           data={ options } value={ this.state.label }
         />
       </View>

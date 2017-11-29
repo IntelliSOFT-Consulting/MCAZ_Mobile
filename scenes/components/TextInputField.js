@@ -42,7 +42,6 @@ export default class TextInputField extends Component {
     const labelText = label? label : ""
     return (
       <View>
-
         <TextField {...this.props}
           label={ labelText }
           value={ this.state.value }
