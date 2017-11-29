@@ -86,6 +86,8 @@ export const uploadData = (data, url, updateProgress) => {
     }).catch((error) => {
       if(updateProgress) {
         dispatch(updateUploadStatus())
+      } else {
+        dispatch(setNotification({ message : messages.erroruploading, level: "info", id: new Date().getTime() }))
       }
       dispatch(saveError(error))
     })
