@@ -1,0 +1,6 @@
+{
+  "validationErrors" : "Validation errors, fill in all the required fields",
+  "changesSaved": "Changes saved",
+  "datauploaded" : "Data uploaded",
+  "erroruploading" : "Error uploading data, data has been saved to be uploaded later."
+}
