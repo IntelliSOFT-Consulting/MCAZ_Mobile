@@ -29,6 +29,9 @@ import pvStore from './store'
 
 import { PersistGate } from 'redux-persist/lib/integration/react'
 
+var Fabric = require('react-native-fabric')
+var { Crashlytics } = Fabric
+
 const MainRoutes = {
   MainScene : {
     name : "CTR PV",
@@ -111,6 +114,17 @@ export default class App extends Component<{}> {
         </PersistGate>
       </Provider>
     )
+  }
+
+  /**
+    Handle crash reporting.
+  */
+  componentWillMount() {
+    ErrorUtils._globalHandler = function(...args){
+      defaultHandler(...args);
+      Crashlytics.logException(args);
+      // other custom handler
+    };
   }
 }
 

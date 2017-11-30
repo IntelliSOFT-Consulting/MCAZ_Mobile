@@ -12,6 +12,7 @@
     "react-native-check-box": "^2.0.2",
     "react-native-checkbox": "^1.2.0",
     "react-native-easy-toast": "^1.0.9",
+    "react-native-fabric": "^0.5.1",
     "react-native-material-dropdown": "^0.5.2",
     "react-native-modal-datetime-picker": "^4.13.0",
     "react-native-tab-view": "0.0.70",
