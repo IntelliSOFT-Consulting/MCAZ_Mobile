@@ -7,7 +7,7 @@ import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import DateTimeInput from '../components/DateTimeInput'
 
-import { BOOLEAN_OPTIONS, AEFI_SEVERITY_REASON, BOOLEAN_UNKNOWN_OPTIONS, OUTCOME } from '../../utils/FieldOptions'
+import { BOOLEAN_OPTIONS, AEFI_SEVERITY_REASON, BOOLEAN_UNKNOWN_OPTIONS, OUTCOME, AEFI_ADVERSE_EVENTS } from '../../utils/FieldOptions'
 
 export default class AdverseEventsScene extends PureComponent {
 
@@ -15,7 +15,7 @@ export default class AdverseEventsScene extends PureComponent {
     const { model, saveAndContinue, cancel } = this.props
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
-        <SelectOneField label="Adverse event (s):" name="adverse_events" model={ model } required={ true } options={ ["", "Severe local reaction"] }/>
+        <SelectOneField label="Adverse event (s):" name="adverse_events" model={ model } required={ true } options={ AEFI_ADVERSE_EVENTS }/>
 
         <TextInputField label="Other" name="adverse_events_specify" model={ model }/>
         <DateTimeInput label="Date &amp; Time AEFI started (DD/MM/YYYY):" name="aefi_date" model={ model } showTime={ true }/>

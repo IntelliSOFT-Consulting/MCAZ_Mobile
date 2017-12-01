@@ -22,7 +22,7 @@ export default class PatientReporterDetailsScene extends PureComponent {
         <TextInputField label="Telephone:" keyboardType="phone-pad" name="patient_telephone" model={ model }/>
         <SelectOneField label="Gender:" name="gender" model={ model } options={ GENDER }/>
         <DateTimeInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model } required={ true }/>
-        <SelectOneField label="OR Age at onset" name="age_at_onset" model={ model }/>
+        <TextInputField label="OR Age at onset" name="age_at_onset" model={ model }/>
         <TextInputField label="Specify" name="age_at_onset_specify" model={ model }/>
         <TextInputField label="Reporter’s Name:" name="reporter_name" model={ model } required={ true }/>
         <SelectOneField label="Designation:" name="reporter_name" model={ model } options={ DESIGNATION }/>

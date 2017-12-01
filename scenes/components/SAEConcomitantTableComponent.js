@@ -6,6 +6,7 @@ import DateTimeInput from './DateTimeInput'
 import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
 import TableComponent from './TableComponent'
 import AppStyles from '../../styles/AppStyles'
+import TextInputField from './TextInputField'
 import { RELATIONSHIP_SAE } from '../../utils/FieldOptions'
 
 export default class SAEConcomitantTableComponent extends TableComponent {
@@ -23,7 +24,7 @@ export default class SAEConcomitantTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInput key={Math.floor(Math.random() * 10000)} name="drug_name" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="drug_name" model={ model[name][index] }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" model={ model[name][index] } options={ RELATIONSHIP_SAE }/>,

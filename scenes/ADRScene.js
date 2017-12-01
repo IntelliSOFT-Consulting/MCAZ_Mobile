@@ -152,6 +152,9 @@ class ADRScene extends PureComponent {
         }
       }
     })
+    if(page == null) {
+      page = 2
+    }
     if(!valid) {
       Alert.alert("Warning", "Fill in required fields\n " + names)
       this.setState({ validate : true })

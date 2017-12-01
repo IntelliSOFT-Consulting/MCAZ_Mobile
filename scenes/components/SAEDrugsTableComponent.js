@@ -5,6 +5,7 @@ import SelectOneField from './SelectOneField'
 import DateTimeInput from './DateTimeInput'
 import TableComponent from './TableComponent'
 import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
+import TextInputField from './TextInputField'
 
 import AppStyles from '../../styles/AppStyles'
 
@@ -24,8 +25,8 @@ export default class SAEDrugsTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInput key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] }/>,
-      <TextInput key={Math.floor(Math.random() * 10000)} name="dose" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="dose" model={ model[name][index] }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY }/>,

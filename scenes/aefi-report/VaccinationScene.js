@@ -15,8 +15,8 @@ export default class VaccinationScene extends PureComponent {
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
         <TextInputField label="Name of vaccination centre:" name="name_of_vaccination_center" model={ model }/>
-        <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" readonly={ true }/>
-        <AEFIDilutentTableComponent model={ model } name="aefi_list_of_diluents" readonly={ true }/>
+        <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" />
+        <AEFIDilutentTableComponent model={ model } name="aefi_list_of_diluents"/>
 
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>

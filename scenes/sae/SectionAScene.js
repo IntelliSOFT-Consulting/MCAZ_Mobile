@@ -22,7 +22,7 @@ export default class SectionAScene extends PureComponent {
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
         <TextInputField label="MRCZ Protocol #:" name="mrcz_protocol_number" model={ model } validate={ this.state.validate } required={ true } />
-        <TextInputField label="MCAZ Protocol #"  name="mraz_protocol_number"model={ model } validate={ this.state.validate } required={ true } />
+        <TextInputField label="MCAZ Protocol #"  name="mcaz_protocol_number"model={ model } validate={ this.state.validate } required={ true } />
         <TextInputField label="Institution"  name="name_of_institution" model={ model } validate={ this.state.validate } required={ true }/>
         <TextInputField label="Principle Investigator:"  name="principal_investigator" model={ model } validate={ this.state.validate } required={ true }/>
         <TextInputField label="Phone:" keyboardType = 'phone-pad' name="reporter_phone" model={ model } validate={ this.state.validate } required={ true }/>
