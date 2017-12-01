@@ -24,6 +24,7 @@ class AEFIReportingFormScene extends PureComponent {
     this.saveAndSubmit = this.saveAndSubmit.bind(this)
     this.cancel = this.cancel.bind(this)
     this.goBack = this.goBack.bind(this)
+    this.upload = this.upload.bind(this)
 
     var { model, connection } = this.props
 
@@ -145,13 +146,10 @@ class AEFIReportingFormScene extends PureComponent {
       return
     }
 
-    if(connection.isConnected) {
-      uploadData(model, AEFI_URL)
-    } else {
-      Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
-      saveCompleted(model)
-    }
-    this.goBack()
+    Alert.alert("Confirm", "Submit data to MCAZ?", [
+      {text: 'Yes', onPress: () => this.upload() },
+      {text: 'No' }
+    ])
   }
 
   cancel() {
@@ -164,6 +162,18 @@ class AEFIReportingFormScene extends PureComponent {
   goBack() {
     const { goBack } = this.props.navigation;
     goBack()
+  }
+
+  upload() {
+    const { model } = this.state
+    const { uploadData, saveCompleted, connection } = this.props
+    if(connection.isConnected) {
+      uploadData(model, ADR_URL)
+    } else {
+      Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
+      saveCompleted(model)
+    }
+    this.goBack()
   }
 }
 
