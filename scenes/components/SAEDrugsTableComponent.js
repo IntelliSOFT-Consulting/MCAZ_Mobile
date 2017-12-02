@@ -25,15 +25,15 @@ export default class SAEDrugsTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] }/>,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="dose" model={ model[name][index] }/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE }/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE }/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] }/>,
-      <SelectOneField options={ BOOLEAN_OPTIONS } key={Math.floor(Math.random() * 10000)} name="taking_drug" model={ model[name][index] }/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE } model={ model[name][index] }/>,
-      <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
+      <TextInputField key={Math.floor(Math.random() * 100000000) } name="drug_name" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 100000000)} name="dosage" model={ model[name][index] }/>,
+      <SelectOneField key={Math.floor(Math.random() * 100000000)} name="dose_id" model={ model[name][index] } options={ DOSE }/>,
+      <SelectOneField key={Math.floor(Math.random() * 100000000)} name="route_id" model={ model[name][index] } options={ ROUTE }/>,
+      <SelectOneField key={Math.floor(Math.random() * 100000000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 100000000)} name="start_date" model={ model[name][index] }/>,
+      <SelectOneField options={ BOOLEAN_OPTIONS } key={Math.floor(Math.random() * 10000000)} name="taking_drug" model={ model[name][index] }/>,
+      <SelectOneField key={Math.floor(Math.random() * 10000000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE } model={ model[name][index] }/>,
+      <Button key={ Math.floor(Math.random() * 10000000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
   }

@@ -25,9 +25,9 @@ export default class LabsTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInput key={Math.floor(Math.random() * 10000)} name="lab_test" model={ model[name][index] }/>,
-      <TextInput key={Math.floor(Math.random() * 10000)} name="abnormal_result" model={ model[name][index] }/>,
-      <TextInput key={Math.floor(Math.random() * 10000)} name="site_normal_range" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="lab_test" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="abnormal_result" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="site_normal_range" model={ model[name][index] }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="collection_date" model={ model[name][index] }/>,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="lab_value" model={ model[name][index] }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="lab_value_date" model={ model[name][index] }/>,

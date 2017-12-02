@@ -21,7 +21,7 @@ export default class SectionCScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ AppStyles.scrollContainer, AppStyles.sadrBackground }>
         <Text>8a. List all study / intervention drugs being taken at the time of onset of the SAE, or within 30 days prior to onset, and describe
           their relationship to the SAE:</Text>
         <SAEDrugsTableComponent model={ model } validate={ this.state.validate } required={ true } name="adr_list_of_drugs"/>

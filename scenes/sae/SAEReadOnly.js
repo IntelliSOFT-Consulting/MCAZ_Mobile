@@ -28,13 +28,12 @@ export default class SAEReadOnly extends Component{
         <ReadOnlyDataRenderer label="Email:" keyboardType = 'email-address' name="reporter_email" model={ model }/>
         <ReadOnlyDataRenderer label="Report prepared by:" name="reporter_name" model={ model }/>
         <ReadOnlyDataRenderer label="Designation in the study:" name="designation_id" model={ model } type="option" options={ DESIGNATION }/>
-        <ReadOnlyDataRenderer label="Date Form completed" name="" model={ model } type="date"/>
         <ReadOnlyDataRenderer label="Study Title:" name="study_title" model={ model }/>
         <ReadOnlyDataRenderer label="Study Sponsor:" name="study_sponsor" model={ model }/>
         <ReadOnlyDataRenderer label="Date of Adverse Event:" name="date_of_adverse_event" model={ model } type="date"/>
+        <ReadOnlyDataRenderer label="Date of Site Awareness:" name="date_of_site_awareness" model={ model } type="date"/>
         <ReadOnlyDataRenderer label="Participant ID:" name="participant_number" model={ model }/>
         <ReadOnlyDataRenderer label="Hosp. Num.:" name="institution_code" model={ model }/>
-        <ReadOnlyDataRenderer label="Date of Site Awareness:" name="date_of_site_awareness" model={ model } type="date"/>
         <ReadOnlyDataRenderer label="Date of Birth:" name="date_of_birth" model={ model } type="date"/>
         <ReadOnlyDataRenderer label="Gender :" name="gender" model={ model } options={['Male', 'Female', 'Unknown']}/>
         <ReadOnlyDataRenderer label="Type of Report:" name="report_type" model={ model } type="option" options={ REPORT_TYPE_SAE }/>

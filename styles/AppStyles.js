@@ -75,6 +75,9 @@ export default AppStyles = StyleSheet.create({
     marginBottom: 10
   },
   adrBackground: {
-    backgroundColor: '#faf369'
+    backgroundColor: '#71C7A0'
+  },
+  sadrBackground: {
+    backgroundColor: '#7f7fff'
   }
 })

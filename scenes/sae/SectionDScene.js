@@ -19,7 +19,7 @@ export default class SectionDScene extends PureComponent {
   render() {
     const { model, saveAndContinue, saveAndSubmit, cancel, validate } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ AppStyles.scrollContainer, AppStyles.sadrBackground }>
         <SelectOneField label="D1. Was this Adverse Event originally addressed in the protocol and consent form?" model={ model } validate={ this.state.validate } required={ true } name="d1_consent_form" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
         <SelectOneField label="D2. Was this Adverse Event originally addressed in Investigators Brochure?" model={ model } validate={ this.state.validate } required={ true } name="d2_brochure" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
         <SelectOneField label="D3. Are changes required to the protocol as a result of this SAE?" model={ model } validate={ this.state.validate } required={ true } name="d3_changes_sae" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
@@ -32,7 +32,6 @@ export default class SectionDScene extends PureComponent {
 
         <SelectOneField label="From the data obtained or from currently available information, do you see any need to reassess the
           risks and benefits to the subjects in this research." model={ model } validate={ this.state.validate } required={ true } name="assess_risk" options={  BOOLEAN_OPTIONS  }/>
-
 
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
