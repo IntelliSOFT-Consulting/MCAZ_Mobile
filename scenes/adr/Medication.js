@@ -20,12 +20,12 @@ export default class Medication extends PureComponent {
     const { model, saveAndContinue, cancel } = this.props
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
-        <Text style={ AppStyles.boldText }>Current Medication (Including OTC and herbals)</Text>
+        <Text style={ AppStyles.boldText }>Current Medication</Text>
         <MedicationTableComponent model={ model } name="sadr_list_of_drugs"/>
         <ConcomitantTableComponent model={ model } name="sadr_other_drugs" label="Concomitant (Other) drugs taken, including herbal medicines & Dates/period taken:"/>
         <SelectOneField model={ model } label="Action taken:" name="action_taken" required={ true } options={ ACTION_TAKEN }/>
         <SelectOneField model={ model } name="outcome" label="Outcome of ADR:" options={ OUTCOME } required={ true }/>
-        <SelectOneField model={ model } label="Relatedness of suspected medicine(s) to ADR:" options={ RELATEDNESS_TO_ADR }/>
+        <SelectOneField model={ model } name="relatedness" label="Relatedness of suspected medicine(s) to ADR:" options={ RELATEDNESS_TO_ADR }/>
         <FileAttachmentComponent model={ model } name="files" label="Attach any files"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>

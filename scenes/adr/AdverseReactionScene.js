@@ -17,7 +17,7 @@ export default class AdverseReactionScene extends PureComponent {
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ]  }>
         <Text style={ AppStyles.boldText }>Adverse Reaction</Text>
         <DateTimeInput model={ model } name="date_of_onset_of_reaction" label="Date of onset" required={ true }/>
-        <DateTimeInput model={ model } name="date_of_onset_of_reaction" label="Date of end of reaction (If ended)" />
+        <DateTimeInput model={ model } name="date_of_end_of_reaction" label="Date of end of reaction (If ended)" />
 
         <TextInputField model={ model } name="description_of_reaction" label="Description of ADR" multiline = {true}
          numberOfLines = {4} required={ true }/>

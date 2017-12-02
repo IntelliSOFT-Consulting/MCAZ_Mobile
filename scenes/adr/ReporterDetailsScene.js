@@ -19,10 +19,6 @@ export default class ReporterDetailsScene extends PureComponent {
         <SelectOneField model={ model } name="designation_id" label="Designation: " options={ DESIGNATION } required={ true }/>
         <TextInputField model={ model } name="reporter_email" label="Email Address: " keyboardType = 'email-address' required={ true }/>
         <TextInputField model={ model } name="reporter_phone" label="Phone number" keyboardType = 'phone-pad'/>
-        <TextInputField model={ user } name="name_of_institution" label="Name &amp; Address of Institution" />
-        <TextInputField model={ user } name="institution_address" label="Address of Institution" />
-        <TextInputField model={ user } name="institution_code" label="Institution code" />
-        <TextInputField model={ user } name="institution_contact" label="Institution contact" />
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => saveAndSubmit() } title="Save and Submit"/>
@@ -32,3 +28,10 @@ export default class ReporterDetailsScene extends PureComponent {
     )
   }
 }
+
+/*
+<TextInputField model={ user } name="name_of_institution" label="Name &amp; Address of Institution" />
+<TextInputField model={ user } name="institution_address" label="Address of Institution" />
+<TextInputField model={ user } name="institution_code" label="Institution code" />
+<TextInputField model={ user } name="institution_contact" label="Institution contact" />
+*/

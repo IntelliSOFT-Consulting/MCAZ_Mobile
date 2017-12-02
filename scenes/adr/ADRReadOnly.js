@@ -31,7 +31,7 @@ export default class ADRReadOnly extends Component{
 
         <Text style={ AppStyles.boldText }>Adverse Reaction</Text>
         <ReadOnlyDataRenderer model={ model } name="date_of_onset_of_reaction" label="Date of onset" type="date"/>
-        <ReadOnlyDataRenderer model={ model } name="date_of_onset_of_reaction" label="Date of end of reaction (If ended)" type="date"/>
+        <ReadOnlyDataRenderer model={ model } name="date_of_end_of_reaction" label="Date of end of reaction (If ended)" type="date"/>
 
         <ReadOnlyDataRenderer model={ model } name="description_of_reaction" label="Description of ADR" type="text"/>
         <ReadOnlyDataRenderer model={ model } name="severity" label="Serious " required={ true } type="text" options={[ "", "Yes", "No" ]}/>
@@ -45,17 +45,13 @@ export default class ADRReadOnly extends Component{
         <ConcomitantTableComponent model={ model } name="sadr_other_drugs" label="Concomitant (Other) drugs taken, including herbal medicines & Dates/period taken:" readonly={ true }/>
         <ReadOnlyDataRenderer model={ model } label="Action taken:" name="action_taken" required={ true } options={ ACTION_TAKEN } type="option"/>
         <ReadOnlyDataRenderer model={ model } name="outcome" label="Outcome of ADR:" options={ OUTCOME } type="option"/>
-        <ReadOnlyDataRenderer model={ model } label="Relatedness of suspected medicine(s) to ADR:" options={ RELATEDNESS_TO_ADR } type="option"/>
+        <ReadOnlyDataRenderer model={ model } name="relatedness" label="Relatedness of suspected medicine(s) to ADR:" options={ RELATEDNESS_TO_ADR } type="option"/>
         <FileAttachmentComponent model={ model } name="files" label="Attach any files" readonly={ true }/>
 
         <ReadOnlyDataRenderer model={ model } name="reporter_name" label="Forename(s) and Surname: "  type="text"/>
         <ReadOnlyDataRenderer model={ model } name="designation_id" label="Designation: " options={ DESIGNATION }  type="option"/>
         <ReadOnlyDataRenderer model={ model } name="reporter_email" label="Email Address: " keyboardType = 'email-address'  type="text"/>
         <ReadOnlyDataRenderer model={ model } name="reporter_phone" label="Phone number" keyboardType = 'phone-pad'  type="text"/>
-        <ReadOnlyDataRenderer model={ model } name="name_of_institution" label="Name &amp; Address of Institution" type="text" />
-        <ReadOnlyDataRenderer model={ model } name="institution_address" label="Address of Institution" type="text" />
-        <ReadOnlyDataRenderer model={ model } name="institution_code" label="Institution code"  type="text"/>
-        <ReadOnlyDataRenderer model={ model } name="institution_contact" label="Institution contact" type="text"/>
 
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => goBack() } title="Close"/>
