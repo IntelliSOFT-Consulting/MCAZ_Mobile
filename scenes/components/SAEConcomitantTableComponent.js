@@ -16,6 +16,8 @@ export default class SAEConcomitantTableComponent extends TableComponent {
     const { value, name, data } = this.props
     //this.state = { }
     this.getRow = this.getRow.bind(this)
+    this.getMinStopDate = this.getMinStopDate.bind(this)
+    this.onChange = this.onChange.bind(this)
   }
 
   /**
@@ -25,12 +27,40 @@ export default class SAEConcomitantTableComponent extends TableComponent {
     const { model, name } = this.props
     var row = [
       <TextInputField key={Math.floor(Math.random() * 10000)} name="drug_name" model={ model[name][index] }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] } maxDate={ new Date() } onChange={ this.onChange }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] } maxDate={ new Date() } minDate={ this.getMinStopDate(index) }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" model={ model[name][index] } options={ RELATIONSHIP_SAE }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
+  }
+
+  onChange(value, index) {
+    var { start_dates } = this.getState()
+    if(start_dates == null) {
+      start_dates = []
+    }
+    start_dates[index] = value
+    this.updateState({ start_dates : start_dates })
+  }
+
+  /**
+    Gets the minimum date for stop date
+  */
+  getMinStopDate(index) {
+    const { model, name } = this.props
+    const data = model[name][index]
+    if(data && data['start_date']) {
+      if(typeof data['start_date'] == "string") {
+        const v = data['start_date'].split("-")
+        value = new Date();
+        value.setDate(v[0])
+        value.setMonth(parseInt(v[1]))
+        value.setYear(v[2])
+        return value
+      }
+    }
+    return undefined
   }
 
   /**
