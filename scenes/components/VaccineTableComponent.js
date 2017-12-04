@@ -24,7 +24,7 @@ export default class VaccineTableComponent extends TableComponent {
     const { model, name } = this.props
     var row = [
       <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_date" model={ model[name][index] }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_date" model={ model[name][index] } maxDate={ new Date() }/>,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] } />,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="expiry_date" model={ model[name][index] } />,
