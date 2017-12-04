@@ -6,6 +6,7 @@ import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import FileAttachmentComponent from '../components/FileAttachmentComponent'
+import DateTimeInput from '../../components/DateTimeInput'
 
 import { SOURCE_INFO } from '../../utils/FieldOptions'
 
@@ -23,7 +24,7 @@ export default class SectionCScene extends PureComponent {
         <TextInputField label="Signs and symptoms in chronological order from the time of vaccination:" model={ model } name="signs_symptoms" />
         <TextInputField label="Name and contact information of person completing these clinical details:" model={ model } name="person_details"/>
         <TextInputField label="Designation:" model={ model } name="person_designation"/>
-        <TextInputField label="Date/time" model={ model } name="person_date"/>
+        <DateTimeInput label="Date/time" model={ model } name="person_date"/>
         <Text style={ AppStyles.boldText }>
           **Instructions – Attach copies of ALL available documents (including case sheet, discharge summary, case notes,
           laboratory reports and autopsy reports) and then complete additional information NOT AVAILABLE in

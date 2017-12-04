@@ -11,6 +11,11 @@ import { BOOLEAN_OPTIONS, GENDER, STATUS_ON_DATE, DESIGNATION, PLACE_VACCINATION
 
 export default class SectionAScene extends PureComponent {
 
+  constructor(props, context) {
+    super(props, context)
+    this.state = {}
+  }
+
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
@@ -27,23 +32,27 @@ export default class SectionAScene extends PureComponent {
         <TextInputField label="Telephone # landline (with code):" keyboardType = 'phone-pad' model={ model } name="telephone"/>
         <TextInputField label="Mobile:" keyboardType = 'phone-pad' model={ model } name="mobile"/>
         <TextInputField label="Email:" keyboardType = 'email-address' model={ model } name="reporter_email"/>
-        <DateTimeInput label="Date AEFI reported:" model={ model } name="report_date"/>
-        <DateTimeInput label="Date investigation started:" model={ model } name="start_date"/>
-        <DateTimeInput label="Date investigation completed:" model={ model } name="complete_date" />
+        <DateTimeInput label="Date AEFI reported:" model={ model } name="report_date" maxDate={ new Date() } onChange={ this.onChange }/>
+        <DateTimeInput label="Date investigation started:" model={ model } name="start_date" maxDate={ new Date() } minDate={ this.state.report_date } onChange={ this.onChange }/>
+        <DateTimeInput label="Date investigation completed:" model={ model } name="complete_date" maxDate={ new Date() } minDate={ this.state.start_date}/>
         <TextInputField label="Patient Name:" model={ model } name="patient_name"/>
         <SelectOneField label="Gender:" model={ model } name="gender" options={ GENDER }/>
-        <DateTimeInput label="Date of hospitalization (DD/MM/YYYY):" model={ model } name="hospitalization_date"/>
+        <DateTimeInput label="Date of hospitalization (DD/MM/YYYY):" model={ model } name="hospitalization_date" maxDate={ new Date() }/>
         <SelectOneField label="Status on the date of investigation:" model={ model } name="status_on_date" options={ STATUS_ON_DATE }/>
-        <DateTimeInput label="If died, date and time of death:" model={ model } name="died_date"/>
+        <DateTimeInput label="If died, date and time of death:" model={ model } name="died_date" maxDate={ new Date() } onChange={ this.onChange }/>
         <SelectOneField label="Autopsy done?" model={ model } name="autopsy_done" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Date:" model={ model } name="autopsy_done_date"/>
+        <DateTimeInput label="Date:" model={ model } name="autopsy_done_date" maxDate={ new Date() } minDate={ this.state.died_date }/>
         <SelectOneField label="Autopsy planned?" model={ model } name="autopsy_planned" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Planned on Date:" model={ model } name="autopsy_planned_date"/>
+        <DateTimeInput label="Planned on Date:" model={ model } name="autopsy_planned_date" minDate={ this.state.died_date }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>
     )
+  }
+
+  onChange(value) {
+    this.setState(value)
   }
 }
