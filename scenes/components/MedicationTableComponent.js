@@ -83,6 +83,9 @@ export default class MedicationTableComponent extends TableComponent {
     this.updateState({ start_dates : start_dates })
   }
 
+  /**
+    Gets the minimum date for stop date
+  */
   getMinStopDate(index) {
     const { model, name } = this.props
     const data = model[name][index]
