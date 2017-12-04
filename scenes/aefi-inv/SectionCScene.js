@@ -6,7 +6,7 @@ import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import FileAttachmentComponent from '../components/FileAttachmentComponent'
-import DateTimeInput from '../../components/DateTimeInput'
+import DateTimeInput from '../components/DateTimeInput'
 
 import { SOURCE_INFO } from '../../utils/FieldOptions'
 

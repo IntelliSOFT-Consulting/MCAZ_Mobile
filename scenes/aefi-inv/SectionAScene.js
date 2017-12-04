@@ -13,6 +13,7 @@ export default class SectionAScene extends PureComponent {
 
   constructor(props, context) {
     super(props, context)
+    this.onChange = this.onChange.bind(this)
     this.state = {}
   }
 
@@ -39,11 +40,11 @@ export default class SectionAScene extends PureComponent {
         <SelectOneField label="Gender:" model={ model } name="gender" options={ GENDER }/>
         <DateTimeInput label="Date of hospitalization (DD/MM/YYYY):" model={ model } name="hospitalization_date" maxDate={ new Date() }/>
         <SelectOneField label="Status on the date of investigation:" model={ model } name="status_on_date" options={ STATUS_ON_DATE }/>
-        <DateTimeInput label="If died, date and time of death:" model={ model } name="died_date" maxDate={ new Date() } onChange={ this.onChange }/>
+        <DateTimeInput label="If died, date and time of death:" model={ model } name="died_date" maxDate={ new Date() } onChange={ this.onChange } showTime={ true }/>
         <SelectOneField label="Autopsy done?" model={ model } name="autopsy_done" options={ BOOLEAN_OPTIONS }/>
         <DateTimeInput label="Date:" model={ model } name="autopsy_done_date" maxDate={ new Date() } minDate={ this.state.died_date }/>
         <SelectOneField label="Autopsy planned?" model={ model } name="autopsy_planned" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Planned on Date:" model={ model } name="autopsy_planned_date" minDate={ this.state.died_date }/>
+        <DateTimeInput label="Planned on Date:" model={ model } name="autopsy_planned_date" minDate={ new Date() }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
