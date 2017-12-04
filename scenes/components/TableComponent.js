@@ -8,6 +8,8 @@ export default class TableComponent extends Component {
 
     this.addRow = this.addRow.bind(this)
     this.removeRow = this.removeRow.bind(this)
+    this.updateState = this.updateState.bind(this)
+    this.getState = this.getState.bind(this)
 
     const { model, name } = this.props
     var rows = []
@@ -34,7 +36,6 @@ export default class TableComponent extends Component {
     This ensures that the delete button gets the new correct index.
   */
   removeRow(index) {
-
     var { rows } = this.state
     rows.splice(index, 1)
     const { model, name } = this.props
@@ -49,6 +50,14 @@ export default class TableComponent extends Component {
       dataRows[i] = readonly? this.getReadOnlyRow(i) : this.getRow(i)
     }
     return dataRows
+  }
+
+  updateState(value) {
+    this.setState(value)
+  }
+
+  getState() {
+    return this.state
   }
 }
 

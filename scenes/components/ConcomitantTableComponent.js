@@ -92,7 +92,7 @@ export default class ConcomitantTableComponent extends TableComponent {
       widthArr.push(30)
     }
     return (
-      <View>
+      <View style={ AppStyles.tableView }>
         <Text style={ AppStyles.boldText }>{ label }</Text>
         <ScrollView horizontal={true}>
           <Table>

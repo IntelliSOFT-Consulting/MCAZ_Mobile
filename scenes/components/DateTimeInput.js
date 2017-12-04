@@ -8,14 +8,14 @@ export default class DateTimeInput extends Component {
   constructor(props) {
     super(props)
     const { model, name } = this.props
-    var value = null
+    var value = undefined
     if(model) {
       if(model[name]) {
         if(typeof model[name] == "string") {
           const v = model[name].split("-")
           value = new Date();
           value.setDate(v[0])
-          value.setMonth(parseInt(v[1]) - 1)
+          value.setMonth(parseInt(v[1]))
           value.setYear(v[2])
         }
       }
@@ -36,19 +36,25 @@ export default class DateTimeInput extends Component {
     const { model, name, showTime } = this.props
     if(model && name) {
       var value = {}
-      value['day'] = date.getDay()
+      value['day'] = date.getDate()
       value['month'] = date.getMonth()
       value['year'] = date.getFullYear()
       if(showTime) {
         value['hour'] = date.getHours()
         value['minute'] = date.getMinutes()
       }
-      model[name] = date.getDay() + "-" + date.getMonth() + "-" + date.getFullYear()
+      model[name] = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()
+    }
+    const { onChange, index } = this.props
+    if(onChange) {
+      var value = {}
+      value[name] = date
+      onChange(value, index)
     }
   };
 
   render () {
-    const { label, required, showTime } = this.props
+    const { label, required, showTime, maxDate, minDate } = this.props
     const { date } = this.state
     var text = null
     if(required) {
@@ -65,14 +71,16 @@ export default class DateTimeInput extends Component {
       dateLabel = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
     }
     const mode = showTime? "datetime" : "date"
+    const maxDateVal = maxDate? maxDate : undefined
+    const minimumDate = minDate? minDate : undefined
     return (
       <View style={ AppStyles.dateTimeInput }>
         <Text>{ text }</Text>
         <Button onPress={this._showDateTimePicker} title={ dateLabel }/>
 
-        <DateTimePicker
-          isVisible={this.state.isDateTimePickerVisible}
-          onConfirm={this._handleDatePicked}
+        <DateTimePicker date={ this.state.date }
+          isVisible={this.state.isDateTimePickerVisible} minimumDate={ minimumDate }
+          onConfirm={this._handleDatePicked} maximumDate={ maxDateVal }
           onCancel={this._hideDateTimePicker} mode={ mode }
         />
       </View>

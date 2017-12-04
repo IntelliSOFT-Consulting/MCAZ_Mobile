@@ -18,7 +18,7 @@ export default class SectionAScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer, AppStyles.sadrBackground }>
+      <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.sadrBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
         <TextInputField label="MRCZ Protocol #" name="mrcz_protocol_number" model={ model } validate={ this.state.validate } required={ true } />

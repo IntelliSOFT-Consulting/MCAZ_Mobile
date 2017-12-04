@@ -17,7 +17,7 @@ export default class SectionBScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer, AppStyles.sadrBackground }>
+      <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.sadrBackground ] }>
         <SelectOneField label="1. What type of adverse event is this?" name="adverse_event_type" model={ model } validate={ this.state.validate } required={ true } options={ EVENT_TYPE }/>
         <SelectOneField label="2a. If SAE, is it" name="sae_type" model={ model } validate={ this.state.validate } required={ true } options={ SAE_EVENT_TYPE }/>
         <TextInputField label="If Other, specify" name="sae_description" model={ model } validate={ this.state.validate } required={ true }/>

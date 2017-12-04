@@ -21,7 +21,7 @@ export default class SectionCScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer, AppStyles.sadrBackground }>
+      <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.sadrBackground ] }>
         <Text>8a. List all study / intervention drugs being taken at the time of onset of the SAE, or within 30 days prior to onset, and describe
           their relationship to the SAE:</Text>
         <SAEDrugsTableComponent model={ model } validate={ this.state.validate } required={ true } name="adr_list_of_drugs"/>
@@ -32,13 +32,13 @@ export default class SectionCScene extends PureComponent {
         <Text>11. Has the Adverse Event been
           reported to:</Text>
         <SelectOneField label="(a) MCAZ" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcaz" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcaz_date"/>
+        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcaz_date" maxDate={ new Date() }/>
         <SelectOneField label="(b) MRCZ" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcrz" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcrz_date"/>
+        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcrz_date" maxDate={ new Date() }/>
         <SelectOneField label="(c) Sponsor" model={ model } validate={ this.state.validate } required={ true } name="report_to_sponsor" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_sponsor_date"/>
+        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_sponsor_date" maxDate={ new Date() }/>
         <SelectOneField label="(d) IRB" model={ model } validate={ this.state.validate } required={ true } name="report_to_irb" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_irb_date"/>
+        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_irb_date" maxDate={ new Date() }/>
 
         <Text>12. Describe the SAE with diagnosis, immediate cause or precipitating events, symptoms, any investigations, management,
           results and outcome (with dates where possible). Include relevant medical history. Additional narrative, photocopies of

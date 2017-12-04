@@ -48,7 +48,7 @@ export default class SAEDrugsTableComponent extends TableComponent {
 
     var row = [
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dose" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] }/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE } type="option"/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE } type="option"/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY } type="option"/>,
@@ -69,14 +69,13 @@ export default class SAEDrugsTableComponent extends TableComponent {
       widthArr.push(30)
       tableHead.push("")
       addBtn = ( <Button onPress={this.addRow} title="Add row" color="#841584" /> )
-    } else {
-
     }
+    
     return (
-      <View>
+      <View style={ AppStyles.tableView }>
         <ScrollView horizontal={true}>
           <Table>
-            <Row data={tableHead} style={AppStyles.tableHead} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
+            <Row data={ tableHead } style={AppStyles.tableHead} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
             <Rows data={ rows }  widthArr={widthArr}/>
           </Table>
         </ScrollView>

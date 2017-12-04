@@ -20,17 +20,8 @@ export default class MedicationTableComponent extends TableComponent {
     this.getRow = this.getRow.bind(this)
     this.getHeader = this.getHeader.bind(this)
     this.getReadOnlyRow = this.getReadOnlyRow.bind(this)
-    const { model, name } = this.props
-  }
-
-  /**
-    Adds a new row to the table.
-  */
-  addRow() {
-    var rows = this.state.rows
-    const index = rows.length
-    rows.push({})
-    this.setState({ rows : rows })
+    this.onChange = this.onChange.bind(this)
+    //const { model, name } = this.props
   }
 
   getHeader() {
@@ -74,14 +65,39 @@ export default class MedicationTableComponent extends TableComponent {
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY}/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" label="" model={ model[name][index] }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" label="" model={ model[name][index] }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" label="" model={ model[name][index] } index={ index } maxDate={ new Date() } onChange={ this.onChange }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" label="" model={ model[name][index] } minDate={ this.getMinStopDate(index) } maxDate={ new Date() }/>,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="indication" model={ model[name][index] }/>,
       <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
   } // color="#841584"
+
+  onChange(value, index) {
+    var { start_dates } = this.getState()
+    if(start_dates == null) {
+      start_dates = []
+    }
+    start_dates[index] = value
+    this.updateState({ start_dates : start_dates })
+  }
+
+  getMinStopDate(index) {
+    const { model, name } = this.props
+    const data = model[name][index]
+    if(data && data['start_date']) {
+      if(typeof data['start_date'] == "string") {
+        const v = data['start_date'].split("-")
+        value = new Date();
+        value.setDate(v[0])
+        value.setMonth(parseInt(v[1]))
+        value.setYear(v[2])
+        return value
+      }
+    }
+    return undefined
+  }
 
   getReadOnlyRow(index) {
     const rowData = {}
@@ -93,16 +109,16 @@ export default class MedicationTableComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dose_id" type="option" model={ model[name][index] } options={ DOSE }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="route_id" type="option" model={ model[name][index] } options={ ROUTE }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="frequency_id" type="option" model={ model[name][index] } options={ FREQUENCY}/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="start_date" label="" type="date" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="stop_date" label="" type="date" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="indication" model={ model[name][index] }/>,
-      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="batch_number" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="dose_id" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="dose_id" type="option" model={ model[name][index] } options={ DOSE }/>,
+      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="route_id" type="option" model={ model[name][index] } options={ ROUTE }/>,
+      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="frequency_id" type="option" model={ model[name][index] } options={ FREQUENCY}/>,
+      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="start_date" label="" type="date" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="stop_date" label="" type="date" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="indication" model={ model[name][index] }/>,
+      <CheckBoxInput key={ Math.floor(Math.random() * 10000) } name="suspected_drug" model={ model[name][index] }/>,
     ]
     return row
   }
@@ -119,7 +135,7 @@ export default class MedicationTableComponent extends TableComponent {
       widthArr.push(30)
     }
     return (
-      <View>
+      <View style={ AppStyles.tableView }>
         <ScrollView horizontal={true}>
           <Table>
             <Row data={ headerEls } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } widthArr={ widthArr }/>

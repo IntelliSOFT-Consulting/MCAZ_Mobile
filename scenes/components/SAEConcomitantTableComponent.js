@@ -62,7 +62,7 @@ export default class SAEConcomitantTableComponent extends TableComponent {
       addBtn = ( <Button onPress={this.addRow} title="Add row" color="#841584" /> )
     }
     return (
-      <View>
+      <View style={ AppStyles.tableView }>
         <ScrollView horizontal={true}>
           <Table>
             <Row data={ tableHead } style={AppStyles.tableHead} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>

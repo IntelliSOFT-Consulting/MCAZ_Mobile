@@ -13,6 +13,7 @@ import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_IN
 class SavedReportsScene extends Component {
   static navigationOptions = {
     title: 'Saved Reports',
+    
   }
 
   constructor(props, context) {

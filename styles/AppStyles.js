@@ -79,5 +79,10 @@ export default AppStyles = StyleSheet.create({
   },
   sadrBackground: {
     backgroundColor: '#7f7fff'
+  },
+  
+  tableView: {
+    marginTop: 5,
+    marginBottom: 10
   }
 })

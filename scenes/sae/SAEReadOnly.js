@@ -36,20 +36,20 @@ export default class SAEReadOnly extends Component{
         <ReadOnlyDataRenderer label="Hosp. Num.:" name="institution_code" model={ model }/>
         <ReadOnlyDataRenderer label="Date of Birth:" name="date_of_birth" model={ model } type="date"/>
         <ReadOnlyDataRenderer label="Gender :" name="gender" model={ model } options={['Male', 'Female', 'Unknown']}/>
-        <ReadOnlyDataRenderer label="Type of Report:" name="report_type" model={ model } type="option" options={ REPORT_TYPE_SAE }/>
-        <ReadOnlyDataRenderer label="Study week:-" name="study_week" model={ model }/>
-        <ReadOnlyDataRenderer label="Visit number:-" name="visit_number" model={ model }/>
+        <ReadOnlyDataRenderer label="Type of Report" name="report_type" model={ model } type="option" options={ REPORT_TYPE_SAE }/>
+        <ReadOnlyDataRenderer label="Study week" name="study_week" model={ model }/>
+        <ReadOnlyDataRenderer label="Visit number" name="visit_number" model={ model }/>
 
         <ReadOnlyDataRenderer label="1. What type of adverse event is this?" name="adverse_event_type" model={ model } type="option" options={ EVENT_TYPE }/>
         <ReadOnlyDataRenderer label="2a. If SAE, is it:" name="sae_type" model={ model } type="option" options={ SAE_EVENT_TYPE }/>
         <ReadOnlyDataRenderer label="If Other, specify" name="sae_description" model={ model }/>
-        <ReadOnlyDataRenderer label="2b. Toxicity Grade:" name="toxicity_grade" model={ model } type="option" options={ SAE_TOXICITY_GRADE }/>
+        <ReadOnlyDataRenderer label="2b. Toxicity Grade" name="toxicity_grade" model={ model } type="option" options={ SAE_TOXICITY_GRADE }/>
         <ReadOnlyDataRenderer label="3a. Any previous Adverse Event’s report on this participant?:" name="previous_events" model={ model } options={["Yes", "No"]}/>
         <ReadOnlyDataRenderer label="If yes, how many?" name="previous_events_number" keyboardType="numeric" model={ model }/>
         <ReadOnlyDataRenderer label="3b. Total Number of SAEs to date for the whole study:" keyboardType="numeric" name="total_saes" model={ model } />
         <ReadOnlyDataRenderer label="4. Location of the current Adverse Event:" name="location_event" model={ model } type="option" options={ LOCATION_ADVERSE_EVENT }/>
         <ReadOnlyDataRenderer label="If Other, specify" name="location_event_specify" model={ model }/>
-        <ReadOnlyDataRenderer label="5. Research involves a:" name="research_involves" model={ model } type="option" options={ RESEARCH_INVOLVES }/>
+        <ReadOnlyDataRenderer label="5. Research involves a" name="research_involves" model={ model } type="option" options={ RESEARCH_INVOLVES }/>
         <ReadOnlyDataRenderer label="If Other, specify" name="research_involves_specify" model={ model }/>
         <ReadOnlyDataRenderer label="6. Name of Drug, Device or Procedure:" name="name_of_drug" model={ model }/>
         <ReadOnlyDataRenderer label="7. Is the drug/device investigational:" name="drug_investigational" model={ model } options={["Yes", "No"]}/>

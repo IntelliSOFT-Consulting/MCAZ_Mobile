@@ -26,7 +26,7 @@ export default class TextInputField extends Component {
   }
 
   render() {
-    const { label, required, validate } = this.props
+    const { label, required, validate, hideLabel } = this.props
     const { value } = this.state
     var text = null
     if(required) {
@@ -40,10 +40,11 @@ export default class TextInputField extends Component {
       )
     }
     const labelText = label? label : ""
+    const labelHeight = hideLabel? 0 : 16
     return (
       <View>
         <TextField {...this.props}
-          label={ labelText }
+          label={ labelText } labelHeight={ labelHeight }
           value={ this.state.value }
           onChangeText={ (text) => this.handleChange(text) }
         />
