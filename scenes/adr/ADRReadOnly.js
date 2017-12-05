@@ -46,7 +46,7 @@ export default class ADRReadOnly extends Component{
         <ReadOnlyDataRenderer model={ model } label="Action taken:" name="action_taken" required={ true } options={ ACTION_TAKEN } type="option"/>
         <ReadOnlyDataRenderer model={ model } name="outcome" label="Outcome of ADR:" options={ OUTCOME } type="option"/>
         <ReadOnlyDataRenderer model={ model } name="relatedness" label="Relatedness of suspected medicine(s) to ADR:" options={ RELATEDNESS_TO_ADR } type="option"/>
-        <FileAttachmentComponent model={ model } name="files" label="Attach any files" readonly={ true }/>
+        <FileAttachmentComponent model={ model } name="attachments" label="Attach any files" readonly={ true }/>
 
         <ReadOnlyDataRenderer model={ model } name="reporter_name" label="Forename(s) and Surname: "  type="text"/>
         <ReadOnlyDataRenderer model={ model } name="designation_id" label="Designation: " options={ DESIGNATION }  type="option"/>
