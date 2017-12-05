@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TableComponent  from './TableComponent'
 import { Text, View, TextInput, ScrollView, Button, Alert, CheckBox } from 'react-native'
 import TextInputField from './TextInputField'
+import FileInputComponent from './FileInputComponent'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
 import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
@@ -41,10 +42,10 @@ export default class FileAttachmentComponent extends TableComponent {
   getRow(index) {
     const rowData = {}
     const { model, name } = this.props
-    
+
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] }/>,
+      <FileInputComponent key={Math.floor(Math.random() * 10000) } name="file" model={ model[name][index] } />,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="description" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
@@ -64,8 +65,8 @@ export default class FileAttachmentComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="file" model={ model[name][index] } type="file" />,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="description" model={ model[name][index] }/>,
     ]
     return row
   }
