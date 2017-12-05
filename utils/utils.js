@@ -2,7 +2,7 @@ import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_IN
 import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL } from './Constants'
 
 export const getRequestPayload  = (data) => {
-  if(data.type == REPORT_TYPE_ADR) {
+  /*if(data.type == REPORT_TYPE_ADR) {
     var payload = {}
     payload.sadr = data
     return payload
@@ -18,7 +18,8 @@ export const getRequestPayload  = (data) => {
     var payload = {}
     payload.saefi = data
     return payload
-  }
+  }*/
+  return data
 }
 
 export const getURL = (data) => {

@@ -58,21 +58,21 @@ export const uploadData = (data, url, updateProgress) => {
       body: JSON.stringify(getRequestPayload(data))
     }).then(response => response.json()).then((json) => {
       if(json.sadr) {
-        json.sadr.sadr.id = json.sadr.id
-        dispatch(saveUploaded(json.sadr.sadr))
-        dispatch(removeCompleted(json.sadr.sadr))
+        json.sadr.id = json.id
+        dispatch(saveUploaded(json.sadr))
+        dispatch(removeCompleted(json.sadr))
       } else if(json.adr) {
-        json.adr.adr.id = json.adr.id
-        dispatch(saveUploaded(json.adr.adr))
-        dispatch(removeCompleted(json.adr.adr))
+        json.adr.id = json.id
+        dispatch(saveUploaded(json.adr))
+        dispatch(removeCompleted(json.adr))
       } else if(json.aefi) {
-        json.aefi.aefi.id = json.aefi.id
-        dispatch(saveUploaded(json.aefi.aefi))
-        dispatch(removeCompleted(json.aefi.aefi))
+        json.aefi.id = json.id
+        dispatch(saveUploaded(json.aefi))
+        dispatch(removeCompleted(json.aefi))
       } else if(json.saefi) {
-        json.saefi.saefi.id = json.saefi.id
-        dispatch(saveUploaded(json.saefi.saefi))
-        dispatch(removeCompleted(json.saefi.saefi))
+        json.saefi.id = json.id
+        dispatch(saveUploaded(json.saefi))
+        dispatch(removeCompleted(json.saefi))
       } else {
         console.log(JSON.stringify(json))
         return
