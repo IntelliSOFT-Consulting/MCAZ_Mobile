@@ -12,8 +12,17 @@ import { BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, GENDER, STATUS_ON_DATE, DESIG
 
 export default class AEFIInvReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
+  constructor(props, context) {
+    super(props, context)
+    var { model } = this.props
+    if(model.reports == null) {
+      model.reports = [{}]
+    }
+    this.state = { model : model }
+  }
   render() {
-    const { model, goBack} = this.props
+    const { goBack} = this.props
+    const { model } = this.state 
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
@@ -42,7 +51,7 @@ export default class AEFIInvReadOnly extends Component{
         <ReadOnlyDataRenderer type="date"  label="Date:" model={ model } name="autopsy_done_date"/>
         <ReadOnlyDataRenderer type="option"  label="Autopsy planned?" model={ model } name="autopsy_planned" options={ BOOLEAN_OPTIONS }/>
         <ReadOnlyDataRenderer type="date"  label="Planned on Date:" model={ model } name="autopsy_planned_date"/>
-        <ReadOnlyDataRenderer name="autopsy" model={ model } label="Attach report" type="file"/>
+        <ReadOnlyDataRenderer name="reports" model={ model.reports } label="Attach report" type="file"/>
 
         <ReadOnlyDataRenderer type="option"  label="1. What type of adverse event is this?" name="adverse_event_type" model={ model } validate={ this.state.validate } required={ true } options={ EVENT_TYPE }/>
         <ReadOnlyDataRenderer type="option"  label="2a. If SAE, is it:" name="sae_type" model={ model } validate={ this.state.validate } required={ true } options={ SAE_EVENT_TYPE }/>

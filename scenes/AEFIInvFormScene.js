@@ -38,6 +38,9 @@ class AEFIInvFormScene extends PureComponent {
     if(model == null) {
       model = { rid : Date.now(), type : REPORT_TYPE_AEFI_INV }
     }
+    if(model.reports == null) {
+      model.reports = [{}]
+    }
     //state.model = model
     this.state = {
       model: model,
