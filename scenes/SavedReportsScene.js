@@ -11,9 +11,19 @@ import { setReportFilter } from '../actions'
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 
 class SavedReportsScene extends Component {
-  static navigationOptions = {
-    title: 'Saved Reports',
-    
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Saved Reports',
+      headerRight: (
+        <Button
+          title="Close"
+          onPress={
+            () => navigation.goBack(null)
+          }
+        />
+      )
+    }
+
   }
 
   constructor(props, context) {
