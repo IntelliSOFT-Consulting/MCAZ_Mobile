@@ -36,7 +36,7 @@ class AEFIInvFormScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_AEFI_INV, "name_of_institution" : "Nairobi Hosp", "sadr_list_of_drugs" : [ { "brand_name" : "dawa", "dose_id" : "1" }], user: {} }
+      model = { rid : Date.now(), type : REPORT_TYPE_AEFI_INV }
     }
     //state.model = model
     this.state = {
@@ -160,7 +160,7 @@ class AEFIInvFormScene extends PureComponent {
       {text: 'Yes', onPress: () => this.upload() },
       {text: 'No' }
     ])
-    
+
   }
 
   cancel() {

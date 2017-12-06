@@ -34,7 +34,7 @@ class AEFIReportingFormScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_AEFI, "name_of_institution" : "Nairobi Hosp", "sadr_list_of_drugs" : [ { "brand_name" : "dawa", "dose_id" : "1" }], user: {} }
+      model = { rid : Date.now(), type : REPORT_TYPE_AEFI }
     }
     //state.model = model
     this.state = {

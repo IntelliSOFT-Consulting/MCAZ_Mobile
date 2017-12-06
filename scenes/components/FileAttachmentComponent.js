@@ -44,7 +44,7 @@ export default class FileAttachmentComponent extends TableComponent {
     const { model, name } = this.props
 
     var row = [
-      <FileInputComponent key={Math.floor(Math.random() * 10000) } name="file" model={ model[name][index] } />,
+      <FileInputComponent key={Math.floor(Math.random() * 10000) } name="file" model={ model[name][index] } hideLabel={ true }/>,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="description" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]

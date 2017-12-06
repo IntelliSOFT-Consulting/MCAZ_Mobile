@@ -39,10 +39,11 @@ export default class FileInputComponent extends Component{
     });
   }
   render() {
-    const { model } = this.props
-    
+    const { hideLabel, label } = this.props
+    const labelText = hideLabel? null : (<Text>{ label }</Text>)
     return (
       <View>
+        { labelText }
         <Text>{ this.state.filename }</Text>
         <Button onPress={ this.selectFile } title="Select file"/>
       </View>

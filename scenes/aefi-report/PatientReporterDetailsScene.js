@@ -31,8 +31,7 @@ export default class PatientReporterDetailsScene extends PureComponent {
         <TextInputField label="District:" name="reporter_district" model={ model }/>
         <TextInputField label="Province:" name="reporter_province" model={ model }/>
         <TextInputField label="Telephone &amp; e-mail:" name="reporter_phone" model={ model }/>
-        <TextInputField label="E-mail:" name="reporter_email" model={ model }/>
-        <TextInputField label="Today’s date (DD/MM/YYYY):" name="adverse_event_type" model={ model }/>
+        <TextInputField label="E-mail" name="reporter_email" model={ model }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>

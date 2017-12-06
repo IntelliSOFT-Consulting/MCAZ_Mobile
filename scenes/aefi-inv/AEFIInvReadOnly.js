@@ -42,6 +42,7 @@ export default class AEFIInvReadOnly extends Component{
         <ReadOnlyDataRenderer type="date"  label="Date:" model={ model } name="autopsy_done_date"/>
         <ReadOnlyDataRenderer type="option"  label="Autopsy planned?" model={ model } name="autopsy_planned" options={ BOOLEAN_OPTIONS }/>
         <ReadOnlyDataRenderer type="date"  label="Planned on Date:" model={ model } name="autopsy_planned_date"/>
+        <ReadOnlyDataRenderer name="autopsy" model={ model } label="Attach report" type="file"/>
 
         <ReadOnlyDataRenderer type="option"  label="1. What type of adverse event is this?" name="adverse_event_type" model={ model } validate={ this.state.validate } required={ true } options={ EVENT_TYPE }/>
         <ReadOnlyDataRenderer type="option"  label="2a. If SAE, is it:" name="sae_type" model={ model } validate={ this.state.validate } required={ true } options={ SAE_EVENT_TYPE }/>

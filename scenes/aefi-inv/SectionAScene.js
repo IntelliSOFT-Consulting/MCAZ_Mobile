@@ -6,6 +6,7 @@ import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import DateTimeInput from '../components/DateTimeInput'
+import FileInputComponent from '../components/FileInputComponent'
 
 import { BOOLEAN_OPTIONS, GENDER, STATUS_ON_DATE, DESIGNATION, PLACE_VACCINATION, SITE_TYPE, VACCINATION_IN } from '../../utils/FieldOptions'
 
@@ -45,6 +46,7 @@ export default class SectionAScene extends PureComponent {
         <DateTimeInput label="Date:" model={ model } name="autopsy_done_date" maxDate={ new Date() } minDate={ this.state.died_date }/>
         <SelectOneField label="Autopsy planned?" model={ model } name="autopsy_planned" options={ BOOLEAN_OPTIONS }/>
         <DateTimeInput label="Planned on Date:" model={ model } name="autopsy_planned_date" minDate={ new Date() }/>
+        <FileInputComponent name="autopsy" model={ model } label="Attach report"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
