@@ -46,7 +46,7 @@ export default class SectionAScene extends PureComponent {
         <DateTimeInput label="Date:" model={ model } name="autopsy_done_date" maxDate={ new Date() } minDate={ this.state.died_date }/>
         <SelectOneField label="Autopsy planned?" model={ model } name="autopsy_planned" options={ BOOLEAN_OPTIONS }/>
         <DateTimeInput label="Planned on Date:" model={ model } name="autopsy_planned_date" minDate={ new Date() }/>
-        <FileInputComponent name="reports" model={ model.reports } label="Attach report"/>
+        <FileInputComponent name="reports" model={ model.reports[0] } label="Attach report"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>

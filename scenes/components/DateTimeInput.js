@@ -39,11 +39,12 @@ export default class DateTimeInput extends Component {
       value['day'] = date.getDate()
       value['month'] = date.getMonth()
       value['year'] = date.getFullYear()
+      model[name] = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()
       if(showTime) {
         value['hour'] = date.getHours()
         value['minute'] = date.getMinutes()
+        model[name] += " " + date.getHours() + ":" + date.getMinutes()
       }
-      model[name] = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()
     }
     const { onChange, index } = this.props
     if(onChange) {
@@ -78,7 +79,7 @@ export default class DateTimeInput extends Component {
         <Text>{ text }</Text>
         <Button onPress={this._showDateTimePicker} title={ dateLabel }/>
 
-        <DateTimePicker date={ this.state.date }
+        <DateTimePicker date={ this.state.date } datePickerModeAndroid="spinner"
           isVisible={this.state.isDateTimePickerVisible} minimumDate={ minimumDate }
           onConfirm={this._handleDatePicked} maximumDate={ maxDateVal }
           onCancel={this._hideDateTimePicker} mode={ mode }

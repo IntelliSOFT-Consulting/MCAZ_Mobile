@@ -58,19 +58,19 @@ export const uploadData = (data, url, updateProgress) => {
       body: JSON.stringify(getRequestPayload(data))
     }).then(response => response.json()).then((json) => {
       if(json.sadr) {
-        json.sadr.id = json.id
+        //json.sadr.id = json.id
         dispatch(saveUploaded(json.sadr))
         dispatch(removeCompleted(json.sadr))
       } else if(json.adr) {
-        json.adr.id = json.id
+        //json.adr.id = json.id
         dispatch(saveUploaded(json.adr))
         dispatch(removeCompleted(json.adr))
       } else if(json.aefi) {
-        json.aefi.id = json.id
+        //json.aefi.id = json.id
         dispatch(saveUploaded(json.aefi))
         dispatch(removeCompleted(json.aefi))
       } else if(json.saefi) {
-        json.saefi.id = json.id
+        //json.saefi.id = json.id
         dispatch(saveUploaded(json.saefi))
         dispatch(removeCompleted(json.saefi))
       } else {

@@ -7,7 +7,6 @@ import AdverseEventsScene from './aefi-report/AdverseEventsScene'
 import ReportDetailsScene from './aefi-report/ReportDetailsScene'
 import VaccinationScene from './aefi-report/VaccinationScene'
 
-
 import { connect } from 'react-redux'
 import { REPORT_TYPE_AEFI, AEFI_URL } from '../utils/Constants'
 import { AEFI_MANDATORY_FIELS } from '../utils/FormFields'
@@ -36,7 +35,7 @@ class AEFIReportingFormScene extends PureComponent {
     if(model == null) {
       model = { rid : Date.now(), type : REPORT_TYPE_AEFI }
     }
-    //state.model = model
+    
     this.state = {
       model: model,
       index: 0,
@@ -168,7 +167,7 @@ class AEFIReportingFormScene extends PureComponent {
     const { model } = this.state
     const { uploadData, saveCompleted, connection } = this.props
     if(connection.isConnected) {
-      uploadData(model, ADR_URL)
+      uploadData(model, AEFI_URL)
     } else {
       Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
       saveCompleted(model)

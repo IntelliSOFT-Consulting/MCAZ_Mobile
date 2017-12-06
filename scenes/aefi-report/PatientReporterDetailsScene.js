@@ -25,7 +25,7 @@ export default class PatientReporterDetailsScene extends PureComponent {
         <TextInputField label="OR Age at onset" name="age_at_onset" model={ model }/>
         <TextInputField label="Specify" name="age_at_onset_specify" model={ model }/>
         <TextInputField label="Reporter’s Name:" name="reporter_name" model={ model } required={ true }/>
-        <SelectOneField label="Designation:" name="reporter_name" model={ model } options={ DESIGNATION }/>
+        <SelectOneField label="Designation:" name="designation_id" model={ model } options={ DESIGNATION }/>
         <TextInputField label="Department:" name="reporter_department" model={ model }/>
         <TextInputField label="Address:" name="reporter_address" model={ model }/>
         <TextInputField label="District:" name="reporter_district" model={ model }/>
