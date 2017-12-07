@@ -1,5 +1,6 @@
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from './Constants'
 import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL } from './Constants'
+import moment from 'moment'
 
 export const getRequestPayload  = (data) => {
   /*if(data.type == REPORT_TYPE_ADR) {
@@ -44,3 +45,16 @@ export const pad = (value) => {
   }
   return value
 }
+
+export const getDateTimeFromString = (dateTime) => {
+    const split = dateTime.split(" ")
+    const v = split[0].split("-")
+
+    var date = moment().year(v[2]).month(v[1]).date(v[0]) //new Date(model[name]['month'] + '/' + model[name]['day'] + '/' + model[name]['year'])
+
+    if(split.length == 2) {
+      const t = split[1].split(":")
+      date.hour(t[0]).minute(v[1])
+    }
+    return date
+  }

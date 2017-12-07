@@ -9,16 +9,21 @@ import DateTimeInput from '../components/DateTimeInput'
 import DateSelectInput from '../components/DateSelectInput'
 
 import { AGE_GROUP, GENDER } from '../../utils/FieldOptions'
+import { getDateTimeFromString } from '../../utils/utils'
+
+import moment from 'moment'
 
 export default class PatientDetails extends PureComponent {
 
   constructor(props, context) {
     super(props, context)
     const { model } = this.props
+    this.state = { model }
   }
 
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
+
     return (
       <ScrollView style={ [AppStyles.scrollContainer, AppStyles.adrBackground] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
@@ -29,8 +34,8 @@ export default class PatientDetails extends PureComponent {
         <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :"/>
         <TextInputField name="patient_name" model={ model } label="Patient Initials:" required={ true } validate={ this.props.validate }/>
         <TextInputField name="ip_no" model={ model } label="VCT/OI/TB Number"/>
-        <DateSelectInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate } maxDate={ new Date() }/>
-        <SelectOneField name="age_group" model={ model } label="Age group" options={ AGE_GROUP }/>
+        <DateSelectInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate } maxDate={ new Date() } onDateChange={ this.onDateChange }/>
+        <SelectOneField name="age_group" model={ model } label="Age group" options={ AGE_GROUP } value={ this.state.age_group }/>
         <TextInputField name="weight" model={ model } label="Weight(Kg)" keyboardType='numeric'/>
         <TextInputField name="height" model={ model } label="Height(cm)" keyboardType='numeric'/>
         <SelectOneField name="gender" model={ model } label="Gender" options={ GENDER } required={ true } validate={ this.props.validate }/>
@@ -40,6 +45,32 @@ export default class PatientDetails extends PureComponent {
         </View>
       </ScrollView>
     )
+  }
+
+  onDateChange = (value) => {
+    const values = value.split("-")
+    if(values[2] != "") {
+      const time = moment().year(values[2]).month(values[1]).day(values[0])
+      const now = moment()
+      const age = now.diff(time, 'years', true);
+      const months = now.diff(time, 'days', true);
+      var age_group = ""
+      if(months <= 28) {
+        age_group = "neonate"
+      } else if(age >= 50) {
+        age_group = "elderly"
+      } else if(age >= 19) {
+        age_group = "adult"
+      } else if(age >= 10) {
+        age_group = "adolescent"
+      } else {
+        age_group = "child"
+      }
+      const { model } = this.props
+      model['age_group'] = age_group
+      this.setState({ age_group : age_group })
+    }
+
   }
 
   /*shouldComponentUpdate(nextProps, nextState) {

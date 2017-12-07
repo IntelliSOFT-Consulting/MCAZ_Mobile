@@ -61,6 +61,18 @@ export default class SelectOneField extends Component {
       </View>
     )
   }
+
+  componentWillReceiveProps(nextProps) {
+    const { model, name, options } = this.props
+    var {value} = this.state
+    const newModel = nextProps.model
+    if(value != newModel[name] && newModel[name]) {
+      value = newModel[name]
+      const selected = options.find((option) => option.key == value || option == value )
+      label = selected.value
+      this.setState({ value,label })
+    }
+  }
 }
 
 /*
