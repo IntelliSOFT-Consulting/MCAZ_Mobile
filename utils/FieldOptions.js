@@ -148,9 +148,9 @@ export const ROUTE = [ {"key":"1", value: ""},{"key":"2","value":"oral"},{"key":
 
 export const FREQUENCY = [{"key":"1", value: ""},{"key":"2","value":"OD"},{"key":"3","value":"BD"},{"key":"4","value":"TID."},{"key":"5","value":"QID|QDS"},{"key":"6","value":"PRN"},{"key":"7","value":"MANE"},{"key":"8","value":"NOCTE"},{"key":"9","value":"STAT"}]
 
-export const DESIGNATION = [ { key : "", value: ""},
-  { key : "1", value : 'physician' }, { key : "2", value : 'pharmacist' }, { key : "3", value : 'other professional' },
-  { key : "5", value : 'consumer or other non health professional' }
+export const DESIGNATION = [ { key : "", value: ""}, { key : "1", value : "Nurse" },
+  { key : "2", value : 'Medical Practitioner/Physician' }, { key : "3", value : 'Pharmacy Staff' }, { key : "5", value : 'Patient/Consumer/General Public' },
+  { key : "6", value : 'Other Health Professionals' }
 ]
 
 export const ACTION_TAKEN = [

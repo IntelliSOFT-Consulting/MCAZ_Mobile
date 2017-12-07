@@ -7,6 +7,7 @@ import TextInputField from './TextInputField'
 import SelectOneField from './SelectOneField'
 import CheckBoxInput from './CheckBoxInput'
 import TableComponent from './TableComponent'
+import DateSelectInput from './DateSelectInput'
 
 import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
 
@@ -65,8 +66,8 @@ export default class MedicationTableComponent extends TableComponent {
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY}/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" label="" model={ model[name][index] } index={ index } maxDate={ new Date() } onChange={ this.onChange }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" label="" model={ model[name][index] } minDate={ this.getMinStopDate(index) } maxDate={ new Date() }/>,
+      <DateSelectInput key={Math.floor(Math.random() * 10000)} name="start_date" hideLabel={ true } abel="" model={ model[name][index] } index={ index } maxDate={ new Date() } onChange={ this.onChange }/>,
+      <DateSelectInput key={Math.floor(Math.random() * 10000)} name="stop_date" hideLabel={ true } label="" model={ model[name][index] } minDate={ this.getMinStopDate(index) } maxDate={ new Date() }/>,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="indication" model={ model[name][index] }/>,
       <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
@@ -135,6 +136,8 @@ export default class MedicationTableComponent extends TableComponent {
     var addRowBtn = null
     if(!readonly) {
       addRowBtn = (<Button onPress={this.addRow} title="Add row"  />)
+      widthArr[6] = 240
+      widthArr[7] = 240
       widthArr.push(30)
     }
     return (

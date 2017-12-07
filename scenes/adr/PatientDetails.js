@@ -6,6 +6,7 @@ import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import DateTimeInput from '../components/DateTimeInput'
+import DateSelectInput from '../components/DateSelectInput'
 
 import { AGE_GROUP, GENDER } from '../../utils/FieldOptions'
 
@@ -28,13 +29,13 @@ export default class PatientDetails extends PureComponent {
         <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :"/>
         <TextInputField name="patient_name" model={ model } label="Patient Initials:" required={ true } validate={ this.props.validate }/>
         <TextInputField name="ip_no" model={ model } label="VCT/OI/TB Number"/>
-        <DateTimeInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate } maxDate={ new Date() }/>
+        <DateSelectInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate } maxDate={ new Date() }/>
         <SelectOneField name="age_group" model={ model } label="Age group" options={ AGE_GROUP }/>
         <TextInputField name="weight" model={ model } label="Weight(Kg)" keyboardType='numeric'/>
-        <TextInputField name="height" model={ model } label="Height(meters)" keyboardType='numeric'/>
+        <TextInputField name="height" model={ model } label="Height(cm)" keyboardType='numeric'/>
         <SelectOneField name="gender" model={ model } label="Gender" options={ GENDER } required={ true } validate={ this.props.validate }/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(2) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>

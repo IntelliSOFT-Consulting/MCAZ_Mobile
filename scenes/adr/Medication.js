@@ -22,16 +22,18 @@ export default class Medication extends PureComponent {
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
         <Text style={ AppStyles.boldText }>Current Medication</Text>
         <MedicationTableComponent model={ model } name="sadr_list_of_drugs"/>
-        <ConcomitantTableComponent model={ model } name="sadr_other_drugs" label="Concomitant (Other) drugs taken, including herbal medicines & Dates/period taken:"/>
+
         <SelectOneField model={ model } label="Action taken:" name="action_taken" required={ true } options={ ACTION_TAKEN }/>
         <SelectOneField model={ model } name="outcome" label="Outcome of ADR:" options={ OUTCOME } required={ true }/>
         <SelectOneField model={ model } name="relatedness" label="Relatedness of suspected medicine(s) to ADR:" options={ RELATEDNESS_TO_ADR }/>
         <FileAttachmentComponent model={ model } name="attachments" label="Attach any files"/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>
     )
   }
 }
+
+// <ConcomitantTableComponent model={ model } name="sadr_other_drugs" label="Concomitant (Other) drugs taken, including herbal medicines & Dates/period taken:"/>

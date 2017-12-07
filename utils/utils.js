@@ -33,3 +33,14 @@ export const getURL = (data) => {
     return SAEFI_URL
   }
 }
+
+
+export const pad = (value) => {
+  if(isNaN(value) || value === '') {
+    return value
+  }
+  if(value && value < 10) {
+    return '0' + value
+  }
+  return value
+}
