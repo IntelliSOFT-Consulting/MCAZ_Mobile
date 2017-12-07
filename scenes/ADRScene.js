@@ -125,6 +125,7 @@ class ADRScene extends PureComponent {
         const values = model[field.name]
         var arrayNames = []
         if(Array.isArray(values)) {
+          var suspected_drug = 0
           for(let i = 0; i < values.length; i++) {
             const val = values[i]
             fields.forEach((f) => {
@@ -138,9 +139,18 @@ class ADRScene extends PureComponent {
                 }
               }
             })
+            if(val['suspected_drug'] == '1') {
+              suspected_drug++
+            }
           }
+          if(suspected_drug == 0) {
+            names += "\nCheck at least one suspected drug"
+          }
+        } else {
+          valid = false
+          names += "\nAdd at least one suspected drug."
         }
-        if(names != "") {
+        if(names != "" && arrayNames.length > 0) {
           names += ",\n"
         }
         names += arrayNames.join(',\n')
