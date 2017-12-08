@@ -28,11 +28,17 @@ export default class ReadOnlyDataRenderer extends Component {
       }
       return date.join("/")*/
     } else if(type == 'option' && options) {
-      const selected = options.find((option) => option.key == model[name] || option == model[name] )
-      if(typeof selected == 'string') {
-        return selected
+      var values = model[name].split(",")
+      var renderValue = []
+      options.forEach((option) => {
+        if(values.indexOf(option.key) != -1) {
+          renderValue.push(option.value)
+        }
+      })
+      if(renderValue.length > 0) {
+        return renderValue.join(",")
       }
-      return selected.value
+      return model[name]
     } else if(type == 'file') {
       return model['filename']
     }

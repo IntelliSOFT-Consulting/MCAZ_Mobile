@@ -27,9 +27,9 @@ export default class MedicationTableComponent extends TableComponent {
 
   getHeader() {
     const { readonly } = this.props
-    const headers = ['Generic/Brand Name ', 'Batch No.', 'Dose', '','Route', 'Frequency', 'Date Started', 'Date Stopped', "Indication", 'Tick Suspected medicine', ""];
+    const headers = ['Generic ', 'Brand Name', 'Batch No.', 'Dose', '','Route', 'Frequency', 'Date Started', 'Date Stopped', "Indication", 'Tick Suspected medicine', ""];
     var headerEls = []
-    mandatory = [0, 2, 3, 4, 7] // mandatory indices
+    mandatory = [0, 3, 4, 5, 8] // mandatory indices
     for(let i = 0; i < headers.length; i++) {
       if(mandatory.indexOf(i) != -1) {
         const header = (
@@ -60,6 +60,7 @@ export default class MedicationTableComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] } />,
       <TextInputField key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] }/>,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] }/>,
@@ -113,6 +114,7 @@ export default class MedicationTableComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
+      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] } />,
       <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
       <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="batch_number" model={ model[name][index] }/>,
       <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="dose_id" model={ model[name][index] }/>,

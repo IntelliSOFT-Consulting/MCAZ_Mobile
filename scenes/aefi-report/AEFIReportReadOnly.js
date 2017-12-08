@@ -14,7 +14,7 @@ export default class AEFIReportReadOnly extends Component{
   render() {
     const { model, goBack } = this.props
     return (
-      <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
+      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
         <ReadOnlyDataRenderer label="Patient first name:" name="patient_name" model={ model } required={ true }/>

@@ -28,7 +28,6 @@ export default class PatientDetails extends PureComponent {
       <ScrollView style={ [AppStyles.scrollContainer, AppStyles.adrBackground] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
-        <TextInputField label="MCAZ Reference Number (MCAZ use only)"/>
         <Text style={ AppStyles.boldText }>Patient Details</Text>
         <TextInputField name="name_of_institution" model={ model } label="Clinical/Hospital Name :"/>
         <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :"/>
@@ -73,7 +72,8 @@ export default class PatientDetails extends PureComponent {
 
   }
 
-  /*shouldComponentUpdate(nextProps, nextState) {
+  /* <TextInputField label="MCAZ Reference Number (MCAZ use only)"/>
+  shouldComponentUpdate(nextProps, nextState) {
     const { validate } = this.props
     const newValidate = nextProps.validate
     if(validate != newValidate) {

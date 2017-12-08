@@ -35,7 +35,8 @@ class AEFIReportingFormScene extends PureComponent {
     if(model == null) {
       model = { rid : Date.now(), type : REPORT_TYPE_AEFI }
     }
-    
+    model = {"rid":1512708932987,"type":"REPORT_TYPE_AEFI","ae_abscess":"1","adverse_events":"ae_abscess,ae-thrombocytopenia,ae-fever","ae-thrombocytopenia":"1","ae-fever":"1","patient_name":"Wenger","patient_next_of_kin":"Arsene","patient_address":"x","date_of_birth":"--2012","reporter_name":"sdsd","designation_id":"2","name_of_vaccination_center":"hhh","serious":"No","outcome":"Not yet recovered"}
+
     this.state = {
       model: model,
       index: 0,

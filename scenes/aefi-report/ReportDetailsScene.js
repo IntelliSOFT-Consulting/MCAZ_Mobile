@@ -15,7 +15,7 @@ export default class ReportDetailsScene extends PureComponent {
   render() {
     const { model, saveAndContinue, saveAndSubmit, cancel } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <Text>First decision making level to complete (District level):</Text>
         <DateTimeInput label="Date report received at district level (DD/MM/YYYY):" name="district_receive_date" model={ model } maxDate={ new Date() }/>
         <SelectOneField label="Investigation needed:" options={ BOOLEAN_OPTIONS } name="investigation_needed" model={ model }/>

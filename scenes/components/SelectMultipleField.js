@@ -6,7 +6,7 @@ export default class SelectMultipleField extends Component {
 
   constructor(props) {
     super(props)
-    const { options } = this.props
+    const { options, model } = this.props
     var state = {}
     if(options && typeof options == "array") {
       for(let i = 0; i < options.length; i++) {
@@ -18,23 +18,22 @@ export default class SelectMultipleField extends Component {
         }
       }
     }
+    state.model = model
     this.state = state
     this.handleCheck = this.handleCheck.bind(this)
   }
 
   handleCheck(option, index) {
-    const { options, name, model } = this.props
-    var state = this.state
+    const { options, name } = this.props
+    var modelProp = this.props.model
+    var { model } = this.state
     if(typeof option == "object") {
-      state[option.key] = !state[option.key]
+      model[option.key] = model[option.key] == "1"? "0" : "1"
+      modelProp[option.key] = model[option.key]
     } else {
-      state[index] = !state[index]
+      model[index] = !model[index]
     }
-    this.setState(state)
-    if(model) {
-      model[name] = this.state.value
-    }
-    //this.setState(state)
+    this.setState(model)
   }
 
   render() {
@@ -43,7 +42,7 @@ export default class SelectMultipleField extends Component {
     if(options != null) {
       checkBoxes = options.map((option, index) => {
         if(typeof option == "object") {
-          return  <CheckBox rightText={ option.label } key={ index } isChecked={ this.state[option.key] } onClick={ () => this.handleCheck(option) }/>
+          return  <CheckBox rightText={ option.value } key={ index } isChecked={ this.state.model[option.key] == "1" } onClick={ () => this.handleCheck(option) }/>
         } else {
           return <CheckBox rightText={ option } key={ index } isChecked={ this.state[index] } onClick={ () => this.handleCheck(option, index) }/>
         }

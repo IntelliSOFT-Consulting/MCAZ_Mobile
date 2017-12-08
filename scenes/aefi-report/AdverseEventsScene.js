@@ -20,8 +20,8 @@ export default class AdverseEventsScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
-        <SelectOneField label="Adverse event (s):" name="adverse_events" model={ model } required={ true } options={ AEFI_ADVERSE_EVENTS }/>
+      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+        <SelectMultipleField label="Adverse event (s):" name="adverse_events" model={ model } required={ true } options={ AEFI_ADVERSE_EVENTS }/>
 
         <TextInputField label="Other" name="adverse_events_specify" model={ model }/>
         <DateTimeInput label="Date &amp; Time AEFI started (DD/MM/YYYY):" name="aefi_date" model={ model } showTime={ true } maxDate={ new Date() } onChange={ this.onChange }/>
