@@ -16,11 +16,11 @@ export default class SectionGScene extends PureComponent {
       <ScrollView style={ AppStyles.scrollContainer }>
         <SelectOneField model={ model } name="similar_events" options={ BOOLEAN_UNKNOWN_OPTIONS } label="Were any similar events reported within a time period similar to when the adverse event occurred and in the same locality?" />
         <TextInputField model={ model } name="similar_events_describe" label="If yes, describe:" multiline={true} numberOfLines={4}/>
-        <TextInputField model={ model } name="similar_events_episodes" label="If yes, how many events/episodes?" multiline={true} numberOfLines={4}/>
+        <TextInputField model={ model } name="similar_events_episodes" label="If yes, how many events/episodes?" multiline={true} numberOfLines={4} keyboardType="numeric"/>
         <Text>Of those affected, how many are </Text>
-        <TextInputField model={ model } name="affected_vaccinated" label="Vaccinated:" />
-        <TextInputField model={ model } name="affected_not_vaccinated" label="Not vaccinated:" />
-        <TextInputField model={ model } name="affected_unknown" label="Unknown:" />
+        <TextInputField model={ model } name="affected_vaccinated" label="Vaccinated:" keyboardType="numeric"/>
+        <TextInputField model={ model } name="affected_not_vaccinated" label="Not vaccinated:" keyboardType="numeric"/>
+        <TextInputField model={ model } name="affected_unknown" label="Unknown:" keyboardType="numeric"/>
         <TextInputField model={ model } name="community_comments" label="Other comments:" multiline={true} numberOfLines={4}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>

@@ -33,11 +33,11 @@ export default class SectionBScene extends PureComponent {
         <TextInputField label="Remarks (If yes provide details)" model={ model } name="family_history_remarks"/>
         <Text>For adult women</Text>
         <SelectOneField label="Currently pregnant?" model={ model } name="pregnant" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
-        <TextInputField label="(weeks)" model={ model } name="pregnant_weeks"/>
+        <TextInputField label="(weeks)" model={ model } name="pregnant_weeks" keyboardType="numeric"/>
         <SelectOneField label="Currently breastfeeding?" model={ model } name="breastfeeding" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
         <Text>For infants</Text>
         <SelectOneField label="The birth was" model={ model } name="infant" options={ INFANT_BIRTH_OPTS }/>
-        <TextInputField label="Birth weight:" model={ model } name="birth_weight"/>
+        <TextInputField label="Birth weight:" model={ model } name="birth_weight" keyboardType="numeric"/>
         <SelectOneField label="Delivery procedure was:" model={ model } name="delivery_procedure" options={ DELIVERY_OPTS }/>
         <TextInputField label="Specify:" model={ model } name="delivery_procedure_specify"/>
         <View style={ AppStyles.rowButtons }>
