@@ -95,7 +95,6 @@ export default AppStyles = StyleSheet.create({
   },
   modalContainer : {
     justifyContent: 'center',
-    alignItems: 'center',
     padding: 20,
     margin: 10,
     backgroundColor: "#ffffff",
