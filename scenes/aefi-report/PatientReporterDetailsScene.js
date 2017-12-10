@@ -13,9 +13,11 @@ import { DESIGNATION, GENDER, AGE_ON_ONSET } from '../../utils/FieldOptions'
 export default class PatientReporterDetailsScene extends PureComponent {
 
   render() {
-    const { model, saveAndContinue, cancel } = this.props
+    const { model, saveAndContinue, cancel, followUp } = this.props
+    const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
     return (
       <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+        { followUpField }
         <TextInputField label="Patient first name:" name="patient_name" model={ model } required={ true }/>
         <TextInputField label="Surname" name="patient_surname" model={ model }/>
         <TextInputField label="Next of Kin:" name="patient_next_of_kin" model={ model }/>

@@ -86,5 +86,18 @@ export default AppStyles = StyleSheet.create({
   tableView: {
     marginTop: 5,
     marginBottom: 10
+  },
+  modal: {
+      flex: 1,
+      alignItems: 'center',
+      backgroundColor: '#f7021a',
+      padding: 100
+  },
+  modalContainer : {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    margin: 10,
+    backgroundColor: "#ffffff",
   }
 })

@@ -31,9 +31,18 @@ class AEFIReportingFormScene extends PureComponent {
     if(navigation.state.params && navigation.state.params.model) {
       model = navigation.state.params.model
     }
+    var followUp = null
+    if(navigation.state.params && navigation.state.params.followUp) {
+      followUp = navigation.state.params.followUp
+    } else if(model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
+      followUp = true
+    }
 
     if(model == null) {
       model = { rid : Date.now(), type : REPORT_TYPE_AEFI }
+      if(followUp) {
+        model.parent_id = ""
+      }
     }
     model = {"rid":1512708932987,"type":"REPORT_TYPE_AEFI","ae_abscess":"1","adverse_events":"ae_abscess,ae-thrombocytopenia,ae-fever","ae-thrombocytopenia":"1","ae-fever":"1","patient_name":"Wenger","patient_next_of_kin":"Arsene","patient_address":"x","date_of_birth":"--2012","reporter_name":"sdsd","designation_id":"2","name_of_vaccination_center":"hhh","serious":"No","outcome":"Not yet recovered"}
 
@@ -47,7 +56,8 @@ class AEFIReportingFormScene extends PureComponent {
         { key: '4', title: 'Report details' },
       ],
       isConnected: connection.isConnected,
-      validate: false
+      validate: false,
+      followUp: followUp
     }
   }
 
@@ -58,7 +68,7 @@ class AEFIReportingFormScene extends PureComponent {
   _updateRoute = index => this.setState({ index })
 
   _renderScene = SceneMap({
-    '1' : () => <PatientReporterDetailsScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
+    '1' : () => <PatientReporterDetailsScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } followUp={ this.state.followUp }/>,
     '2' : () => <VaccinationScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
     '3' : () => <AdverseEventsScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
     '4' : () => <ReportDetailsScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }

@@ -22,12 +22,14 @@ export default class PatientDetails extends PureComponent {
   }
 
   render() {
-    const { model, saveAndContinue, cancel, validate } = this.props
+    const { model, saveAndContinue, cancel, validate, followUp } = this.props
+    const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
 
     return (
       <ScrollView style={ [AppStyles.scrollContainer, AppStyles.adrBackground] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
+        { followUpField }
         <Text style={ AppStyles.boldText }>Patient Details</Text>
         <TextInputField name="name_of_institution" model={ model } label="Clinical/Hospital Name :"/>
         <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :"/>
@@ -82,3 +84,5 @@ export default class PatientDetails extends PureComponent {
     return false
   }*/
 }
+
+//https://snack.expo.io/rJxdeFIIb

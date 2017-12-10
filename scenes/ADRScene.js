@@ -40,9 +40,18 @@ class ADRScene extends PureComponent {
     if(navigation.state.params && navigation.state.params.model) {
       model = navigation.state.params.model
     }
+    var followUp = null
+    if(navigation.state.params && navigation.state.params.followUp) {
+      followUp = navigation.state.params.followUp
+    } else if(model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
+      followUp = true
+    }
 
     if(model == null) {
       model = { rid : Date.now(), type : REPORT_TYPE_ADR }
+      if(followUp) {
+        model.parent_id = ""
+      }
     }
     //model = {"rid":1512503271856,"type":"REPORT_TYPE_ADR","name_of_institution":"Nairobi Hosp","sadr_list_of_drugs":[{"brand_name":"dawa","dose_id":"2","route_id":"4","frequency_id":"3","start_date":"14-10-2017","stop_date":"4-11-2017","indication":"1","suspected_drug":"1"}],"user":{},"action_taken":"Drug withdrawn","outcome":"Recovered","relatedness":"Certain","designation_id":"1","reporter_name":"John Muiruri","reporter_email":"jihn@ggh.con","reporter_phone":"07555555","date_of_onset_of_reaction":"22-10-2017","date_of_end_of_reaction":"1-11-2017","severity":"No","severity_reason":"Death","institution_code":"Ggg","patient_name":"Jm","ip_no":"Ggh","date_of_birth":"13-11-1990","age_group":"child","weight":"23","height":"123","gender":"Male","medical_history":"Hone","past_drug_therapy":"Kit","lab_test_results":"Limr","description_of_reaction":"This i"}
     //model = {"rid":1510853208716,"type":"REPORT_TYPE_ADR","name_of_institution":"Nairobi Hosp","sadr_list_of_drugs":[{"brand_name":"dawa","dose_id":"7","route_id":"4","frequency_id":"4","drug_name":"wwqq","dose":"1","indication":"1","start_date":"1-10-2017","stop_date":"21-10-2017","suspected_drug":""}],"user":{},"patient_name":"xxsss","date_of_birth":"6-4-2015","weight":"34","height":"12","gender":"Male","date_of_onset_of_reaction":"8-2-2017","severity":"No","medical_history":"ss","lab_test_results":"ssds","action_taken":"Dose reduced","outcome":"Recovering","":"Probable / Likely","designation_id":"2","reporter_name":"John","reporter_email":"john@gmail.com","description_of_reaction":"hhhn"}
@@ -57,7 +66,8 @@ class ADRScene extends PureComponent {
         { key: '4', title: 'Reported by' },
       ],
       isConnected: connection.isConnected,
-      validate: false
+      validate: false,
+      followUp: followUp
     }
     this.mandatory = [
       { name : "patient_name", text : "Patient Initials", page : 1 },
@@ -80,7 +90,7 @@ class ADRScene extends PureComponent {
   _renderHeader = props => <TabBar {...props} scrollEnabled style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
 
   _renderScene = SceneMap({
-    '1' : () => <PatientDetails model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
+    '1' : () => <PatientDetails model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } followUp={ this.state.followUp }/>,
     '2' : () => <AdverseReactionScene saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } model={ this.state.model }/>,
     '3' : () => <Medication model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
     '4' : () => <ReporterDetailsScene model={ this.state.model } user={ this.state.model.user } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } saveAndSubmit={ this.saveAndSubmit }

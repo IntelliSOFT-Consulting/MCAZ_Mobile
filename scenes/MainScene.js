@@ -4,6 +4,8 @@ import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports } from '../actions'
 import { connect } from 'react-redux'
 
+import Modal from 'react-native-modal';
+
 class MainScene extends Component {
   static navigationOptions = {
     title: 'MCAZ - Home',
@@ -18,6 +20,7 @@ class MainScene extends Component {
     this.uploadReports = this.uploadReports.bind(this)
     this.changeConnection = this.changeConnection.bind(this)
     this.showAlert = this.showAlert.bind(this)
+    this.state = { modalVisible : false }
   }
 
   showNewADRReport() {
@@ -45,6 +48,10 @@ class MainScene extends Component {
     navigate("SavedReports")
   }
 
+  selectReportType = (visible, type) => {
+    this.setState({ modalVisible : visible, reportType : type })
+  }
+
   uploadReports() {
     const { uploadCompletedReports, completed, connection } = this.props
     if(!connection.isConnected) {
@@ -58,6 +65,17 @@ class MainScene extends Component {
     uploadCompletedReports(completed)
   }
 
+  showLogin = () => {
+    const { navigate } = this.props.navigation;
+    navigate("LoginScene")
+  }
+
+  createReport = (followUp) => {
+    this.setState({ modalVisible : false })
+    const { navigate } = this.props.navigation;
+    navigate(this.state.reportType, { followUp : followUp })
+  }
+
   render() {
     const completedCount = this.props.completed.length
     return (
@@ -66,16 +84,16 @@ class MainScene extends Component {
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <View style={ AppStyles.columnButtons }>
           <View style={ AppStyles.button }>
-            <Button  onPress={ this.showNewADRReport } title="New ADR Report"/>
+            <Button  onPress={ () => this.selectReportType(true, "ADRScene") } title="New ADR Report"/>
           </View>
           <View style={ AppStyles.button }>
-            <Button onPress={ this.showNewSAEFormReport } title="New SAE Report"/>
+            <Button onPress={ () => this.selectReportType(true, "SAEFormScene") } title="New SAE Report"/>
           </View>
           <View style={ AppStyles.button }>
-            <Button onPress={ this.showNewAEFIReportingForm } title="New AEFI Reporting Form"/>
+            <Button onPress={ () => this.selectReportType(true, "AEFIReportingFormScene") } title="New AEFI Reporting Form"/>
           </View>
           <View style={ AppStyles.button }>
-            <Button onPress={ this.showNewAEFIForm } title="New AEFI Investigation Form"/>
+            <Button onPress={ () => this.selectReportType(true, "AEFIInvFormScene") } title="New AEFI Investigation Form"/>
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ this.showSaved } title="Saved reports"/>
@@ -83,7 +101,24 @@ class MainScene extends Component {
           <View style={ AppStyles.button }>
             <Button onPress={ this.uploadReports } title={ "Upload completed reports (" + completedCount + ")" }/>
           </View>
+          <View style={ AppStyles.button }>
+            <Button onPress={ this.showLogin } title={ "Logout" }/>
+          </View>
         </View>
+        <Modal animationType = {"slide"} transparent = {true} presentationStyle={ "overFullScreen" }
+          isVisible = { this.state.modalVisible }
+          onRequestClose = {() => { console.log("Modal has been closed.") } }>
+          <View style = { AppStyles.modalContainer }>
+            <View style={ AppStyles.button }>
+              <Button onPress={ () => this.createReport(false) } title="New report"/>
+            </View>
+            <View style={ AppStyles.button }>
+              <Button onPress={ () => this.createReport(true) } title="Follow up report"/>
+            </View>
+
+            <Button onPress={ () => this.selectReportType(false) } title="Close"/>
+          </View>
+        </Modal>
       </ScrollView>
     );
   }

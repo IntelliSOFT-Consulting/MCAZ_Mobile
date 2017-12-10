@@ -13,6 +13,8 @@ import {
 } from 'react-native';
 
 import MainScene  from './scenes/MainScene'
+import LoginScene  from './scenes/LoginScene'
+import SignupScene from './scenes/SignupScene'
 import ADRScene from './scenes/ADRScene'
 import SAEFormScene from './scenes/SAEFormScene'
 import AEFIInvFormScene from './scenes/AEFIInvFormScene'
@@ -49,6 +51,12 @@ const MainRoutes = {
   },
   AEFIReportingFormScene: {
     screen : AEFIReportingFormScene
+  },
+  LoginScene: {
+    screen : LoginScene
+  },
+  SignupScene: {
+    screen : SignupScene
   }
 }
 

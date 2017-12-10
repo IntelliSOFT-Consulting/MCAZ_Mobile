@@ -19,9 +19,11 @@ export default class SectionAScene extends PureComponent {
   }
 
   render() {
-    const { model, saveAndContinue, cancel, validate } = this.props
+    const { model, saveAndContinue, cancel, validate, followUp } = this.props
+    const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
+        { followUpField }
         <TextInputField label="Basic details" model={ model } name="basic_details" />
         <SelectOneField label="Place of vaccination:" model={ model } name="place_vaccination" options={ PLACE_VACCINATION }/>
         <TextInputField label="If other, specify" model={ model } name="place_vaccination_other" />

@@ -16,11 +16,12 @@ export default class SectionAScene extends PureComponent {
   }
 
   render() {
-    const { model, saveAndContinue, cancel, validate } = this.props
+    const { model, saveAndContinue, cancel, validate, followUp } = this.props
+    const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.sadrBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
-
+        { followUpField }
         <TextInputField label="MRCZ Protocol #" name="mrcz_protocol_number" model={ model } validate={ this.state.validate } required={ true } />
         <TextInputField label="MCAZ Protocol #"  name="mcaz_protocol_number"model={ model } validate={ this.state.validate } required={ true } />
         <TextInputField label="Institution"  name="name_of_institution" model={ model } validate={ this.state.validate } required={ true }/>
