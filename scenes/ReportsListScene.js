@@ -46,9 +46,9 @@ class ReportsListScene extends Component {
       } else if(item.type == REPORT_TYPE_SAE) {
         navigate('SAEFormScene', model)
       } else if(item.type == REPORT_TYPE_AEFI_INV) {
-        navigate('AEFIInvFormScene', item)
+        navigate('AEFIInvFormScene', model)
       } else if(item.type == REPORT_TYPE_AEFI) {
-        navigate('AEFIReportingFormScene', item)
+        navigate('AEFIReportingFormScene', model)
       }
       return
     }

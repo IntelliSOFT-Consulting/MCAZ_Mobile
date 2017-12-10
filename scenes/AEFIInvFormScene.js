@@ -37,7 +37,7 @@ class AEFIInvFormScene extends PureComponent {
     var followUp = null
     if(navigation.state.params && navigation.state.params.followUp) {
       followUp = navigation.state.params.followUp
-    } else if(model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
+    } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }
 
