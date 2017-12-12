@@ -2,7 +2,7 @@ import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_C
  SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS, SAVE_ERROR,
  RESET_UPLOAD_STATUS, UPDATE_UPLOAD_STATUS, SET_NOTIFICATION }  from './actionTypes'
 
-import { MAIN_URL } from '../utils/Constants'
+import { MAIN_URL, REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 import { getRequestPayload, getURL } from '../utils/utils'
 import messages from '../utils/messages.json'
 
@@ -49,6 +49,8 @@ export const uploadData = (data, url, updateProgress) => {
   return dispatch => {
     dispatch(saveCompleted(data))
     dispatch(removeDraft(data))
+    const rid = data.rid
+    const type = data.type
     return fetch(url, {
       method : "POST",
       headers: {
@@ -58,20 +60,27 @@ export const uploadData = (data, url, updateProgress) => {
       body: JSON.stringify(getRequestPayload(data))
     }).then(response => response.json()).then((json) => {
       console.log(json)
+      console.log(rid)
+      console.log(type)
       if(json.sadr) {
-        //json.sadr.id = json.id
+        json.sadr.rid = rid
+        json.sadr.type = REPORT_TYPE_ADR
         dispatch(saveUploaded(json.sadr))
         dispatch(removeCompleted(json.sadr))
       } else if(json.adr) {
-        //json.adr.id = json.id
+        json.adr.rid = rid
+        json.adr.type = REPORT_TYPE_SAE
         dispatch(saveUploaded(json.adr))
         dispatch(removeCompleted(json.adr))
       } else if(json.aefi) {
-        //json.aefi.id = json.id
+        json.aefi.rid = rid
+        json.aefi.type = REPORT_TYPE_AEFI
         dispatch(saveUploaded(json.aefi))
         dispatch(removeCompleted(json.aefi))
       } else if(json.saefi) {
         //json.saefi.id = json.id
+        json.saefi.rid = rid
+        json.saefi.type = REPORT_TYPE_AEFI_INV
         dispatch(saveUploaded(json.saefi))
         dispatch(removeCompleted(json.saefi))
       } else {
