@@ -7,6 +7,7 @@ import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import DateTimeInput from '../components/DateTimeInput'
 import DateSelectInput from '../components/DateSelectInput'
+import AutoCompleteInput from '../components/AutoCompleteInput'
 
 import { AGE_GROUP, GENDER } from '../../utils/FieldOptions'
 import { getDateTimeFromString } from '../../utils/utils'
@@ -31,9 +32,9 @@ export default class PatientDetails extends PureComponent {
 
         { followUpField }
         <Text style={ AppStyles.boldText }>Patient Details</Text>
-        <TextInputField name="name_of_institution" model={ model } label="Clinical/Hospital Name :"/>
-        <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :"/>
-        <TextInputField name="patient_name" model={ model } label="Patient Initials:" required={ true } validate={ this.props.validate }/>
+        <AutoCompleteInput name="name_of_institution" model={ model } label="Clinical/Hospital Name :" returnKeyType="next"/>
+        <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :" returnKeyType="next"/>
+        <TextInputField name="patient_name" model={ model } label="Patient Initials:" required={ true } validate={ this.props.validate } returnKeyType="next"/>
         <TextInputField name="ip_no" model={ model } label="VCT/OI/TB Number"/>
         <DateSelectInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate } maxDate={ new Date() } onDateChange={ this.onDateChange }/>
         <SelectOneField name="age_group" model={ model } label="Age group" options={ AGE_GROUP } value={ this.state.age_group }/>

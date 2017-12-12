@@ -7,7 +7,7 @@ import FileAttachmentComponent from '../components/FileAttachmentComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
-import { AEFI_SEVERITY_REASON, OUTCOME, BOOLEAN_UNKNOWN_OPTIONS, BOOLEAN_OPTIONS, DESIGNATION, GENDER } from '../../utils/FieldOptions'
+import { AEFI_SEVERITY_REASON, OUTCOME, BOOLEAN_UNKNOWN_OPTIONS, BOOLEAN_OPTIONS, DESIGNATION, GENDER, PROVINCES } from '../../utils/FieldOptions'
 
 export default class AEFIReportReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
@@ -31,7 +31,7 @@ export default class AEFIReportReadOnly extends Component{
         <ReadOnlyDataRenderer label="Department:" name="reporter_department" model={ model }/>
         <ReadOnlyDataRenderer label="Address:" name="reporter_address" model={ model }/>
         <ReadOnlyDataRenderer label="District:" name="reporter_district" model={ model }/>
-        <ReadOnlyDataRenderer label="Province:" name="reporter_province" model={ model }/>
+        <ReadOnlyDataRenderer label="Province:" name="reporter_province" model={ model } type="option" options={ PROVINCES }/>
         <ReadOnlyDataRenderer label="Telephone &amp; e-mail:" name="reporter_phone" model={ model }/>
         <ReadOnlyDataRenderer label="E-mail:" name="reporter_email" model={ model }/>
         <ReadOnlyDataRenderer label="Today’s date (DD/MM/YYYY):" name="adverse_event_type" model={ model }/>

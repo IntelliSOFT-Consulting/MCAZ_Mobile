@@ -7,9 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "autosuggest": "0.0.2",
     "react": "16.0.0-beta.5",
     "react-native": "0.49.3",
     "react-native-autocomplete-input": "^3.4.0",
+    "react-native-autosuggest": "git+https://github.com/silesky/react-native-autosuggest.git",
     "react-native-check-box": "^2.0.2",
     "react-native-checkbox": "^1.2.0",
     "react-native-document-picker": "^2.1.0",
@@ -20,7 +22,7 @@
     "react-native-modal": "^4.1.1",
     "react-native-modal-datetime-picker": "^4.13.0",
     "react-native-tab-view": "0.0.70",
-    "react-native-table-component": "^1.1.1",
+    "react-native-table-component": "^1.1.2",
     "react-navigation": "1.0.0-beta.15",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",

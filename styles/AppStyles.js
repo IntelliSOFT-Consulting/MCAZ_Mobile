@@ -98,5 +98,24 @@ export default AppStyles = StyleSheet.create({
     padding: 20,
     margin: 10,
     backgroundColor: "#ffffff",
-  }
+  },
+  progressiveInput: {
+    marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  listViewContainer: {
+    flex: 0,
+  },
+  listView: {
+    backgroundColor: 'white',
+    margin: 10,
+  },
+  listItem: {
+    padding: 10,
+  },
+  listItemSeparator: {
+    borderWidth: 0.5,
+    borderColor: 'lightgrey',
+  },
 })

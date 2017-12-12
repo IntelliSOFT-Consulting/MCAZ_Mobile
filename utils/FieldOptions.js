@@ -292,3 +292,9 @@ export const AEFI_ADVERSE_EVENTS = [
 export const AGE_ON_ONSET = [
   { key : "Years", value : "Years"}, { key : "Months", value : "Months"}, { key : "Days", value : "Days"}
 ]
+
+export const PROVINCES = [
+  { key : "", value : ""}, { key : "1", value : "Bulawayo"}, { key : "2", value : "Harare"}, { key : "3", value : "Manicaland"},
+  { key : "4", value : "Mashonaland Central"}, { key : "5", value : "Mashonaland East"}, { key : "6", value : "Mashonaland West"}, { key : "7", value : "Masvingo"},
+  { key : "8", value : "Matebeleland North"}, { key : "9", value : "Matebeleland South"}, { key : "10", value : "Midlands"},
+]

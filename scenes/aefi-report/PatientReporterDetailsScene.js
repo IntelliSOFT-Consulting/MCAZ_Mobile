@@ -8,7 +8,7 @@ import SelectMultipleField from '../components/SelectMultipleField'
 import DateTimeInput from '../components/DateTimeInput'
 import DateSelectInput from '../components/DateSelectInput'
 
-import { DESIGNATION, GENDER, AGE_ON_ONSET } from '../../utils/FieldOptions'
+import { DESIGNATION, GENDER, AGE_ON_ONSET, PROVINCES } from '../../utils/FieldOptions'
 
 export default class PatientReporterDetailsScene extends PureComponent {
 
@@ -32,7 +32,7 @@ export default class PatientReporterDetailsScene extends PureComponent {
         <TextInputField label="Department:" name="reporter_department" model={ model }/>
         <TextInputField label="Address:" name="reporter_address" model={ model }/>
         <TextInputField label="District:" name="reporter_district" model={ model }/>
-        <TextInputField label="Province:" name="reporter_province" model={ model }/>
+        <SelectOneField label="Province:" name="reporter_province" model={ model } options={ PROVINCES }/>
         <TextInputField label="Telephone &amp; e-mail:" name="reporter_phone" model={ model }/>
         <TextInputField label="E-mail" name="reporter_email" model={ model }/>
         <View style={ AppStyles.rowButtons }>
