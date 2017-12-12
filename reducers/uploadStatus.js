@@ -11,7 +11,7 @@ const uploadStatus = (state = {}, action) => {
         return state
       }
       const uploaded = (state.uploaded == null ? 0 : state.uploaded) - 1
-      return Object.assign({}, status, { uploading : true }, { uploaded : uploaded })
+      return Object.assign({}, state, { uploading : true }, { uploaded : uploaded })
     default:
       return state // The main page is the default page.
 

@@ -32,7 +32,7 @@ export default class SectionBScene extends PureComponent {
         <TextInputField label="6. Name of Drug, Device or Procedure:" name="name_of_drug" model={ model } validate={ this.state.validate } required={ true }/>
         <SelectOneField label="7. Is the drug/device investigational:" name="drug_investigational" model={ model } validate={ this.state.validate } required={ true } options={ BOOLEAN_OPTIONS }/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(3) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>

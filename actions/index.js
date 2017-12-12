@@ -57,6 +57,7 @@ export const uploadData = (data, url, updateProgress) => {
       },
       body: JSON.stringify(getRequestPayload(data))
     }).then(response => response.json()).then((json) => {
+      console.log(json)
       if(json.sadr) {
         //json.sadr.id = json.id
         dispatch(saveUploaded(json.sadr))

@@ -10,7 +10,7 @@ export default class SectionHScene extends PureComponent {
   render() {
     const { model, saveAndContinue, saveAndSubmit, cancel, validate } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <TextInputField name="relevant_findings" label="Other comments:" multiline={true} numberOfLines={4}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>

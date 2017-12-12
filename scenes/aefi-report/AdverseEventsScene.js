@@ -36,7 +36,7 @@ export default class AdverseEventsScene extends PureComponent {
         <TextInputField label="Past medical history (including history of similar reaction or other allergies), concomitant medication and other relevant information
           (e.g. other cases). Use additional sheet if needed :" multiline={true} numberOfLines={4} name="past_medical_history" model={ model }/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>

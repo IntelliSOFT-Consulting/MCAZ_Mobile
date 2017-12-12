@@ -14,7 +14,7 @@ export default class SectionDScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <Text>
           Number vaccinated for each antigen at session site. Attach record if available.
         </Text>
@@ -48,7 +48,7 @@ export default class SectionDScene extends PureComponent {
         <SelectOneField model={ model } name="vaccinated_cluster_vial" options={ BOOLEAN_UNKNOWN_OPTIONS } label="a. Did all the cases in the cluster receive vaccine from the same vial?" />
         <TextInputField model={ model } name="vaccinated_cluster_vial_number" label="b. If no, number of vials used in the cluster (enter details separately)" keyboardType="numeric"/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(5) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>

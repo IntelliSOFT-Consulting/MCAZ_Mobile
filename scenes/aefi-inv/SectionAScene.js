@@ -22,7 +22,7 @@ export default class SectionAScene extends PureComponent {
     const { model, saveAndContinue, cancel, validate, followUp } = this.props
     const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         { followUpField }
         <TextInputField label="Basic details" model={ model } name="basic_details" />
         <SelectOneField label="Place of vaccination:" model={ model } name="place_vaccination" options={ PLACE_VACCINATION }/>
@@ -50,7 +50,7 @@ export default class SectionAScene extends PureComponent {
         <DateTimeInput label="Planned on Date:" model={ model } name="autopsy_planned_date" minDate={ new Date() }/>
         <FileInputComponent name="reports" model={ model.reports[0] } label="Attach report"/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(2) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>

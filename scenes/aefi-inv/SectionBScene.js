@@ -13,7 +13,7 @@ export default class SectionBScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <SelectOneField label="Past history of similar event" model={ model } name="past_history" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
         <TextInputField label="Remarks (If yes provide details)" model={ model } name="past_history_remarks"/>
         <SelectOneField label="Adverse event after previous vaccination(s)" model={ model } name="adverse_event" options={ BOOLEAN_UNKNOWN_OPTIONS}/>
@@ -41,7 +41,7 @@ export default class SectionBScene extends PureComponent {
         <SelectOneField label="Delivery procedure was:" model={ model } name="delivery_procedure" options={ DELIVERY_OPTS }/>
         <TextInputField label="Specify:" model={ model } name="delivery_procedure_specify"/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(3) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>

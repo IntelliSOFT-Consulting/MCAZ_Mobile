@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { SectionList, Text, View, TextInput, ScrollView, Button } from 'react-native'
+import { SectionList, Text, View, TextInput, ScrollView, Button, TouchableOpacity } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
 import SelectMultipleField from './components/SelectMultipleField'
@@ -26,10 +26,14 @@ class ReportsListScene extends Component {
     if(item.type == REPORT_TYPE_ADR) {
       title = (item.patient_name != null && item.patient_name != "")? item.patient_name : "No name provided " + title
     }
-    return(
-      <Text style={ AppStyles.listItem } onPress={ () => this.onItemPressed(item) }>
-        { title }
-      </Text>
+    return (
+      <TouchableOpacity onPress={ () => this.onItemPressed(item) }>
+        <View style={ AppStyles.rowItemStyle }>
+          <Text  >
+            { title }
+          </Text>
+        </View>
+      </TouchableOpacity>
     )
   }
 
@@ -63,6 +67,14 @@ class ReportsListScene extends Component {
     }
   }
 
+  _renderSeparator = () => {
+    return (
+      <View
+        style={ AppStyles.separator }
+      />
+    );
+  };
+
   render() {
     const { navigation } = this.props;
     const { drafts, completed, uploaded } = this.props
@@ -73,7 +85,7 @@ class ReportsListScene extends Component {
     ])
     return (
       <View style={ AppStyles.sectionListContainer }>
-        <SectionList sections={ data } keyExtractor={(item, index) => 'key-' + index }
+        <SectionList sections={ data } keyExtractor={(item, index) => 'key-' + index } ItemSeparatorComponent={ this._renderSeparator }
           renderItem={ this.renderItem } renderSectionHeader={ ({ section }) => <Text style={ AppStyles.sectionHeader }>{ section.title }</Text>}/>
       </View>
     );

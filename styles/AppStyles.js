@@ -118,4 +118,20 @@ export default AppStyles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: 'lightgrey',
   },
+  separator : {
+    height: 1,
+    width: "100%",
+    backgroundColor: "#CED0CE"
+  },
+  rowItemStyle: {
+    zIndex: 999,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
+    opacity: 0.8,
+    borderTopColor: 'lightgrey',
+    borderBottomColor: 'lightgrey',
+    borderBottomWidth: 1
+  }
 })

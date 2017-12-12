@@ -96,10 +96,13 @@ class SAEScene extends PureComponent {
     );
   }
 
-  saveAndContinue() {
+  saveAndContinue(next) {
     const { saveDraft } = this.props
     const { model } = this.state
     saveDraft(model)
+    if(next) {
+      this._updateRoute(next - 1)
+    }
   }
 
   /**

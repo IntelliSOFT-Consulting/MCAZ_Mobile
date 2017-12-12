@@ -29,14 +29,15 @@ export default class PatientReporterDetailsScene extends PureComponent {
         <TextInputField label="Specify" name="age_at_onset_specify" model={ model } keyboardType="numeric"/>
         <TextInputField label="Reporter’s Name:" name="reporter_name" model={ model } required={ true }/>
         <SelectOneField label="Designation:" name="designation_id" model={ model } options={ DESIGNATION }/>
+        <TextInputField label="Institution:" name="reporter_institution" model={ model }/>
         <TextInputField label="Department:" name="reporter_department" model={ model }/>
         <TextInputField label="Address:" name="reporter_address" model={ model }/>
         <TextInputField label="District:" name="reporter_district" model={ model }/>
-        <SelectOneField label="Province:" name="reporter_province" model={ model } options={ PROVINCES }/>
-        <TextInputField label="Telephone &amp; e-mail:" name="reporter_phone" model={ model }/>
-        <TextInputField label="E-mail" name="reporter_email" model={ model }/>
+        <SelectOneField label="Province:" name="province_id" model={ model } options={ PROVINCES }/>
+        <TextInputField label="Telephone:" name="reporter_phone" model={ model } keyboardType="phone-pad"/>
+        <TextInputField label="E-mail" name="reporter_email" model={ model } keyboardType="email-address"/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(2) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>

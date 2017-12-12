@@ -15,7 +15,7 @@ export default class SectionCScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <SelectOneField label="Source of information" model={ model } name="source_examination" options={ SOURCE_INFO }/>
         <TextInputField label="Other" model={ model } name="source_other_specify"/>
         <TextInputField label="If from verbal autopsy, please mention source" model={ model } name="verbal_source"/>
@@ -43,7 +43,7 @@ export default class SectionCScene extends PureComponent {
         <FileAttachmentComponent model={ model } name="attachments" />
         <TextInputField label="Provisional / Final diagnosis:" model={ model } name="final_diagnosis"/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>

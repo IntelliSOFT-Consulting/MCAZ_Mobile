@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { FlatList, Text, View, TextInput, ScrollView, Button } from 'react-native'
+import { FlatList, Text, View, TextInput, ScrollView, Button, TouchableOpacity } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
 import SelectMultipleField from './components/SelectMultipleField'
@@ -35,9 +35,13 @@ class SavedReportsScene extends Component {
 
   renderItem({item}) {
     return(
-      <Text style={ AppStyles.listItem } onPress={ () => this.onItemPressed(item) }>
-        { item.key }
-      </Text>
+      <TouchableOpacity onPress={ () => this.onItemPressed(item) }>
+        <View style={ AppStyles.rowItemStyle }>
+          <Text  >
+            { item.key }
+          </Text>
+        </View>
+      </TouchableOpacity>
     )
   }
 
@@ -52,12 +56,20 @@ class SavedReportsScene extends Component {
 
   }
 
+  _renderSeparator = () => {
+    return (
+      <View
+        style={ AppStyles.separator }
+      />
+    );
+  };
+
   render() {
     return (
-      <View style={ AppStyles.scrollContainer }>
+      <View style={ AppStyles.sectionListContainer }>
         <FlatList data={[{ key: "ADR", type : REPORT_TYPE_ADR }, { key: "SAE", type : REPORT_TYPE_SAE },
           { key: "AEFI", type : REPORT_TYPE_AEFI }, { key: "AEFI Inv.", type : REPORT_TYPE_AEFI_INV } ]}
-          renderItem={this.renderItem}/>
+          renderItem={this.renderItem} ItemSeparatorComponent={ this._renderSeparator }/>
       </View>
     );
   }

@@ -13,7 +13,7 @@ export default class SectionEScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <Text>(Complete this section by asking and/or observing practice)</Text>
 
         <Text>Syringes and needles used:</Text>
@@ -31,7 +31,7 @@ export default class SectionEScene extends PureComponent {
         <SelectOneField model={ model } name="reconstitution_vaccines" label="Are the vaccines and diluents used the same as those recommended by the manufacturer?" />
         <TextInputField model={ model } name="reconstitution_observations" multiline={ true } label="Specific key findings/additional observations and comments:" multiline = {true} numberOfLines = {4}/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(6) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>

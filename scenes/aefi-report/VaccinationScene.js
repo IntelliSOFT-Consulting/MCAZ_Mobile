@@ -21,7 +21,7 @@ export default class VaccinationScene extends PureComponent {
         <AEFIDilutentTableComponent model={ model } name="aefi_list_of_diluents" name="Dilutent"/>
 
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
+          <Button onPress={ () => saveAndContinue(3) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
       </ScrollView>

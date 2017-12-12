@@ -83,6 +83,8 @@ class AEFIInvFormScene extends PureComponent {
       { name : "designation_id", text : "Designation", page : 4 }, { name : "reporter_email", text : "Email Address", page : 4 }]
   }
 
+  _updateRoute = index => this.setState({ index })
+  
   _handleIndexChange = index => this.setState({ index });
 
   _renderHeader = props => <TabBar {...props} scrollEnabled style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
@@ -111,10 +113,13 @@ class AEFIInvFormScene extends PureComponent {
     );
   }
 
-  saveAndContinue() {
+  saveAndContinue(next) {
     const { saveDraft } = this.props
     const { model } = this.state
     saveDraft(model)
+    if(next) {
+      this._updateRoute(next - 1)
+    }
   }
 
   /**
