@@ -74,6 +74,14 @@ class LoginScene extends Component {
     );
   }
 
+  componentDidMount() {
+    const { token } = this.state
+    if(token != null) {
+      const { navigate } = this.props.navigation;
+      navigate("MainScene")
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     const { token } = this.state
     const nextToken = nextProps.token

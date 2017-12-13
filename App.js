@@ -60,6 +60,15 @@ const MainRoutes = {
   }
 }
 
+const AuthRoutes = {
+  LoginScene: {
+    screen : LoginScene
+  },
+  SignupScene: {
+    screen : SignupScene
+  }
+}
+
 const SavedReportRoutes = {
   SavedReportsScene: {
     screen : SavedReportsScene
@@ -84,6 +93,10 @@ const MainNavigator = StackNavigator(MainRoutes, {
       shadowOpacity: 0
     }
   }
+})
+
+const AuthNavigator = StackNavigator(AuthRoutes, {
+  initialRouteName : 'LoginScene', headerMode : 'float'
 })
 
 const MainAppRoutes = {
