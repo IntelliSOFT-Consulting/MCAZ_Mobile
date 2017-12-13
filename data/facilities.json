@@ -1,0 +1,7082 @@
+[
+  {
+    "name": "Avondale",
+    "code": "ZW000A01"
+  },
+  {
+    "name": "Arcadia",
+    "code": "ZW000A02"
+  },
+  {
+    "name": "Belvedere",
+    "code": "ZW000A05"
+  },
+  {
+    "name": "Braeside",
+    "code": "ZW000A08"
+  },
+  {
+    "name": "Budiriro",
+    "code": "ZW000A09"
+  },
+  {
+    "name": "Beatrice Infectious",
+    "code": "ZW000A0C"
+  },
+  {
+    "name": "ha Wilkins Infectious Diseases Hospital",
+    "code": "ZW000A0D"
+  },
+  {
+    "name": "ha St Annes Hospital",
+    "code": "ZW000A0E"
+  },
+  {
+    "name": "ha Avenues Clinic Hospital",
+    "code": "ZW000A0F"
+  },
+  {
+    "name": "Eastlea",
+    "code": "ZW000A10"
+  },
+  {
+    "name": "Glen norah",
+    "code": "ZW000A11"
+  },
+  {
+    "name": "Glen view",
+    "code": "ZW000A13"
+  },
+  {
+    "name": "ha Glen View Satellite Clinic",
+    "code": "ZW000A14"
+  },
+  {
+    "name": "Greendale",
+    "code": "ZW000A15"
+  },
+  {
+    "name": "Hatcliffe Polyclinic",
+    "code": "ZW000A17"
+  },
+  {
+    "name": "Highfield",
+    "code": "ZW000A18"
+  },
+  {
+    "name": "Kambuzuma",
+    "code": "ZW000A19"
+  },
+  {
+    "name": "Kuwadzana",
+    "code": "ZW000A20"
+  },
+  {
+    "name": "Mabelreign",
+    "code": "ZW000A21"
+  },
+  {
+    "name": "Mabvuku",
+    "code": "ZW000A23"
+  },
+  {
+    "name": "Matapi",
+    "code": "ZW000A25"
+  },
+  {
+    "name": "Mbare hostels",
+    "code": "ZW000A26"
+  },
+  {
+    "name": "Mbare",
+    "code": "ZW000A27"
+  },
+  {
+    "name": "Mt pleasant",
+    "code": "ZW000A28"
+  },
+  {
+    "name": "Mufakose",
+    "code": "ZW000A29"
+  },
+  {
+    "name": "ha Rujeko PolyClinic",
+    "code": "ZW000A33"
+  },
+  {
+    "name": "Rutsanana",
+    "code": "ZW000A34"
+  },
+  {
+    "name": "Southerton",
+    "code": "ZW000A35"
+  },
+  {
+    "name": "Sunningdale",
+    "code": "ZW000A37"
+  },
+  {
+    "name": "Tafara",
+    "code": "ZW000A38"
+  },
+  {
+    "name": "Warren Park",
+    "code": "ZW000A39"
+  },
+  {
+    "name": "Waterfalls",
+    "code": "ZW000A41"
+  },
+  {
+    "name": "Western Triangle",
+    "code": "ZW000A42"
+  },
+  {
+    "name": "Hatfield",
+    "code": "ZW000A44"
+  },
+  {
+    "name": "Malborough",
+    "code": "ZW000A45"
+  },
+  {
+    "name": "Highlands",
+    "code": "ZW000A46"
+  },
+  {
+    "name": "ha Mabvuku Sate",
+    "code": "ZW000A47"
+  },
+  {
+    "name": "ha ZPS Harare Central Prison Hospital",
+    "code": "ZW000A48"
+  },
+  {
+    "name": "Highlands",
+    "code": "ZW000A52"
+  },
+  {
+    "name": "Hopley",
+    "code": "ZW000A53"
+  },
+  {
+    "name": "ha Newlands Clinic",
+    "code": "ZW000AP1"
+  },
+  {
+    "name": "Seke South",
+    "code": "ZW000B01"
+  },
+  {
+    "name": "Seke North",
+    "code": "ZW000B02"
+  },
+  {
+    "name": "St Mary's",
+    "code": "ZW000B03"
+  },
+  {
+    "name": "Zengeza 3",
+    "code": "ZW000B04"
+  },
+  {
+    "name": "ha South Medical Hospital",
+    "code": "ZW000B0B"
+  },
+  {
+    "name": "ha St Michaels Clinic",
+    "code": "ZW000B0C"
+  },
+  {
+    "name": "Manyame 24Hr",
+    "code": "ZW000B0D"
+  },
+  {
+    "name": "Chitungwiza",
+    "code": "ZW000C0C"
+  },
+  {
+    "name": "Harare",
+    "code": "ZW000D0D"
+  },
+  {
+    "name": "ha Harare Psychiatric",
+    "code": "ZW000E0B"
+  },
+  {
+    "name": "Berenyazvidzi",
+    "code": "ZW010101"
+  },
+  {
+    "name": "Betera",
+    "code": "ZW010102"
+  },
+  {
+    "name": "Madzimbashuro",
+    "code": "ZW010103"
+  },
+  {
+    "name": "Mombeyarara",
+    "code": "ZW010104"
+  },
+  {
+    "name": "Murwira",
+    "code": "ZW010105"
+  },
+  {
+    "name": "Zangama",
+    "code": "ZW010106"
+  },
+  {
+    "name": "Buhera",
+    "code": "ZW01010A"
+  },
+  {
+    "name": "Birchenough",
+    "code": "ZW01010B"
+  },
+  {
+    "name": "Murambinda",
+    "code": "ZW01010C"
+  },
+  {
+    "name": "Mudawose",
+    "code": "ZW010116"
+  },
+  {
+    "name": "Chimbudzi",
+    "code": "ZW010117"
+  },
+  {
+    "name": "Garamwera",
+    "code": "ZW010118"
+  },
+  {
+    "name": "Munyanyi",
+    "code": "ZW010119"
+  },
+  {
+    "name": "Mudanda",
+    "code": "ZW010124"
+  },
+  {
+    "name": "Bangure",
+    "code": "ZW010125"
+  },
+  {
+    "name": "Chabata",
+    "code": "ZW010126"
+  },
+  {
+    "name": "Chapanduka",
+    "code": "ZW010127"
+  },
+  {
+    "name": "Chapwanya",
+    "code": "ZW010128"
+  },
+  {
+    "name": "Chirozva",
+    "code": "ZW010129"
+  },
+  {
+    "name": "Chiwenga",
+    "code": "ZW010130"
+  },
+  {
+    "name": "Chiweshe",
+    "code": "ZW010131"
+  },
+  {
+    "name": "Gunura",
+    "code": "ZW010132"
+  },
+  {
+    "name": "Gombe",
+    "code": "ZW010133"
+  },
+  {
+    "name": "Mutepfe",
+    "code": "ZW010134"
+  },
+  {
+    "name": "Mutiusinazita",
+    "code": "ZW010135"
+  },
+  {
+    "name": "Muzokomba",
+    "code": "ZW010136"
+  },
+  {
+    "name": "Nerutanga",
+    "code": "ZW010137"
+  },
+  {
+    "name": "Rambanapasi",
+    "code": "ZW010138"
+  },
+  {
+    "name": "Chawatama",
+    "code": "ZW010139"
+  },
+  {
+    "name": "Dorowa",
+    "code": "ZW010175"
+  },
+  {
+    "name": "Bumba",
+    "code": "ZW010201"
+  },
+  {
+    "name": "Changazi",
+    "code": "ZW010202"
+  },
+  {
+    "name": "Chayamiti",
+    "code": "ZW010203"
+  },
+  {
+    "name": "Chikukwa",
+    "code": "ZW010204"
+  },
+  {
+    "name": "Nyahode",
+    "code": "ZW010205"
+  },
+  {
+    "name": "Muchadziya",
+    "code": "ZW010208"
+  },
+  {
+    "name": "Biriwiri",
+    "code": "ZW01020A"
+  },
+  {
+    "name": "Nyanyadzi",
+    "code": "ZW01020B"
+  },
+  {
+    "name": "Mutambara",
+    "code": "ZW01020C"
+  },
+  {
+    "name": "Rusitu",
+    "code": "ZW01020D"
+  },
+  {
+    "name": "Chimanimani Hospital",
+    "code": "ZW01020E"
+  },
+  {
+    "name": "Cashel",
+    "code": "ZW010225"
+  },
+  {
+    "name": "Chakohwa",
+    "code": "ZW010226"
+  },
+  {
+    "name": "Chikwakwa",
+    "code": "ZW010227"
+  },
+  {
+    "name": "Gudyanga",
+    "code": "ZW010229"
+  },
+  {
+    "name": "Mutsvangwa",
+    "code": "ZW010230"
+  },
+  {
+    "name": "Ngorima",
+    "code": "ZW010231"
+  },
+  {
+    "name": "Shinja",
+    "code": "ZW010232"
+  },
+  {
+    "name": "ARDA Rusitu",
+    "code": "ZW010251"
+  },
+  {
+    "name": "Martin",
+    "code": "ZW010252"
+  },
+  {
+    "name": "Charter",
+    "code": "ZW010261"
+  },
+  {
+    "name": "Chisengu",
+    "code": "ZW010262"
+  },
+  {
+    "name": "ma Gwendingwe Clinic",
+    "code": "ZW010263"
+  },
+  {
+    "name": "Roscommon",
+    "code": "ZW010264"
+  },
+  {
+    "name": "Tarka",
+    "code": "ZW010265"
+  },
+  {
+    "name": "Tilbury",
+    "code": "ZW010266"
+  },
+  {
+    "name": "Chinyamukwaka",
+    "code": "ZW010303"
+  },
+  {
+    "name": "Kopera",
+    "code": "ZW010306"
+  },
+  {
+    "name": "Mabeye",
+    "code": "ZW010307"
+  },
+  {
+    "name": "Mahenye",
+    "code": "ZW010309"
+  },
+  {
+    "name": "Chipinge",
+    "code": "ZW01030A"
+  },
+  {
+    "name": "Chikore",
+    "code": "ZW01030B"
+  },
+  {
+    "name": "Mt. Selinda",
+    "code": "ZW01030C"
+  },
+  {
+    "name": "St. Peters",
+    "code": "ZW01030D"
+  },
+  {
+    "name": "Musirwizi",
+    "code": "ZW010311"
+  },
+  {
+    "name": "Paidamoyo",
+    "code": "ZW010312"
+  },
+  {
+    "name": "Tanganda",
+    "code": "ZW010314"
+  },
+  {
+    "name": "Tongogara",
+    "code": "ZW010315"
+  },
+  {
+    "name": "Tuzuka",
+    "code": "ZW010316"
+  },
+  {
+    "name": "ZRP-Chipinge",
+    "code": "ZW010317"
+  },
+  {
+    "name": "ma ZPS Chipinge Prison Clinic",
+    "code": "ZW010318"
+  },
+  {
+    "name": "Chibuwe",
+    "code": "ZW010325"
+  },
+  {
+    "name": "ma Gumira Clinic",
+    "code": "ZW010326"
+  },
+  {
+    "name": "Hwakata",
+    "code": "ZW010327"
+  },
+  {
+    "name": "Kondo",
+    "code": "ZW010328"
+  },
+  {
+    "name": "Madhuka",
+    "code": "ZW010329"
+  },
+  {
+    "name": "Manzvire",
+    "code": "ZW010330"
+  },
+  {
+    "name": "Musani",
+    "code": "ZW010331"
+  },
+  {
+    "name": "Mutandahwe",
+    "code": "ZW010332"
+  },
+  {
+    "name": "Mutema",
+    "code": "ZW010333"
+  },
+  {
+    "name": "Ngaome",
+    "code": "ZW010334"
+  },
+  {
+    "name": "Rimbi",
+    "code": "ZW010335"
+  },
+  {
+    "name": "Vheneka",
+    "code": "ZW010336"
+  },
+  {
+    "name": "Zamchiya",
+    "code": "ZW010337"
+  },
+  {
+    "name": "Checheche",
+    "code": "ZW010338"
+  },
+  {
+    "name": "Chisuma",
+    "code": "ZW010339"
+  },
+  {
+    "name": "Muparadze",
+    "code": "ZW010340"
+  },
+  {
+    "name": "Chipangayi",
+    "code": "ZW010345"
+  },
+  {
+    "name": "Chiriga",
+    "code": "ZW010346"
+  },
+  {
+    "name": "Gaza",
+    "code": "ZW010347"
+  },
+  {
+    "name": "Junction Gate",
+    "code": "ZW010348"
+  },
+  {
+    "name": "Chipinge Town",
+    "code": "ZW010349"
+  },
+  {
+    "name": "Tamandai",
+    "code": "ZW010350"
+  },
+  {
+    "name": "ma Nyunga Clinic",
+    "code": "ZW010351"
+  },
+  {
+    "name": "ma Arda Chisumbanje Clinic",
+    "code": "ZW010361"
+  },
+  {
+    "name": "Clear Water",
+    "code": "ZW010362"
+  },
+  {
+    "name": "Jersey",
+    "code": "ZW010364"
+  },
+  {
+    "name": "ARDA-Mid-Save",
+    "code": "ZW010365"
+  },
+  {
+    "name": "New Year Gift",
+    "code": "ZW010366"
+  },
+  {
+    "name": "Silverstream",
+    "code": "ZW010367"
+  },
+  {
+    "name": "ma Southdown Clinic",
+    "code": "ZW010369"
+  },
+  {
+    "name": "Ratelshoek",
+    "code": "ZW010371"
+  },
+  {
+    "name": "Zona",
+    "code": "ZW010372"
+  },
+  {
+    "name": "Gwenzi",
+    "code": "ZW010390"
+  },
+  {
+    "name": "Bamba",
+    "code": "ZW010401"
+  },
+  {
+    "name": "Chikobvore",
+    "code": "ZW010402"
+  },
+  {
+    "name": "Chinhenga",
+    "code": "ZW010403"
+  },
+  {
+    "name": "Bingaguru",
+    "code": "ZW010404"
+  },
+  {
+    "name": "Chinyika 2",
+    "code": "ZW010405"
+  },
+  {
+    "name": "Chinyudze",
+    "code": "ZW010406"
+  },
+  {
+    "name": "Gorubi Springs",
+    "code": "ZW010407"
+  },
+  {
+    "name": "Gowakowa",
+    "code": "ZW010409"
+  },
+  {
+    "name": "Rusape",
+    "code": "ZW01040A"
+  },
+  {
+    "name": "Weya",
+    "code": "ZW01040B"
+  },
+  {
+    "name": "Makoni",
+    "code": "ZW01040C"
+  },
+  {
+    "name": "Nedevedzo",
+    "code": "ZW01040D"
+  },
+  {
+    "name": "St Micheals",
+    "code": "ZW01040E"
+  },
+  {
+    "name": "St Theresa",
+    "code": "ZW01040F"
+  },
+  {
+    "name": "Katsenga",
+    "code": "ZW010410"
+  },
+  {
+    "name": "Maparura",
+    "code": "ZW010411"
+  },
+  {
+    "name": "Masvosva",
+    "code": "ZW010412"
+  },
+  {
+    "name": "Matotwe",
+    "code": "ZW010413"
+  },
+  {
+    "name": "Mayo1",
+    "code": "ZW010414"
+  },
+  {
+    "name": "Mayo2",
+    "code": "ZW010415"
+  },
+  {
+    "name": "Nyahowe",
+    "code": "ZW010418"
+  },
+  {
+    "name": "Nyahukwe",
+    "code": "ZW010419"
+  },
+  {
+    "name": "Nyamukamani",
+    "code": "ZW010420"
+  },
+  {
+    "name": "Chiduku",
+    "code": "ZW010425"
+  },
+  {
+    "name": "Chikore",
+    "code": "ZW010426"
+  },
+  {
+    "name": "Nyazura",
+    "code": "ZW010427"
+  },
+  {
+    "name": "Dowa",
+    "code": "ZW010428"
+  },
+  {
+    "name": "Dumbamwe",
+    "code": "ZW010429"
+  },
+  {
+    "name": "Matsika",
+    "code": "ZW010430"
+  },
+  {
+    "name": "Nyamidzi",
+    "code": "ZW010431"
+  },
+  {
+    "name": "Mukamba",
+    "code": "ZW010432"
+  },
+  {
+    "name": "Rukweza",
+    "code": "ZW010433"
+  },
+  {
+    "name": "Tandi",
+    "code": "ZW010434"
+  },
+  {
+    "name": "Tariro",
+    "code": "ZW010435"
+  },
+  {
+    "name": "Tsanzaguru",
+    "code": "ZW010436"
+  },
+  {
+    "name": "Era Mine",
+    "code": "ZW010437"
+  },
+  {
+    "name": "Maurice Nyagumbo",
+    "code": "ZW010438"
+  },
+  {
+    "name": "ma Mufusire Clinic",
+    "code": "ZW010439"
+  },
+  {
+    "name": "Headlands",
+    "code": "ZW010440"
+  },
+  {
+    "name": "Mubvurungwa",
+    "code": "ZW010441"
+  },
+  {
+    "name": "Vengere",
+    "code": "ZW010442"
+  },
+  {
+    "name": "Ringanayi",
+    "code": "ZW010443"
+  },
+  {
+    "name": "Mavhudzi",
+    "code": "ZW010444"
+  },
+  {
+    "name": "Chinyadza",
+    "code": "ZW010445"
+  },
+  {
+    "name": "Nyamusosa",
+    "code": "ZW010446"
+  },
+  {
+    "name": "ma Sangano Clinic",
+    "code": "ZW010447"
+  },
+  {
+    "name": "ma ZPS Rusape Prison Clinic",
+    "code": "ZW010474"
+  },
+  {
+    "name": "RUSAPE PRISON",
+    "code": "ZW010474"
+  },
+  {
+    "name": "ma Rusape ZRP Clinic",
+    "code": "ZW010475"
+  },
+  {
+    "name": "MUKUWAPASI REHAB",
+    "code": "ZW010481"
+  },
+  {
+    "name": "Mukuwapasi",
+    "code": "ZW010482"
+  },
+  {
+    "name": "Nyazura",
+    "code": "ZW010491"
+  },
+  {
+    "name": "Anorldine",
+    "code": "ZW010492"
+  },
+  {
+    "name": "Bwizi",
+    "code": "ZW010501"
+  },
+  {
+    "name": "Chiadzwa",
+    "code": "ZW010502"
+  },
+  {
+    "name": "Mavhiza",
+    "code": "ZW010503"
+  },
+  {
+    "name": "Gutaurare",
+    "code": "ZW010504"
+  },
+  {
+    "name": "ma Gwindingwi Rural Health Centre",
+    "code": "ZW010505"
+  },
+  {
+    "name": "Muromo",
+    "code": "ZW010506"
+  },
+  {
+    "name": "St Welburgh",
+    "code": "ZW010507"
+  },
+  {
+    "name": "Chiwere",
+    "code": "ZW010508"
+  },
+  {
+    "name": "Mt Zuma",
+    "code": "ZW010509"
+  },
+  {
+    "name": "Mutare",
+    "code": "ZW01050A"
+  },
+  {
+    "name": "ma Mutare Infectious Disease Hospital",
+    "code": "ZW01050B"
+  },
+  {
+    "name": "Sakubva",
+    "code": "ZW01050C"
+  },
+  {
+    "name": "Marange",
+    "code": "ZW01050E"
+  },
+  {
+    "name": "St Andrews",
+    "code": "ZW01050F"
+  },
+  {
+    "name": "St Joseph's",
+    "code": "ZW01050G"
+  },
+  {
+    "name": "ma Munyarari Clinic",
+    "code": "ZW010510"
+  },
+  {
+    "name": "Nyagundi",
+    "code": "ZW010511"
+  },
+  {
+    "name": "Nyamazura",
+    "code": "ZW010512"
+  },
+  {
+    "name": "Zvipiripiri",
+    "code": "ZW010513"
+  },
+  {
+    "name": "Vumba",
+    "code": "ZW010515"
+  },
+  {
+    "name": "ma Mutare ZRP Clinic",
+    "code": "ZW010516"
+  },
+  {
+    "name": "Chitora",
+    "code": "ZW010519"
+  },
+  {
+    "name": "Matanda",
+    "code": "ZW010520"
+  },
+  {
+    "name": "Lee Kul",
+    "code": "ZW010521"
+  },
+  {
+    "name": "ma Army Dependent Clinic",
+    "code": "ZW010523"
+  },
+  {
+    "name": "ARDA Odzi",
+    "code": "ZW010524"
+  },
+  {
+    "name": "Bakorenhema",
+    "code": "ZW010525"
+  },
+  {
+    "name": "Berzerly Bridge",
+    "code": "ZW010526"
+  },
+  {
+    "name": "Chipfatsura",
+    "code": "ZW010527"
+  },
+  {
+    "name": "Chitakatira",
+    "code": "ZW010529"
+  },
+  {
+    "name": "Mambwere",
+    "code": "ZW010530"
+  },
+  {
+    "name": "Masasi",
+    "code": "ZW010531"
+  },
+  {
+    "name": "Prison Farm",
+    "code": "ZW010532"
+  },
+  {
+    "name": "Mukwada",
+    "code": "ZW010533"
+  },
+  {
+    "name": "Chitaka",
+    "code": "ZW010534"
+  },
+  {
+    "name": "Mushunje",
+    "code": "ZW010535"
+  },
+  {
+    "name": "Nzvenga",
+    "code": "ZW010536"
+  },
+  {
+    "name": "Rowa",
+    "code": "ZW010537"
+  },
+  {
+    "name": "Odzi",
+    "code": "ZW010538"
+  },
+  {
+    "name": "Zimunya",
+    "code": "ZW010539"
+  },
+  {
+    "name": "Zumbare",
+    "code": "ZW010540"
+  },
+  {
+    "name": "Dora",
+    "code": "ZW010541"
+  },
+  {
+    "name": "Chishingwi",
+    "code": "ZW010543"
+  },
+  {
+    "name": "Chipendeke",
+    "code": "ZW010544"
+  },
+  {
+    "name": "Burma Valley",
+    "code": "ZW010545"
+  },
+  {
+    "name": "ma Hob House Clinic",
+    "code": "ZW010560"
+  },
+  {
+    "name": "City Clinic",
+    "code": "ZW010561"
+  },
+  {
+    "name": "Chikanga",
+    "code": "ZW010562"
+  },
+  {
+    "name": "Dangamvura",
+    "code": "ZW010563"
+  },
+  {
+    "name": "Sakubva Health Centre",
+    "code": "ZW010564"
+  },
+  {
+    "name": "Florida",
+    "code": "ZW010565"
+  },
+  {
+    "name": "Fernvalley",
+    "code": "ZW010566"
+  },
+  {
+    "name": "ma Mapofu Clinic",
+    "code": "ZW010584"
+  },
+  {
+    "name": "Chikwariro",
+    "code": "ZW010591"
+  },
+  {
+    "name": "Chavhanga",
+    "code": "ZW010601"
+  },
+  {
+    "name": "Rupinda",
+    "code": "ZW010602"
+  },
+  {
+    "name": "Sherukuru",
+    "code": "ZW010603"
+  },
+  {
+    "name": "Tsonzo",
+    "code": "ZW01060A"
+  },
+  {
+    "name": "Bonda",
+    "code": "ZW01060B"
+  },
+  {
+    "name": "Old Mutare",
+    "code": "ZW01060C"
+  },
+  {
+    "name": "St Barbaras",
+    "code": "ZW01060D"
+  },
+  {
+    "name": "Triashill",
+    "code": "ZW01060E"
+  },
+  {
+    "name": "Hauna",
+    "code": "ZW01060F"
+  },
+  {
+    "name": "Chitombo",
+    "code": "ZW010625"
+  },
+  {
+    "name": "Guta",
+    "code": "ZW010626"
+  },
+  {
+    "name": "Hauna",
+    "code": "ZW010627"
+  },
+  {
+    "name": "Mundeya",
+    "code": "ZW010628"
+  },
+  {
+    "name": "Mupotedzi",
+    "code": "ZW010629"
+  },
+  {
+    "name": "Mt Jenya",
+    "code": "ZW010630"
+  },
+  {
+    "name": "Mutasa",
+    "code": "ZW010631"
+  },
+  {
+    "name": "Moyoweshumba",
+    "code": "ZW010632"
+  },
+  {
+    "name": "Ngarura",
+    "code": "ZW010633"
+  },
+  {
+    "name": "Zindi",
+    "code": "ZW010635"
+  },
+  {
+    "name": "Sachisuko",
+    "code": "ZW010636"
+  },
+  {
+    "name": "Sadziwa",
+    "code": "ZW010637"
+  },
+  {
+    "name": "Sagambe",
+    "code": "ZW010638"
+  },
+  {
+    "name": "Sahumani",
+    "code": "ZW010639"
+  },
+  {
+    "name": "Sakupwanya",
+    "code": "ZW010640"
+  },
+  {
+    "name": "Samanga",
+    "code": "ZW010641"
+  },
+  {
+    "name": "Samaringa",
+    "code": "ZW010642"
+  },
+  {
+    "name": "Zongoro",
+    "code": "ZW010643"
+  },
+  {
+    "name": "Chinamasa",
+    "code": "ZW010645"
+  },
+  {
+    "name": "ma Eastern Highlands Plantation Clinic",
+    "code": "ZW010664"
+  },
+  {
+    "name": "Haparare",
+    "code": "ZW010665"
+  },
+  {
+    "name": "Katiyo",
+    "code": "ZW010667"
+  },
+  {
+    "name": "ma Selbourne/Nyanga Pine Clinic",
+    "code": "ZW010668"
+  },
+  {
+    "name": "Drenane",
+    "code": "ZW010669"
+  },
+  {
+    "name": "Imbeza",
+    "code": "ZW010670"
+  },
+  {
+    "name": "Red Wing",
+    "code": "ZW010671"
+  },
+  {
+    "name": "Sheba",
+    "code": "ZW010672"
+  },
+  {
+    "name": "Stapleford",
+    "code": "ZW010673"
+  },
+  {
+    "name": "Gatsi",
+    "code": "ZW010691"
+  },
+  {
+    "name": "ma Honde Mission Clinic",
+    "code": "ZW010692"
+  },
+  {
+    "name": "St Augustines",
+    "code": "ZW010693"
+  },
+  {
+    "name": "St Peter's Mandeya",
+    "code": "ZW010694"
+  },
+  {
+    "name": "Mapara",
+    "code": "ZW010696"
+  },
+  {
+    "name": "Jombe",
+    "code": "ZW010697"
+  },
+  {
+    "name": "Premier",
+    "code": "ZW010698"
+  },
+  {
+    "name": "Dombo",
+    "code": "ZW010702"
+  },
+  {
+    "name": "Fombe",
+    "code": "ZW010703"
+  },
+  {
+    "name": "Gairezi",
+    "code": "ZW010704"
+  },
+  {
+    "name": "Gotekote",
+    "code": "ZW010705"
+  },
+  {
+    "name": "Nyarumvurwe",
+    "code": "ZW010706"
+  },
+  {
+    "name": "Matize",
+    "code": "ZW010707"
+  },
+  {
+    "name": "Nyamombe",
+    "code": "ZW010709"
+  },
+  {
+    "name": "Nyanga",
+    "code": "ZW01070A"
+  },
+  {
+    "name": "Avilla",
+    "code": "ZW01070B"
+  },
+  {
+    "name": "Elim",
+    "code": "ZW01070C"
+  },
+  {
+    "name": "Mt Mellary",
+    "code": "ZW01070D"
+  },
+  {
+    "name": "Regina Coeli",
+    "code": "ZW01070E"
+  },
+  {
+    "name": "Nyautate",
+    "code": "ZW010710"
+  },
+  {
+    "name": "Ruchera",
+    "code": "ZW010711"
+  },
+  {
+    "name": "Chitindo",
+    "code": "ZW010725"
+  },
+  {
+    "name": "Chiwarira",
+    "code": "ZW010726"
+  },
+  {
+    "name": "Nyamaropa",
+    "code": "ZW010727"
+  },
+  {
+    "name": "Kambudzi",
+    "code": "ZW010729"
+  },
+  {
+    "name": "Nyatate",
+    "code": "ZW010730"
+  },
+  {
+    "name": "Samvure",
+    "code": "ZW010731"
+  },
+  {
+    "name": "Tombo",
+    "code": "ZW010732"
+  },
+  {
+    "name": "Nyangui",
+    "code": "ZW010761"
+  },
+  {
+    "name": "Nyafaru",
+    "code": "ZW010762"
+  },
+  {
+    "name": "Erin",
+    "code": "ZW010763"
+  },
+  {
+    "name": "ma Nyangombe Clinic",
+    "code": "ZW010791"
+  },
+  {
+    "name": "Claremont",
+    "code": "ZW010792"
+  },
+  {
+    "name": "Nyadowa",
+    "code": "ZW010794"
+  },
+  {
+    "name": "Spring Valley",
+    "code": "ZW010795"
+  },
+  {
+    "name": "Chiveso",
+    "code": "ZW020101"
+  },
+  {
+    "name": "Muonwe",
+    "code": "ZW020102"
+  },
+  {
+    "name": "mc ZPS Bindura Prison Clinic",
+    "code": "ZW020103"
+  },
+  {
+    "name": "Bindura Polyclinic",
+    "code": "ZW020104"
+  },
+  {
+    "name": "ZRP Bindura",
+    "code": "ZW020105"
+  },
+  {
+    "name": "Bindura",
+    "code": "ZW02010A"
+  },
+  {
+    "name": "Katanya",
+    "code": "ZW020125"
+  },
+  {
+    "name": "Nyava",
+    "code": "ZW020126"
+  },
+  {
+    "name": "Chiriseri",
+    "code": "ZW020145"
+  },
+  {
+    "name": "Manhenga",
+    "code": "ZW020146"
+  },
+  {
+    "name": "Rusununguko",
+    "code": "ZW020161"
+  },
+  {
+    "name": "Chipadze",
+    "code": "ZW020162"
+  },
+  {
+    "name": "Chiwaridzo",
+    "code": "ZW020163"
+  },
+  {
+    "name": "Freda Rebecca",
+    "code": "ZW020175"
+  },
+  {
+    "name": "Trojan",
+    "code": "ZW020176"
+  },
+  {
+    "name": "Farm H.Centre",
+    "code": "ZW020177"
+  },
+  {
+    "name": "Foothills",
+    "code": "ZW020178"
+  },
+  {
+    "name": "Busce",
+    "code": "ZW020179"
+  },
+  {
+    "name": "ZNFPC",
+    "code": "ZW020181"
+  },
+  {
+    "name": "Rutope",
+    "code": "ZW020182"
+  },
+  {
+    "name": "Manga",
+    "code": "ZW020183"
+  },
+  {
+    "name": "Mupandira",
+    "code": "ZW020184"
+  },
+  {
+    "name": "Takunda",
+    "code": "ZW020185"
+  },
+  {
+    "name": "Glamorgan",
+    "code": "ZW020186"
+  },
+  {
+    "name": "Chawarura",
+    "code": "ZW020201"
+  },
+  {
+    "name": "Hoya",
+    "code": "ZW020202"
+  },
+  {
+    "name": "Machaya",
+    "code": "ZW020203"
+  },
+  {
+    "name": "Muzarabani",
+    "code": "ZW020204"
+  },
+  {
+    "name": "Chidikamwedzi",
+    "code": "ZW020207"
+  },
+  {
+    "name": "Chinyani",
+    "code": "ZW020208"
+  },
+  {
+    "name": "Always",
+    "code": "ZW020209"
+  },
+  {
+    "name": "St Alberts",
+    "code": "ZW02020A"
+  },
+  {
+    "name": "Hwata",
+    "code": "ZW020225"
+  },
+  {
+    "name": "Dambakurima",
+    "code": "ZW020226"
+  },
+  {
+    "name": "David Nelson",
+    "code": "ZW020245"
+  },
+  {
+    "name": "Chadereka",
+    "code": "ZW020285"
+  },
+  {
+    "name": "Bvochora",
+    "code": "ZW020301"
+  },
+  {
+    "name": "Masomo",
+    "code": "ZW020802"
+  },
+  {
+    "name": "Negomo",
+    "code": "ZW020305"
+  },
+  {
+    "name": "Nyamhondoro",
+    "code": "ZW020306"
+  },
+  {
+    "name": "Shinje",
+    "code": "ZW020307"
+  },
+  {
+    "name": "mc Guruve Centre Rural Health Clinic",
+    "code": "ZW020308"
+  },
+  {
+    "name": "mc Guruve District Hospital",
+    "code": "ZW02030B"
+  },
+  {
+    "name": "Bakasa",
+    "code": "ZW020326"
+  },
+  {
+    "name": "Bepura",
+    "code": "ZW020327"
+  },
+  {
+    "name": "Chipuriro",
+    "code": "ZW020329"
+  },
+  {
+    "name": "GONONO R.H.C.",
+    "code": "ZW020330"
+  },
+  {
+    "name": "Kachuta",
+    "code": "ZW020331"
+  },
+  {
+    "name": "Matsvitsi",
+    "code": "ZW020333"
+  },
+  {
+    "name": "Gota",
+    "code": "ZW020334"
+  },
+  {
+    "name": "mc Guruve ZRP Clinic",
+    "code": "ZW020336"
+  },
+  {
+    "name": "Nyakapupu",
+    "code": "ZW020339"
+  },
+  {
+    "name": "Ruyamuro",
+    "code": "ZW020343"
+  },
+  {
+    "name": "Birkdale",
+    "code": "ZW020344"
+  },
+  {
+    "name": "Mugarakamwe",
+    "code": "ZW020345"
+  },
+  {
+    "name": "Kemutamba",
+    "code": "ZW020346"
+  },
+  {
+    "name": "Kamusasa",
+    "code": "ZW020347"
+  },
+  {
+    "name": "Brandon",
+    "code": "ZW020348"
+  },
+  {
+    "name": "Chinehasha",
+    "code": "ZW020401"
+  },
+  {
+    "name": "Nyakudya",
+    "code": "ZW020402"
+  },
+  {
+    "name": "Shutu",
+    "code": "ZW020403"
+  },
+  {
+    "name": "HATCLIFFE Extension Clinic",
+    "code": "ZW020404"
+  },
+  {
+    "name": "Montgomery",
+    "code": "ZW020405"
+  },
+  {
+    "name": "Donje",
+    "code": "ZW020406"
+  },
+  {
+    "name": "Ardura",
+    "code": "ZW020408"
+  },
+  {
+    "name": "Concession Hosp.",
+    "code": "ZW02040A"
+  },
+  {
+    "name": "Rosa",
+    "code": "ZW02040B"
+  },
+  {
+    "name": "Howard",
+    "code": "ZW02040C"
+  },
+  {
+    "name": "mc Mazowe Citrus Clinic",
+    "code": "ZW02040D"
+  },
+  {
+    "name": "Mvurwi",
+    "code": "ZW02040E"
+  },
+  {
+    "name": "Davaar",
+    "code": "ZW020410"
+  },
+  {
+    "name": "Vonabor",
+    "code": "ZW020411"
+  },
+  {
+    "name": "Bare",
+    "code": "ZW020425"
+  },
+  {
+    "name": "Jingamvura",
+    "code": "ZW020427"
+  },
+  {
+    "name": "Makope",
+    "code": "ZW020428"
+  },
+  {
+    "name": "Christon Bank",
+    "code": "ZW020430"
+  },
+  {
+    "name": "Nzvimbo",
+    "code": "ZW020432"
+  },
+  {
+    "name": "Belgone Clinic",
+    "code": "ZW020445"
+  },
+  {
+    "name": "Holmeden",
+    "code": "ZW020446"
+  },
+  {
+    "name": "Tsungubvi",
+    "code": "ZW020447"
+  },
+  {
+    "name": "Henderson Research",
+    "code": "ZW020475"
+  },
+  {
+    "name": "Iron Duke",
+    "code": "ZW020476"
+  },
+  {
+    "name": "mc Mazowe Mine Clinic",
+    "code": "ZW020477"
+  },
+  {
+    "name": "Stories Mine",
+    "code": "ZW020478"
+  },
+  {
+    "name": "mc ZPS Mazowe Prison Clinic",
+    "code": "ZW020479"
+  },
+  {
+    "name": "N.E.M.Centre",
+    "code": "ZW020482"
+  },
+  {
+    "name": "MONTGOMERY C.C",
+    "code": "ZW020483"
+  },
+  {
+    "name": "Dambo",
+    "code": "ZW020484"
+  },
+  {
+    "name": "Forrester",
+    "code": "ZW020485"
+  },
+  {
+    "name": "mc Mazowe Secondary Clinic",
+    "code": "ZW020486"
+  },
+  {
+    "name": "Shopo",
+    "code": "ZW020487"
+  },
+  {
+    "name": "Dotito",
+    "code": "ZW020501"
+  },
+  {
+    "name": "Kamutsenzere",
+    "code": "ZW020502"
+  },
+  {
+    "name": "Mukumbura",
+    "code": "ZW020503"
+  },
+  {
+    "name": "Nyamahobobo",
+    "code": "ZW020504"
+  },
+  {
+    "name": "Pfunyanguwo",
+    "code": "ZW020505"
+  },
+  {
+    "name": "Tsakare",
+    "code": "ZW020506"
+  },
+  {
+    "name": "Mutungagore",
+    "code": "ZW020507"
+  },
+  {
+    "name": "Mutasa",
+    "code": "ZW020508"
+  },
+  {
+    "name": "Chiburi",
+    "code": "ZW020509"
+  },
+  {
+    "name": "Mt Darwin",
+    "code": "ZW02050A"
+  },
+  {
+    "name": "Karanda",
+    "code": "ZW02050B"
+  },
+  {
+    "name": "Chawanda",
+    "code": "ZW020525"
+  },
+  {
+    "name": "Kaitano",
+    "code": "ZW020526"
+  },
+  {
+    "name": "Nembire",
+    "code": "ZW020527"
+  },
+  {
+    "name": "Pachanza",
+    "code": "ZW020528"
+  },
+  {
+    "name": "Bveke",
+    "code": "ZW020529"
+  },
+  {
+    "name": "ZRP",
+    "code": "ZW020530"
+  },
+  {
+    "name": "Mt Darwin",
+    "code": "ZW020531"
+  },
+  {
+    "name": "Bandimba",
+    "code": "ZW020533"
+  },
+  {
+    "name": "mc Chitse Clinic",
+    "code": "ZW020534"
+  },
+  {
+    "name": "mc Chitepo Clinic",
+    "code": "ZW020535"
+  },
+  {
+    "name": "Mukosa",
+    "code": "ZW020601"
+  },
+  {
+    "name": "Mukonde",
+    "code": "ZW020602"
+  },
+  {
+    "name": "Nhawa",
+    "code": "ZW020603"
+  },
+  {
+    "name": "Rushinga",
+    "code": "ZW020604"
+  },
+  {
+    "name": "Nyamatikiti",
+    "code": "ZW020606"
+  },
+  {
+    "name": "Chimandau",
+    "code": "ZW020607"
+  },
+  {
+    "name": "mc Chimhanda District Hospital",
+    "code": "ZW02060A"
+  },
+  {
+    "name": "Mary Mount",
+    "code": "ZW02060B"
+  },
+  {
+    "name": "Bungwe",
+    "code": "ZW020625"
+  },
+  {
+    "name": "Rusambo",
+    "code": "ZW020626"
+  },
+  {
+    "name": "Chimhanda",
+    "code": "ZW020627"
+  },
+  {
+    "name": "Nyamaruro",
+    "code": "ZW020701"
+  },
+  {
+    "name": "Chishapa",
+    "code": "ZW020703"
+  },
+  {
+    "name": "Goora",
+    "code": "ZW020704"
+  },
+  {
+    "name": "Mupfurudzi",
+    "code": "ZW020705"
+  },
+  {
+    "name": "Shamva",
+    "code": "ZW02070A"
+  },
+  {
+    "name": "mc Madziwa Rural Hospital",
+    "code": "ZW02070B"
+  },
+  {
+    "name": "Wadzanai",
+    "code": "ZW020712"
+  },
+  {
+    "name": "Chakonda",
+    "code": "ZW020725"
+  },
+  {
+    "name": "Chidembo",
+    "code": "ZW020726"
+  },
+  {
+    "name": "Chihuri",
+    "code": "ZW020727"
+  },
+  {
+    "name": "Takawira",
+    "code": "ZW020728"
+  },
+  {
+    "name": "Shamva Gold Mine",
+    "code": "ZW020776"
+  },
+  {
+    "name": "Nyamaropa",
+    "code": "ZW020777"
+  },
+  {
+    "name": "Masoka",
+    "code": "ZW020801"
+  },
+  {
+    "name": "mc Mushumbi RHC",
+    "code": "ZW020803"
+  },
+  {
+    "name": "Chitsungo",
+    "code": "ZW02080B"
+  },
+  {
+    "name": "Chapoto",
+    "code": "ZW020820"
+  },
+  {
+    "name": "Angwa",
+    "code": "ZW020821"
+  },
+  {
+    "name": "Chikafa",
+    "code": "ZW020830"
+  },
+  {
+    "name": "Gonono",
+    "code": "ZW020831"
+  },
+  {
+    "name": "mc Musengezi Clinic",
+    "code": "ZW020832"
+  },
+  {
+    "name": "Mahuwe",
+    "code": "ZW020833"
+  },
+  {
+    "name": "Chirunya",
+    "code": "ZW020834"
+  },
+  {
+    "name": "Nyambudzi",
+    "code": "ZW020835"
+  },
+  {
+    "name": "Chidodo",
+    "code": "ZW020841"
+  },
+  {
+    "name": "Mufudziwakanaka",
+    "code": "ZW030101"
+  },
+  {
+    "name": "Murezi",
+    "code": "ZW030102"
+  },
+  {
+    "name": "Nyamhere",
+    "code": "ZW030103"
+  },
+  {
+    "name": "me Zvamatobwe Rural Health Centre",
+    "code": "ZW030104"
+  },
+  {
+    "name": "ZRP",
+    "code": "ZW030105"
+  },
+  {
+    "name": "Chivu Prison",
+    "code": "ZW030106"
+  },
+  {
+    "name": "Musuma",
+    "code": "ZW030107"
+  },
+  {
+    "name": "Chivhu",
+    "code": "ZW03010A"
+  },
+  {
+    "name": "Nharira",
+    "code": "ZW03010B"
+  },
+  {
+    "name": "Range",
+    "code": "ZW03010C"
+  },
+  {
+    "name": "Sadza",
+    "code": "ZW03010D"
+  },
+  {
+    "name": "Gandachibvuva",
+    "code": "ZW03010E"
+  },
+  {
+    "name": "Tavara",
+    "code": "ZW030125"
+  },
+  {
+    "name": "Gokomere",
+    "code": "ZW030126"
+  },
+  {
+    "name": "Madamombe",
+    "code": "ZW030127"
+  },
+  {
+    "name": "Manyene",
+    "code": "ZW030128"
+  },
+  {
+    "name": "Masasa",
+    "code": "ZW030129"
+  },
+  {
+    "name": "Mbiru",
+    "code": "ZW030130"
+  },
+  {
+    "name": "Mushipe",
+    "code": "ZW030131"
+  },
+  {
+    "name": "Nhangabwe",
+    "code": "ZW030132"
+  },
+  {
+    "name": "Popoteke",
+    "code": "ZW030133"
+  },
+  {
+    "name": "Rutanhira",
+    "code": "ZW030134"
+  },
+  {
+    "name": "Shumba",
+    "code": "ZW030135"
+  },
+  {
+    "name": "Unyetu",
+    "code": "ZW030136"
+  },
+  {
+    "name": "Wazvaremaka",
+    "code": "ZW030137"
+  },
+  {
+    "name": "Chivhu",
+    "code": "ZW030145"
+  },
+  {
+    "name": "Gandami",
+    "code": "ZW030146"
+  },
+  {
+    "name": "Lancashire",
+    "code": "ZW030147"
+  },
+  {
+    "name": "Mutoro",
+    "code": "ZW030148"
+  },
+  {
+    "name": "Wiltshire",
+    "code": "ZW030149"
+  },
+  {
+    "name": "Daramombe",
+    "code": "ZW030191"
+  },
+  {
+    "name": "Mwerahari",
+    "code": "ZW030192"
+  },
+  {
+    "name": "Bosha",
+    "code": "ZW030201"
+  },
+  {
+    "name": "Domboshava",
+    "code": "ZW030202"
+  },
+  {
+    "name": "Mwanza",
+    "code": "ZW030203"
+  },
+  {
+    "name": "Rusununguko",
+    "code": "ZW030204"
+  },
+  {
+    "name": "Goromonzi High",
+    "code": "ZW030205"
+  },
+  {
+    "name": "Makumbe",
+    "code": "ZW03020A"
+  },
+  {
+    "name": "Ruwa Rehab.",
+    "code": "ZW03020C"
+  },
+  {
+    "name": "Chikwaka",
+    "code": "ZW03020D"
+  },
+  {
+    "name": "Chinamhora",
+    "code": "ZW030225"
+  },
+  {
+    "name": "Chinyika",
+    "code": "ZW030226"
+  },
+  {
+    "name": "Kowoyo",
+    "code": "ZW030227"
+  },
+  {
+    "name": "Masukandoro",
+    "code": "ZW030228"
+  },
+  {
+    "name": "Nyaure",
+    "code": "ZW030229"
+  },
+  {
+    "name": "Pote",
+    "code": "ZW030230"
+  },
+  {
+    "name": "Bromley",
+    "code": "ZW030245"
+  },
+  {
+    "name": "Cranborne Clinic",
+    "code": "ZW030246"
+  },
+  {
+    "name": "John Reimer",
+    "code": "ZW030247"
+  },
+  {
+    "name": "Kubatsirana",
+    "code": "ZW030248"
+  },
+  {
+    "name": "Rusike",
+    "code": "ZW030249"
+  },
+  {
+    "name": "Ruwa",
+    "code": "ZW030250"
+  },
+  {
+    "name": "Joan Rankini",
+    "code": "ZW030251"
+  },
+  {
+    "name": "St Joseph's",
+    "code": "ZW030252"
+  },
+  {
+    "name": "Ruwa",
+    "code": "ZW030273"
+  },
+  {
+    "name": "Melfort",
+    "code": "ZW030274"
+  },
+  {
+    "name": "Acturus Mine",
+    "code": "ZW030275"
+  },
+  {
+    "name": "Gejo raRuby",
+    "code": "ZW030276"
+  },
+  {
+    "name": "Kafura",
+    "code": "ZW030301"
+  },
+  {
+    "name": "Karimbika",
+    "code": "ZW030302"
+  },
+  {
+    "name": "Sowa",
+    "code": "ZW030303"
+  },
+  {
+    "name": "Marembera",
+    "code": "ZW030304"
+  },
+  {
+    "name": "Mutawatawa",
+    "code": "ZW03030A"
+  },
+  {
+    "name": "Borera",
+    "code": "ZW030325"
+  },
+  {
+    "name": "Chikuhwa",
+    "code": "ZW030326"
+  },
+  {
+    "name": "Chipfunde",
+    "code": "ZW030327"
+  },
+  {
+    "name": "Chitimbe",
+    "code": "ZW030328"
+  },
+  {
+    "name": "Chitsungo",
+    "code": "ZW030329"
+  },
+  {
+    "name": "Manyika",
+    "code": "ZW030330"
+  },
+  {
+    "name": "Maramba",
+    "code": "ZW030331"
+  },
+  {
+    "name": "Mashambanhaka",
+    "code": "ZW030332"
+  },
+  {
+    "name": "Nhakiwa",
+    "code": "ZW030333"
+  },
+  {
+    "name": "Nyakasoro",
+    "code": "ZW030334"
+  },
+  {
+    "name": "Nyanzou",
+    "code": "ZW030336"
+  },
+  {
+    "name": "Muskwe",
+    "code": "ZW030337"
+  },
+  {
+    "name": "Dewe",
+    "code": "ZW030338"
+  },
+  {
+    "name": "Dindi",
+    "code": "ZW030391"
+  },
+  {
+    "name": "Garaba",
+    "code": "ZW030401"
+  },
+  {
+    "name": "Goneso",
+    "code": "ZW030402"
+  },
+  {
+    "name": "Goto",
+    "code": "ZW030403"
+  },
+  {
+    "name": "Sengezi",
+    "code": "ZW030405"
+  },
+  {
+    "name": "me Gotora/Skimpton Clinic",
+    "code": "ZW030406"
+  },
+  {
+    "name": "Idube",
+    "code": "ZW030407"
+  },
+  {
+    "name": "Sango",
+    "code": "ZW030408"
+  },
+  {
+    "name": "Wedza",
+    "code": "ZW03040A"
+  },
+  {
+    "name": "Mt St Mary's",
+    "code": "ZW03040B"
+  },
+  {
+    "name": "Chigondo",
+    "code": "ZW030425"
+  },
+  {
+    "name": "Mukamba",
+    "code": "ZW030427"
+  },
+  {
+    "name": "Chikurumadziva",
+    "code": "ZW030445"
+  },
+  {
+    "name": "Makarara",
+    "code": "ZW030446"
+  },
+  {
+    "name": "Zvidhuri",
+    "code": "ZW030447"
+  },
+  {
+    "name": "Border Church",
+    "code": "ZW030501"
+  },
+  {
+    "name": "Chimbwanda",
+    "code": "ZW030502"
+  },
+  {
+    "name": "Dimbiti",
+    "code": "ZW030503"
+  },
+  {
+    "name": "Kushinga Phikelela",
+    "code": "ZW030504"
+  },
+  {
+    "name": "Mudzimuirema",
+    "code": "ZW030505"
+  },
+  {
+    "name": "Wenimbe",
+    "code": "ZW030506"
+  },
+  {
+    "name": "me Marondera Provincial Hospital",
+    "code": "ZW03050A"
+  },
+  {
+    "name": "Chiota",
+    "code": "ZW03050B"
+  },
+  {
+    "name": "Borrandile",
+    "code": "ZW03050C"
+  },
+  {
+    "name": "me ZPS Marondera Prison Clinic",
+    "code": "ZW030511"
+  },
+  {
+    "name": "ZRP",
+    "code": "ZW030512"
+  },
+  {
+    "name": "me Ridigita Farm Prison Clinic",
+    "code": "ZW030513"
+  },
+  {
+    "name": "Masikana",
+    "code": "ZW030525"
+  },
+  {
+    "name": "me Marondera Rural Council Clinic",
+    "code": "ZW030528"
+  },
+  {
+    "name": "Chiparawe",
+    "code": "ZW030529"
+  },
+  {
+    "name": "Igava",
+    "code": "ZW030545"
+  },
+  {
+    "name": "Dombotombo",
+    "code": "ZW030561"
+  },
+  {
+    "name": "Nyameni",
+    "code": "ZW030562"
+  },
+  {
+    "name": "Nyembanzvere",
+    "code": "ZW030563"
+  },
+  {
+    "name": "Lustliegh",
+    "code": "ZW030564"
+  },
+  {
+    "name": "Waddilove",
+    "code": "ZW030586"
+  },
+  {
+    "name": "Rakodzi",
+    "code": "ZW030588"
+  },
+  {
+    "name": "Chimukoko",
+    "code": "ZW030601"
+  },
+  {
+    "name": "Chiunye",
+    "code": "ZW030602"
+  },
+  {
+    "name": "Gozi",
+    "code": "ZW030603"
+  },
+  {
+    "name": "Kondo",
+    "code": "ZW030604"
+  },
+  {
+    "name": "Makaha",
+    "code": "ZW030605"
+  },
+  {
+    "name": "Masarakufa",
+    "code": "ZW030606"
+  },
+  {
+    "name": "Nyamanyora",
+    "code": "ZW030607"
+  },
+  {
+    "name": "Kotwa",
+    "code": "ZW03060A"
+  },
+  {
+    "name": "St. Pius",
+    "code": "ZW030625"
+  },
+  {
+    "name": "Kapotesa",
+    "code": "ZW030626"
+  },
+  {
+    "name": "Kotwa",
+    "code": "ZW030627"
+  },
+  {
+    "name": "Masenda",
+    "code": "ZW030628"
+  },
+  {
+    "name": "Nyamapanda",
+    "code": "ZW030629"
+  },
+  {
+    "name": "Nyamatawa",
+    "code": "ZW030630"
+  },
+  {
+    "name": "Nyamukoho",
+    "code": "ZW030631"
+  },
+  {
+    "name": "Shinga",
+    "code": "ZW030632"
+  },
+  {
+    "name": "Suswe",
+    "code": "ZW030633"
+  },
+  {
+    "name": "Chisvo",
+    "code": "ZW030634"
+  },
+  {
+    "name": "Chikwizo",
+    "code": "ZW030691"
+  },
+  {
+    "name": "Dendera",
+    "code": "ZW030692"
+  },
+  {
+    "name": "Nyahuku",
+    "code": "ZW030693"
+  },
+  {
+    "name": "Chitate",
+    "code": "ZW030701"
+  },
+  {
+    "name": "Jekwa",
+    "code": "ZW030703"
+  },
+  {
+    "name": "Kadenge",
+    "code": "ZW030704"
+  },
+  {
+    "name": "Madamombe",
+    "code": "ZW030705"
+  },
+  {
+    "name": "Munamba",
+    "code": "ZW030706"
+  },
+  {
+    "name": "Murehwa",
+    "code": "ZW030707"
+  },
+  {
+    "name": "Prison",
+    "code": "ZW030708"
+  },
+  {
+    "name": "Murewa",
+    "code": "ZW03070A"
+  },
+  {
+    "name": "St Pauls Musami",
+    "code": "ZW03070B"
+  },
+  {
+    "name": "Nhowe",
+    "code": "ZW03070C"
+  },
+  {
+    "name": "Murewa",
+    "code": "ZW030722"
+  },
+  {
+    "name": "Chitowa 1",
+    "code": "ZW030723"
+  },
+  {
+    "name": "Chitowa 2",
+    "code": "ZW030724"
+  },
+  {
+    "name": "Dandara",
+    "code": "ZW030725"
+  },
+  {
+    "name": "Dombwe",
+    "code": "ZW030726"
+  },
+  {
+    "name": "Kadzere",
+    "code": "ZW030727"
+  },
+  {
+    "name": "Nyamutumbu",
+    "code": "ZW030728"
+  },
+  {
+    "name": "Shambamuto",
+    "code": "ZW030729"
+  },
+  {
+    "name": "Craiglea",
+    "code": "ZW030730"
+  },
+  {
+    "name": "Matututu",
+    "code": "ZW030731"
+  },
+  {
+    "name": "Ngwerume",
+    "code": "ZW030732"
+  },
+  {
+    "name": "Macheke",
+    "code": "ZW030745"
+  },
+  {
+    "name": "Virginia Clinic",
+    "code": "ZW030746"
+  },
+  {
+    "name": "Waterloo",
+    "code": "ZW030747"
+  },
+  {
+    "name": "Welcome Home Liden",
+    "code": "ZW030748"
+  },
+  {
+    "name": "Kambarami",
+    "code": "ZW030749"
+  },
+  {
+    "name": "Muchinjike",
+    "code": "ZW030750"
+  },
+  {
+    "name": "Nehoreka",
+    "code": "ZW030771"
+  },
+  {
+    "name": "Goso",
+    "code": "ZW030772"
+  },
+  {
+    "name": "Hoyuyu 1",
+    "code": "ZW030801"
+  },
+  {
+    "name": "Hoyuyu 2",
+    "code": "ZW030802"
+  },
+  {
+    "name": "Kapondoro",
+    "code": "ZW030803"
+  },
+  {
+    "name": "Katsukunya",
+    "code": "ZW030804"
+  },
+  {
+    "name": "Kawewe",
+    "code": "ZW030805"
+  },
+  {
+    "name": "Mushimbo",
+    "code": "ZW030806"
+  },
+  {
+    "name": "Nyamuzizi",
+    "code": "ZW030807"
+  },
+  {
+    "name": "Nyadire Resettlement",
+    "code": "ZW030808"
+  },
+  {
+    "name": "Kushinga",
+    "code": "ZW030809"
+  },
+  {
+    "name": "Mutoko",
+    "code": "ZW03080A"
+  },
+  {
+    "name": "Nyamuzuwe",
+    "code": "ZW03080B"
+  },
+  {
+    "name": "Makosa",
+    "code": "ZW03080C"
+  },
+  {
+    "name": "Nyadire",
+    "code": "ZW03080D"
+  },
+  {
+    "name": "Louisa Guidotte",
+    "code": "ZW03080E"
+  },
+  {
+    "name": "Nzira",
+    "code": "ZW030810"
+  },
+  {
+    "name": "Mutoko",
+    "code": "ZW030811"
+  },
+  {
+    "name": "Chikondoma",
+    "code": "ZW030812"
+  },
+  {
+    "name": "Chidye",
+    "code": "ZW030814"
+  },
+  {
+    "name": "Madimutsa",
+    "code": "ZW030815"
+  },
+  {
+    "name": "EPI MOBILE",
+    "code": "ZW030820"
+  },
+  {
+    "name": "Mutoko ZNFPC CLINIC",
+    "code": "ZW030821"
+  },
+  {
+    "name": "Charewa",
+    "code": "ZW030825"
+  },
+  {
+    "name": "Matedza",
+    "code": "ZW030826"
+  },
+  {
+    "name": "Mother of Peace",
+    "code": "ZW030827"
+  },
+  {
+    "name": "Mutemwa Lep.",
+    "code": "ZW030861"
+  },
+  {
+    "name": "Chindenga",
+    "code": "ZW030891"
+  },
+  {
+    "name": "Kowo",
+    "code": "ZW030898"
+  },
+  {
+    "name": "Kawazva",
+    "code": "ZW030899"
+  },
+  {
+    "name": "Acton Ronolds",
+    "code": "ZW030901"
+  },
+  {
+    "name": "Zhakata",
+    "code": "ZW030902"
+  },
+  {
+    "name": "Z.R.P. Seke CLINIC",
+    "code": "ZW030903"
+  },
+  {
+    "name": "Ringa",
+    "code": "ZW030904"
+  },
+  {
+    "name": "Masasa",
+    "code": "ZW030905"
+  },
+  {
+    "name": "SEKE EPI UNIT",
+    "code": "ZW030906"
+  },
+  {
+    "name": "CBD CLINIC",
+    "code": "ZW030907"
+  },
+  {
+    "name": "Beatrice",
+    "code": "ZW03090A"
+  },
+  {
+    "name": "Kunaka",
+    "code": "ZW03090B"
+  },
+  {
+    "name": "Charakupa",
+    "code": "ZW030921"
+  },
+  {
+    "name": "Jonasi",
+    "code": "ZW030922"
+  },
+  {
+    "name": "Makanyazingwa",
+    "code": "ZW030923"
+  },
+  {
+    "name": "Marirangwe",
+    "code": "ZW030924"
+  },
+  {
+    "name": "Muda",
+    "code": "ZW030925"
+  },
+  {
+    "name": "me Epworth Polyclinic",
+    "code": "ZW030926"
+  },
+  {
+    "name": "Derbyshire",
+    "code": "ZW030983"
+  },
+  {
+    "name": "Lanark",
+    "code": "ZW030984"
+  },
+  {
+    "name": "me Epworth Mission Clinic",
+    "code": "ZW030990"
+  },
+  {
+    "name": "Chibero",
+    "code": "ZW040101"
+  },
+  {
+    "name": "Gora",
+    "code": "ZW040102"
+  },
+  {
+    "name": "Mbuyanehanda",
+    "code": "ZW040103"
+  },
+  {
+    "name": "Monera",
+    "code": "ZW040104"
+  },
+  {
+    "name": "Msengezi",
+    "code": "ZW040105"
+  },
+  {
+    "name": "Musinami",
+    "code": "ZW040106"
+  },
+  {
+    "name": "Mhondoro",
+    "code": "ZW04010B"
+  },
+  {
+    "name": "Norton",
+    "code": "ZW04010C"
+  },
+  {
+    "name": "Chikara",
+    "code": "ZW040125"
+  },
+  {
+    "name": "Chivero",
+    "code": "ZW040126"
+  },
+  {
+    "name": "Mhondoro North",
+    "code": "ZW040127"
+  },
+  {
+    "name": "Mupawose",
+    "code": "ZW040128"
+  },
+  {
+    "name": "Rwizi",
+    "code": "ZW040129"
+  },
+  {
+    "name": "Watyoka",
+    "code": "ZW040130"
+  },
+  {
+    "name": "mw Chegutu Clinic",
+    "code": "ZW040145"
+  },
+  {
+    "name": "mw Dombwe Clinic",
+    "code": "ZW040146"
+  },
+  {
+    "name": "Katangautano",
+    "code": "ZW040147"
+  },
+  {
+    "name": "Sandringham",
+    "code": "ZW040148"
+  },
+  {
+    "name": "Selous",
+    "code": "ZW040149"
+  },
+  {
+    "name": "David Whitehead",
+    "code": "ZW040151"
+  },
+  {
+    "name": "Hunyani",
+    "code": "ZW040152"
+  },
+  {
+    "name": "Pfupajena",
+    "code": "ZW040161"
+  },
+  {
+    "name": "Chinengundu",
+    "code": "ZW040162"
+  },
+  {
+    "name": "ZMDC",
+    "code": "ZW040176"
+  },
+  {
+    "name": "Lizmore",
+    "code": "ZW040177"
+  },
+  {
+    "name": "Homedale",
+    "code": "ZW040178"
+  },
+  {
+    "name": "Mafuti",
+    "code": "ZW040179"
+  },
+  {
+    "name": "Brunswick",
+    "code": "ZW040180"
+  },
+  {
+    "name": "mw Dudley Hall Clinic",
+    "code": "ZW040181"
+  },
+  {
+    "name": "mw Chegutu CBDS Clinic",
+    "code": "ZW040182"
+  },
+  {
+    "name": "Suri-Suri",
+    "code": "ZW040183"
+  },
+  {
+    "name": "mw Chegutu District Hospital",
+    "code": "ZW040184"
+  },
+  {
+    "name": "mw Batsiranai Nursing Home",
+    "code": "ZW040185"
+  },
+  {
+    "name": "mw Beersheba Mission Clinic",
+    "code": "ZW040186"
+  },
+  {
+    "name": "mwPresbyterian Clinic",
+    "code": "ZW040187"
+  },
+  {
+    "name": "Chirundu",
+    "code": "ZW040201"
+  },
+  {
+    "name": "Chivende",
+    "code": "ZW040202"
+  },
+  {
+    "name": "Deve",
+    "code": "ZW040203"
+  },
+  {
+    "name": "Masanga",
+    "code": "ZW040205"
+  },
+  {
+    "name": "Zvipani",
+    "code": "ZW040206"
+  },
+  {
+    "name": "Zebra Downs",
+    "code": "ZW040207"
+  },
+  {
+    "name": "mw Chibara Clinic",
+    "code": "ZW040208"
+  },
+  {
+    "name": "mw ZPS Karoi Prison Clinic",
+    "code": "ZW040209"
+  },
+  {
+    "name": "mw ZPS Hurungwe Prison Clinic",
+    "code": "ZW040209"
+  },
+  {
+    "name": "Karoi",
+    "code": "ZW04020A"
+  },
+  {
+    "name": "mw Hurungwe Rural Hospital",
+    "code": "ZW04020B"
+  },
+  {
+    "name": "Mwami",
+    "code": "ZW04020C"
+  },
+  {
+    "name": "Chidamoyo",
+    "code": "ZW04020D"
+  },
+  {
+    "name": "Chinhere",
+    "code": "ZW040225"
+  },
+  {
+    "name": "Chundu",
+    "code": "ZW040226"
+  },
+  {
+    "name": "Kazangarare",
+    "code": "ZW040227"
+  },
+  {
+    "name": "Nyamakaze",
+    "code": "ZW040228"
+  },
+  {
+    "name": "Nyamhunga",
+    "code": "ZW040229"
+  },
+  {
+    "name": "Hewiyai",
+    "code": "ZW040245"
+  },
+  {
+    "name": "Hesketh",
+    "code": "ZW040246"
+  },
+  {
+    "name": "Mashongwe",
+    "code": "ZW040247"
+  },
+  {
+    "name": "Nyangoma",
+    "code": "ZW040248"
+  },
+  {
+    "name": "Tenewe",
+    "code": "ZW040249"
+  },
+  {
+    "name": "Lynx",
+    "code": "ZW040275"
+  },
+  {
+    "name": "Kapfunde",
+    "code": "ZW040291"
+  },
+  {
+    "name": "Kasimube",
+    "code": "ZW040294"
+  },
+  {
+    "name": "Karuru",
+    "code": "ZW040295"
+  },
+  {
+    "name": "Dete",
+    "code": "ZW040296"
+  },
+  {
+    "name": "Lan lorry",
+    "code": "ZW040297"
+  },
+  {
+    "name": "ZRP Karoi",
+    "code": "ZW040298"
+  },
+  {
+    "name": "Doro",
+    "code": "ZW040299"
+  },
+  {
+    "name": "Dondoshava",
+    "code": "ZW040302"
+  },
+  {
+    "name": "Donain",
+    "code": "ZW040303"
+  },
+  {
+    "name": "mw New Geja Rural Health Centre",
+    "code": "ZW040304"
+  },
+  {
+    "name": "Jompani",
+    "code": "ZW040305"
+  },
+  {
+    "name": "mw Jondale Bumbe Rural Health Centre",
+    "code": "ZW040306"
+  },
+  {
+    "name": "mw ZPS Kadoma Prison Clinic",
+    "code": "ZW040307"
+  },
+  {
+    "name": "Muzvezve",
+    "code": "ZW040308"
+  },
+  {
+    "name": "Nyabango",
+    "code": "ZW040309"
+  },
+  {
+    "name": "mw Kadoma General Hospital",
+    "code": "ZW04030A"
+  },
+  {
+    "name": "mw Ngezi (mhondoro) Rural Hospital",
+    "code": "ZW04030B"
+  },
+  {
+    "name": "mw Sanyati Mission Hospital",
+    "code": "ZW04030C"
+  },
+  {
+    "name": "mw St Michael's Mission Hospital",
+    "code": "ZW04030D"
+  },
+  {
+    "name": "mw Battlefields5 Brigade Army Clinic",
+    "code": "ZW04030E"
+  },
+  {
+    "name": "mw Rimuka MCH Municipal Clinic",
+    "code": "ZW04030F"
+  },
+  {
+    "name": "Nyamatani",
+    "code": "ZW040310"
+  },
+  {
+    "name": "Vere",
+    "code": "ZW040311"
+  },
+  {
+    "name": "Manyoni",
+    "code": "ZW040315"
+  },
+  {
+    "name": "Chemukute",
+    "code": "ZW040316"
+  },
+  {
+    "name": "Twin Tops",
+    "code": "ZW040317"
+  },
+  {
+    "name": "Chingondo",
+    "code": "ZW040318"
+  },
+  {
+    "name": "Black Movale",
+    "code": "ZW040320"
+  },
+  {
+    "name": "Nyaonde",
+    "code": "ZW040321"
+  },
+  {
+    "name": "Mukarati",
+    "code": "ZW040322"
+  },
+  {
+    "name": "mw Zimplats Trauma Centre Private Clinic",
+    "code": "ZW040323"
+  },
+  {
+    "name": "mw Perseverance Army Clinic",
+    "code": "ZW040324"
+  },
+  {
+    "name": "Bururu",
+    "code": "ZW040325"
+  },
+  {
+    "name": "mw Chirikiti RDC Clinic",
+    "code": "ZW040326"
+  },
+  {
+    "name": "Manyewe",
+    "code": "ZW040327"
+  },
+  {
+    "name": "Murambwa",
+    "code": "ZW040328"
+  },
+  {
+    "name": "Muuyu",
+    "code": "ZW040329"
+  },
+  {
+    "name": "mw Sanyati RDC Clinic",
+    "code": "ZW040330"
+  },
+  {
+    "name": "Ordoff",
+    "code": "ZW040346"
+  },
+  {
+    "name": "mw Turf Estate RDC Clinic",
+    "code": "ZW040348"
+  },
+  {
+    "name": "Rimuka",
+    "code": "ZW040361"
+  },
+  {
+    "name": "Waverly",
+    "code": "ZW040362"
+  },
+  {
+    "name": "mw Ngezi Municipal Clinic",
+    "code": "ZW040363"
+  },
+  {
+    "name": "Golden Valley",
+    "code": "ZW040377"
+  },
+  {
+    "name": "Patchway Mine",
+    "code": "ZW040379"
+  },
+  {
+    "name": "Jairos Jiri",
+    "code": "ZW040381"
+  },
+  {
+    "name": "Mafindifindi",
+    "code": "ZW040384"
+  },
+  {
+    "name": "Chakari",
+    "code": "ZW040389"
+  },
+  {
+    "name": "Gatse Gatse",
+    "code": "ZW040402"
+  },
+  {
+    "name": "Kanyati",
+    "code": "ZW040403"
+  },
+  {
+    "name": "Mola",
+    "code": "ZW040404"
+  },
+  {
+    "name": "Negande",
+    "code": "ZW040405"
+  },
+  {
+    "name": "Kariba",
+    "code": "ZW04040A"
+  },
+  {
+    "name": "Chalala",
+    "code": "ZW040425"
+  },
+  {
+    "name": "Msampakaruma",
+    "code": "ZW040427"
+  },
+  {
+    "name": "Siakobvu",
+    "code": "ZW040428"
+  },
+  {
+    "name": "Nyamhunga",
+    "code": "ZW040461"
+  },
+  {
+    "name": "Mahombekombe",
+    "code": "ZW040462"
+  },
+  {
+    "name": "Kasvisva",
+    "code": "ZW040463"
+  },
+  {
+    "name": "Mayovhe",
+    "code": "ZW040464"
+  },
+  {
+    "name": "Chinhoyi Prison Clinic",
+    "code": "ZW040501"
+  },
+  {
+    "name": "Chinhoyi ZRP Camp Clinic",
+    "code": "ZW040502"
+  },
+  {
+    "name": "Chinhoyi University Clinic",
+    "code": "ZW040503"
+  },
+  {
+    "name": "Kamonde",
+    "code": "ZW040505"
+  },
+  {
+    "name": "Kenzamba",
+    "code": "ZW040506"
+  },
+  {
+    "name": "Murereka",
+    "code": "ZW040507"
+  },
+  {
+    "name": "Zumbara",
+    "code": "ZW040508"
+  },
+  {
+    "name": "Godzi",
+    "code": "ZW040509"
+  },
+  {
+    "name": "Chinhoyi P.H",
+    "code": "ZW04050A"
+  },
+  {
+    "name": "St. Rupets",
+    "code": "ZW04050B"
+  },
+  {
+    "name": "mw Makonde Christ Hosp",
+    "code": "ZW04050D"
+  },
+  {
+    "name": "River Ranch",
+    "code": "ZW040510"
+  },
+  {
+    "name": "Gudubu",
+    "code": "ZW040512"
+  },
+  {
+    "name": "Hombwe",
+    "code": "ZW040525"
+  },
+  {
+    "name": "Mukohwe",
+    "code": "ZW040526"
+  },
+  {
+    "name": "Obva",
+    "code": "ZW040527"
+  },
+  {
+    "name": "mw Runene RDCClinic",
+    "code": "ZW040533"
+  },
+  {
+    "name": "Doma",
+    "code": "ZW040545"
+  },
+  {
+    "name": "MAGOG FARM HEALTH POST",
+    "code": "ZW040546"
+  },
+  {
+    "name": "Matorangera",
+    "code": "ZW040547"
+  },
+  {
+    "name": "Umboe",
+    "code": "ZW040548"
+  },
+  {
+    "name": "C.S.C.",
+    "code": "ZW040551"
+  },
+  {
+    "name": "mw Chinhoyi Munic Clinic",
+    "code": "ZW040561"
+  },
+  {
+    "name": "Chikonohono",
+    "code": "ZW040562"
+  },
+  {
+    "name": "mw Makonde ZNFPC Clinic",
+    "code": "ZW040563"
+  },
+  {
+    "name": "Alaska",
+    "code": "ZW040575"
+  },
+  {
+    "name": "DAMBA CLINIC",
+    "code": "ZW040576"
+  },
+  {
+    "name": "Kosana",
+    "code": "ZW040578"
+  },
+  {
+    "name": "mw Nyamugomba RDC Clinic",
+    "code": "ZW040579"
+  },
+  {
+    "name": "mw PSZ Private Clinic",
+    "code": "ZW040580"
+  },
+  {
+    "name": "Green Valley",
+    "code": "ZW040581"
+  },
+  {
+    "name": "mw Presbyterian Private Clinic",
+    "code": "ZW040582"
+  },
+  {
+    "name": "mw Portlet RDC clinic",
+    "code": "ZW040583"
+  },
+  {
+    "name": "mw Sadoma RDC Clinic",
+    "code": "ZW040584"
+  },
+  {
+    "name": "mw Gamanya RDC clinic",
+    "code": "ZW040585"
+  },
+  {
+    "name": "mw Chimanimani RDC Clinic",
+    "code": "ZW040586"
+  },
+  {
+    "name": "Chivhere",
+    "code": "ZW040601"
+  },
+  {
+    "name": "Gwebi",
+    "code": "ZW040602"
+  },
+  {
+    "name": "Darwendale",
+    "code": "ZW04060C"
+  },
+  {
+    "name": "Raffingora",
+    "code": "ZW04060D"
+  },
+  {
+    "name": "Father Onea",
+    "code": "ZW04060E"
+  },
+  {
+    "name": "Mutorashanga",
+    "code": "ZW04060F"
+  },
+  {
+    "name": "Zvimba",
+    "code": "ZW04060G"
+  },
+  {
+    "name": "mw Banket Outreach Mobile",
+    "code": "ZW04060H"
+  },
+  {
+    "name": "Masiyarwa",
+    "code": "ZW040625"
+  },
+  {
+    "name": "Chirau",
+    "code": "ZW040626"
+  },
+  {
+    "name": "Jari",
+    "code": "ZW040627"
+  },
+  {
+    "name": "mw Madzorera RDC Clinic",
+    "code": "ZW040628"
+  },
+  {
+    "name": "mw Mpumbu RDC Clinic",
+    "code": "ZW040629"
+  },
+  {
+    "name": "ARDA Sisi",
+    "code": "ZW040641"
+  },
+  {
+    "name": "Ayrshire",
+    "code": "ZW040642"
+  },
+  {
+    "name": "Kutama",
+    "code": "ZW040643"
+  },
+  {
+    "name": "Kuwadzana",
+    "code": "ZW040644"
+  },
+  {
+    "name": "mw Mount Hampden RDC Clinic",
+    "code": "ZW040645"
+  },
+  {
+    "name": "mw Nyabira RDC Clinic",
+    "code": "ZW040646"
+  },
+  {
+    "name": "TRBC",
+    "code": "ZW040647"
+  },
+  {
+    "name": "Trelawney",
+    "code": "ZW040648"
+  },
+  {
+    "name": "Zowa",
+    "code": "ZW040649"
+  },
+  {
+    "name": "Muriel",
+    "code": "ZW040676"
+  },
+  {
+    "name": "Sutton",
+    "code": "ZW040677"
+  },
+  {
+    "name": "Vanad",
+    "code": "ZW040678"
+  },
+  {
+    "name": "Kemurara",
+    "code": "ZW040679"
+  },
+  {
+    "name": "mw Dzivaresekwa gvt Clinic",
+    "code": "ZW040680"
+  },
+  {
+    "name": "Inkomo",
+    "code": "ZW040681"
+  },
+  {
+    "name": "Crest Breeders",
+    "code": "ZW040682"
+  },
+  {
+    "name": "Mpinga Clinic",
+    "code": "ZW040683"
+  },
+  {
+    "name": "mw Aryshire Mine Clinic",
+    "code": "ZW040686"
+  },
+  {
+    "name": "ZIMPAM",
+    "code": "ZW040687"
+  },
+  {
+    "name": "mw Lospen Farming Clinic",
+    "code": "ZW040689"
+  },
+  {
+    "name": "mw North Middle Dyke Clinic",
+    "code": "ZW040690"
+  },
+  {
+    "name": "mn Chunga Rural Health Centre",
+    "code": "ZW050101"
+  },
+  {
+    "name": "Lubimbi",
+    "code": "ZW050102"
+  },
+  {
+    "name": "Lusulu",
+    "code": "ZW050103"
+  },
+  {
+    "name": "Muchesu",
+    "code": "ZW050104"
+  },
+  {
+    "name": "Siansundu",
+    "code": "ZW050105"
+  },
+  {
+    "name": "Chinego",
+    "code": "ZW050108"
+  },
+  {
+    "name": "Binga",
+    "code": "ZW05010A"
+  },
+  {
+    "name": "Siabuwa",
+    "code": "ZW05010B"
+  },
+  {
+    "name": "Kariangwe",
+    "code": "ZW05010C"
+  },
+  {
+    "name": "Pashu",
+    "code": "ZW050125"
+  },
+  {
+    "name": "Tinde",
+    "code": "ZW050190"
+  },
+  {
+    "name": "Sinakoma",
+    "code": "ZW050191"
+  },
+  {
+    "name": "Simatelele",
+    "code": "ZW050192"
+  },
+  {
+    "name": "Sinasengwe",
+    "code": "ZW050193"
+  },
+  {
+    "name": "Siabuzuba",
+    "code": "ZW050194"
+  },
+  {
+    "name": "mn Siadindi Rural Health Centre",
+    "code": "ZW050196"
+  },
+  {
+    "name": "mn ZPS Binga Prison Clinic",
+    "code": "ZW050197"
+  },
+  {
+    "name": "Lukala",
+    "code": "ZW050201"
+  },
+  {
+    "name": "Mbembeswana",
+    "code": "ZW050202"
+  },
+  {
+    "name": "Inyathi",
+    "code": "ZW05020A"
+  },
+  {
+    "name": "Sicanda",
+    "code": "ZW050226"
+  },
+  {
+    "name": "Balanda",
+    "code": "ZW050227"
+  },
+  {
+    "name": "Majiji",
+    "code": "ZW050228"
+  },
+  {
+    "name": "Mdutshane",
+    "code": "ZW050230"
+  },
+  {
+    "name": "mn Kenilworth Clinic",
+    "code": "ZW050231"
+  },
+  {
+    "name": "Raafs",
+    "code": "ZW050232"
+  },
+  {
+    "name": "Isabella Mine",
+    "code": "ZW050256"
+  },
+  {
+    "name": "Chisuma",
+    "code": "ZW050301"
+  },
+  {
+    "name": "Jambezi",
+    "code": "ZW050302"
+  },
+  {
+    "name": "Kanywambizi",
+    "code": "ZW050303"
+  },
+  {
+    "name": "Makwandara",
+    "code": "ZW050304"
+  },
+  {
+    "name": "Mwemba",
+    "code": "ZW050305"
+  },
+  {
+    "name": "mn ZRP Victoria Falls",
+    "code": "ZW050306"
+  },
+  {
+    "name": "Victoria Falls",
+    "code": "ZW05030A"
+  },
+  {
+    "name": "Lukosi",
+    "code": "ZW05030B"
+  },
+  {
+    "name": "Hwange Colliery Hospital",
+    "code": "ZW05030D"
+  },
+  {
+    "name": "Dete",
+    "code": "ZW050326"
+  },
+  {
+    "name": "Dinde",
+    "code": "ZW050327"
+  },
+  {
+    "name": "Lupote",
+    "code": "ZW050330"
+  },
+  {
+    "name": "Main Camp.",
+    "code": "ZW050331"
+  },
+  {
+    "name": "Ndlovu",
+    "code": "ZW050332"
+  },
+  {
+    "name": "Simangani",
+    "code": "ZW050333"
+  },
+  {
+    "name": "Mabale",
+    "code": "ZW050335"
+  },
+  {
+    "name": "St Patricks",
+    "code": "ZW050337"
+  },
+  {
+    "name": "mn CBDS ZNFPC Clinic",
+    "code": "ZW050339"
+  },
+  {
+    "name": "Zimbabwe Prison Services",
+    "code": "ZW050353"
+  },
+  {
+    "name": "ZRP Hwange",
+    "code": "ZW050355"
+  },
+  {
+    "name": "mn Zesa Dressing Station Clinic",
+    "code": "ZW050358"
+  },
+  {
+    "name": "Zesa Chibondo",
+    "code": "ZW050359"
+  },
+  {
+    "name": "Ingagula",
+    "code": "ZW050360"
+  },
+  {
+    "name": "Empumalanga",
+    "code": "ZW050361"
+  },
+  {
+    "name": "Chinotimba",
+    "code": "ZW050362"
+  },
+  {
+    "name": "Dete",
+    "code": "ZW050381"
+  },
+  {
+    "name": "Ngumija",
+    "code": "ZW050382"
+  },
+  {
+    "name": "NRZ Surgery",
+    "code": "ZW050383"
+  },
+  {
+    "name": "Lukunguni",
+    "code": "ZW050391"
+  },
+  {
+    "name": "No 1 Clinic",
+    "code": "ZW050392"
+  },
+  {
+    "name": "No1 North",
+    "code": "ZW050393"
+  },
+  {
+    "name": "No 2 Clinic",
+    "code": "ZW050394"
+  },
+  {
+    "name": "No 3 Clinic",
+    "code": "ZW050395"
+  },
+  {
+    "name": "No 5 Clinic",
+    "code": "ZW050396"
+  },
+  {
+    "name": "NO. 2 NORTH CLINIC",
+    "code": "ZW050397"
+  },
+  {
+    "name": "Dandanda",
+    "code": "ZW050402"
+  },
+  {
+    "name": "Dongamuzi",
+    "code": "ZW050403"
+  },
+  {
+    "name": "Gomoza",
+    "code": "ZW050404"
+  },
+  {
+    "name": "Kanyandavu",
+    "code": "ZW050405"
+  },
+  {
+    "name": "Lupane",
+    "code": "ZW050406"
+  },
+  {
+    "name": "Lupaka",
+    "code": "ZW050407"
+  },
+  {
+    "name": "mn Lupane Mobile A",
+    "code": "ZW050408"
+  },
+  {
+    "name": "St. Pauls",
+    "code": "ZW05040A"
+  },
+  {
+    "name": "St. Lukes",
+    "code": "ZW05040B"
+  },
+  {
+    "name": "mn Lupane ZNFPC Clinic",
+    "code": "ZW050410"
+  },
+  {
+    "name": "Jotsholo",
+    "code": "ZW050426"
+  },
+  {
+    "name": "Mdlankunzi",
+    "code": "ZW050427"
+  },
+  {
+    "name": "Fatima",
+    "code": "ZW050491"
+  },
+  {
+    "name": "Gwayi",
+    "code": "ZW050492"
+  },
+  {
+    "name": "Mateme",
+    "code": "ZW050502"
+  },
+  {
+    "name": "Ngwaladi",
+    "code": "ZW050503"
+  },
+  {
+    "name": "Sivalo",
+    "code": "ZW050505"
+  },
+  {
+    "name": "mn Zenka Rural Health Centre",
+    "code": "ZW050506"
+  },
+  {
+    "name": "Nkayi",
+    "code": "ZW05050A"
+  },
+  {
+    "name": "Dakamela",
+    "code": "ZW05050B"
+  },
+  {
+    "name": "Mbuma",
+    "code": "ZW05050C"
+  },
+  {
+    "name": "Fanison",
+    "code": "ZW050525"
+  },
+  {
+    "name": "Nesigwe",
+    "code": "ZW050526"
+  },
+  {
+    "name": "Sebumane",
+    "code": "ZW050527"
+  },
+  {
+    "name": "Sikobokobo",
+    "code": "ZW050528"
+  },
+  {
+    "name": "Zinyangeni",
+    "code": "ZW050529"
+  },
+  {
+    "name": "mn Nkayi Mobile",
+    "code": "ZW050530"
+  },
+  {
+    "name": "mn Mbuma Mobile",
+    "code": "ZW050531"
+  },
+  {
+    "name": "Guwe",
+    "code": "ZW050532"
+  },
+  {
+    "name": "Gwelutshena",
+    "code": "ZW050533"
+  },
+  {
+    "name": "Sesame",
+    "code": "ZW050534"
+  },
+  {
+    "name": "Makaza",
+    "code": "ZW050603"
+  },
+  {
+    "name": "Mlagisa",
+    "code": "ZW050604"
+  },
+  {
+    "name": "Mtshayeli",
+    "code": "ZW050605"
+  },
+  {
+    "name": "Sodaka",
+    "code": "ZW050606"
+  },
+  {
+    "name": "Tsholotsho",
+    "code": "ZW05060A"
+  },
+  {
+    "name": "Sipepa",
+    "code": "ZW05060B"
+  },
+  {
+    "name": "Pumula",
+    "code": "ZW05060C"
+  },
+  {
+    "name": "Bubude",
+    "code": "ZW050625"
+  },
+  {
+    "name": "Dlamini",
+    "code": "ZW050626"
+  },
+  {
+    "name": "Jimila",
+    "code": "ZW050628"
+  },
+  {
+    "name": "Madlamombe",
+    "code": "ZW050629"
+  },
+  {
+    "name": "Nkunzi",
+    "code": "ZW050630"
+  },
+  {
+    "name": "T. Urban",
+    "code": "ZW050631"
+  },
+  {
+    "name": "Samahuru",
+    "code": "ZW050633"
+  },
+  {
+    "name": "Shaba",
+    "code": "ZW050634"
+  },
+  {
+    "name": "CBD [ZNFPC]",
+    "code": "ZW050694"
+  },
+  {
+    "name": "Kapane",
+    "code": "ZW050696"
+  },
+  {
+    "name": "Panedziba",
+    "code": "ZW050697"
+  },
+  {
+    "name": "Sikente",
+    "code": "ZW050698"
+  },
+  {
+    "name": "Bemba",
+    "code": "ZW050699"
+  },
+  {
+    "name": "mn Umguza Council Clinic",
+    "code": "ZW050701"
+  },
+  {
+    "name": "mn Nyamandlovu Mobile",
+    "code": "ZW050702"
+  },
+  {
+    "name": "Nyamandlovu Mobile",
+    "code": "ZW050702"
+  },
+  {
+    "name": "Igusi",
+    "code": "ZW050703"
+  },
+  {
+    "name": "Nyamandlovu",
+    "code": "ZW05070A"
+  },
+  {
+    "name": "mn ZNA Braddy BarracksClinic",
+    "code": "ZW050710"
+  },
+  {
+    "name": "mn Anju Prison Clinic",
+    "code": "ZW050711"
+  },
+  {
+    "name": "mn ZRP Rosecamp Clinic",
+    "code": "ZW050720"
+  },
+  {
+    "name": "Khami Remand",
+    "code": "ZW050722"
+  },
+  {
+    "name": "Khami Maximum",
+    "code": "ZW050723"
+  },
+  {
+    "name": "Khami Medium Clinic",
+    "code": "ZW050724"
+  },
+  {
+    "name": "mn ZPS Mlondolozi Prison Clinic",
+    "code": "ZW050725"
+  },
+  {
+    "name": "Fingo",
+    "code": "ZW050726"
+  },
+  {
+    "name": "Redwood",
+    "code": "ZW050728"
+  },
+  {
+    "name": "Ntabazinduna",
+    "code": "ZW050729"
+  },
+  {
+    "name": "Mbembesi",
+    "code": "ZW050733"
+  },
+  {
+    "name": "Fair bridge",
+    "code": "ZW050752"
+  },
+  {
+    "name": "Unicem",
+    "code": "ZW050753"
+  },
+  {
+    "name": "mn ZNA Imbizo Camp Hospital",
+    "code": "ZW050765"
+  },
+  {
+    "name": "T.G Silundika",
+    "code": "ZW050781"
+  },
+  {
+    "name": "mn ZPS Ntabazinduna Prison Clinic",
+    "code": "ZW050785"
+  },
+  {
+    "name": "mn ZRP Ntabazinduna Rural Health Centre",
+    "code": "ZW050788"
+  },
+  {
+    "name": "St. James",
+    "code": "ZW050791"
+  },
+  {
+    "name": "mn ZNA Induna Clinic",
+    "code": "ZW050797"
+  },
+  {
+    "name": "Muntu",
+    "code": "ZW050798"
+  },
+  {
+    "name": "Chikwarakwara",
+    "code": "ZW060101"
+  },
+  {
+    "name": "Chituripasi",
+    "code": "ZW060102"
+  },
+  {
+    "name": "Dite",
+    "code": "ZW060103"
+  },
+  {
+    "name": "Majini",
+    "code": "ZW060104"
+  },
+  {
+    "name": "Prison",
+    "code": "ZW060105"
+  },
+  {
+    "name": "Shabwe",
+    "code": "ZW060106"
+  },
+  {
+    "name": "ZRP",
+    "code": "ZW060108"
+  },
+  {
+    "name": "Nottingham",
+    "code": "ZW060109"
+  },
+  {
+    "name": "Beitbridge",
+    "code": "ZW06010A"
+  },
+  {
+    "name": "Chasvingo",
+    "code": "ZW060125"
+  },
+  {
+    "name": "Dulibadzimu",
+    "code": "ZW060126"
+  },
+  {
+    "name": "Masera",
+    "code": "ZW060127"
+  },
+  {
+    "name": "Swereki",
+    "code": "ZW060128"
+  },
+  {
+    "name": "Shashe",
+    "code": "ZW060129"
+  },
+  {
+    "name": "Tongwe",
+    "code": "ZW060130"
+  },
+  {
+    "name": "Zezane",
+    "code": "ZW060131"
+  },
+  {
+    "name": "Makakabule",
+    "code": "ZW060176"
+  },
+  {
+    "name": "Chamunangana",
+    "code": "ZW060177"
+  },
+  {
+    "name": "NRZ",
+    "code": "ZW060181"
+  },
+  {
+    "name": "Village 13",
+    "code": "ZW060201"
+  },
+  {
+    "name": "Huwana",
+    "code": "ZW060202"
+  },
+  {
+    "name": "Makhuleka",
+    "code": "ZW060204"
+  },
+  {
+    "name": "Matshinge",
+    "code": "ZW060206"
+  },
+  {
+    "name": "Nswazwi",
+    "code": "ZW060208"
+  },
+  {
+    "name": "Lady Barring",
+    "code": "ZW06020B"
+  },
+  {
+    "name": "Lady Stanley",
+    "code": "ZW06020C"
+  },
+  {
+    "name": "Hingwe",
+    "code": "ZW060220"
+  },
+  {
+    "name": "Dombodema",
+    "code": "ZW060225"
+  },
+  {
+    "name": "Madlambuzi",
+    "code": "ZW060228"
+  },
+  {
+    "name": "Ndiweni",
+    "code": "ZW060230"
+  },
+  {
+    "name": "Sikhatini",
+    "code": "ZW060231"
+  },
+  {
+    "name": "Bezu",
+    "code": "ZW060234"
+  },
+  {
+    "name": "Masendu",
+    "code": "ZW060235"
+  },
+  {
+    "name": "Solusi",
+    "code": "ZW060291"
+  },
+  {
+    "name": "Gungwe",
+    "code": "ZW060301"
+  },
+  {
+    "name": "Makwe",
+    "code": "ZW060302"
+  },
+  {
+    "name": "Nhwali",
+    "code": "ZW060303"
+  },
+  {
+    "name": "Gwanda Prison",
+    "code": "ZW060304"
+  },
+  {
+    "name": "Simbumbumbu",
+    "code": "ZW060305"
+  },
+  {
+    "name": "Stanmore",
+    "code": "ZW060306"
+  },
+  {
+    "name": "ZRP",
+    "code": "ZW060307"
+  },
+  {
+    "name": "Gwanda ZNA. CLINIC",
+    "code": "ZW060308"
+  },
+  {
+    "name": "ZNFPC",
+    "code": "ZW060309"
+  },
+  {
+    "name": "Gwanda Prov. Hosp",
+    "code": "ZW06030A"
+  },
+  {
+    "name": "Manama",
+    "code": "ZW06030B"
+  },
+  {
+    "name": "Mtshabezi",
+    "code": "ZW06030C"
+  },
+  {
+    "name": "Buvuma",
+    "code": "ZW060325"
+  },
+  {
+    "name": "Kafusi",
+    "code": "ZW060326"
+  },
+  {
+    "name": "Mashaba",
+    "code": "ZW060327"
+  },
+  {
+    "name": "Mzimuni",
+    "code": "ZW060328"
+  },
+  {
+    "name": "Ntalale",
+    "code": "ZW060329"
+  },
+  {
+    "name": "Sengwezani",
+    "code": "ZW060330"
+  },
+  {
+    "name": "Garanyemba",
+    "code": "ZW060331"
+  },
+  {
+    "name": "Sitezi",
+    "code": "ZW060332"
+  },
+  {
+    "name": "Lushongwe",
+    "code": "ZW060333"
+  },
+  {
+    "name": "Mapate",
+    "code": "ZW060334"
+  },
+  {
+    "name": "Pakama",
+    "code": "ZW060362"
+  },
+  {
+    "name": "Silonga",
+    "code": "ZW060363"
+  },
+  {
+    "name": "Blanket Mine",
+    "code": "ZW060376"
+  },
+  {
+    "name": "Collen Bawn",
+    "code": "ZW060377"
+  },
+  {
+    "name": "Jessie Mine",
+    "code": "ZW060379"
+  },
+  {
+    "name": "Vumba-Chingwe",
+    "code": "ZW060380"
+  },
+  {
+    "name": "West Nicolson",
+    "code": "ZW060382"
+  },
+  {
+    "name": "Joshua Mqabuko Nkomo Polytech Clinic",
+    "code": "ZW060383"
+  },
+  {
+    "name": "Gwatemba",
+    "code": "ZW060402"
+  },
+  {
+    "name": "ms Insiza Rural Health Centre",
+    "code": "ZW060403"
+  },
+  {
+    "name": "Mabuze",
+    "code": "ZW060404"
+  },
+  {
+    "name": "Nkankezi",
+    "code": "ZW060405"
+  },
+  {
+    "name": "Nyamime",
+    "code": "ZW060406"
+  },
+  {
+    "name": "Sanale",
+    "code": "ZW060407"
+  },
+  {
+    "name": "Filabusi",
+    "code": "ZW06040A"
+  },
+  {
+    "name": "Shangani",
+    "code": "ZW06040B"
+  },
+  {
+    "name": "Avoca",
+    "code": "ZW06040C"
+  },
+  {
+    "name": "Wanezi",
+    "code": "ZW06040D"
+  },
+  {
+    "name": "Singwango",
+    "code": "ZW060425"
+  },
+  {
+    "name": "Zhulube",
+    "code": "ZW060426"
+  },
+  {
+    "name": "Singwambizi",
+    "code": "ZW060427"
+  },
+  {
+    "name": "Kombo",
+    "code": "ZW060428"
+  },
+  {
+    "name": "Shangani",
+    "code": "ZW060477"
+  },
+  {
+    "name": "Natisa",
+    "code": "ZW060501"
+  },
+  {
+    "name": "Sankonjana",
+    "code": "ZW060502"
+  },
+  {
+    "name": "Homestead",
+    "code": "ZW060503"
+  },
+  {
+    "name": "Beula",
+    "code": "ZW060504"
+  },
+  {
+    "name": "Ekukanyeni",
+    "code": "ZW060505"
+  },
+  {
+    "name": "ms Maphisa District Hospital",
+    "code": "ZW06050A"
+  },
+  {
+    "name": "Kezi",
+    "code": "ZW06050B"
+  },
+  {
+    "name": "Matobo Rural",
+    "code": "ZW06050C"
+  },
+  {
+    "name": "Tshelanyemba",
+    "code": "ZW06050D"
+  },
+  {
+    "name": "ms St Joseph's Mission Hospital",
+    "code": "ZW06050E"
+  },
+  {
+    "name": "Mbembeswana",
+    "code": "ZW060525"
+  },
+  {
+    "name": "Gulati",
+    "code": "ZW060581"
+  },
+  {
+    "name": "Matobo",
+    "code": "ZW060591"
+  },
+  {
+    "name": "Bazha",
+    "code": "ZW060592"
+  },
+  {
+    "name": "Masiye Camp",
+    "code": "ZW060593"
+  },
+  {
+    "name": "Cyrene",
+    "code": "ZW060594"
+  },
+  {
+    "name": "Kumbuzi",
+    "code": "ZW060601"
+  },
+  {
+    "name": "Mbizingwe",
+    "code": "ZW060602"
+  },
+  {
+    "name": "ms Umzingwane ZNA Clinic",
+    "code": "ZW060603"
+  },
+  {
+    "name": "Esigodini",
+    "code": "ZW06060A"
+  },
+  {
+    "name": "Esibobvu",
+    "code": "ZW060625"
+  },
+  {
+    "name": "Habani",
+    "code": "ZW060626"
+  },
+  {
+    "name": "Mawabeni",
+    "code": "ZW060627"
+  },
+  {
+    "name": "Mhlahlandlela",
+    "code": "ZW060628"
+  },
+  {
+    "name": "Nhlangano",
+    "code": "ZW060629"
+  },
+  {
+    "name": "Nswazi",
+    "code": "ZW060630"
+  },
+  {
+    "name": "Ntshamathe",
+    "code": "ZW060631"
+  },
+  {
+    "name": "Irisvale",
+    "code": "ZW060632"
+  },
+  {
+    "name": "Mpisini",
+    "code": "ZW060633"
+  },
+  {
+    "name": "How Mine",
+    "code": "ZW060676"
+  },
+  {
+    "name": "ms Mzingwane RHC",
+    "code": "ZW060684"
+  },
+  {
+    "name": "Ingwizi",
+    "code": "ZW060703"
+  },
+  {
+    "name": "Marula",
+    "code": "ZW060705"
+  },
+  {
+    "name": "Mayobodo",
+    "code": "ZW060707"
+  },
+  {
+    "name": "Bango",
+    "code": "ZW060709"
+  },
+  {
+    "name": "Plumtree",
+    "code": "ZW06070A"
+  },
+  {
+    "name": "Brunapeg",
+    "code": "ZW06070D"
+  },
+  {
+    "name": "St. Annes",
+    "code": "ZW06070D"
+  },
+  {
+    "name": "Embakwe",
+    "code": "ZW06070E"
+  },
+  {
+    "name": "Madabe",
+    "code": "ZW060727"
+  },
+  {
+    "name": "Mambale",
+    "code": "ZW060729"
+  },
+  {
+    "name": "Tshitshi",
+    "code": "ZW060732"
+  },
+  {
+    "name": "SANZUKWI",
+    "code": "ZW060733"
+  },
+  {
+    "name": "Dingumuzi",
+    "code": "ZW060745"
+  },
+  {
+    "name": "Empandeni",
+    "code": "ZW060792"
+  },
+  {
+    "name": "Plumtree ZPS",
+    "code": "ZW060793"
+  },
+  {
+    "name": "Chizhou",
+    "code": "ZW070101"
+  },
+  {
+    "name": "Denhere",
+    "code": "ZW070102"
+  },
+  {
+    "name": "Lynwood",
+    "code": "ZW070103"
+  },
+  {
+    "name": "Nyautonga",
+    "code": "ZW070104"
+  },
+  {
+    "name": "Nyikavanhu",
+    "code": "ZW070105"
+  },
+  {
+    "name": "Guramatunhu",
+    "code": "ZW070106"
+  },
+  {
+    "name": "Tokwe 4",
+    "code": "ZW070108"
+  },
+  {
+    "name": "Musena",
+    "code": "ZW070109"
+  },
+  {
+    "name": "Mvuma",
+    "code": "ZW07010A"
+  },
+  {
+    "name": "mi Chilimanzi Rural Hospital(Chaka)",
+    "code": "ZW07010B"
+  },
+  {
+    "name": "Driefontein",
+    "code": "ZW07010C"
+  },
+  {
+    "name": "Holy Cross",
+    "code": "ZW07010D"
+  },
+  {
+    "name": "Muwonde",
+    "code": "ZW07010E"
+  },
+  {
+    "name": "St. Theresa",
+    "code": "ZW07010F"
+  },
+  {
+    "name": "Chengwena",
+    "code": "ZW070125"
+  },
+  {
+    "name": "Hama",
+    "code": "ZW070126"
+  },
+  {
+    "name": "Siyahokwe",
+    "code": "ZW070127"
+  },
+  {
+    "name": "Mapiravana",
+    "code": "ZW070128"
+  },
+  {
+    "name": "Lalapanzi",
+    "code": "ZW070145"
+  },
+  {
+    "name": "ZAMASCO CLINIC",
+    "code": "ZW070151"
+  },
+  {
+    "name": "ATHENS CLINIC",
+    "code": "ZW070181"
+  },
+  {
+    "name": "Central Estates",
+    "code": "ZW070186"
+  },
+  {
+    "name": "Gwanyika",
+    "code": "ZW070201"
+  },
+  {
+    "name": "Kadzidirire",
+    "code": "ZW070202"
+  },
+  {
+    "name": "Madzivazu",
+    "code": "ZW070203"
+  },
+  {
+    "name": "Mzadzi",
+    "code": "ZW070204"
+  },
+  {
+    "name": "Mashame",
+    "code": "ZW070205"
+  },
+  {
+    "name": "Mateta",
+    "code": "ZW070206"
+  },
+  {
+    "name": "Norah",
+    "code": "ZW070207"
+  },
+  {
+    "name": "Nyaje",
+    "code": "ZW070208"
+  },
+  {
+    "name": "Simchembu",
+    "code": "ZW070209"
+  },
+  {
+    "name": "Gokwe",
+    "code": "ZW07020A"
+  },
+  {
+    "name": "Chireya",
+    "code": "ZW07020B"
+  },
+  {
+    "name": "Kana",
+    "code": "ZW07020C"
+  },
+  {
+    "name": "Mtora",
+    "code": "ZW07020D"
+  },
+  {
+    "name": "Tsungai",
+    "code": "ZW070210"
+  },
+  {
+    "name": "Svisvi",
+    "code": "ZW070211"
+  },
+  {
+    "name": "Zhamba",
+    "code": "ZW070212"
+  },
+  {
+    "name": "mi Cheziya Clinic",
+    "code": "ZW070213"
+  },
+  {
+    "name": "mi Gokwe South ZRP Camp Clinic",
+    "code": "ZW070215"
+  },
+  {
+    "name": "Chitave",
+    "code": "ZW070216"
+  },
+  {
+    "name": "Mateme",
+    "code": "ZW070217"
+  },
+  {
+    "name": "Jahana",
+    "code": "ZW070219"
+  },
+  {
+    "name": "Vumba",
+    "code": "ZW070220"
+  },
+  {
+    "name": "PSZ",
+    "code": "ZW070224"
+  },
+  {
+    "name": "Chemahuro",
+    "code": "ZW070225"
+  },
+  {
+    "name": "Gawa",
+    "code": "ZW070226"
+  },
+  {
+    "name": "Gumunyu",
+    "code": "ZW070227"
+  },
+  {
+    "name": "Jiri",
+    "code": "ZW070228"
+  },
+  {
+    "name": "Kahobo",
+    "code": "ZW070229"
+  },
+  {
+    "name": "Krima",
+    "code": "ZW070230"
+  },
+  {
+    "name": "Kuwirirana",
+    "code": "ZW070231"
+  },
+  {
+    "name": "Mangidi",
+    "code": "ZW070232"
+  },
+  {
+    "name": "Manoti",
+    "code": "ZW070233"
+  },
+  {
+    "name": "Masuka",
+    "code": "ZW070234"
+  },
+  {
+    "name": "Msala",
+    "code": "ZW070235"
+  },
+  {
+    "name": "Musita",
+    "code": "ZW070236"
+  },
+  {
+    "name": "Nyamunga",
+    "code": "ZW070237"
+  },
+  {
+    "name": "Sai",
+    "code": "ZW070238"
+  },
+  {
+    "name": "Tongwe",
+    "code": "ZW070239"
+  },
+  {
+    "name": "Zhomba",
+    "code": "ZW070240"
+  },
+  {
+    "name": "mi Mkoka Clinic",
+    "code": "ZW070241"
+  },
+  {
+    "name": "Denda",
+    "code": "ZW070291"
+  },
+  {
+    "name": "Goredema",
+    "code": "ZW070292"
+  },
+  {
+    "name": "Manyoni",
+    "code": "ZW070293"
+  },
+  {
+    "name": "Mutange",
+    "code": "ZW070294"
+  },
+  {
+    "name": "Nenyunga",
+    "code": "ZW070295"
+  },
+  {
+    "name": "Sesame",
+    "code": "ZW070296"
+  },
+  {
+    "name": "Huchu",
+    "code": "ZW070297"
+  },
+  {
+    "name": "Rubatsiro",
+    "code": "ZW070298"
+  },
+  {
+    "name": "Gunde",
+    "code": "ZW070301"
+  },
+  {
+    "name": "Kabanga",
+    "code": "ZW070302"
+  },
+  {
+    "name": "Mangwande",
+    "code": "ZW070303"
+  },
+  {
+    "name": "Masvori",
+    "code": "ZW070304"
+  },
+  {
+    "name": "Nkululeko",
+    "code": "ZW070305"
+  },
+  {
+    "name": "Ntabamhlope",
+    "code": "ZW070306"
+  },
+  {
+    "name": "MSU",
+    "code": "ZW070307"
+  },
+  {
+    "name": "Gweru P.H",
+    "code": "ZW07030A"
+  },
+  {
+    "name": "mi Gweru District Hospital",
+    "code": "ZW07030B"
+  },
+  {
+    "name": "mi Five Maintenance Clinic",
+    "code": "ZW07030B"
+  },
+  {
+    "name": "Chikwingwizha",
+    "code": "ZW07030C"
+  },
+  {
+    "name": "mi Gweru Infectious Diseases Hospital",
+    "code": "ZW07030D"
+  },
+  {
+    "name": "Thornhill",
+    "code": "ZW07030F"
+  },
+  {
+    "name": "Connemara",
+    "code": "ZW070313"
+  },
+  {
+    "name": "Whahwa",
+    "code": "ZW070314"
+  },
+  {
+    "name": "ZRP",
+    "code": "ZW070316"
+  },
+  {
+    "name": "GWERU OUTREACH MOBILE",
+    "code": "ZW070320"
+  },
+  {
+    "name": "Chiundura",
+    "code": "ZW070325"
+  },
+  {
+    "name": "Maboleni",
+    "code": "ZW070326"
+  },
+  {
+    "name": "Madhikani",
+    "code": "ZW070327"
+  },
+  {
+    "name": "Makepesi",
+    "code": "ZW070328"
+  },
+  {
+    "name": "Somabula",
+    "code": "ZW070345"
+  },
+  {
+    "name": "Vungu",
+    "code": "ZW070346"
+  },
+  {
+    "name": "Nyama",
+    "code": "ZW070347"
+  },
+  {
+    "name": "mi Vungu District Mobile",
+    "code": "ZW070348"
+  },
+  {
+    "name": "BATA",
+    "code": "ZW070351"
+  },
+  {
+    "name": "DAIRY MARKET. BOARD",
+    "code": "ZW070353"
+  },
+  {
+    "name": "Mkoba 1",
+    "code": "ZW070362"
+  },
+  {
+    "name": "Mkoba Poly",
+    "code": "ZW070363"
+  },
+  {
+    "name": "Monomutapa",
+    "code": "ZW070364"
+  },
+  {
+    "name": "Medical Centre",
+    "code": "ZW070365"
+  },
+  {
+    "name": "Ivene",
+    "code": "ZW070366"
+  },
+  {
+    "name": "Senga Poly",
+    "code": "ZW070367"
+  },
+  {
+    "name": "Totonga",
+    "code": "ZW070368"
+  },
+  {
+    "name": "Dabuka",
+    "code": "ZW070381"
+  },
+  {
+    "name": "Railways",
+    "code": "ZW070385"
+  },
+  {
+    "name": "mi Gweru NRZ Clinic",
+    "code": "ZW070385"
+  },
+  {
+    "name": "Lower Gweru",
+    "code": "ZW070391"
+  },
+  {
+    "name": "St Patricks",
+    "code": "ZW070392"
+  },
+  {
+    "name": "Dendera",
+    "code": "ZW070401"
+  },
+  {
+    "name": "Donsa",
+    "code": "ZW070402"
+  },
+  {
+    "name": "Mazebe",
+    "code": "ZW070403"
+  },
+  {
+    "name": "Msilahove",
+    "code": "ZW070404"
+  },
+  {
+    "name": "Nyoni",
+    "code": "ZW070405"
+  },
+  {
+    "name": "Majorca",
+    "code": "ZW070409"
+  },
+  {
+    "name": "Kwekwe",
+    "code": "ZW07040A"
+  },
+  {
+    "name": "Silobela",
+    "code": "ZW07040B"
+  },
+  {
+    "name": "Zhombe",
+    "code": "ZW07040C"
+  },
+  {
+    "name": "Don Juan",
+    "code": "ZW070425"
+  },
+  {
+    "name": "Exchange",
+    "code": "ZW070426"
+  },
+  {
+    "name": "Malisa Josefa",
+    "code": "ZW070427"
+  },
+  {
+    "name": "mi Malisa Zhombe Clinic",
+    "code": "ZW070428"
+  },
+  {
+    "name": "Ntabeni",
+    "code": "ZW070429"
+  },
+  {
+    "name": "Samambwa",
+    "code": "ZW070430"
+  },
+  {
+    "name": "mi Senkwazi Clinic",
+    "code": "ZW070431"
+  },
+  {
+    "name": "Sidakeni",
+    "code": "ZW070432"
+  },
+  {
+    "name": "Jackson",
+    "code": "ZW070433"
+  },
+  {
+    "name": "Simana",
+    "code": "ZW070434"
+  },
+  {
+    "name": "Globe & Phonics",
+    "code": "ZW070451"
+  },
+  {
+    "name": "Rio Tinto",
+    "code": "ZW070452"
+  },
+  {
+    "name": "Mlezu",
+    "code": "ZW070453"
+  },
+  {
+    "name": "Mlezu",
+    "code": "ZW070453"
+  },
+  {
+    "name": "Torwood",
+    "code": "ZW070454"
+  },
+  {
+    "name": "Redcliff",
+    "code": "ZW070459"
+  },
+  {
+    "name": "Amaveni",
+    "code": "ZW070461"
+  },
+  {
+    "name": "Mbizo 1",
+    "code": "ZW070462"
+  },
+  {
+    "name": "Mbizo 11",
+    "code": "ZW070463"
+  },
+  {
+    "name": "Rutendo",
+    "code": "ZW070464"
+  },
+  {
+    "name": "Sebakwe",
+    "code": "ZW070465"
+  },
+  {
+    "name": "Sherwood",
+    "code": "ZW070466"
+  },
+  {
+    "name": "COMMUNITY POLYCLINIC",
+    "code": "ZW070476"
+  },
+  {
+    "name": "Jena",
+    "code": "ZW070477"
+  },
+  {
+    "name": "Gaika",
+    "code": "ZW070481"
+  },
+  {
+    "name": "Tiger Riff",
+    "code": "ZW070484"
+  },
+  {
+    "name": "Munyati",
+    "code": "ZW070485"
+  },
+  {
+    "name": "Aldavis",
+    "code": "ZW070486"
+  },
+  {
+    "name": "ZRP",
+    "code": "ZW070487"
+  },
+  {
+    "name": "Gomola",
+    "code": "ZW070488"
+  },
+  {
+    "name": "Gwarava",
+    "code": "ZW070501"
+  },
+  {
+    "name": "Mataga",
+    "code": "ZW070502"
+  },
+  {
+    "name": "Mavorovondo",
+    "code": "ZW070503"
+  },
+  {
+    "name": "MAVOROVONDO R.H.C.",
+    "code": "ZW070503"
+  },
+  {
+    "name": "Murongwe",
+    "code": "ZW070504"
+  },
+  {
+    "name": "Mwenezi",
+    "code": "ZW070505"
+  },
+  {
+    "name": "Vurasha",
+    "code": "ZW070506"
+  },
+  {
+    "name": "Wanezi",
+    "code": "ZW070507"
+  },
+  {
+    "name": "Kotokwe",
+    "code": "ZW070508"
+  },
+  {
+    "name": "Mberengwa",
+    "code": "ZW07050A"
+  },
+  {
+    "name": "Jeka",
+    "code": "ZW07050B"
+  },
+  {
+    "name": "Masase",
+    "code": "ZW07050C"
+  },
+  {
+    "name": "Mnene",
+    "code": "ZW07050D"
+  },
+  {
+    "name": "Musume",
+    "code": "ZW07050E"
+  },
+  {
+    "name": "Bonda",
+    "code": "ZW070525"
+  },
+  {
+    "name": "Chabwira",
+    "code": "ZW070526"
+  },
+  {
+    "name": "Chedembeko",
+    "code": "ZW070527"
+  },
+  {
+    "name": "Chingezi",
+    "code": "ZW070528"
+  },
+  {
+    "name": "Makuwerere",
+    "code": "ZW070529"
+  },
+  {
+    "name": "Matedzi",
+    "code": "ZW070530"
+  },
+  {
+    "name": "Mazivofa",
+    "code": "ZW070531"
+  },
+  {
+    "name": "Imbahuru",
+    "code": "ZW070532"
+  },
+  {
+    "name": "Muketi",
+    "code": "ZW070533"
+  },
+  {
+    "name": "Negobe",
+    "code": "ZW070534"
+  },
+  {
+    "name": "Ingezi",
+    "code": "ZW070535"
+  },
+  {
+    "name": "Ngungumbane",
+    "code": "ZW070536"
+  },
+  {
+    "name": "Svita",
+    "code": "ZW070537"
+  },
+  {
+    "name": "Mponjani",
+    "code": "ZW070538"
+  },
+  {
+    "name": "Mposi",
+    "code": "ZW070539"
+  },
+  {
+    "name": "Chiedza",
+    "code": "ZW070540"
+  },
+  {
+    "name": "Vutsanana",
+    "code": "ZW070541"
+  },
+  {
+    "name": "Sandawana",
+    "code": "ZW070578"
+  },
+  {
+    "name": "Buchwa",
+    "code": "ZW070579"
+  },
+  {
+    "name": "mi Mnene Outreach Mobile",
+    "code": "ZW070586"
+  },
+  {
+    "name": "Chikato",
+    "code": "ZW070601"
+  },
+  {
+    "name": "Chironde",
+    "code": "ZW070602"
+  },
+  {
+    "name": "Chitora",
+    "code": "ZW070603"
+  },
+  {
+    "name": "Gwanza",
+    "code": "ZW070604"
+  },
+  {
+    "name": "Marishongwe",
+    "code": "ZW070605"
+  },
+  {
+    "name": "Rusike",
+    "code": "ZW070606"
+  },
+  {
+    "name": "Tana",
+    "code": "ZW070607"
+  },
+  {
+    "name": "Zvarota",
+    "code": "ZW070608"
+  },
+  {
+    "name": "Svika",
+    "code": "ZW070609"
+  },
+  {
+    "name": "Shurugwi",
+    "code": "ZW07060A"
+  },
+  {
+    "name": "Zvamabande",
+    "code": "ZW07060B"
+  },
+  {
+    "name": "Chrome Mines",
+    "code": "ZW07060C"
+  },
+  {
+    "name": "Banga",
+    "code": "ZW070625"
+  },
+  {
+    "name": "Gundura",
+    "code": "ZW070626"
+  },
+  {
+    "name": "Mazibisa",
+    "code": "ZW070627"
+  },
+  {
+    "name": "Nhema",
+    "code": "ZW070628"
+  },
+  {
+    "name": "Tongogara",
+    "code": "ZW070629"
+  },
+  {
+    "name": "Jobolinko",
+    "code": "ZW070645"
+  },
+  {
+    "name": "Makusha",
+    "code": "ZW070646"
+  },
+  {
+    "name": "Rockford",
+    "code": "ZW070647"
+  },
+  {
+    "name": "mi Tokwe Clinic",
+    "code": "ZW070648"
+  },
+  {
+    "name": "Golden Quary",
+    "code": "ZW070679"
+  },
+  {
+    "name": "Hanke",
+    "code": "ZW070691"
+  },
+  {
+    "name": "Pakame",
+    "code": "ZW070692"
+  },
+  {
+    "name": "Dorset",
+    "code": "ZW070698"
+  },
+  {
+    "name": "Maketo",
+    "code": "ZW070701"
+  },
+  {
+    "name": "Mandava",
+    "code": "ZW070702"
+  },
+  {
+    "name": "Matenda",
+    "code": "ZW070703"
+  },
+  {
+    "name": "Vugwi",
+    "code": "ZW070704"
+  },
+  {
+    "name": "Vukuzenzele",
+    "code": "ZW070705"
+  },
+  {
+    "name": "Zvishavane",
+    "code": "ZW07070A"
+  },
+  {
+    "name": "Lundi",
+    "code": "ZW07070B"
+  },
+  {
+    "name": "Shabanie Mine",
+    "code": "ZW07070C"
+  },
+  {
+    "name": "Gudo",
+    "code": "ZW070725"
+  },
+  {
+    "name": "Mabasa",
+    "code": "ZW070726"
+  },
+  {
+    "name": "Mapanzure",
+    "code": "ZW070727"
+  },
+  {
+    "name": "Murowa",
+    "code": "ZW070728"
+  },
+  {
+    "name": "Mtambi",
+    "code": "ZW070729"
+  },
+  {
+    "name": "Weleza",
+    "code": "ZW070730"
+  },
+  {
+    "name": "mi Welezi Clinic",
+    "code": "ZW070730"
+  },
+  {
+    "name": "Sabi Mine",
+    "code": "ZW070776"
+  },
+  {
+    "name": "Mimosa",
+    "code": "ZW070777"
+  },
+  {
+    "name": "Medical Centre",
+    "code": "ZW070778"
+  },
+  {
+    "name": "ZPS",
+    "code": "ZW070780"
+  },
+  {
+    "name": "ZRP",
+    "code": "ZW070785"
+  },
+  {
+    "name": "Mhondongori",
+    "code": "ZW070787"
+  },
+  {
+    "name": "mi Gokwe South District Hospital",
+    "code": "ZW07080A"
+  },
+  {
+    "name": "Chirorwe",
+    "code": "ZW080101"
+  },
+  {
+    "name": "Devure 1",
+    "code": "ZW080102"
+  },
+  {
+    "name": "Deure II",
+    "code": "ZW080103"
+  },
+  {
+    "name": "Mkanga",
+    "code": "ZW080104"
+  },
+  {
+    "name": "Mukore",
+    "code": "ZW080105"
+  },
+  {
+    "name": "Nyika",
+    "code": "ZW080106"
+  },
+  {
+    "name": "Ngorima",
+    "code": "ZW080107"
+  },
+  {
+    "name": "Muvava",
+    "code": "ZW080108"
+  },
+  {
+    "name": "Bikita",
+    "code": "ZW08010A"
+  },
+  {
+    "name": "Chikuku",
+    "code": "ZW08010B"
+  },
+  {
+    "name": "Mashoko",
+    "code": "ZW08010C"
+  },
+  {
+    "name": "Silveira",
+    "code": "ZW08010D"
+  },
+  {
+    "name": "Chitasa",
+    "code": "ZW080125"
+  },
+  {
+    "name": "Hozvi",
+    "code": "ZW080126"
+  },
+  {
+    "name": "Pfupajena",
+    "code": "ZW080127"
+  },
+  {
+    "name": "Marozva",
+    "code": "ZW080128"
+  },
+  {
+    "name": "Odzi",
+    "code": "ZW080129"
+  },
+  {
+    "name": "Negovano",
+    "code": "ZW080130"
+  },
+  {
+    "name": "Murwira",
+    "code": "ZW080131"
+  },
+  {
+    "name": "Mungezi",
+    "code": "ZW080132"
+  },
+  {
+    "name": "Mutikizizi",
+    "code": "ZW080133"
+  },
+  {
+    "name": "Gangare",
+    "code": "ZW080134"
+  },
+  {
+    "name": "Gava",
+    "code": "ZW080135"
+  },
+  {
+    "name": "Bikita Minerals",
+    "code": "ZW080176"
+  },
+  {
+    "name": "Chambuta",
+    "code": "ZW080201"
+  },
+  {
+    "name": "Chilonga",
+    "code": "ZW080202"
+  },
+  {
+    "name": "Chizvirizvi",
+    "code": "ZW080204"
+  },
+  {
+    "name": "Davata",
+    "code": "ZW080205"
+  },
+  {
+    "name": "Gezani",
+    "code": "ZW080206"
+  },
+  {
+    "name": "Malipati",
+    "code": "ZW080207"
+  },
+  {
+    "name": "Mahlanguleni",
+    "code": "ZW080208"
+  },
+  {
+    "name": "Muteyo",
+    "code": "ZW080209"
+  },
+  {
+    "name": "Chiredzi",
+    "code": "ZW08020A"
+  },
+  {
+    "name": "Chikombedzi",
+    "code": "ZW08020B"
+  },
+  {
+    "name": "Hippo Valley",
+    "code": "ZW08020C"
+  },
+  {
+    "name": "Triangle",
+    "code": "ZW08020D"
+  },
+  {
+    "name": "Nyangambe",
+    "code": "ZW080210"
+  },
+  {
+    "name": "mv Nyambange Rural Health Centre",
+    "code": "ZW080210"
+  },
+  {
+    "name": "Faversham",
+    "code": "ZW080211"
+  },
+  {
+    "name": "Old Boli",
+    "code": "ZW080212"
+  },
+  {
+    "name": "Samu",
+    "code": "ZW080213"
+  },
+  {
+    "name": "Pahlela",
+    "code": "ZW080214"
+  },
+  {
+    "name": "mv ZPS Chiredzi Prison Clinic",
+    "code": "ZW080217"
+  },
+  {
+    "name": "ZRP",
+    "code": "ZW080218"
+  },
+  {
+    "name": "Chimbwedziva",
+    "code": "ZW080225"
+  },
+  {
+    "name": "Chipiwa",
+    "code": "ZW080226"
+  },
+  {
+    "name": "St Joseph",
+    "code": "ZW080227"
+  },
+  {
+    "name": "Dumisa",
+    "code": "ZW080228"
+  },
+  {
+    "name": "Porepore",
+    "code": "ZW080229"
+  },
+  {
+    "name": "Rapanguwana",
+    "code": "ZW080230"
+  },
+  {
+    "name": "Rutandare",
+    "code": "ZW080231"
+  },
+  {
+    "name": "Chitsa",
+    "code": "ZW080232"
+  },
+  {
+    "name": "mv Tshovani Clinic",
+    "code": "ZW080233"
+  },
+  {
+    "name": "Tsovani",
+    "code": "ZW080233"
+  },
+  {
+    "name": "Makambe",
+    "code": "ZW080234"
+  },
+  {
+    "name": "Chomopani",
+    "code": "ZW080235"
+  },
+  {
+    "name": "Mkwasine",
+    "code": "ZW080282"
+  },
+  {
+    "name": "mv Chiredzi ZSA Clinic",
+    "code": "ZW080284"
+  },
+  {
+    "name": "ZSA",
+    "code": "ZW080284"
+  },
+  {
+    "name": "NRZ",
+    "code": "ZW080285"
+  },
+  {
+    "name": "mv NRZ Clinic (Chiredzi)",
+    "code": "ZW080285"
+  },
+  {
+    "name": "Damarakanaka",
+    "code": "ZW080291"
+  },
+  {
+    "name": "Chingele",
+    "code": "ZW080292"
+  },
+  {
+    "name": "Chigwikwi",
+    "code": "ZW080302"
+  },
+  {
+    "name": "Mhandamabwe",
+    "code": "ZW080303"
+  },
+  {
+    "name": "Ngundu",
+    "code": "ZW080304"
+  },
+  {
+    "name": "Razi",
+    "code": "ZW080305"
+  },
+  {
+    "name": "Takavarasha",
+    "code": "ZW080307"
+  },
+  {
+    "name": "Nyahombe",
+    "code": "ZW080308"
+  },
+  {
+    "name": "Chivi",
+    "code": "ZW08030A"
+  },
+  {
+    "name": "Chivi",
+    "code": "ZW08030A"
+  },
+  {
+    "name": "Chivi",
+    "code": "ZW08030B"
+  },
+  {
+    "name": "Berejena",
+    "code": "ZW08030C"
+  },
+  {
+    "name": "Masinire",
+    "code": "ZW080321"
+  },
+  {
+    "name": "mv Zivuku Clinic",
+    "code": "ZW080324"
+  },
+  {
+    "name": "Chifedza",
+    "code": "ZW080325"
+  },
+  {
+    "name": "mv Vuranda Clinic",
+    "code": "ZW080325"
+  },
+  {
+    "name": "Davira",
+    "code": "ZW080326"
+  },
+  {
+    "name": "Madamombe",
+    "code": "ZW080327"
+  },
+  {
+    "name": "Shindi",
+    "code": "ZW080328"
+  },
+  {
+    "name": "Utete",
+    "code": "ZW080333"
+  },
+  {
+    "name": "Chivi",
+    "code": "ZW080391"
+  },
+  {
+    "name": "Mushaviri",
+    "code": "ZW080401"
+  },
+  {
+    "name": "Majarada",
+    "code": "ZW080402"
+  },
+  {
+    "name": "Matizha",
+    "code": "ZW080403"
+  },
+  {
+    "name": "Mutema",
+    "code": "ZW080404"
+  },
+  {
+    "name": "Nemashakwe",
+    "code": "ZW080405"
+  },
+  {
+    "name": "Soti Source",
+    "code": "ZW080406"
+  },
+  {
+    "name": "Chitando",
+    "code": "ZW080408"
+  },
+  {
+    "name": "Zvavahera",
+    "code": "ZW080409"
+  },
+  {
+    "name": "Gutu",
+    "code": "ZW08040A"
+  },
+  {
+    "name": "Chimombe",
+    "code": "ZW08040B"
+  },
+  {
+    "name": "Chinyika",
+    "code": "ZW08040D"
+  },
+  {
+    "name": "Gutu",
+    "code": "ZW08040E"
+  },
+  {
+    "name": "Cheshuro",
+    "code": "ZW080425"
+  },
+  {
+    "name": "Denhere",
+    "code": "ZW080426"
+  },
+  {
+    "name": "Devure",
+    "code": "ZW080427"
+  },
+  {
+    "name": "Magombedze",
+    "code": "ZW080428"
+  },
+  {
+    "name": "Mazura",
+    "code": "ZW080429"
+  },
+  {
+    "name": "Munyikwa",
+    "code": "ZW080430"
+  },
+  {
+    "name": "Nyazvidzi",
+    "code": "ZW080431"
+  },
+  {
+    "name": "Zinhata",
+    "code": "ZW080432"
+  },
+  {
+    "name": "Tirizi",
+    "code": "ZW080433"
+  },
+  {
+    "name": "Chiwore",
+    "code": "ZW080434"
+  },
+  {
+    "name": "Chitsa",
+    "code": "ZW080435"
+  },
+  {
+    "name": "mv Chipiri Clinic",
+    "code": "ZW080436"
+  },
+  {
+    "name": "Chepiri",
+    "code": "ZW080436"
+  },
+  {
+    "name": "Dambara",
+    "code": "ZW080437"
+  },
+  {
+    "name": "Mataruse",
+    "code": "ZW080438"
+  },
+  {
+    "name": "mv Matomuse Clinic",
+    "code": "ZW080438"
+  },
+  {
+    "name": "mv Gutu Population Health Clinic",
+    "code": "ZW080476"
+  },
+  {
+    "name": "Serima",
+    "code": "ZW080491"
+  },
+  {
+    "name": "Mutero",
+    "code": "ZW080492"
+  },
+  {
+    "name": "mv Mutero Rural Health Centre",
+    "code": "ZW080492"
+  },
+  {
+    "name": "Mukaro",
+    "code": "ZW080493"
+  },
+  {
+    "name": "mv Mukaro Mission Hospital",
+    "code": "ZW080493"
+  },
+  {
+    "name": "Alvod",
+    "code": "ZW080501"
+  },
+  {
+    "name": "Mukosi",
+    "code": "ZW080502"
+  },
+  {
+    "name": "Mushandike",
+    "code": "ZW080503"
+  },
+  {
+    "name": "Musvovi",
+    "code": "ZW080504"
+  },
+  {
+    "name": "mv ZPS Mutimurefu Prison Clinic",
+    "code": "ZW080505"
+  },
+  {
+    "name": "Mutimurefu",
+    "code": "ZW080505"
+  },
+  {
+    "name": "Nemwanwa",
+    "code": "ZW080506"
+  },
+  {
+    "name": "Nyikavanhu",
+    "code": "ZW080507"
+  },
+  {
+    "name": "ZRP Masvingo",
+    "code": "ZW080508"
+  },
+  {
+    "name": "mv 41st Brigade Clinic",
+    "code": "ZW080509"
+  },
+  {
+    "name": "Masvingo",
+    "code": "ZW08050A"
+  },
+  {
+    "name": "mv Ngomahuru Psychiatric Hospital",
+    "code": "ZW08050B"
+  },
+  {
+    "name": "Nyajena",
+    "code": "ZW08050C"
+  },
+  {
+    "name": "Mogenester",
+    "code": "ZW08050D"
+  },
+  {
+    "name": "Gokomere",
+    "code": "ZW08050E"
+  },
+  {
+    "name": "Gaths Mine",
+    "code": "ZW08050F"
+  },
+  {
+    "name": "Masvingo Teachers College",
+    "code": "ZW080510"
+  },
+  {
+    "name": "Masvingo Poly Technic",
+    "code": "ZW080511"
+  },
+  {
+    "name": "Summerton",
+    "code": "ZW080512"
+  },
+  {
+    "name": "mv Wendedzo Clinic",
+    "code": "ZW080513"
+  },
+  {
+    "name": "mv Great Zimbabwe University Clinic",
+    "code": "ZW080514"
+  },
+  {
+    "name": "mv Masvingo Rural District Council Mobile",
+    "code": "ZW080520"
+  },
+  {
+    "name": "Charumbira",
+    "code": "ZW080525"
+  },
+  {
+    "name": "Chatikobo",
+    "code": "ZW080526"
+  },
+  {
+    "name": "Gundura",
+    "code": "ZW080527"
+  },
+  {
+    "name": "Mapanzure",
+    "code": "ZW080528"
+  },
+  {
+    "name": "mv ZPS Masvingo Remand Prison Clinic",
+    "code": "ZW080529"
+  },
+  {
+    "name": "Bere",
+    "code": "ZW080530"
+  },
+  {
+    "name": "Murinye",
+    "code": "ZW080531"
+  },
+  {
+    "name": "Rukovo",
+    "code": "ZW080532"
+  },
+  {
+    "name": "Shumba",
+    "code": "ZW080533"
+  },
+  {
+    "name": "Zimuto",
+    "code": "ZW080534"
+  },
+  {
+    "name": "Zimuto",
+    "code": "ZW080534"
+  },
+  {
+    "name": "Zimuto BC",
+    "code": "ZW080534"
+  },
+  {
+    "name": "Mucheke",
+    "code": "ZW080535"
+  },
+  {
+    "name": "Zano",
+    "code": "ZW080536"
+  },
+  {
+    "name": "Guwa",
+    "code": "ZW080540"
+  },
+  {
+    "name": "Gurajena",
+    "code": "ZW080541"
+  },
+  {
+    "name": "mv Zvamahande Clinic",
+    "code": "ZW080543"
+  },
+  {
+    "name": "Ngomahuru",
+    "code": "ZW080544"
+  },
+  {
+    "name": "Renco",
+    "code": "ZW080576"
+  },
+  {
+    "name": "mv Mazorodze Clinic",
+    "code": "ZW080581"
+  },
+  {
+    "name": "Rujeko",
+    "code": "ZW080582"
+  },
+  {
+    "name": "Runyararo",
+    "code": "ZW080583"
+  },
+  {
+    "name": "Runyararo",
+    "code": "ZW080583"
+  },
+  {
+    "name": "Bondolfi",
+    "code": "ZW080591"
+  },
+  {
+    "name": "Shonganiso",
+    "code": "ZW080592"
+  },
+  {
+    "name": "Zimuto",
+    "code": "ZW080593"
+  },
+  {
+    "name": "Chimbudzi",
+    "code": "ZW080601"
+  },
+  {
+    "name": "Chirindi",
+    "code": "ZW080602"
+  },
+  {
+    "name": "Chizumba",
+    "code": "ZW080603"
+  },
+  {
+    "name": "Maranda",
+    "code": "ZW080604"
+  },
+  {
+    "name": "Nehanda",
+    "code": "ZW080605"
+  },
+  {
+    "name": "Rutenga",
+    "code": "ZW080606"
+  },
+  {
+    "name": "Neshuro",
+    "code": "ZW08060A"
+  },
+  {
+    "name": "Matibi",
+    "code": "ZW08060B"
+  },
+  {
+    "name": "Mazetese",
+    "code": "ZW080625"
+  },
+  {
+    "name": "Mushava",
+    "code": "ZW080627"
+  },
+  {
+    "name": "Mwenezi",
+    "code": "ZW080628"
+  },
+  {
+    "name": "Murove",
+    "code": "ZW080629"
+  },
+  {
+    "name": "Mulelesi",
+    "code": "ZW080630"
+  },
+  {
+    "name": "Boterere",
+    "code": "ZW080631"
+  },
+  {
+    "name": "Marinda",
+    "code": "ZW080632"
+  },
+  {
+    "name": "Rutenga RWS",
+    "code": "ZW080681"
+  },
+  {
+    "name": "Mwenezana",
+    "code": "ZW080682"
+  },
+  {
+    "name": "mv G and N Clinic",
+    "code": "ZW080683"
+  },
+  {
+    "name": "mv Maranda Clinic",
+    "code": "ZW080691"
+  },
+  {
+    "name": "Lundi",
+    "code": "ZW080692"
+  },
+  {
+    "name": "Chipinda",
+    "code": "ZW080701"
+  },
+  {
+    "name": "Harava",
+    "code": "ZW080702"
+  },
+  {
+    "name": "Nemauku",
+    "code": "ZW080703"
+  },
+  {
+    "name": "Svuvure",
+    "code": "ZW080704"
+  },
+  {
+    "name": "Zibwowa",
+    "code": "ZW080705"
+  },
+  {
+    "name": "Ndanga",
+    "code": "ZW08070A"
+  },
+  {
+    "name": "Musiso",
+    "code": "ZW08070C"
+  },
+  {
+    "name": "mv Zaka EPI Mobile",
+    "code": "ZW080720"
+  },
+  {
+    "name": "Bota",
+    "code": "ZW080725"
+  },
+  {
+    "name": "Bvukururu",
+    "code": "ZW080726"
+  },
+  {
+    "name": "Chinyabako",
+    "code": "ZW080727"
+  },
+  {
+    "name": "Chiredzana",
+    "code": "ZW080729"
+  },
+  {
+    "name": "Fuve",
+    "code": "ZW080730"
+  },
+  {
+    "name": "Jichidza",
+    "code": "ZW080732"
+  },
+  {
+    "name": "Mushaya",
+    "code": "ZW080733"
+  },
+  {
+    "name": "mv Ndanga Clinic",
+    "code": "ZW080734"
+  },
+  {
+    "name": "Nhema",
+    "code": "ZW080735"
+  },
+  {
+    "name": "Nyakunhuwa",
+    "code": "ZW080736"
+  },
+  {
+    "name": "Siyawareva",
+    "code": "ZW080737"
+  },
+  {
+    "name": "Veza",
+    "code": "ZW080738"
+  },
+  {
+    "name": "Jerera",
+    "code": "ZW080739"
+  },
+  {
+    "name": "Mageza",
+    "code": "ZW080740"
+  },
+  {
+    "name": "mv Mandhloro Clinic",
+    "code": "ZW080741"
+  },
+  {
+    "name": "mv Madhloro Clinic",
+    "code": "ZW080741"
+  },
+  {
+    "name": "Jichidza",
+    "code": "ZW080791"
+  },
+  {
+    "name": "Emakhandeni",
+    "code": "ZW090A01"
+  },
+  {
+    "name": "Tshaballa",
+    "code": "ZW090A02"
+  },
+  {
+    "name": "E.F Watson",
+    "code": "ZW090A03"
+  },
+  {
+    "name": "Entumbane",
+    "code": "ZW090A04"
+  },
+  {
+    "name": "bu Khami Road Clinic",
+    "code": "ZW090A05"
+  },
+  {
+    "name": "Luveve",
+    "code": "ZW090A06"
+  },
+  {
+    "name": "Magwegwe",
+    "code": "ZW090A07"
+  },
+  {
+    "name": "Mzilikazi",
+    "code": "ZW090A08"
+  },
+  {
+    "name": "Njube",
+    "code": "ZW090A09"
+  },
+  {
+    "name": "bu Lady Rodwell Maternity Hospital",
+    "code": "ZW090A0A"
+  },
+  {
+    "name": "Thorngrove",
+    "code": "ZW090A0E"
+  },
+  {
+    "name": "Martar-Dei",
+    "code": "ZW090A0G"
+  },
+  {
+    "name": "Nkulumane",
+    "code": "ZW090A10"
+  },
+  {
+    "name": "Pelandaba",
+    "code": "ZW090A11"
+  },
+  {
+    "name": "Princess Margaret",
+    "code": "ZW090A12"
+  },
+  {
+    "name": "Pumula",
+    "code": "ZW090A13"
+  },
+  {
+    "name": "Dr. Shennan",
+    "code": "ZW090A14"
+  },
+  {
+    "name": "Nketa",
+    "code": "ZW090A17"
+  },
+  {
+    "name": "Northern Surbabs",
+    "code": "ZW090A18"
+  },
+  {
+    "name": "bu King's Maternity Clinic",
+    "code": "ZW090A19"
+  },
+  {
+    "name": "bu Jubilee Clinic",
+    "code": "ZW090A20"
+  },
+  {
+    "name": "bu Bulawayo Maternal Health Clinic",
+    "code": "ZW090A21"
+  },
+  {
+    "name": "bu Maternal and Child Health Centre",
+    "code": "ZW090A21"
+  },
+  {
+    "name": "bu Galen House Clinic",
+    "code": "ZW090A22"
+  },
+  {
+    "name": "Marondera",
+    "code": "ZW090A23"
+  },
+  {
+    "name": "bu Bulawayo Family Medical Clinic",
+    "code": "ZW090A24"
+  },
+  {
+    "name": "Cowdray Park",
+    "code": "ZW090A27"
+  },
+  {
+    "name": "bu Silver Oaks Medical Centre",
+    "code": "ZW090A28"
+  },
+  {
+    "name": "bu Bulawayo Family Health Clinic",
+    "code": "ZW090A30"
+  },
+  {
+    "name": "24-Hr Medical centre",
+    "code": "ZW090A31"
+  },
+  {
+    "name": "bu Main Street Clinic",
+    "code": "ZW090A32"
+  },
+  {
+    "name": "Maqhawe",
+    "code": "ZW090A33"
+  },
+  {
+    "name": "Pumula South",
+    "code": "ZW090A35"
+  },
+  {
+    "name": "bu Tembi Home Health Centre",
+    "code": "ZW090A36"
+  },
+  {
+    "name": "bu Dr W Ndebele Clinic",
+    "code": "ZW090A39"
+  },
+  {
+    "name": "Ingutsheni",
+    "code": "ZW090B0B"
+  },
+  {
+    "name": "bu UBH",
+    "code": "ZW090C0C"
+  },
+  {
+    "name": "UBH",
+    "code": "ZW090C0C"
+  },
+  {
+    "name": "Mpilo",
+    "code": "ZW090D0D"
+  },
+  {
+    "name": "bu Mpilo Central Hospital",
+    "code": "ZW090D0D"
+  },
+  {
+    "name": "mv Nyamande Clinic",
+    "code": ""
+  },
+  {
+    "name": "MN BRADDY",
+    "code": ""
+  },
+  {
+    "name": "ha ZPS Harare Central Kentuky Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "Magwegwe North",
+    "code": ""
+  },
+  {
+    "name": "ma Nyanguai Clinic",
+    "code": ""
+  },
+  {
+    "name": "mw Zvimba ZNFPC Clinic",
+    "code": ""
+  },
+  {
+    "name": "mw Makonde CBDS Clinic",
+    "code": ""
+  },
+  {
+    "name": "Tumbire",
+    "code": ""
+  },
+  {
+    "name": "me Nyapfunde Clinic",
+    "code": ""
+  },
+  {
+    "name": "mw Manyamba Rural Health Centre",
+    "code": ""
+  },
+  {
+    "name": "ha Parirenyatwa Casualty",
+    "code": ""
+  },
+  {
+    "name": "ZPS",
+    "code": ""
+  },
+  {
+    "name": "Chinamasa",
+    "code": ""
+  },
+  {
+    "name": "mw Santa Barbara Mission Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha ZPS Chikurubi Prison Dependants Clinic",
+    "code": ""
+  },
+  {
+    "name": "mv Dzavata Rural Health Centre",
+    "code": ""
+  },
+  {
+    "name": "ZPS",
+    "code": ""
+  },
+  {
+    "name": "mi Unki Clinic",
+    "code": ""
+  },
+  {
+    "name": "bu Pumula South Private Maternity Clinic",
+    "code": ""
+  },
+  {
+    "name": "mi ZPS Whawha Prison Young Offenders Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha Chitungwiza Maternity Services",
+    "code": ""
+  },
+  {
+    "name": "ma ZPS Mutare Remand Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha Harare City Private Institutions",
+    "code": ""
+  },
+  {
+    "name": "mn Wellness Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha Harare Casualty",
+    "code": ""
+  },
+  {
+    "name": "Elephant Hills",
+    "code": ""
+  },
+  {
+    "name": "me ZPS Ridigita Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha Chitungwiza Peadiatrics",
+    "code": ""
+  },
+  {
+    "name": "ha Borrowdale Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha Chitungwiza Casualty",
+    "code": ""
+  },
+  {
+    "name": "Carribea Bay",
+    "code": ""
+  },
+  {
+    "name": "mn ZPS Khami Prison Staff Hospital",
+    "code": ""
+  },
+  {
+    "name": "mv Masvingo Rural District Council",
+    "code": ""
+  },
+  {
+    "name": "me Mavhurazi clinic",
+    "code": ""
+  },
+  {
+    "name": "mv Chirogwe Clinic",
+    "code": ""
+  },
+  {
+    "name": "Karoi Static",
+    "code": ""
+  },
+  {
+    "name": "ha Chitungwiza Central Hospital",
+    "code": ""
+  },
+  {
+    "name": "Overspill",
+    "code": ""
+  },
+  {
+    "name": "mi Victoria High School Clinic",
+    "code": ""
+  },
+  {
+    "name": "ZPS MUTARE REMAND PRISON",
+    "code": ""
+  },
+  {
+    "name": "mn Sidinda Rural Health Center",
+    "code": ""
+  },
+  {
+    "name": "mn Open Cast DR STATION",
+    "code": ""
+  },
+  {
+    "name": "mc Mazowe Bridge Rural Health Centre",
+    "code": ""
+  },
+  {
+    "name": "mi Zibagwe Rural District Council Clinic",
+    "code": ""
+  },
+  {
+    "name": "mn ZPS Victoria Falls Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "mi Zhaugwe Rural Health Centre",
+    "code": ""
+  },
+  {
+    "name": "mn ZPS Nkayi Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "mn ZPS Bulawayo Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "mi Rutendo Polyclinic",
+    "code": ""
+  },
+  {
+    "name": "ha Harare Central HospitaL",
+    "code": ""
+  },
+  {
+    "name": "mv Ruponeso Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha Kuwadzana Phase 4",
+    "code": ""
+  },
+  {
+    "name": "Gaha",
+    "code": ""
+  },
+  {
+    "name": "Muswera",
+    "code": ""
+  },
+  {
+    "name": "mn Hwange Colliery",
+    "code": ""
+  },
+  {
+    "name": "ms Silikwe Clinic",
+    "code": ""
+  },
+  {
+    "name": "ZRP",
+    "code": ""
+  },
+  {
+    "name": "ha ZPS Chikurubi Maximum Prison Psychiatric",
+    "code": ""
+  },
+  {
+    "name": "mi Topomazi Clinic",
+    "code": ""
+  },
+  {
+    "name": "mn ZPS Tsholotsho Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "Bvumbura",
+    "code": ""
+  },
+  {
+    "name": "bu CIMAS",
+    "code": ""
+  },
+  {
+    "name": "mc Guruve Farm Health Scheme Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha Parirenyatwa Staff Clinic",
+    "code": ""
+  },
+  {
+    "name": "mi Zhumba Clinic",
+    "code": ""
+  },
+  {
+    "name": "mn NO 2 DR STATION",
+    "code": ""
+  },
+  {
+    "name": "mi Neighbourhood Surgery",
+    "code": ""
+  },
+  {
+    "name": "Makombe",
+    "code": ""
+  },
+  {
+    "name": "mi ZPS Thornhill Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "Caledonia",
+    "code": ""
+  },
+  {
+    "name": "Child Welfare",
+    "code": ""
+  },
+  {
+    "name": "mi ZPS Shurugwi Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "bu Parkade Centre",
+    "code": ""
+  },
+  {
+    "name": "mn ZPS Lupane Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "Chingamuka",
+    "code": ""
+  },
+  {
+    "name": "mi Gandavaroyi Clinic",
+    "code": ""
+  },
+  {
+    "name": "mw Bervking",
+    "code": ""
+  },
+  {
+    "name": "Safari Lodge",
+    "code": ""
+  },
+  {
+    "name": "me Chishawasha Mission Clinic",
+    "code": ""
+  },
+  {
+    "name": "me ZPS Goromonzi Clinic",
+    "code": ""
+  },
+  {
+    "name": "bu Tshabalala Pvt Maternity Clinic",
+    "code": ""
+  },
+  {
+    "name": "mw ZPS Banket Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "mn Nsongwa RHC",
+    "code": ""
+  },
+  {
+    "name": "ha ZPS Chikurubi Female Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "mw Paramedical ARMY Hospital",
+    "code": ""
+  },
+  {
+    "name": "ha ZPS Chikurubi Farm Prison",
+    "code": ""
+  },
+  {
+    "name": "mn Songwa RHC",
+    "code": ""
+  },
+  {
+    "name": "Banket",
+    "code": ""
+  },
+  {
+    "name": "Guni",
+    "code": ""
+  },
+  {
+    "name": "ha ZPS Chikurubi Maximum Prison Hospital",
+    "code": ""
+  },
+  {
+    "name": "mw Chinhoyi Provincial Hospital Casualty",
+    "code": ""
+  },
+  {
+    "name": "mi Kwewe Polyclinic",
+    "code": ""
+  },
+  {
+    "name": "mn Milonga Rural Health Center",
+    "code": ""
+  },
+  {
+    "name": "ha ZPS Chikurubi Prison Staff Hospital",
+    "code": ""
+  },
+  {
+    "name": "bu Mahatshula Private Clinic",
+    "code": ""
+  },
+  {
+    "name": "mw ZPS Kariba Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "Med-Park",
+    "code": ""
+  },
+  {
+    "name": "ha Parirenyatwa OPD",
+    "code": ""
+  },
+  {
+    "name": "Njelele",
+    "code": ""
+  },
+  {
+    "name": "mi Masuka Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha ZPS Harare Remand Prison",
+    "code": ""
+  },
+  {
+    "name": "bu Ingutsheni",
+    "code": ""
+  },
+  {
+    "name": "me ZN Army Camp Clinic Mutoko",
+    "code": ""
+  },
+  {
+    "name": "ha Parirenyatwa Clinic",
+    "code": ""
+  },
+  {
+    "name": "ma Chatora Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha Chitungwiza Staff Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha Harare Paediatric",
+    "code": ""
+  },
+  {
+    "name": "Gavhunga",
+    "code": ""
+  },
+  {
+    "name": "bu Royal Women's Clinic",
+    "code": ""
+  },
+  {
+    "name": "Mpinda",
+    "code": ""
+  },
+  {
+    "name": "ZRP camp",
+    "code": ""
+  },
+  {
+    "name": "Sino Zimbabwe",
+    "code": ""
+  },
+  {
+    "name": "mc Madziwa Teachers' College",
+    "code": ""
+  },
+  {
+    "name": "me Nyamande Clinic",
+    "code": ""
+  },
+  {
+    "name": "ms ZPS Filabusi Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "ma Sakubva Clinic",
+    "code": ""
+  },
+  {
+    "name": "Ndabambi",
+    "code": ""
+  },
+  {
+    "name": "mi Sanyati Mine Clinic",
+    "code": ""
+  },
+  {
+    "name": "chipoli",
+    "code": ""
+  },
+  {
+    "name": "Nyashanu",
+    "code": ""
+  },
+  {
+    "name": "mi Huchu Clinic",
+    "code": ""
+  },
+  {
+    "name": "me Benjimed Private Clinic",
+    "code": ""
+  },
+  {
+    "name": "mi Chitapo Clinic",
+    "code": ""
+  },
+  {
+    "name": "Ruby",
+    "code": ""
+  },
+  {
+    "name": "mliti",
+    "code": ""
+  },
+  {
+    "name": "mv Munyamani Rural Health Centre",
+    "code": ""
+  },
+  {
+    "name": "Turk Mine",
+    "code": ""
+  },
+  {
+    "name": "ha Infectious Diseases Hospital",
+    "code": ""
+  },
+  {
+    "name": "mw Kanyaga RDC Clinic",
+    "code": ""
+  },
+  {
+    "name": "mv Chomupane Clinic",
+    "code": ""
+  },
+  {
+    "name": "ma Changazi clinic",
+    "code": ""
+  },
+  {
+    "name": "mi Masvingo City",
+    "code": ""
+  },
+  {
+    "name": "ma Nyanga District Mobile",
+    "code": ""
+  },
+  {
+    "name": "mi Dambridge Clinic",
+    "code": ""
+  },
+  {
+    "name": "mi Gweru City",
+    "code": ""
+  },
+  {
+    "name": "Sigebubi",
+    "code": ""
+  },
+  {
+    "name": "ZPS",
+    "code": ""
+  },
+  {
+    "name": "me Mahusekwa District Hospital",
+    "code": ""
+  },
+  {
+    "name": "ma ZPS Little Kraal Prison Clinic",
+    "code": ""
+  },
+  {
+    "name": "Mudzi Camp",
+    "code": ""
+  },
+  {
+    "name": "ha Annexe Hospital",
+    "code": ""
+  },
+  {
+    "name": "mn Falls Medical Center",
+    "code": ""
+  },
+  {
+    "name": "mw Murambe Clinic",
+    "code": ""
+  },
+  {
+    "name": "me Goromonzi Clinic",
+    "code": ""
+  },
+  {
+    "name": "mw Makuti Rural Health Centre",
+    "code": ""
+  },
+  {
+    "name": "mw ZRP Clinic",
+    "code": ""
+  },
+  {
+    "name": "ha ZPS Harare Central Prison Dependants Clinic",
+    "code": ""
+  },
+  {
+    "name": "mc Guruve ZPS Clinic",
+    "code": ""
+  },
+  {
+    "name": "mw Battlefieds clinic",
+    "code": ""
+  }
+]
