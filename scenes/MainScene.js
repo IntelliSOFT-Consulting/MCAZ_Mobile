@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo } from 'react-native';
 import AppStyles from '../styles/AppStyles'
-import { changeConnection, uploadCompletedReports } from '../actions'
+import { changeConnection, uploadCompletedReports, logout } from '../actions'
 import { connect } from 'react-redux'
 
 import Modal from 'react-native-modal';
@@ -67,6 +67,8 @@ class MainScene extends Component {
 
   showLogin = () => {
     const { navigate } = this.props.navigation;
+    const { logout } = this.props
+    logout()
     navigate("LoginScene")
   }
 
@@ -170,6 +172,9 @@ const mapDispatchToProps = dispatch => {
     },
     uploadCompletedReports: (reports, token) => {
       dispatch(uploadCompletedReports(reports, token))
+    },
+    logout: () => {
+      dispatch(logout())
     },
     dispatch: dispatch
   }

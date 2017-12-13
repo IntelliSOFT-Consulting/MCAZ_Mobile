@@ -12,7 +12,9 @@ class LoginScene extends Component {
   }
   constructor(props, context) {
     super(props, context)
-    this.state = { "email" : "", password: "" }
+    const { token } = this.props
+    this.state = { "email" : "", password: "", token : token }
+
   }
 
   showSaved() {
@@ -51,12 +53,12 @@ class LoginScene extends Component {
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <TextField {...this.props}
           label="Email"
-          value={ this.state.email }
+          value={ this.state.email } keyboardType="email-address"
           onChangeText={ (text) => this.handleChange("email", text) }
         />
         <TextField {...this.props}
           label="Password"
-          value={ this.state.password }
+          value={ this.state.password } secureTextEntry={ true }
           onChangeText={ (text) => this.handleChange("password", text) }
         />
         <View style={ AppStyles.columnButtons }>
@@ -73,11 +75,12 @@ class LoginScene extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { token } = this.props
+    const { token } = this.state
     const nextToken = nextProps.token
     // Login success, navigate to main page
     if(token == null && nextToken != null) {
-
+      const { navigate } = this.props.navigation;
+      navigate("MainScene")
     }
   }
 }

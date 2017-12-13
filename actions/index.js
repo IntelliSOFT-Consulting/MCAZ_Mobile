@@ -114,12 +114,16 @@ export const login = (data) => {
   return dispatch => {
     return fetch(LOGIN_URL, {
       method : "POST",
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
       console.log(json)
-      dispatch(loggedIn(json.data.token))
-      dispatch(showPage(MAIN_PAGE))
+      if(json.success) {
+        dispatch(loggedIn(json.data.token))
+      } else {
+        dispatch(setNotification({ message : messages.login_error, level: "error", id: new Date().getTime() }))
+      }
+
     }).catch((error) => {
       dispatch(setNotification({ message : messages.login_error, level: "error", id: new Date().getTime() }))
     })
@@ -130,12 +134,11 @@ export const signUp = (data) => {
   return dispatch => {
     return fetch(SIGNUP_URL, {
       method : "POST",
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
       console.log(json)
       dispatch(loggedIn(json.token))
-      dispatch(showPage(MAIN_PAGE))
     }).catch((error) => {
       dispatch(setNotification({ message : messages.login_error, level: "error", id: new Date().getTime() }))
     })

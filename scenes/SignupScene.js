@@ -12,7 +12,8 @@ class SignupScene extends Component {
   }
   constructor(props, context) {
     super(props, context)
-    this.state = { email : "", password: "", confirmPassword: ""}
+    const { token } = this.props
+    this.state = { email : "", password: "", confirmPassword: "", token : token }
   }
 
   handleChange = (name, value) => {
@@ -22,7 +23,11 @@ class SignupScene extends Component {
   }
 
   signup = () => {
-    if(this.state.email != "" && this.state.password != '' && this.state.confirmPassword != '') {
+    if(this.state.password != this.state.confirmPassword) {
+      Alert.alert("Error", "Passwords do not match.")
+    } else if(this.state.password.length < 6) {
+      Alert.alert("Error", "Password should be at least 6 characters.")
+    } else if(this.state.email != "" && this.state.password != '' && this.state.confirmPassword != '' ) {
       const { signUp } = this.props
       var data = {}
       data.email = this.state.email
@@ -31,6 +36,7 @@ class SignupScene extends Component {
       data.is_active = true
       signUp(data)
     } else {
+
       this.setState({ validate: true })
     }
   }
@@ -48,17 +54,17 @@ class SignupScene extends Component {
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <TextField {...this.props}
           label="Email"
-          value={ this.state.email }
+          value={ this.state.email } keyboardType="email-address"
           onChangeText={ (text) => this.handleChange("email", text) }
         />
         <TextField {...this.props}
-          label="Password"
+          label="Password" secureTextEntry={ true }
           value={ this.state.password }
           onChangeText={ (text) => this.handleChange("password", text) }
         />
         <TextField {...this.props}
           label="Confirm Password"
-          value={ this.state.confirmPassword }
+          value={ this.state.confirmPassword } secureTextEntry={ true }
           onChangeText={ (text) => this.handleChange("confirmPassword", text) }
         />
         <View style={ AppStyles.columnButtons }>
@@ -74,11 +80,12 @@ class SignupScene extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { token } = this.props
+    const { token } = this.state
     const nextToken = nextProps.token
     // Signup success, navigate to main page
     if(token == null && nextToken != null) {
-
+      const { navigate } = this.props.navigation;
+      navigate("MainScene")
     }
   }
 }
