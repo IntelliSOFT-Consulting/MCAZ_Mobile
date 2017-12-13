@@ -55,18 +55,20 @@ export default class PatientDetails extends PureComponent {
       const time = moment().year(values[2]).month(values[1]).day(values[0])
       const now = moment()
       const age = now.diff(time, 'years', true);
-      const months = now.diff(time, 'days', true);
+      const days = now.diff(time, 'days', true);
       var age_group = ""
-      if(months <= 28) {
+      if(days <= 28) {
         age_group = "neonate"
-      } else if(age >= 50) {
+      } else if(age >= 70) {
         age_group = "elderly"
-      } else if(age >= 19) {
+      } else if(age >= 17) {
         age_group = "adult"
-      } else if(age >= 10) {
+      } else if(age >= 12) {
         age_group = "adolescent"
-      } else {
+      } else if(age >= 5) {
         age_group = "child"
+      } else {
+        age_group = "infant"
       }
       const { model } = this.props
       model['age_group'] = age_group

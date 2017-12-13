@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo } from 'react-native';
 import AppStyles from '../styles/AppStyles'
-import { changeConnection, uploadCompletedReports } from '../actions'
+import { changeConnection, uploadCompletedReports, signUp } from '../actions'
 import { connect } from 'react-redux'
 
 import { TextField } from 'react-native-material-textfield'
@@ -22,7 +22,17 @@ class SignupScene extends Component {
   }
 
   signup = () => {
-
+    if(this.state.email != "" && this.state.password != '' && this.state.confirmPassword != '') {
+      const { signUp } = this.props
+      var data = {}
+      data.email = this.state.email
+      data.password = this.state.password
+      data.confirm_password = this.state.confirmPassword
+      data.is_active = true
+      signUp(data)
+    } else {
+      this.setState({ validate: true })
+    }
   }
 
   login = () => {
@@ -63,13 +73,22 @@ class SignupScene extends Component {
     );
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { token } = this.props
+    const nextToken = nextProps.token
+    // Signup success, navigate to main page
+    if(token == null && nextToken != null) {
+
+    }
+  }
 }
 
 const mapStateToProps = state => {
   return {
     connection: state.appState.connection,
     completed : state.appState.completed,
-    notification: state.appState.notification
+    notification: state.appState.notification,
+    token: state.appState.token
   }
 }
 
@@ -80,6 +99,9 @@ const mapDispatchToProps = dispatch => {
     },
     uploadCompletedReports: (reports) => {
       dispatch(uploadCompletedReports(reports))
+    },
+    signUp: data => {
+      dispatch(signUp(data))
     },
     dispatch: dispatch
   }

@@ -1,8 +1,8 @@
 import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT,
  SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS, SAVE_ERROR,
- RESET_UPLOAD_STATUS, UPDATE_UPLOAD_STATUS, SET_NOTIFICATION }  from './actionTypes'
+ RESET_UPLOAD_STATUS, UPDATE_UPLOAD_STATUS, SET_NOTIFICATION, LOGGED_IN, LOGOUT }  from './actionTypes'
 
-import { MAIN_URL, REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
+import { MAIN_URL, LOGIN_URL, SIGNUP_URL, REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 import { getRequestPayload, getURL } from '../utils/utils'
 import messages from '../utils/messages.json'
 
@@ -45,7 +45,7 @@ export const saveError = (error) => {
   { type : SAVE_ERROR, error }
 }
 
-export const uploadData = (data, url, updateProgress) => {
+export const uploadData = (data, url, token, updateProgress) => {
   return dispatch => {
     dispatch(saveCompleted(data))
     dispatch(removeDraft(data))
@@ -55,13 +55,11 @@ export const uploadData = (data, url, updateProgress) => {
       method : "POST",
       headers: {
         "Accept" : "application/json",
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
       },
       body: JSON.stringify(getRequestPayload(data))
     }).then(response => response.json()).then((json) => {
-      console.log(json)
-      console.log(rid)
-      console.log(type)
       if(json.sadr) {
         json.sadr.rid = rid
         json.sadr.type = REPORT_TYPE_ADR
@@ -104,6 +102,46 @@ export const uploadData = (data, url, updateProgress) => {
   }
 }
 
+export const loggedIn = (token) => (
+  { type : LOGGED_IN, token }
+)
+
+export const logout = (token) => (
+  { type : LOGOUT }
+)
+
+export const login = (data) => {
+  return dispatch => {
+    return fetch(LOGIN_URL, {
+      method : "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(response => response.json()).then((json) => {
+      console.log(json)
+      dispatch(loggedIn(json.data.token))
+      dispatch(showPage(MAIN_PAGE))
+    }).catch((error) => {
+      dispatch(setNotification({ message : messages.login_error, level: "error", id: new Date().getTime() }))
+    })
+  }
+}
+
+export const signUp = (data) => {
+  return dispatch => {
+    return fetch(SIGNUP_URL, {
+      method : "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(response => response.json()).then((json) => {
+      console.log(json)
+      dispatch(loggedIn(json.token))
+      dispatch(showPage(MAIN_PAGE))
+    }).catch((error) => {
+      dispatch(setNotification({ message : messages.login_error, level: "error", id: new Date().getTime() }))
+    })
+  }
+}
+
 export const resetUploadStatus = (uploaded) => (
   { type : RESET_UPLOAD_STATUS, uploaded }
 )
@@ -112,11 +150,11 @@ export const updateUploadStatus = () => (
   { type : UPDATE_UPLOAD_STATUS }
 )
 
-export const uploadCompletedReports = (completed) => {
+export const uploadCompletedReports = (completed, token) => {
   return dispatch => {
     dispatch(resetUploadStatus(completed.length))
     completed.forEach((data) => {
-      dispatch(uploadData(data, getURL(data), true))
+      dispatch(uploadData(data, getURL(data), token, true))
     })
   }
 }

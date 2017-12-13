@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo } from 'react-native';
 import AppStyles from '../styles/AppStyles'
-import { changeConnection, uploadCompletedReports } from '../actions'
+import { changeConnection, uploadCompletedReports, login } from '../actions'
 import { connect } from 'react-redux'
 
 import { TextField } from 'react-native-material-textfield'
@@ -12,11 +12,8 @@ class LoginScene extends Component {
   }
   constructor(props, context) {
     super(props, context)
-
     this.state = { "email" : "", password: "" }
   }
-
-
 
   showSaved() {
     const { navigate } = this.props.navigation;
@@ -30,7 +27,15 @@ class LoginScene extends Component {
   }
 
   login = () => {
-
+    if(this.state.email != '' && this.state.password != '') {
+      const { login } = this.props
+      var data = {}
+      data.username = this.state.email
+      data.password = this.state.password
+      login(data)
+    } else {
+      this.setState({ validate: true })
+    }
   }
 
   signup = () => {
@@ -67,13 +72,22 @@ class LoginScene extends Component {
     );
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { token } = this.props
+    const nextToken = nextProps.token
+    // Login success, navigate to main page
+    if(token == null && nextToken != null) {
+
+    }
+  }
 }
 
 const mapStateToProps = state => {
   return {
     connection: state.appState.connection,
     completed : state.appState.completed,
-    notification: state.appState.notification
+    notification: state.appState.notification,
+    token: state.appState.token
   }
 }
 
@@ -84,6 +98,9 @@ const mapDispatchToProps = dispatch => {
     },
     uploadCompletedReports: (reports) => {
       dispatch(uploadCompletedReports(reports))
+    },
+    login: data => {
+      dispatch(login(data))
     },
     dispatch: dispatch
   }

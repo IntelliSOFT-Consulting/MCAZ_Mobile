@@ -53,7 +53,7 @@ class MainScene extends Component {
   }
 
   uploadReports() {
-    const { uploadCompletedReports, completed, connection } = this.props
+    const { uploadCompletedReports, completed, connection, token } = this.props
     if(!connection.isConnected) {
       Alert.alert("Warning", "You are currently offline.")
       return
@@ -62,7 +62,7 @@ class MainScene extends Component {
       Alert.alert("Info", "No reports to upload.")
       return
     }
-    uploadCompletedReports(completed)
+    uploadCompletedReports(completed, token)
   }
 
   showLogin = () => {
@@ -158,7 +158,8 @@ const mapStateToProps = state => {
   return {
     connection: state.appState.connection,
     completed : state.appState.completed,
-    notification: state.appState.notification
+    notification: state.appState.notification,
+    token: state.appState.token
   }
 }
 
@@ -167,8 +168,8 @@ const mapDispatchToProps = dispatch => {
     changeConnection: (isConnected) => {
       dispatch(changeConnection(isConnected))
     },
-    uploadCompletedReports: (reports) => {
-      dispatch(uploadCompletedReports(reports))
+    uploadCompletedReports: (reports, token) => {
+      dispatch(uploadCompletedReports(reports, token))
     },
     dispatch: dispatch
   }
