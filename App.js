@@ -51,12 +51,6 @@ const MainRoutes = {
   },
   AEFIReportingFormScene: {
     screen : AEFIReportingFormScene
-  },
-  LoginScene: {
-    screen : LoginScene
-  },
-  SignupScene: {
-    screen : SignupScene
   }
 }
 
@@ -105,11 +99,17 @@ const MainAppRoutes = {
   },
   SavedReports: {
     screen : SavedReportsNavigator
+  },
+  Auth: {
+    screen: AuthNavigator
   }
 }
 
+const { store, persistor} = pvStore({})
+
+const initial = (store.getState() != null && store.getState().token != null)? 'Main' : 'Auth'
 const MainAppNavigator = StackNavigator(MainAppRoutes, {
-  initialRouteName : 'Main', headerMode: "none", mode : 'modal', navigationOptions: {
+  initialRouteName : initial, headerMode: "none", mode : 'modal', navigationOptions: {
     headerStyle: {
       elevation: 0,
       shadowOpacity: 0
@@ -124,7 +124,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const { store, persistor} = pvStore({})
+
 
 export default class App extends Component<{}> {
   render() {

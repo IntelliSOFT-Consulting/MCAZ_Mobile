@@ -117,7 +117,6 @@ export const login = (data) => {
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
-      console.log(json)
       if(json.success) {
         dispatch(loggedIn(json.data.token))
       } else {

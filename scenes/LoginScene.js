@@ -3,6 +3,7 @@ import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo } from 'reac
 import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, login } from '../actions'
 import { connect } from 'react-redux'
+import { NavigationActions } from 'react-navigation'
 
 import { TextField } from 'react-native-material-textfield'
 
@@ -78,7 +79,13 @@ class LoginScene extends Component {
     const { token } = this.state
     if(token != null) {
       const { navigate } = this.props.navigation;
-      navigate("MainScene")
+      const navigateAction = NavigationActions.navigate({
+        routeName: 'Main',
+        params: {},
+        action: NavigationActions.navigate({ routeName: 'MainScene'})
+      })
+      this.props.navigation.dispatch(navigateAction)
+      //navigate("MainScene")
     }
   }
 
@@ -88,7 +95,20 @@ class LoginScene extends Component {
     // Login success, navigate to main page
     if(token == null && nextToken != null) {
       const { navigate } = this.props.navigation;
-      navigate("MainScene")
+      const resetAction = NavigationActions.reset({
+        index: 0,
+        actions: [
+          NavigationActions.navigate({ routeName: 'MainScene'})
+        ]
+      })
+
+      const navigateAction = NavigationActions.navigate({
+        routeName: 'Main',
+        params: {},
+        action: NavigationActions.navigate({ routeName: 'MainScene'})
+      })
+      this.props.navigation.dispatch(navigateAction)
+      //navigate("Main")
     }
   }
 }

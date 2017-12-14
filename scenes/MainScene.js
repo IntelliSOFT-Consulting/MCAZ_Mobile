@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo } from 'react-native';
+import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler } from 'react-native';
 import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, logout } from '../actions'
 import { connect } from 'react-redux'
+import { NavigationActions } from 'react-navigation'
 
 import Modal from 'react-native-modal';
 
@@ -69,7 +70,14 @@ class MainScene extends Component {
     const { navigate } = this.props.navigation;
     const { logout } = this.props
     logout()
-    navigate("LoginScene")
+    //navigate("LoginScene")
+
+    const navigateAction = NavigationActions.navigate({
+      routeName: 'Auth',
+      params: {},
+      action: NavigationActions.navigate({ routeName: 'LoginScene'})
+    })
+    this.props.navigation.dispatch(navigateAction)
   }
 
   createReport = (followUp) => {
@@ -152,6 +160,33 @@ class MainScene extends Component {
     if(nextNotification && ((notification && notification.id != nextNotification.id) || notification == null)) {
       this.showAlert(nextNotification)
     }
+  }
+
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', function() {
+      // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
+      // Typically you would use the navigator here to go to the last state.
+      /*Alert.alert(
+        'Exit app',
+        'Exit the app',
+        [
+          {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+          {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      )*/
+      this.exitApp()
+      return true;
+    }.bind(this));
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress');
+  }
+
+  exitApp = () => {
+    BackHandler.exitApp()
   }
 
 }
