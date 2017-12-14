@@ -4,6 +4,9 @@ import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, logout } from '../actions'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
+import RNFetchBlob from 'react-native-fetch-blob'
+
+import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 
 import Modal from 'react-native-modal';
 
@@ -66,6 +69,27 @@ class MainScene extends Component {
     uploadCompletedReports(completed, token)
   }
 
+  downloadReports = () => {
+    const { uploadCompletedReports, completed, connection, token } = this.props
+    if(completed.length == 0) {
+      Alert.alert("Info", "No reports to download.")
+      return
+    }
+    var reports = {}
+    reports.sadr = completed.filter(report => report.type == REPORT_TYPE_ADR)
+    reports.adr = completed.filter(report => report.type == REPORT_TYPE_SAE)
+    reports.aefi = completed.filter(report => report.type == REPORT_TYPE_AEFI)
+    reports.saefi = completed.filter(report => report.type == REPORT_TYPE_AEFI_INV)
+
+    const string = JSON.stringify(reports)
+
+    const dirs = RNFetchBlob.fs.dirs
+    const fs = RNFetchBlob.fs
+    const name = new Date().toString().split(/ /).join('_') + '.json'
+    fs.createFile(dirs.DownloadDir + '/' + name, string, 'utf8')
+    Alert.alert("Info", "File " + name + " created.")
+  }
+
   confirmLogout = () => {
     Alert.alert(
       'Logout?',
@@ -92,8 +116,6 @@ class MainScene extends Component {
     })
     this.props.navigation.dispatch(navigateAction)
   }
-
-
 
   createReport = (followUp) => {
     this.setState({ modalVisible : false })
@@ -125,6 +147,9 @@ class MainScene extends Component {
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ this.uploadReports } title={ "Upload completed reports (" + completedCount + ")" }/>
+          </View>
+          <View style={ AppStyles.button }>
+            <Button onPress={ this.downloadReports } title={ "Download completed reports (" + completedCount + ")" }/>
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ this.confirmLogout } title={ "Logout" }/>

@@ -53,7 +53,7 @@ class LoginScene extends Component {
         <Text style={ AppStyles.headerText }>Medicines Control Authourity of Zimbabwe</Text>
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <TextField {...this.props}
-          label="Email"
+          label="Email/Username"
           value={ this.state.email } keyboardType="email-address"
           onChangeText={ (text) => this.handleChange("email", text) }
         />
