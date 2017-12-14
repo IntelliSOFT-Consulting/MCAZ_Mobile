@@ -12,6 +12,8 @@ import { REPORT_TYPE_SAE, SAE_URL } from '../utils/Constants'
 import { SAE_MANDATORY_FIELS } from '../utils/FormFields'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
+import DeviceInfo from 'react-native-device-info';
+
 class SAEScene extends PureComponent {
   static navigationOptions = {
     title: 'SAE Report form',
@@ -48,7 +50,7 @@ class SAEScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_SAE, data_source: "mobile" }
+      model = { rid : Date.now(), type : REPORT_TYPE_SAE, data_source: "phone", device_type : DeviceInfo.getSystemName() }
       if(followUp) {
         model.parent_id = ""
       }

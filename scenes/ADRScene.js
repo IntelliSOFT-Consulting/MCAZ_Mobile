@@ -12,6 +12,8 @@ import { connect } from 'react-redux'
 import { REPORT_TYPE_ADR, ADR_URL } from '../utils/Constants'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
+import DeviceInfo from 'react-native-device-info';
+
 class ADRScene extends PureComponent {
   static navigationOptions = {
     title: 'ADR Report form',
@@ -48,7 +50,7 @@ class ADRScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_ADR, data_source: "mobile" }
+      model = { rid : Date.now(), type : REPORT_TYPE_ADR, data_source: "phone", device_type : DeviceInfo.getSystemName() }
       if(followUp) {
         model.parent_id = ""
       }

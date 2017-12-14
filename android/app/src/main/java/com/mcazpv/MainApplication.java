@@ -3,6 +3,7 @@ package com.mcazpv;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
 import com.smixx.fabric.FabricPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNDeviceInfo(),
             new RNFetchBlobPackage(),
             new ReactNativeDocumentPicker(),
             new FabricPackage()

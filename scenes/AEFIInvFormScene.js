@@ -15,6 +15,8 @@ import { connect } from 'react-redux'
 import { REPORT_TYPE_AEFI_INV, SAEFI_URL } from '../utils/Constants'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
+import DeviceInfo from 'react-native-device-info';
+
 class AEFIInvFormScene extends PureComponent {
   static navigationOptions = {
     title: 'AEFI Investigation Form',
@@ -42,7 +44,7 @@ class AEFIInvFormScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_AEFI_INV, data_source: "mobile" }
+      model = { rid : Date.now(), type : REPORT_TYPE_AEFI_INV, data_source: "phone", device_type : DeviceInfo.getSystemName() }
       if(followUp) {
         model.parent_id = ""
       }

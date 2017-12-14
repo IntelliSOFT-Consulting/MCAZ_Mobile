@@ -168,6 +168,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-device-info')
     compile project(':react-native-fetch-blob')
     compile project(':react-native-document-picker')
     compile project(':react-native-fabric')
