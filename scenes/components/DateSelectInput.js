@@ -133,4 +133,23 @@ export default class DateSelectInput extends Component {
     );
   };
 
+  componentWillReceiveProps(nextProps) {
+    const { day, month, year } = this.state
+    const { value } = nextProps
+
+    const val = day + '-' + month + '-' + year
+    if(val != value && value != null) {
+      const v = value.split("-")
+      var state = {}
+      state.day = v[0]
+      if(v[1] !== '' && v[1] != null) {
+        state.month = this.monthLabels[parseInt(v[1])]
+      } else {
+        state.month = ''
+      }
+      state.year = v[2] != null? v[2] : ""
+      this.setState(state)
+    }
+  }
+
 }

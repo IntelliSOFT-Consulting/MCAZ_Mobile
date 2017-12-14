@@ -18,7 +18,7 @@ export default class VaccinationScene extends PureComponent {
         <Text style={ AppStyles.boldText }>Vaccine</Text>
         <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" label="Vaccine"/>
         <Text style={ AppStyles.boldText }>Dilutent</Text>
-        <AEFIDilutentTableComponent model={ model } name="aefi_list_of_diluents" name="Dilutent"/>
+        <AEFIDilutentTableComponent model={ model } name="aefi_list_of_diluents" name="Diluent"/>
 
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(3) } title="Save changes"/>

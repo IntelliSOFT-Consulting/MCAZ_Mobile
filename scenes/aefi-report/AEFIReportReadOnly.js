@@ -7,7 +7,7 @@ import FileAttachmentComponent from '../components/FileAttachmentComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
-import { AEFI_SEVERITY_REASON, OUTCOME, BOOLEAN_UNKNOWN_OPTIONS, BOOLEAN_OPTIONS, DESIGNATION, GENDER, PROVINCES } from '../../utils/FieldOptions'
+import { AEFI_SEVERITY_REASON, OUTCOME, BOOLEAN_UNKNOWN_OPTIONS, BOOLEAN_OPTIONS, DESIGNATION, GENDER, PROVINCES, AEFI_OUTCOME } from '../../utils/FieldOptions'
 
 export default class AEFIReportReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
@@ -16,13 +16,13 @@ export default class AEFIReportReadOnly extends Component{
     return (
       <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
-        
+
         <ReadOnlyDataRenderer label="Reference number" name="reference_number" model={ model } required={ true }/>
         <ReadOnlyDataRenderer label="Patient first name:" name="patient_name" model={ model } required={ true }/>
-        <ReadOnlyDataRenderer label="Surname" name="patient_surname" model={ model }/>
-        <ReadOnlyDataRenderer label="Next of Kin:" name="patient_next_of_kin" model={ model }/>
+        <ReadOnlyDataRenderer label="Patient Surname" name="patient_surname" model={ model }/>
+        <ReadOnlyDataRenderer label="patient Next of Kin" name="patient_next_of_kin" model={ model }/>
         <ReadOnlyDataRenderer label="Patient’s physical address:" name="patient_address" model={ model } required={ true }/>
-        <ReadOnlyDataRenderer label="Telephone:" keyboardType="phone-pad" name="patient_telephone" model={ model }/>
+        <ReadOnlyDataRenderer label="Patient Telephone" keyboardType="phone-pad" name="patient_telephone" model={ model }/>
         <ReadOnlyDataRenderer label="Gender:" name="gender" model={ model } options={ GENDER }/>
         <ReadOnlyDataRenderer label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model } required={ true } type="date"/>
         <ReadOnlyDataRenderer label="OR Age at onset" name="age_at_onset" model={ model }/>
@@ -35,7 +35,6 @@ export default class AEFIReportReadOnly extends Component{
         <ReadOnlyDataRenderer label="Province:" name="reporter_province" model={ model } type="option" options={ PROVINCES }/>
         <ReadOnlyDataRenderer label="Telephone &amp; e-mail:" name="reporter_phone" model={ model }/>
         <ReadOnlyDataRenderer label="E-mail:" name="reporter_email" model={ model }/>
-        <ReadOnlyDataRenderer label="Today’s date (DD/MM/YYYY):" name="adverse_event_type" model={ model }/>
 
         <ReadOnlyDataRenderer label="Name of vaccination centre:" name="name_of_vaccination_center" model={ model }/>
         <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" readonly={ true }/>
@@ -50,7 +49,7 @@ export default class AEFIReportReadOnly extends Component{
         <ReadOnlyDataRenderer label="Treatment provided:" options={ BOOLEAN_OPTIONS } name="treatment_provided" model={ model }/>
         <ReadOnlyDataRenderer label="Serious:" options={ BOOLEAN_OPTIONS } name="serious" model={ model } required={ true }/>
         <ReadOnlyDataRenderer label="If yes:" options={ AEFI_SEVERITY_REASON } name="serious_yes" model={ model }/>
-        <ReadOnlyDataRenderer label="Outcome:" name="outcome" model={ model } required={ true } options={ OUTCOME }/>
+        <ReadOnlyDataRenderer label="Outcome:" name="outcome" model={ model } required={ true } options={ AEFI_OUTCOME }/>
         <ReadOnlyDataRenderer label="If died, date of death (DD/MM/YYYY)::" name="died_date" model={ model } type="date"/>
         <ReadOnlyDataRenderer label="Autopsy done:" name="autopsy" model={ model } options={ BOOLEAN_UNKNOWN_OPTIONS }/>
         <ReadOnlyDataRenderer label="Past medical history (including history of similar reaction or other allergies), concomitant medication and other relevant information

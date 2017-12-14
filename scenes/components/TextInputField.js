@@ -23,6 +23,10 @@ export default class TextInputField extends Component {
     if(model) {
       model[name] = value
     }
+    const { onChange } = this.props
+    if(onChange) {
+      onChange(model[name])
+    }
   }
 
   render() {
@@ -51,6 +55,16 @@ export default class TextInputField extends Component {
 
       </View>
     )
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { model, name } = this.props
+    var { value } = this.state
+    const newModel = nextProps.model
+    if(value != newModel[name] && newModel[name] != null) {
+      const val = newModel[name]
+      this.setState({ value : val })
+    }
   }
 }
 // { text }

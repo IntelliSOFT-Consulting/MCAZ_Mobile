@@ -12,6 +12,38 @@ import { DESIGNATION, GENDER, AGE_ON_ONSET, PROVINCES } from '../../utils/FieldO
 
 export default class PatientReporterDetailsScene extends PureComponent {
 
+  constructor(props, context) {
+    super(props, context)
+    const { model } = this.props
+    this.state = { model }
+  }
+
+  validateDateofBirth = (value) => {
+    if(value != '' && value != '--') {
+      const { model } = this.props
+      model['age_at_onset'] = ""
+      model['age_at_onset_specify'] = ""
+      this.setState({ date_of_birth: value, age_at_onset: '', age_at_onset_specify: '' })
+    }
+
+  }
+
+  validateAge = (value) => {
+    if(value != '') {
+      const { model } = this.props
+      model['date_of_birth'] = ''
+      this.setState({ date_of_birth : '', age_at_onset: value })
+    }
+  }
+
+  validateAgeSpec = (value) => {
+    var { model } = this.state
+    if(value != '') {
+      model['date_of_birth'] = ''
+      this.setState({ date_of_birth : '', age_at_onset_specify: value })
+    }
+  }
+
   render() {
     const { model, saveAndContinue, cancel, followUp } = this.props
     const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
@@ -19,14 +51,14 @@ export default class PatientReporterDetailsScene extends PureComponent {
       <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         { followUpField }
         <TextInputField label="Patient first name:" name="patient_name" model={ model } required={ true }/>
-        <TextInputField label="Surname" name="patient_surname" model={ model }/>
-        <TextInputField label="Next of Kin:" name="patient_next_of_kin" model={ model }/>
+        <TextInputField label="Patient Surname" name="patient_surname" model={ model }/>
+        <TextInputField label="Patient next of Kin:" name="patient_next_of_kin" model={ model }/>
         <TextInputField label="Patient’s physical address:" name="patient_address" model={ model } required={ true }/>
-        <TextInputField label="Telephone:" keyboardType="phone-pad" name="patient_telephone" model={ model }/>
+        <TextInputField label="Patient Telephone:" keyboardType="phone-pad" name="patient_telephone" model={ model }/>
         <SelectOneField label="Gender:" name="gender" model={ model } options={ GENDER }/>
-        <DateSelectInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model } required={ true }/>
-        <SelectOneField label="OR Age at onset" name="age_at_onset" model={ model } options={ AGE_ON_ONSET }/>
-        <TextInputField label="Specify" name="age_at_onset_specify" model={ model } keyboardType="numeric"/>
+        <DateSelectInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model } required={ true } maxDate={ new Date() } onDateChange={ this.validateDateofBirth } value={ this.state.date_of_birth }/>
+        <SelectOneField label="OR Age at onset" name="age_at_onset" model={ model } options={ AGE_ON_ONSET } value={ this.state.age_at_onset } onChange={ this.validateAge }/>
+        <TextInputField label="Specify" name="age_at_onset_specify" model={ model } keyboardType="numeric" value={ this.state.age_at_onset_specify } onChange={ this.validateAgeSpec }/>
         <TextInputField label="Reporter’s Name:" name="reporter_name" model={ model } required={ true }/>
         <SelectOneField label="Designation:" name="designation_id" model={ model } options={ DESIGNATION }/>
         <TextInputField label="Institution:" name="reporter_institution" model={ model }/>
@@ -34,8 +66,8 @@ export default class PatientReporterDetailsScene extends PureComponent {
         <TextInputField label="Address:" name="reporter_address" model={ model }/>
         <TextInputField label="District:" name="reporter_district" model={ model }/>
         <SelectOneField label="Province:" name="province_id" model={ model } options={ PROVINCES }/>
-        <TextInputField label="Telephone:" name="reporter_phone" model={ model } keyboardType="phone-pad"/>
-        <TextInputField label="E-mail" name="reporter_email" model={ model } keyboardType="email-address"/>
+        <TextInputField label="Reporter Telephone" name="reporter_phone" model={ model } keyboardType="phone-pad"/>
+        <TextInputField label="Reporter  E-mail" name="reporter_email" model={ model } keyboardType="email-address"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(2) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>

@@ -21,12 +21,14 @@ export default class SelectOneField extends Component {
   }
 
   handleChange(itemValue, itemIndex) {
-    const { options, name, model } = this.props
+    const { options, name, model, onChange } = this.props
     const option = options[itemIndex]
     var value = null
+    var label = ""
     if(typeof option == "object") {
       this.setState({ value : option.key })
       value = option.key
+      label = option.value
     } else {
       this.setState({ value : option })
       value = option
@@ -34,7 +36,10 @@ export default class SelectOneField extends Component {
     if(model) {
       model[name] = value
     }
-    this.setState({ value })
+    this.setState({ value, label })
+    if(onChange) {
+      onChange(model[name])
+    }
   }
 
   render() {
@@ -64,13 +69,13 @@ export default class SelectOneField extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { model, name, options } = this.props
-    var {value} = this.state
+    var { value } = this.state
     const newModel = nextProps.model
-    if(value != newModel[name] && newModel[name]) {
-      value = newModel[name]
-      const selected = options.find((option) => option.key == value || option == value )
-      label = selected.value
-      this.setState({ value,label })
+    if(value != newModel[name] && newModel[name] != null) {
+      const val = newModel[name]
+      const selected = options.find((option) => option.key == val || option == val )
+      const label = selected != null? selected.value : ""
+      this.setState({ value : val,label : label })
     }
   }
 }
