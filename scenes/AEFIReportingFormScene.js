@@ -39,7 +39,7 @@ class AEFIReportingFormScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_AEFI }
+      model = { rid : Date.now(), type : REPORT_TYPE_AEFI, data_source: "mobile" }
       if(followUp) {
         model.parent_id = ""
       }

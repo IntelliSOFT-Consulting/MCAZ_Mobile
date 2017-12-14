@@ -42,7 +42,7 @@ class AEFIInvFormScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_AEFI_INV }
+      model = { rid : Date.now(), type : REPORT_TYPE_AEFI_INV, data_source: "mobile" }
       if(followUp) {
         model.parent_id = ""
       }

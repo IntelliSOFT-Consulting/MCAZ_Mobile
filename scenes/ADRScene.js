@@ -48,7 +48,7 @@ class ADRScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_ADR }
+      model = { rid : Date.now(), type : REPORT_TYPE_ADR, data_source: "mobile" }
       if(followUp) {
         model.parent_id = ""
       }

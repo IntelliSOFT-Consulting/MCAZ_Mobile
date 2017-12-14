@@ -48,7 +48,7 @@ class SAEScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_SAE }
+      model = { rid : Date.now(), type : REPORT_TYPE_SAE, data_source: "mobile" }
       if(followUp) {
         model.parent_id = ""
       }
