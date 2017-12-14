@@ -304,3 +304,9 @@ export const AEFI_OUTCOME = [ { key : "", value: ""},
   { key : 'Not recovered', value : 'Not recovered'}, { key: 'Recovered with sequelae', value: 'Recovered with sequelae'},
   { key : 'Died', value : 'Died'}, { key : 'Unknown', value : 'Unknown'}
 ]
+
+
+export const REPORT_TYPES = [
+  { key : "", value: ""}, { key : "REPORT_TYPE_ADR", value: "ADR"}, { key : "REPORT_TYPE_SAE", value: "SAE"},
+  { key : "REPORT_TYPE_AEFI", value: "AEFI Report"}, { key : "REPORT_TYPE_AEFI_INV", value: "AEFI Investigation Report"},
+]

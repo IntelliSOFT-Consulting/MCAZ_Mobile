@@ -22,10 +22,9 @@ class ReportsListScene extends Component {
   }
 
   renderItem({item}) {
-    var title = new Date(item.rid).toGMTString()
-    if(item.type == REPORT_TYPE_ADR) {
-      title = (item.patient_name != null && item.patient_name != "")? item.patient_name : "No name provided " + title
-    }
+    //var title = new Date(item.rid).toGMTString()
+
+    const title = item.reference_number != null? item.reference_number : new Date(item.rid).toString()
     return (
       <TouchableOpacity onPress={ () => this.onItemPressed(item) }>
         <View style={ AppStyles.rowItemStyle }>

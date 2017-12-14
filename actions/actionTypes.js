@@ -18,3 +18,6 @@ export const SET_NOTIFICATION = 'SET_NOTIFICATION' // set notification
 
 export const LOGGED_IN = 'LOGGED_IN'
 export const LOGOUT = 'LOGOUT'
+
+export const SAVE_FETCHED_REPORTS = 'SAVE_FETCHED_REPORTS'
+export const VIEW_REPORT = 'VIEW_REPORT'

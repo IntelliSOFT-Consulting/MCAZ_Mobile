@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler } from 'react-native';
 import AppStyles from '../styles/AppStyles'
-import { changeConnection, uploadCompletedReports, logout } from '../actions'
+import { changeConnection, uploadCompletedReports, logout, fetchReport, setReport } from '../actions'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 import RNFetchBlob from 'react-native-fetch-blob'
+
+import SelectOneField from './components/SelectOneField'
+import TextInputField from './components/TextInputField'
+import { REPORT_TYPES } from '../utils/FieldOptions'
+import { getURL } from '../utils/utils'
 
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 
@@ -24,7 +29,7 @@ class MainScene extends Component {
     this.uploadReports = this.uploadReports.bind(this)
     this.changeConnection = this.changeConnection.bind(this)
     this.showAlert = this.showAlert.bind(this)
-    this.state = { modalVisible : false }
+    this.state = { modalVisible : false, openReportModal : false }
   }
 
   showNewADRReport() {
@@ -123,6 +128,28 @@ class MainScene extends Component {
     navigate(this.state.reportType, { followUp : followUp })
   }
 
+  openReport = () => {
+    this.setState({ openReportModal : true, searchModel : { type : "", reference_number : ""} })
+  }
+
+  showReport = () => {
+    this.setState({ openReportModal : false} )
+    const { uploaded } = this.props
+    const report = uploaded.find((i) => i.reference_number == this.state.searchModel.reference_number)
+    /*if(report) {
+      this.displayReport(report)
+    } else {*/
+      const { fetchReport, token } = this.props
+      fetchReport(btoa(this.state.searchModel.reference_number), getURL({ type : this.state.searchModel.type }),token)
+    //}
+  }
+
+  displayReport = (report) => {
+    const { navigate } = this.props.navigation
+    const model = { model : report }
+    navigate('ReadOnlyReportScene', model)
+  }
+
   render() {
     const completedCount = this.props.completed.length
     return (
@@ -152,9 +179,22 @@ class MainScene extends Component {
             <Button onPress={ this.downloadReports } title={ "Download completed reports (" + completedCount + ")" }/>
           </View>
           <View style={ AppStyles.button }>
+            <Button onPress={ this.openReport } title={ "Open Report" }/>
+          </View>
+          <View style={ AppStyles.button }>
             <Button onPress={ this.confirmLogout } title={ "Logout" }/>
           </View>
         </View>
+        <Modal animationType = {"slide"} transparent = {true} presentationStyle={ "overFullScreen" }
+          isVisible = { this.state.openReportModal }
+          onRequestClose = {() => { console.log("Modal has been closed.") } }>
+          <View style = { AppStyles.modalContainer }>
+            <SelectOneField name={ "type" } model={ this.state.searchModel } options={ REPORT_TYPES } label="Select type" required={ true }/>
+            <TextInputField name="reference_number"  model={ this.state.searchModel } label="Reference number" required={ true }/>
+            <Button onPress={ () => this.showReport(false) } title="Open report"/>
+          </View>
+        </Modal>
+
         <Modal animationType = {"slide"} transparent = {true} presentationStyle={ "overFullScreen" }
           isVisible = { this.state.modalVisible }
           onRequestClose = {() => { console.log("Modal has been closed.") } }>
@@ -165,7 +205,6 @@ class MainScene extends Component {
             <View style={ AppStyles.button }>
               <Button onPress={ () => this.createReport(true) } title="Follow up report"/>
             </View>
-
             <Button onPress={ () => this.selectReportType(false) } title="Close"/>
           </View>
         </Modal>
@@ -195,10 +234,15 @@ class MainScene extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { notification } = this.props
+    const { notification, viewReport } = this.props
     const nextNotification = nextProps.notification
     if(nextNotification && ((notification && notification.id != nextNotification.id) || notification == null)) {
       this.showAlert(nextNotification)
+    }
+    if(viewReport == null && nextProps.viewReport != null) {
+      this.displayReport(nextProps.viewReport)
+      const { setReport } = this.props
+      setReport(null)
     }
   }
 
@@ -226,8 +270,10 @@ const mapStateToProps = state => {
   return {
     connection: state.appState.connection,
     completed : state.appState.completed,
+    uploaded : state.appState.uploaded,
     notification: state.appState.notification,
-    token: state.appState.token
+    token: state.appState.token,
+    viewReport: state.appState.viewReport
   }
 }
 
@@ -241,6 +287,12 @@ const mapDispatchToProps = dispatch => {
     },
     logout: () => {
       dispatch(logout())
+    },
+    fetchReport: (id, url, token) => {
+      dispatch(fetchReport(id, url, token))
+    },
+    setReport: (report) => {
+      setReport(report)
     },
     dispatch: dispatch
   }

@@ -28,13 +28,20 @@ export default class ReadOnlyDataRenderer extends Component {
       }
       return date.join("/")*/
     } else if(type == 'option' && options) {
-      var values = model[name].split(",")
+      var values = ""
+      if(typeof model[name] == 'string') {
+        values = model[name].split(",")
+      } else {
+        values = [model[name]]
+      }
+
       var renderValue = []
       options.forEach((option) => {
         if(values.indexOf(option.key) != -1) {
           renderValue.push(option.value)
         }
       })
+      
       if(renderValue.length > 0) {
         return renderValue.join(",")
       }
