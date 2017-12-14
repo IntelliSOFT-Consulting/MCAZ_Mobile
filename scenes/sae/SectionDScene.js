@@ -34,9 +34,9 @@ export default class SectionDScene extends PureComponent {
           risks and benefits to the subjects in this research." model={ model } validate={ this.state.validate } required={ true } name="assess_risk" options={  BOOLEAN_OPTIONS  }/>
 
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue() } title="Save changes"/>
-          <Button onPress={ () => saveAndSubmit() } title="Save and Submit"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => saveAndContinue() } color="#841584"  title="Save changes"/>
+          <Button onPress={ () => saveAndSubmit() } color="#841584"  title="Save and Submit"/>
+          <Button onPress={ () => cancel() } color="#841584"  title="Cancel"/>
         </View>
       </ScrollView>
     )

@@ -43,8 +43,8 @@ export default class SectionAScene extends PureComponent {
         <TextInputField label="Study week" name="study_week" model={ model } validate={ this.state.validate } required={ true }/>
         <TextInputField label="Visit number:-" name="visit_number" model={ model } validate={ this.state.validate } required={ true }/>
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue(2) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => saveAndContinue(2) } title="Save changes" color="#841584" style={ AppStyles.saeButton }/>
+          <Button onPress={ () => cancel() } color="#841584"  title="Cancel"/>
         </View>
       </ScrollView>
     )

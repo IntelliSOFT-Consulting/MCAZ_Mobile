@@ -30,6 +30,10 @@ export default AppStyles = StyleSheet.create({
     marginTop: 8
   },
 
+  saeButton: {
+    color : "#841584"
+  },
+
   button: {
     height: 40
   },

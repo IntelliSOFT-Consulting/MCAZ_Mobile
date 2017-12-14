@@ -65,8 +65,8 @@ export default class SectionCScene extends PureComponent {
         <Text>NB If the outcome is death, please complete &amp; attach the death form.</Text>
 
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => saveAndContinue(4) } color="#841584"  title="Save changes"/>
+          <Button onPress={ () => cancel() } color="#841584"  title="Cancel"/>
         </View>
       </ScrollView>
     )
