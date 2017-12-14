@@ -66,7 +66,20 @@ class MainScene extends Component {
     uploadCompletedReports(completed, token)
   }
 
+  confirmLogout = () => {
+    Alert.alert(
+      'Logout?',
+      'Confirm you want to logout',
+      [
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'Logout', onPress: () => this.showLogin() },
+      ],
+      { cancelable: false }
+    )
+  }
+
   showLogin = () => {
+
     const { navigate } = this.props.navigation;
     const { logout } = this.props
     logout()
@@ -79,6 +92,8 @@ class MainScene extends Component {
     })
     this.props.navigation.dispatch(navigateAction)
   }
+
+
 
   createReport = (followUp) => {
     this.setState({ modalVisible : false })
@@ -112,7 +127,7 @@ class MainScene extends Component {
             <Button onPress={ this.uploadReports } title={ "Upload completed reports (" + completedCount + ")" }/>
           </View>
           <View style={ AppStyles.button }>
-            <Button onPress={ this.showLogin } title={ "Logout" }/>
+            <Button onPress={ this.confirmLogout } title={ "Logout" }/>
           </View>
         </View>
         <Modal animationType = {"slide"} transparent = {true} presentationStyle={ "overFullScreen" }
@@ -166,16 +181,7 @@ class MainScene extends Component {
     BackHandler.addEventListener('hardwareBackPress', function() {
       // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
       // Typically you would use the navigator here to go to the last state.
-      /*Alert.alert(
-        'Exit app',
-        'Exit the app',
-        [
-          {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-          {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
-        ],
-        { cancelable: false }
-      )*/
+      /**/
       this.exitApp()
       return true;
     }.bind(this));
