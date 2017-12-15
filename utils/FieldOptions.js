@@ -312,3 +312,7 @@ export const REPORT_TYPES = [
   { key : "", value: ""}, { key : "REPORT_TYPE_ADR", value: "ADR"}, { key : "REPORT_TYPE_SAE", value: "SAE"},
   { key : "REPORT_TYPE_AEFI", value: "AEFI Report"}, { key : "REPORT_TYPE_AEFI_INV", value: "AEFI Investigation Report"},
 ]
+
+export const BOOLEAN_NA_OPTIONS = [
+  { key : "Yes", value : "Yes"}, { key : "No", value : "No"}, { key : "N/A", value : "N/A"}
+]

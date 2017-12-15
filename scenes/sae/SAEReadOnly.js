@@ -8,7 +8,7 @@ import LabsTableComponent from '../components/LabsTableComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
-import { SEVERITY_REASON, OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR, DESIGNATION, REPORT_TYPE_SAE,
+import { SEVERITY_REASON, OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR, DESIGNATION, REPORT_TYPE_SAE, BOOLEAN_NA_OPTIONS,
  SAE_TOXICITY_GRADE, EVENT_TYPE, SAE_EVENT_TYPE, BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, LOCATION_ADVERSE_EVENT, RESEARCH_INVOLVES
  } from '../../utils/FieldOptions'
 
@@ -96,10 +96,10 @@ export default class SAEReadOnly extends Component{
             numberOfLines = {4}/>
         <Text>NB If the outcome is death, please complete &amp; attach the death form.</Text>
 
-        <ReadOnlyDataRenderer label="D1. Was this Adverse Event originally addressed in the protocol and consent form?" model={ model } name="d1_consent_form" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
-        <ReadOnlyDataRenderer label="D2. Was this Adverse Event originally addressed in Investigators Brochure?" model={ model } name="d2_brochure" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
-        <ReadOnlyDataRenderer label="D3. Are changes required to the protocol as a result of this SAE?" model={ model } name="d3_changes_sae" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
-        <ReadOnlyDataRenderer label="D4. Are changes required to the consent form as a result of this SAE?" model={ model } name="d4_consent_sae" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
+        <ReadOnlyDataRenderer label="D1. Was this Adverse Event originally addressed in the protocol and consent form?" model={ model } name="d1_consent_form" options={ BOOLEAN_NA_OPTIONS }/>
+        <ReadOnlyDataRenderer label="D2. Was this Adverse Event originally addressed in Investigators Brochure?" model={ model } name="d2_brochure" options={ BOOLEAN_NA_OPTIONS }/>
+        <ReadOnlyDataRenderer label="D3. Are changes required to the protocol as a result of this SAE?" model={ model } name="d3_changes_sae" options={ BOOLEAN_NA_OPTIONS }/>
+        <ReadOnlyDataRenderer label="D4. Are changes required to the consent form as a result of this SAE?" model={ model } name="d4_consent_sae" options={ BOOLEAN_NA_OPTIONS }/>
         <FileAttachmentComponent model={ model } name="files" label="Attach any files" readonly={ true }/>
         <Text>If changes are required, please attach a copy of the revised protocol/consent form with changes highlighted with a bright coloured highlighter.</Text>
         <ReadOnlyDataRenderer label="If changes are not required, please explain as to why changes to the protocol /consent

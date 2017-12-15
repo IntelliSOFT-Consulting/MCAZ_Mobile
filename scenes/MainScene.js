@@ -132,16 +132,21 @@ class MainScene extends Component {
     this.setState({ openReportModal : true, searchModel : { type : "", reference_number : ""} })
   }
 
-  showReport = () => {
+  cancelReport = () => {
+    this.setState({ openReportModal : false, searchModel : { type : "", reference_number : ""} })
+  }
+
+  showReport = (visible) => {
     this.setState({ openReportModal : false} )
+
     const { uploaded } = this.props
     const report = uploaded.find((i) => i.reference_number == this.state.searchModel.reference_number)
-    /*if(report) {
+    if(report) {
       this.displayReport(report)
-    } else {*/
+    } else {
       const { fetchReport, token } = this.props
       fetchReport(btoa(this.state.searchModel.reference_number), getURL({ type : this.state.searchModel.type }),token)
-    //}
+    }
   }
 
   displayReport = (report) => {
@@ -191,7 +196,10 @@ class MainScene extends Component {
           <View style = { AppStyles.modalContainer }>
             <SelectOneField name={ "type" } model={ this.state.searchModel } options={ REPORT_TYPES } label="Select type" required={ true }/>
             <TextInputField name="reference_number"  model={ this.state.searchModel } label="Reference number" required={ true }/>
-            <Button onPress={ () => this.showReport(false) } title="Open report"/>
+            <View style={ AppStyles.button }>
+              <Button onPress={ () => this.showReport(false) } title="Open report"/>
+            </View>
+            <Button onPress={ () => this.cancelReport(false) } title="Close"/>
           </View>
         </Modal>
 
@@ -251,8 +259,17 @@ class MainScene extends Component {
       // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
       // Typically you would use the navigator here to go to the last state.
       /**/
-      this.exitApp()
-      return true;
+      const { screenProps } = this.props
+      console.log(screenProps)
+      const route = screenProps.routes[screenProps.index]
+      const currentRoute = route.routes[route.index]
+      if(currentRoute.routeName == this.props.navigation.state.routeName) {
+        if(!this.state.modalVisible &&  !this.state.openReportModal) {
+          this.exitApp()
+        }
+      }
+      //
+      return false;
     }.bind(this));
   }
 

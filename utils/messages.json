@@ -3,5 +3,6 @@
   "changesSaved": "Changes saved",
   "datauploaded" : "Data uploaded",
   "erroruploading" : "Error uploading data, data has been saved to be uploaded later.",
-  "login_error" : "Error logging in"
+  "login_error" : "Error logging in",
+  "report_not_found" : "Report not found."
 }

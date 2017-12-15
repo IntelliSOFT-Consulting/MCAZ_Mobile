@@ -7,7 +7,7 @@ import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import FileAttachmentComponent from '../components/FileAttachmentComponent'
 
-import { BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS } from '../../utils/FieldOptions'
+import { BOOLEAN_OPTIONS, BOOLEAN_NA_OPTIONS } from '../../utils/FieldOptions'
 
 export default class SectionDScene extends PureComponent {
 
@@ -20,10 +20,10 @@ export default class SectionDScene extends PureComponent {
     const { model, saveAndContinue, saveAndSubmit, cancel, validate } = this.props
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.sadrBackground ] }>
-        <SelectOneField label="D1. Was this Adverse Event originally addressed in the protocol and consent form?" model={ model } validate={ this.state.validate } required={ true } name="d1_consent_form" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
-        <SelectOneField label="D2. Was this Adverse Event originally addressed in Investigators Brochure?" model={ model } validate={ this.state.validate } required={ true } name="d2_brochure" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
-        <SelectOneField label="D3. Are changes required to the protocol as a result of this SAE?" model={ model } validate={ this.state.validate } required={ true } name="d3_changes_sae" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
-        <SelectOneField label="D4. Are changes required to the consent form as a result of this SAE?" model={ model } validate={ this.state.validate } required={ true } name="d4_consent_sae" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
+        <SelectOneField label="D1. Was this Adverse Event originally addressed in the protocol and consent form?" model={ model } validate={ this.state.validate } required={ true } name="d1_consent_form" options={ BOOLEAN_NA_OPTIONS }/>
+        <SelectOneField label="D2. Was this Adverse Event originally addressed in Investigators Brochure?" model={ model } validate={ this.state.validate } required={ true } name="d2_brochure" options={ BOOLEAN_NA_OPTIONS }/>
+        <SelectOneField label="D3. Are changes required to the protocol as a result of this SAE?" model={ model } validate={ this.state.validate } required={ true } name="d3_changes_sae" options={ BOOLEAN_NA_OPTIONS }/>
+        <SelectOneField label="D4. Are changes required to the consent form as a result of this SAE?" model={ model } validate={ this.state.validate } required={ true } name="d4_consent_sae" options={ BOOLEAN_NA_OPTIONS }/>
         <FileAttachmentComponent model={ model } name="attachments" label="Attach any files"/>
         <Text>If changes are required, please attach a copy of the revised protocol/consent form with changes highlighted with a bright coloured highlighter.</Text>
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { FlatList, Text, View, TextInput, ScrollView, Button, TouchableOpacity } from 'react-native'
+import { FlatList, Text, View, TextInput, ScrollView, Button, TouchableOpacity, BackHandler } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
 import SelectMultipleField from './components/SelectMultipleField'
@@ -54,6 +54,11 @@ class SavedReportsScene extends Component {
 
   cancel() {
 
+  }
+
+  goBack = () => {
+    const { goBack } = this.props.navigation
+    goBack()
   }
 
   _renderSeparator = () => {
