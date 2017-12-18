@@ -22,9 +22,12 @@ export default class PatientReporterDetailsScene extends PureComponent {
   validateDateofBirth = (value) => {
     if(value != '' && value != '--') {
       const { model } = this.props
-      model['age_at_onset'] = {}
+      model['age_at_onset'] = ""
+      model['age_at_onset_days'] = ""
+      model['age_at_onset_months'] = ""
+      model['age_at_onset_years'] = ""
       model['age_at_onset_specify'] = ""
-      this.setState({ date_of_birth: value, age_at_onset: {}, age_at_onset_specify: '' })
+      this.setState({ date_of_birth: value, age_at_onset: "", age_at_onset_specify: '' })
     }
 
   }

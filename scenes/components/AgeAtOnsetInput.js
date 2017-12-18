@@ -19,17 +19,15 @@ export default class AgeAtOnsetInput extends Component {
 
   getModelValue = (model, name) => {
 
-    var value = { days : "", months: "", years : "" }
-    if(model && model[name]) {
-      if(typeof model[name] == "object") {
+    var value = { age_at_onset_days : "", age_at_onset_months: "", age_at_onset_years : "" }
+
       //if(model[name][day]) {
-        value['days'] = model[name]["days"] == null? "" : model[name]["days"] //model[name]['day']
+        value['age_at_onset_days'] = model["age_at_onset_days"] == null? "" : model["age_at_onset_days"] //model[name]['day']
       //if(model[name][month]) {
-        value['months'] = model[name]["months"] == null? "" : model[name]["months"] //model[name]['month']
+        value['age_at_onset_months'] = model["age_at_onset_months"] == null? "" : model["age_at_onset_months"] //model[name]['month']
       //if(model[name][year]) {
-        value['years'] = model[name]["years"] == null? "" : model[name]["years"] //model[name]['year']
-      }
-    }
+        value['age_at_onset_years'] = model["age_at_onset_years"] == null? "" : model["age_at_onset_years"] //model[name]['year']
+
     return value
   }
 
@@ -44,10 +42,10 @@ export default class AgeAtOnsetInput extends Component {
 
     var state = this.state
     state[fieldName] = value
-    model[name] = state
+    model[fieldName] = value
     this.setState(state)
     if(onChange) {
-      onChange(model[name])
+      onChange(model[fieldName])
     }
   }
 
@@ -76,19 +74,19 @@ export default class AgeAtOnsetInput extends Component {
         <View style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>
             <TextField labelHeight={ labelHeight }
-              label='Years' onChangeText={ (itemValue) => this.handleChange(itemValue, 'years') }
+              label='Years' onChangeText={ (itemValue) => this.handleChange(itemValue, 'age_at_onset_years') }
               value={ this.state.years } keyboardType="numeric"
             />
           </View>
           <View style={{ flex: 2 }}>
             <TextField labelHeight={ labelHeight }
-              label='Months' onChangeText={ (itemValue, itemIndex) => this.handleChange(itemValue, 'months') }
+              label='Months' onChangeText={ (itemValue, itemIndex) => this.handleChange(itemValue, 'age_at_onset_months') }
               value={ this.state.months } keyboardType="numeric"
             />
           </View>
           <View style={{ flex: 1 }}>
             <TextField labelHeight={ labelHeight }
-              label='Days' onChangeText={ (itemValue) => this.handleChange(itemValue, 'days') }
+              label='Days' onChangeText={ (itemValue) => this.handleChange(itemValue, 'age_at_onset_years') }
               value={ this.state.days } keyboardType="numeric"
             />
           </View>

@@ -24,10 +24,13 @@ export default class VaccineTableComponent extends TableComponent {
     const { model, name } = this.props
     var row = [
       <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_date" model={ model[name][index] } maxDate={ new Date() }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_date" model={ model[name][index] } showTime={ true } maxDate={ new Date() }/>,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] } />,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="expiry_date" model={ model[name][index] } />,
+      <TextInput key={Math.floor(Math.random() * 10000)} name="diluent_batch_number" model={ model[name][index] } options={ DOSE } />,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_expiry_date" model={ model[name][index] } />,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_date" model={ model[name][index] } maxDate={ new Date() } showTime={ true }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
@@ -43,18 +46,21 @@ export default class VaccineTableComponent extends TableComponent {
 
     var row = [
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="vaccine_name" type="" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="vaccination_date" type="date" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="vaccination_date" type="date" model={ model[name][index] } showTime={ true }/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] } type="text"/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="batch_number" type="text" model={ model[name][index] } />,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="expiry_date" type="date" model={ model[name][index] } />
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="expiry_date" type="date" model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_batch_number"  model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_expiry_date" type="date" model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_date" type="date" model={ model[name][index] } showTime={ true }/>
     ]
     return row
   }
 
   render() {
     const { label, model, readonly } = this.props
-    var tableHead = ['Name', 'Date and time of vaccination', 'Dose (1st, 2nd, etc)', 'Batch/Lot number', "Expiry date"];
-    var widthArr = [120, 120, 120, 120, 120]
+    var tableHead = ['Name', 'Date and time of vaccination', 'Dose (1st, 2nd, etc)', 'Batch/Lot number', "Expiry date", 'Batch/ Lot Number', 'Expiry date', 'Time of reconstitution'];
+    var widthArr = [120, 120, 120, 120, 120, 120, 120, 120]
 
     const rows = this.initializeRows(readonly)
     if(!readonly) {

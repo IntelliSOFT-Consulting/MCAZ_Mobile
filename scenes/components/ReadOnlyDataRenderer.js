@@ -41,13 +41,25 @@ export default class ReadOnlyDataRenderer extends Component {
           renderValue.push(option.value)
         }
       })
-      
+
       if(renderValue.length > 0) {
         return renderValue.join(",")
       }
       return model[name]
     } else if(type == 'file') {
       return model['filename']
+    } else if(name == 'age_at_onset') {
+      var val = ""
+      if(model['age_at_onset_years'] != null && model['age_at_onset_years'] != "") {
+        val += model['age_at_onset_years'] + " Years"
+      }
+      if(model['age_at_onset_months'] != null && model['age_at_onset_months'] != "") {
+        val += model['age_at_onset_months'] + " Months"
+      }
+      if(model['age_at_onset_days'] != null && model['age_at_onset_days'] != "") {
+        val += model['age_at_onset_days'] + " Days"
+      }
+      return val
     }
     return model[name]
   }
