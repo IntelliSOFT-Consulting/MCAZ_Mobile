@@ -28,7 +28,7 @@ export default class VaccineTableComponent extends TableComponent {
       <TextInputField key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] } />,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="expiry_date" model={ model[name][index] } />,
-      <TextInput key={Math.floor(Math.random() * 10000)} name="diluent_batch_number" model={ model[name][index] } options={ DOSE } />,
+      <TextInput key={Math.floor(Math.random() * 10000)} name="diluent_batch_number" model={ model[name][index] } />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_expiry_date" model={ model[name][index] } />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_date" model={ model[name][index] } maxDate={ new Date() } showTime={ true }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
@@ -59,12 +59,15 @@ export default class VaccineTableComponent extends TableComponent {
 
   render() {
     const { label, model, readonly } = this.props
+    var tableHeader = ['Vaccine', 'Diluent']
+    var headerWidth = [600, 360]
     var tableHead = ['Name', 'Date and time of vaccination', 'Dose (1st, 2nd, etc)', 'Batch/Lot number', "Expiry date", 'Batch/ Lot Number', 'Expiry date', 'Time of reconstitution'];
     var widthArr = [120, 120, 120, 120, 120, 120, 120, 120]
 
     const rows = this.initializeRows(readonly)
     if(!readonly) {
       widthArr.push(30)
+      headerWidth[1]+= 30
       tableHead.push("")
     }
 
@@ -72,7 +75,8 @@ export default class VaccineTableComponent extends TableComponent {
       <View>
         <ScrollView horizontal={true}>
           <Table>
-            <Row data={tableHead} style={AppStyles.tableHead} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
+            <Row data={ tableHeader } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } widthArr={ headerWidth }/>
+            <Row data={ tableHead } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } widthArr={widthArr}/>
             <Rows data={ rows }  widthArr={ widthArr }/>
           </Table>
         </ScrollView>
