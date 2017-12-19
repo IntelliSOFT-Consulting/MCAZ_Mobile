@@ -132,14 +132,14 @@ export default class MedicationTableComponent extends TableComponent {
   render() {
     const { label, readonly } = this.props
 
-    var widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 120]
+    var widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 60]
     const headerEls = this.getHeader()
     const rows = this.initializeRows(readonly)
     var addRowBtn = null
     if(!readonly) {
       addRowBtn = (<Button onPress={this.addRow} title="Add row"  />)
-      widthArr[6] = 240
       widthArr[7] = 240
+      widthArr[8] = 240
       widthArr.push(30)
     }
     return (
