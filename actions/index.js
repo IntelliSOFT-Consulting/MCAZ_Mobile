@@ -133,7 +133,8 @@ export const login = (data) => {
         dispatch(fetchAllReports(AEFI_URL, json.data.token))
         dispatch(fetchAllReports(SAEFI_URL, json.data.token))
       } else {
-        dispatch(setNotification({ message : messages.login_error, level: "error", id: new Date().getTime() }))
+        const message = json.message != null? json.message : messages.login_error
+        dispatch(setNotification({ message : message, level: "error", id: new Date().getTime(), title: "Error" }))
       }
 
     }).catch((error) => {

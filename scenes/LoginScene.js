@@ -95,7 +95,7 @@ class LoginScene extends Component {
 
       if(currentRoute != null) {
         if(currentRoute.name == this.props.navigation.state.routeName) {
-          this.exitApp()          
+          this.exitApp()
         }
       }
       //
@@ -133,6 +133,16 @@ class LoginScene extends Component {
       this.props.navigation.dispatch(navigateAction)
       //navigate("Main")
     }
+    const { notification } = this.props
+    const nextNotification = nextProps.notification
+    if(nextNotification && ((notification && notification.id != nextNotification.id) || notification == null)) {
+      this.showAlert(nextNotification)
+    }
+  }
+
+  showAlert = (notification) => {
+    const title = notification.title != null? notification.title : "info"
+    Alert.alert(title, notification.message, )
   }
 }
 
