@@ -87,6 +87,9 @@ export const uploadData = (data, url, token, updateProgress) => {
         json.saefi.type = REPORT_TYPE_AEFI_INV
         dispatch(saveUploaded(json.saefi))
         dispatch(removeCompleted(json.saefi))
+      } else if(json.followup) {
+        dispatch(saveUploaded(json.followup))
+        dispatch(removeCompleted(json.followup))
       } else {
         console.log(JSON.stringify(json))
         return

@@ -10,6 +10,10 @@ import AppStyles from '../styles/AppStyles'
 import { saveDraft } from '../actions'
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 
+// Follow up types.
+import { REPORT_TYPE_ADR_FOLLOW_UP, REPORT_TYPE_AEFI_FOLLOW_UP } from '../utils/Constants'
+
+
 class ReportsListScene extends Component {
   static navigationOptions = ({ navigation, screenProps}) => ({
     title: navigation.state.params.key + ' Reports'
@@ -25,11 +29,12 @@ class ReportsListScene extends Component {
     //var title = new Date(item.rid).toGMTString()
 
     const title = item.reference_number != null? item.reference_number : new Date(item.rid).toString()
+    const followUp = item.report_type == "FollowUp"? " - Follow up" : ""
     return (
       <TouchableOpacity onPress={ () => this.onItemPressed(item) }>
         <View style={ AppStyles.rowItemStyle }>
-          <Text  >
-            { title }
+          <Text >
+            { title + followUp }
           </Text>
         </View>
       </TouchableOpacity>
@@ -52,6 +57,8 @@ class ReportsListScene extends Component {
         navigate('AEFIInvFormScene', model)
       } else if(item.type == REPORT_TYPE_AEFI) {
         navigate('AEFIReportingFormScene', model)
+      } else if(item.type == REPORT_TYPE_ADR_FOLLOW_UP) {
+        navigate('ADRFollowupScene', model)
       }
       return
     }
@@ -62,6 +69,8 @@ class ReportsListScene extends Component {
     } else if(item.type == REPORT_TYPE_AEFI_INV) {
       navigate('ReadOnlyReportScene', model)
     } else if(item.type == REPORT_TYPE_AEFI) {
+      navigate('ReadOnlyReportScene', model)
+    } else if(item.type == REPORT_TYPE_ADR_FOLLOW_UP) {
       navigate('ReadOnlyReportScene', model)
     }
   }
@@ -92,7 +101,7 @@ class ReportsListScene extends Component {
 }
 
 const getVisibleReports = (reports, filter) => {
-  return reports.filter(report => report.type == filter.type)
+  return reports.filter(report => report.type == filter.type.main || report.type == filter.type.followUp)
 }
 
 const mapStateToProps = state => {

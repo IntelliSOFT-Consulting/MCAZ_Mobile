@@ -24,6 +24,8 @@ import SavedReportsScene from './scenes/SavedReportsScene'
 import ReportsListScene from './scenes/ReportsListScene'
 import ReadOnlyReportScene from './scenes/ReadOnlyReportScene'
 
+import ADRFollowupScene from "./scenes/ADRFollowupScene"
+
 import { StackNavigator, addNavigationHelpers } from 'react-navigation'
 
 import { Provider } from 'react-redux'
@@ -51,6 +53,9 @@ const MainRoutes = {
   },
   AEFIReportingFormScene: {
     screen : AEFIReportingFormScene
+  },
+  ADRFollowupScene: {
+    screen: ADRFollowupScene
   }
 }
 
@@ -137,9 +142,8 @@ export default class App extends Component<{}> {
         <PersistGate persistor={ persistor } store={ store } loading={ <LoadingScene /> }>
           <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
             onNavigationStateChange={(prevState, currentState) => {
-            console.log(currentState.index)
-            console.log(currentState)
-            this.setState(currentState)
+
+            //this.setState(currentState)
           }}
             />
         </PersistGate>

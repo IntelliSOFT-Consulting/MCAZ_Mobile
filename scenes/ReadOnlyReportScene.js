@@ -4,12 +4,15 @@ import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import AppStyles from '../styles/AppStyles'
 
 import { connect } from 'react-redux'
-import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI } from '../utils/Constants'
+import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
+import { REPORT_TYPE_ADR_FOLLOW_UP } from '../utils/Constants'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
 import ADRReadOnly from './adr/ADRReadOnly'
 import SAEReadOnly from './sae/SAEReadOnly'
 import AEFIReportReadOnly from './aefi-report/AEFIReportReadOnly'
+import AEFIInvReadOnly from './aefi-inv/AEFIInvReadOnly'
+import ADRFollowupReadOnly from "./adr/ADRFollowupReadOnly"
 
 class ReadOnlyReportScene extends PureComponent {
   static navigationOptions = {
@@ -38,13 +41,15 @@ class ReadOnlyReportScene extends PureComponent {
     const { model } = this.state
     switch(model.type) {
       case REPORT_TYPE_ADR:
-        return (<ADRReadOnly model={ model } goBack={ this.goBack }/>)
+        return (<ADRReadOnly model={ model } goBack={ this.goBack } createFollowup={ this.createFollowup }/>)
       case REPORT_TYPE_SAE:
         return (<SAEReadOnly model={ model } goBack={ this.goBack }/>)
       case REPORT_TYPE_AEFI:
         return (<AEFIReportReadOnly model={ model } goBack={ this.goBack }/>)
       case REPORT_TYPE_AEFI_INV:
-        return (<AEFIInvReadOnly model={ model } goBack={ this.goBack }/>)
+        return (<AEFIInvReadOnly model={ model } goBack={ this.goBack } />)
+      case REPORT_TYPE_ADR_FOLLOW_UP:
+        return (<ADRFollowupReadOnly model={ model } goBack={ this.goBack } />)
       default:
         return null
     }
@@ -62,6 +67,12 @@ class ReadOnlyReportScene extends PureComponent {
   goBack() {
     const { goBack } = this.props.navigation;
     goBack()
+  }
+
+  createFollowup = (model, screen) => {
+    const { navigate } = this.props.navigation
+    const data  = { model : model }
+    navigate(screen, data)
   }
 }
 
