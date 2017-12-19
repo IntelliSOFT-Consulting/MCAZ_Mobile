@@ -122,10 +122,10 @@ class MainScene extends Component {
     this.props.navigation.dispatch(navigateAction)
   }
 
-  createReport = (followUp) => {
+  createReport = (screen) => {
     this.setState({ modalVisible : false })
     const { navigate } = this.props.navigation;
-    navigate(this.state.reportType, { followUp : followUp })
+    navigate(screen)
   }
 
   openReport = () => {
@@ -163,7 +163,7 @@ class MainScene extends Component {
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <View style={ AppStyles.columnButtons }>
           <View style={ AppStyles.button }>
-            <Button  onPress={ () => this.selectReportType(true, "ADRScene") } title="New ADR Report"/>
+            <Button  onPress={ () => this.createReport("ADRScene") } title="New ADR Report"/>
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ () => this.selectReportType(true, "SAEFormScene") } title="New SAE Report"/>
