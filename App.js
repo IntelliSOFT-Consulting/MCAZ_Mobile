@@ -29,6 +29,8 @@ import AEFIReportFollowupScene from './scenes/AEFIReportFollowupScene'
 
 import { StackNavigator, addNavigationHelpers } from 'react-navigation'
 
+import { setCurrentRouteName } from './actions'
+
 import { Provider } from 'react-redux'
 import pvStore from './store'
 
@@ -138,7 +140,7 @@ const instructions = Platform.select({
 export default class App extends Component<{}> {
   constructor(props, context) {
     super(props, context)
-    this.state = {}
+    this._getCurrentRouteName = this._getCurrentRouteName.bind(this)
   }
   render() {
     return (
@@ -147,12 +149,23 @@ export default class App extends Component<{}> {
           <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
             onNavigationStateChange={(prevState, currentState) => {
 
-            //this.setState(currentState)
+            this._getCurrentRouteName(currentState)
           }}
             />
         </PersistGate>
       </Provider>
     )
+  }
+
+  _getCurrentRouteName(navState) {
+    console.log(navState)
+    if (navState.hasOwnProperty('index')) {
+        this._getCurrentRouteName(navState.routes[navState.index])
+    } else {
+        console.log("Current Route Name:", navState.routeName)
+       	// can then save this to the state (I used redux)
+        store.dispatch(setCurrentRouteName(navState.routeName))
+    }
   }
 
   /**

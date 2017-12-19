@@ -259,13 +259,13 @@ class MainScene extends Component {
       // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
       // Typically you would use the navigator here to go to the last state.
       /**/
-      const { screenProps } = this.props
-      console.log(screenProps)
-      const route = screenProps.routes[screenProps.index]
-      const currentRoute = route.routes[route.index]
-      if(currentRoute.routeName == this.props.navigation.state.routeName) {
-        if(!this.state.modalVisible &&  !this.state.openReportModal) {
-          this.exitApp()
+      const { currentRoute } = this.props
+      
+      if(currentRoute != null) {
+        if(currentRoute.name == this.props.navigation.state.routeName) {
+          if(!this.state.modalVisible &&  !this.state.openReportModal) {
+            this.exitApp()
+          }
         }
       }
       //
@@ -290,7 +290,8 @@ const mapStateToProps = state => {
     uploaded : state.appState.uploaded,
     notification: state.appState.notification,
     token: state.appState.token,
-    viewReport: state.appState.viewReport
+    viewReport: state.appState.viewReport,
+    currentRoute: state.appState.currentRoute
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo } from 'react-native';
+import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler } from 'react-native';
 import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, login } from '../actions'
 import { connect } from 'react-redux'
@@ -87,6 +87,28 @@ class LoginScene extends Component {
       this.props.navigation.dispatch(navigateAction)
       //navigate("MainScene")
     }
+    BackHandler.addEventListener('hardwareBackPress', function() {
+      // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
+      // Typically you would use the navigator here to go to the last state.
+      /**/
+      const { currentRoute } = this.props
+
+      if(currentRoute != null) {
+        if(currentRoute.name == this.props.navigation.state.routeName) {
+          this.exitApp()          
+        }
+      }
+      //
+      return false;
+    }.bind(this));
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress');
+  }
+
+  exitApp = () => {
+    BackHandler.exitApp()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -95,6 +117,7 @@ class LoginScene extends Component {
     // Login success, navigate to main page
     if(token == null && nextToken != null) {
       const { navigate } = this.props.navigation;
+      this.setState({ token : nextToken })
       const resetAction = NavigationActions.reset({
         index: 0,
         actions: [
@@ -118,7 +141,8 @@ const mapStateToProps = state => {
     connection: state.appState.connection,
     completed : state.appState.completed,
     notification: state.appState.notification,
-    token: state.appState.token
+    token: state.appState.token,
+    currentRoute: state.appState.currentRoute
   }
 }
 

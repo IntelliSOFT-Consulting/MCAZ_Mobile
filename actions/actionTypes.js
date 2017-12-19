@@ -21,3 +21,5 @@ export const LOGOUT = 'LOGOUT'
 
 export const SAVE_FETCHED_REPORTS = 'SAVE_FETCHED_REPORTS'
 export const VIEW_REPORT = 'VIEW_REPORT'
+
+export const CURRENT_ROUTE = 'CURRENT_ROUTE' // Sets the current route name.
