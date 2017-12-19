@@ -25,6 +25,7 @@ import ReportsListScene from './scenes/ReportsListScene'
 import ReadOnlyReportScene from './scenes/ReadOnlyReportScene'
 
 import ADRFollowupScene from "./scenes/ADRFollowupScene"
+import AEFIReportFollowupScene from './scenes/AEFIReportFollowupScene'
 
 import { StackNavigator, addNavigationHelpers } from 'react-navigation'
 
@@ -56,6 +57,9 @@ const MainRoutes = {
   },
   ADRFollowupScene: {
     screen: ADRFollowupScene
+  },
+  AEFIReportFollowupScene: {
+    screen: AEFIReportFollowupScene
   }
 }
 

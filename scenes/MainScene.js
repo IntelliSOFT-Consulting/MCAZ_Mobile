@@ -169,7 +169,7 @@ class MainScene extends Component {
             <Button onPress={ () => this.selectReportType(true, "SAEFormScene") } title="New SAE Report"/>
           </View>
           <View style={ AppStyles.button }>
-            <Button onPress={ () => this.selectReportType(true, "AEFIReportingFormScene") } title="New AEFI Reporting Form"/>
+            <Button onPress={ () => this.createReport("AEFIReportingFormScene") } title="New AEFI Reporting Form"/>
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ () => this.selectReportType(true, "AEFIInvFormScene") } title="New AEFI Investigation Form"/>

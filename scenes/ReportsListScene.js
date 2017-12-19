@@ -29,6 +29,7 @@ class ReportsListScene extends Component {
     //var title = new Date(item.rid).toGMTString()
 
     const title = item.reference_number != null? item.reference_number : new Date(item.rid).toString()
+
     const followUp = item.report_type == "FollowUp"? " - Follow up" : ""
     return (
       <TouchableOpacity onPress={ () => this.onItemPressed(item) }>
@@ -71,6 +72,8 @@ class ReportsListScene extends Component {
     } else if(item.type == REPORT_TYPE_AEFI) {
       navigate('ReadOnlyReportScene', model)
     } else if(item.type == REPORT_TYPE_ADR_FOLLOW_UP) {
+      navigate('ReadOnlyReportScene', model)
+    } else if(item.type == REPORT_TYPE_AEFI_FOLLOW_UP) {
       navigate('ReadOnlyReportScene', model)
     }
   }

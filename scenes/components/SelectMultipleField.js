@@ -30,6 +30,9 @@ export default class SelectMultipleField extends Component {
     if(typeof option == "object") {
       model[option.key] = model[option.key] == "1"? "0" : "1"
       modelProp[option.key] = model[option.key]
+      const keys = Object.keys(model)
+      const selected = keys.filter(key => model[key] == "1")
+      modelProp[name] = selected.join(",")
     } else {
       model[index] = !model[index]
     }

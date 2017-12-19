@@ -8,7 +8,8 @@ import MedicationTableComponent from './components/MedicationTableComponent'
 import AppStyles from '../styles/AppStyles'
 
 import { setReportFilter } from '../actions'
-import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV, REPORT_TYPE_ADR_FOLLOW_UP } from '../utils/Constants'
+import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
+import { REPORT_TYPE_ADR_FOLLOW_UP, REPORT_TYPE_AEFI_FOLLOW_UP } from '../utils/Constants'
 
 class SavedReportsScene extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -73,7 +74,7 @@ class SavedReportsScene extends Component {
     return (
       <View style={ AppStyles.sectionListContainer }>
         <FlatList data={[{ key: "ADR", type : { main : REPORT_TYPE_ADR, followUp: REPORT_TYPE_ADR_FOLLOW_UP } }, { key: "SAE", type : REPORT_TYPE_SAE },
-          { key: "AEFI", type : REPORT_TYPE_AEFI }, { key: "AEFI Inv.", type : REPORT_TYPE_AEFI_INV } ]}
+          { key: "AEFI", type : { main : REPORT_TYPE_AEFI, followUp : REPORT_TYPE_AEFI_FOLLOW_UP } }, { key: "AEFI Inv.", type : REPORT_TYPE_AEFI_INV } ]}
           renderItem={this.renderItem} ItemSeparatorComponent={ this._renderSeparator }/>
       </View>
     );

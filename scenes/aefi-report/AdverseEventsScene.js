@@ -26,6 +26,7 @@ export default class AdverseEventsScene extends PureComponent {
 
         <TextInputField label="Other" name="adverse_events_specify" model={ model }/>
         <DateTimeInput label="Date &amp; Time AEFI started (DD/MM/YYYY):" name="aefi_date" model={ model } showTime={ true } maxDate={ new Date() } onChange={ this.onChange }/>
+        <SelectOneField label="Was patient hospitalized?" name="patient_hospitalization" options={ BOOLEAN_OPTIONS } model={ model }/>
         <DateTimeInput label="Date patient notified event to health system (DD/MM/YYYY):" name="notification_date" model={ model } minDate={ this.state.aefi_date } maxDate={ new Date() }/>
         <TextInputField label="Describe AEFI (Signs and symptoms):" multiline={true} numberOfLines={4} name="description_of_reaction" model={ model }/>
         <SelectOneField label="Treatment provided:" options={ BOOLEAN_OPTIONS } name="treatment_provided" model={ model }/>

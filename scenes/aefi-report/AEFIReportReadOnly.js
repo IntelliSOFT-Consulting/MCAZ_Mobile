@@ -9,10 +9,14 @@ import AppStyles from '../../styles/AppStyles'
 
 import { AEFI_SEVERITY_REASON, OUTCOME, BOOLEAN_UNKNOWN_OPTIONS, BOOLEAN_OPTIONS, DESIGNATION, GENDER, PROVINCES, AEFI_OUTCOME } from '../../utils/FieldOptions'
 
+import { REPORT_TYPE_AEFI_FOLLOW_UP } from "../../utils/Constants"
+
 export default class AEFIReportReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
   render() {
-    const { model, goBack } = this.props
+    const { model, goBack, createFollowup } = this.props
+    const newFollowUp = { rid : Date.now(), type : REPORT_TYPE_AEFI_FOLLOW_UP, parent_reference : model.reference_number, report_type : "FollowUp" }
+    const followUpBtn = model.reference_number != null ? (<Button onPress={ () => createFollowup(newFollowUp, 'AEFIReportFollowupScene') } title="Create Followup report"/>) : null
     return (
       <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
@@ -38,7 +42,6 @@ export default class AEFIReportReadOnly extends Component{
 
         <ReadOnlyDataRenderer label="Name of vaccination centre:" name="name_of_vaccination_center" model={ model }/>
         <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" readonly={ true }/>
-        <AEFIDilutentTableComponent model={ model } name="aefi_list_of_diluents" readonly={ true }/>
 
         <ReadOnlyDataRenderer label="Adverse event (s):" name="adverse_events" model={ model } required={ true } options={ [] }/>
 
@@ -54,7 +57,7 @@ export default class AEFIReportReadOnly extends Component{
         <ReadOnlyDataRenderer label="Autopsy done:" name="autopsy" model={ model } options={ BOOLEAN_UNKNOWN_OPTIONS }/>
         <ReadOnlyDataRenderer label="Past medical history (including history of similar reaction or other allergies), concomitant medication and other relevant information
             (e.g. other cases). Use additional sheet if needed :" multiline={true} numberOfLines={4} name="past_medical_history" model={ model }/>
-
+        <FileAttachmentComponent model={ model } name="attachments" label="Attach any files" readonly={ true }/>
         <Text>First decision making level to complete (District level):</Text>
         <ReadOnlyDataRenderer label="Date report received at district level (DD/MM/YYYY):" name="district_receive_date" model={ model } type="date"/>
         <ReadOnlyDataRenderer label="Investigation needed:" options={ BOOLEAN_OPTIONS } name="investigation_needed" model={ model }/>
@@ -65,6 +68,7 @@ export default class AEFIReportReadOnly extends Component{
 
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => goBack() } title="Close"/>
+          { followUpBtn }
         </View>
       </ScrollView>
     )
