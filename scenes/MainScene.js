@@ -166,13 +166,13 @@ class MainScene extends Component {
             <Button  onPress={ () => this.createReport("ADRScene") } title="New ADR Report"/>
           </View>
           <View style={ AppStyles.button }>
-            <Button onPress={ () => this.selectReportType(true, "SAEFormScene") } title="New SAE Report"/>
+            <Button onPress={ () => this.createReport("SAEFormScene") } title="New SAE Report"/>
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ () => this.createReport("AEFIReportingFormScene") } title="New AEFI Reporting Form"/>
           </View>
           <View style={ AppStyles.button }>
-            <Button onPress={ () => this.selectReportType(true, "AEFIInvFormScene") } title="New AEFI Investigation Form"/>
+            <Button onPress={ () => this.createReport("AEFIInvFormScene") } title="New AEFI Investigation Form"/>
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ this.showSaved } title="Saved reports"/>
@@ -260,7 +260,7 @@ class MainScene extends Component {
       // Typically you would use the navigator here to go to the last state.
       /**/
       const { currentRoute } = this.props
-      
+
       if(currentRoute != null) {
         if(currentRoute.name == this.props.navigation.state.routeName) {
           if(!this.state.modalVisible &&  !this.state.openReportModal) {
