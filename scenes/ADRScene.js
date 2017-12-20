@@ -168,7 +168,17 @@ class ADRScene extends PureComponent {
         }
         names += arrayNames.join(',\n')
       } else {
-        if(model[field.name] == null || model[field.name] === "") {
+        if(field.dependent) {
+          if((model[field.dependent] == field.value || (field.value == "" && model[field.name] == null)) && (model[field.name] == null || model[field.name] === "")) {
+            valid = false
+            if(names != "") {
+              names += ",\n "
+            } else {
+              page = field.page
+            }
+            names += field.text
+          }
+        } else if(model[field.name] == null || model[field.name] === "") {
           valid = false
           if(names != "") {
             names += ",\n "
