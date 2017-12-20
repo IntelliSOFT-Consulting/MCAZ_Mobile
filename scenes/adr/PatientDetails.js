@@ -32,12 +32,13 @@ export default class PatientDetails extends PureComponent {
 
         { followUpField }
         <Text style={ AppStyles.boldText }>Patient Details</Text>
-        <AutoCompleteInput name="name_of_institution" model={ model } label="Clinical/Hospital Name :" returnKeyType="next"/>
+        <AutoCompleteInput name="evaluator" model={ model } label="Clinical/Hospital Name :" returnKeyType="next"/>
         <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :" returnKeyType="next"/>
         <TextInputField name="patient_name" model={ model } label="Patient Initials:" required={ true } validate={ this.props.validate } returnKeyType="next"/>
         <TextInputField name="ip_no" model={ model } label="VCT/OI/TB Number"/>
-        <DateSelectInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate } maxDate={ new Date() } onDateChange={ this.onDateChange }/>
-        <SelectOneField name="age_group" model={ model } label="Age group" options={ AGE_GROUP } value={ this.state.age_group }/>
+        <DateSelectInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate } maxDate={ new Date() } onDateChange={ this.onDateChange } value={ this.state.date_of_birth }/>
+        <TextInputField name="age" model={ model } keyboardType="numeric"  label="OR Age" onChange={ this.onAgeChange } value={ this.state.age }/>
+
         <TextInputField name="weight" model={ model } label="Weight(Kg)" keyboardType='numeric'/>
         <TextInputField name="height" model={ model } label="Height(cm)" keyboardType='numeric'/>
         <SelectOneField name="gender" model={ model } label="Gender" options={ GENDER } required={ true } validate={ this.props.validate }/>
@@ -51,30 +52,45 @@ export default class PatientDetails extends PureComponent {
 
   onDateChange = (value) => {
     const values = value.split("-")
-    if(values[2] != "") {
+    if(values[2] != "" && values[2] != null) {
       const time = moment().year(values[2]).month(values[1]).day(values[0])
       const now = moment()
       const age = now.diff(time, 'years', true);
       const days = now.diff(time, 'days', true);
-      var age_group = ""
-      if(days <= 28) {
-        age_group = "neonate"
-      } else if(age >= 70) {
-        age_group = "elderly"
-      } else if(age >= 17) {
-        age_group = "adult"
-      } else if(age >= 12) {
-        age_group = "adolescent"
-      } else if(age >= 5) {
-        age_group = "child"
-      } else {
-        age_group = "infant"
-      }
+      var age_group = this.calculateAgeGroup(age, days)
+
       const { model } = this.props
       model['age_group'] = age_group
-      this.setState({ age_group : age_group })
+      model['age'] = ""
+      this.setState({ age_group : age_group, age : "" })
     }
 
+  }
+
+  calculateAgeGroup = (age, days) => {
+    var age_group = ""
+    if(days <= 28) {
+      age_group = "neonate"
+    } else if(age >= 70) {
+      age_group = "elderly"
+    } else if(age >= 17) {
+      age_group = "adult"
+    } else if(age >= 12) {
+      age_group = "adolescent"
+    } else if(age >= 5) {
+      age_group = "child"
+    } else {
+      age_group = "infant"
+    }
+    return age_group
+  }
+
+  onAgeChange = (age) => {
+    var age_group = this.calculateAgeGroup(age)
+    const { model } = this.props
+    model['age_group'] = age_group
+    model['date_of_birth'] = ""
+    this.setState({ date_of_birth : '' })
   }
 
   /* <TextInputField label="MCAZ Reference Number (MCAZ use only)"/>
@@ -86,6 +102,6 @@ export default class PatientDetails extends PureComponent {
     }
     return false
   }*/
-}
+}/*<SelectOneField name="age_group" model={ model } label="Age group" options={ AGE_GROUP } value={ this.state.age_group }/>*/
 
 //https://snack.expo.io/rJxdeFIIb

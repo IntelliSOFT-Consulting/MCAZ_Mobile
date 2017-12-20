@@ -19,6 +19,8 @@ export default class ReporterDetailsScene extends PureComponent {
         <SelectOneField model={ model } name="designation_id" label="Designation: " options={ DESIGNATION } required={ true }/>
         <TextInputField model={ model } name="reporter_email" label="Email Address: " keyboardType = 'email-address' required={ true }/>
         <TextInputField model={ model } name="reporter_phone" label="Phone number" keyboardType = 'phone-pad'/>
+        <TextInputField model={ model } name="institution_name" label="Institution name" />
+        <TextInputField model={ model } name="institution_address" label="Institution address"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => saveAndSubmit() } title="Save and Submit"/>

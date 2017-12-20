@@ -73,7 +73,8 @@ class ADRScene extends PureComponent {
     }
     this.mandatory = [
       { name : "patient_name", text : "Patient Initials", page : 1 },
-      { name : "date_of_birth", text: "Date of bith", page : 1},
+      { name : "date_of_birth", text: "Date of bith", page : 1,  dependent: "age", value: ""},
+      { name : "age", text: "Age", page : 1,  dependent: "date_of_birth", value: ""},
       { name : "gender", text : "Sex", page : 1 },
       { name : "date_of_onset_of_reaction", text : "Date of onset", page : 2 },
       { name : 'description_of_reaction', text : "Description of ADR", page : 2},

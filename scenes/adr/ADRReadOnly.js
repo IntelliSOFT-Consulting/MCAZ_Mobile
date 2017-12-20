@@ -22,7 +22,7 @@ export default class ADRReadOnly extends Component{
 
         <Text style={ AppStyles.boldText }>Patient Details</Text>
 
-        <ReadOnlyDataRenderer name="name_of_institution" model={ model } label="Clinical/Hospital Name :" type="text"/>
+        <ReadOnlyDataRenderer name="evaluator" model={ model } label="Clinical/Hospital Name :" type="text"/>
         <ReadOnlyDataRenderer name="institution_code" model={ model } label="Clinical/Hospital Number :" type="text"/>
         <ReadOnlyDataRenderer name="patient_name" model={ model } label="Patient Initials:" type="text"/>
         <ReadOnlyDataRenderer name="ip_no" model={ model } label="VCT/OI/TB Number" type="text"/>
@@ -55,6 +55,8 @@ export default class ADRReadOnly extends Component{
         <ReadOnlyDataRenderer model={ model } name="designation_id" label="Designation: " options={ DESIGNATION }  type="option"/>
         <ReadOnlyDataRenderer model={ model } name="reporter_email" label="Email Address: " keyboardType = 'email-address'  type="text"/>
         <ReadOnlyDataRenderer model={ model } name="reporter_phone" label="Phone number" keyboardType = 'phone-pad'  type="text"/>
+        <ReadOnlyDataRenderer model={ model } name="institution_name" label="Institution name" />
+        <ReadOnlyDataRenderer model={ model } name="institution_address" label="Institution address"/>
 
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => goBack() } title="Close"/>
