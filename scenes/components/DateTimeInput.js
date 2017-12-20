@@ -31,10 +31,11 @@ export default class DateTimeInput extends Component {
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
 
   _handleDatePicked = (date) => {
-    this.setState({ date : date })
+
     this._hideDateTimePicker();
     const { model, name, showTime } = this.props
     if(model && name) {
+      const mode = showTime? "datetime" : this.props.mode? this.props.mode : "date"
       var value = {}
       value['day'] = date.getDate()
       value['month'] = date.getMonth()
@@ -45,7 +46,11 @@ export default class DateTimeInput extends Component {
         value['minute'] = date.getMinutes()
         model[name] += " " + date.getHours() + ":" + date.getMinutes()
       }
+      if(mode == "time") {
+        model[name] = " " + date.getHours() + ":" + date.getMinutes()
+      }
     }
+    this.setState({ date : date })
     const { onChange, index } = this.props
     if(onChange) {
       var value = {}
@@ -55,7 +60,7 @@ export default class DateTimeInput extends Component {
   };
 
   render () {
-    const { label, required, showTime, maxDate, minDate } = this.props
+    const { label, required, showTime, maxDate, minDate, model, name } = this.props
     const { date } = this.state
     var text = null
     if(required) {
@@ -67,11 +72,12 @@ export default class DateTimeInput extends Component {
         <Text>{ label }</Text>
       )
     }
-    var dateLabel = "Select date"
-    if(date != null && date != "") {
-      dateLabel = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
+    const mode = showTime? "datetime" : this.props.mode? this.props.mode : "date"
+    var dateLabel = mode == "time"? "Select time" : "Select date"
+    if(date != null && date != "" && model[name] != null) {
+      dateLabel = model[name] // date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
     }
-    const mode = showTime? "datetime" : "date"
+
     const maxDateVal = maxDate? maxDate : undefined
     const minimumDate = minDate? minDate : undefined
     return (

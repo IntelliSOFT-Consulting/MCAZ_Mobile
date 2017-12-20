@@ -1,4 +1,4 @@
-import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT, VIEW_REPORT,
+import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT, VIEW_REPORT, CLEAR_DATA,
  SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS, SAVE_ERROR, SAVE_FETCHED_REPORTS,
  RESET_UPLOAD_STATUS, UPDATE_UPLOAD_STATUS, SET_NOTIFICATION, LOGGED_IN, LOGOUT, CURRENT_ROUTE }  from './actionTypes'
 
@@ -91,7 +91,11 @@ export const uploadData = (data, url, token, updateProgress) => {
         dispatch(saveUploaded(json.followup))
         dispatch(removeCompleted(json.followup))
       } else {
-        console.log(JSON.stringify(json))
+        if(json.message != null) {
+          dispatch(setNotification({ message : json.message, level: "info", id: new Date().getTime() }))
+        } else {
+          dispatch(setNotification({ message : messages.erroruploading, level: "info", id: new Date().getTime() }))
+        }
         return
       }
       if(updateProgress) {
@@ -111,23 +115,28 @@ export const uploadData = (data, url, token, updateProgress) => {
   }
 }
 
-export const loggedIn = (token) => (
-  { type : LOGGED_IN, token }
+export const loggedIn = (user) => (
+  { type : LOGGED_IN, user }
 )
 
-export const logout = (token) => (
+export const logout = () => (
   { type : LOGOUT }
 )
 
 export const login = (data) => {
-  return dispatch => {
+  return (dispatch, getState) => {
     return fetch(LOGIN_URL, {
       method : "POST",
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
       if(json.success) {
-        dispatch(loggedIn(json.data.token))
+        const user = Object.assign({}, data, { token : json.data.token})
+        const state = getState()
+        if(state.appState.user.username != null && state.appState.user.username != user.username) {
+          dispatch(clearData())
+        }
+        dispatch(loggedIn(user))
         dispatch(fetchAllReports(ADR_URL, json.data.token))
         dispatch(fetchAllReports(SAE_URL, json.data.token))
         dispatch(fetchAllReports(AEFI_URL, json.data.token))
@@ -143,6 +152,10 @@ export const login = (data) => {
   }
 }
 
+export const clearData = () => (
+  { type : CLEAR_DATA }
+)
+
 export const signUp = (data) => {
   return dispatch => {
     return fetch(SIGNUP_URL, {
@@ -150,8 +163,12 @@ export const signUp = (data) => {
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
-      console.log(json)
-      dispatch(loggedIn(json.token))
+      if(json.token) {
+        const user = Object.assign({}, data, { token : json.token})
+        dispatch(loggedIn(user))
+      } else {
+        dispatch(setNotification({ message : messages.signup_error, level: "error", id: new Date().getTime() }))
+      }
     }).catch((error) => {
       dispatch(setNotification({ message : messages.login_error, level: "error", id: new Date().getTime() }))
     })

@@ -159,7 +159,7 @@ class MainScene extends Component {
     const completedCount = this.props.completed.length
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
-        <Text style={ AppStyles.headerText }>Medicines Control Authourity of Zimbabwe</Text>
+        <Text style={ AppStyles.headerText }>Medicines Control Authority of Zimbabwe</Text>
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <View style={ AppStyles.columnButtons }>
           <View style={ AppStyles.button }>
@@ -289,7 +289,7 @@ const mapStateToProps = state => {
     completed : state.appState.completed,
     uploaded : state.appState.uploaded,
     notification: state.appState.notification,
-    token: state.appState.token,
+    token: state.appState.user.token,
     viewReport: state.appState.viewReport,
     currentRoute: state.appState.currentRoute
   }

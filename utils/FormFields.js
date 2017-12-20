@@ -74,7 +74,6 @@ export const AEFI_MANDATORY_FIELS  = [
   { name : "age_at_onset_years", text : "Age on onset - Years", page : 1, dependent: "date_of_birth", value : "" },
   { name : "age_at_onset_months", text : "Age on onset - Months", page : 1, dependent: "date_of_birth", value : "" },
   { name : "age_at_onset_days", text : "Age on onset - Days", page : 1, dependent: "date_of_birth", value : "" },
-  { name : "age_at_onset_specify", text : "Age on onset", page : 1, dependent: "date_of_birth", value : "" },
   { name : "reporter_name", text : "Reporter’s Name", page : 1 },
   { name : 'adverse_events', text : "Adverse event", page : 2},
   { name : "serious", text : "Serious", page : 2 },

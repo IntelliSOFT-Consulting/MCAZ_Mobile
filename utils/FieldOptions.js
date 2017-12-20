@@ -153,7 +153,18 @@ export const DESIGNATION = [ { key : "", value: ""},
   { key : "7", value: "Health Information Technician"}, { key : "8", value: "Family Practitioner"}, { key : "9", value: "Dentist"}, { key : "10", value: "Occupational Therapist"}, { key : "11", value: "Ophthalmologist"}, { key : "12", value: "Veterinary surgeon"},
   { key : "13", value: "Surgeon"}, { key : "14", value: "Paediatrician"}, { key : "15", value: "Anaesthetist"}, { key : "16", value: "Optometrist"}, { key : "17", value: "Psychiatrist"},
   { key : "18", value: "Obstetrician/Gynaecologist"}, { key : "19", value: "Dispensary Assistant"}, { key : "20", value: "Doctor"}, { key : "21", value: "Patient"}, { key : "22", value: "Relative/Friend"}, { key : "23", value : 'Other Health Professionals'}
-]
+].sort((a,b) => {
+  var nameA = a.value.toUpperCase(); // ignore upper and lowercase
+  var nameB = b.value.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+  // names must be equal
+  return 0;
+})
 
 export const ACTION_TAKEN = [
   { key : "", value : "select one"}, { key : "Drug withdrawn", value : "Drug withdrawn" }, { key : "Dose increased", value : "Dose increased"},

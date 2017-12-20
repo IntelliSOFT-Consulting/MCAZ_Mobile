@@ -31,16 +31,27 @@ class LoginScene extends Component {
 
   login = () => {
     if(this.state.email != '' && this.state.password != '') {
-      const { login } = this.props
-      var data = {}
-      data.username = this.state.email
-      data.password = this.state.password
-      login(data)
+      if(this.props.user.username != null && this.state.email != this.props.user.username) {
+        Alert.alert("Confirm", "Another user had logged in in this device, if you proceed it will wipe out all data, continue?", [
+          { text: 'Yes', onPress: () => this.doLogin() },
+          { text: 'No' }
+        ])
+      } else {
+        this.doLogin()
+      }
+
     } else {
       this.setState({ validate: true })
     }
   }
 
+  doLogin = () => {
+    const { login } = this.props
+    var data = {}
+    data.username = this.state.email
+    data.password = this.state.password
+    login(data)
+  }
   signup = () => {
     const { navigate } = this.props.navigation;
     navigate("SignupScene")
@@ -151,7 +162,8 @@ const mapStateToProps = state => {
     connection: state.appState.connection,
     completed : state.appState.completed,
     notification: state.appState.notification,
-    token: state.appState.token,
+    token: state.appState.user.token,
+    user: state.appState.user,
     currentRoute: state.appState.currentRoute
   }
 }

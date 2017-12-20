@@ -7,10 +7,10 @@ import reportFilter from './reportFilter'
 import connection from './connection'
 import uploadStatus from './uploadStatus'
 import notification from './notification'
-import token from './token'
+import user from './user'
 import viewReport from './viewReport'
 import currentRoute from './currentRoute'
 
-const pvApp = combineReducers({ drafts, completed, uploaded, reportFilter, connection, uploadStatus, notification, token, viewReport, currentRoute })
+const pvApp = combineReducers({ drafts, completed, uploaded, reportFilter, connection, uploadStatus, notification, user, viewReport, currentRoute })
 
 export default pvApp

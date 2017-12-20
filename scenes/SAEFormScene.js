@@ -204,7 +204,7 @@ class SAEScene extends PureComponent {
 const mapStateToProps = state => {
   return {
     connection: state.appState.connection,
-    token: state.appState.token
+    token: state.appState.user.token
   }
 }
 

@@ -95,7 +95,7 @@ const mapStateToProps = state => {
     connection: state.appState.connection,
     completed : state.appState.completed,
     notification: state.appState.notification,
-    token: state.appState.token
+    token: state.appState.user.token
   }
 }
 
