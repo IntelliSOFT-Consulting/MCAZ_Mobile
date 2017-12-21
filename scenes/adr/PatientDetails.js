@@ -63,15 +63,26 @@ export default class PatientDetails extends PureComponent {
   onDateChange = (value) => {
     const values = value.split("-")
     if(values[2] != "" && values[2] != null) {
-      const time = moment().year(values[2]).month(values[1]).day(values[0])
+      const time = moment().year(values[2]).month(values[1]).date(values[0])
       const now = moment()
+      const { model } = this.props
+      if(now.year() == time.year() && time.month() > now.month() ) {
+        model['date_of_birth'] = "--" + time.year()
+        this.setState({ date_of_birth : model['date_of_birth'] })
+        return
+      } else if(now.year() == time.year() && time.month() == now.month() && time.date() > now.date()) {
+        model['date_of_birth'] = "-" + time.month() + "-" + time.year()
+        this.setState({ date_of_birth : model['date_of_birth'] })
+        return
+      }
       const age = now.diff(time, 'years', true);
       const days = now.diff(time, 'days', true);
       var age_group = this.calculateAgeGroup(age, days)
 
-      const { model } = this.props
       model['age_group'] = age_group
       model['age'] = ""
+
+
       this.setState({ age_group : age_group, age : "" })
     }
 

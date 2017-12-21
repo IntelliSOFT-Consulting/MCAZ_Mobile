@@ -4,6 +4,7 @@ import DateTimePicker from 'react-native-modal-datetime-picker';
 import { Dropdown } from 'react-native-material-dropdown';
 
 import { pad } from '../../utils/utils'
+import moment from 'moment'
 
 export default class DateSelectInput extends Component {
 
@@ -38,41 +39,57 @@ export default class DateSelectInput extends Component {
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
 
   _handleDatePicked = (date) => {
-    this.setState({ date : date })
+
     this._hideDateTimePicker();
-    const { model, name, showTime } = this.props
+    const { model, name, showTime, maxDate } = this.props
+
+    const value = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()
+    if(maxDate && !this.isValid(value)) {
+      return
+    }
+    this.setState({ date : date })
     if(model && name) {
-      var value = {}
-      value['day'] = date.getDate()
-      value['month'] = date.getMonth()
-      value['year'] = date.getFullYear()
-      model[name] = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()
-      if(showTime) {
-        value['hour'] = date.getHours()
-        value['minute'] = date.getMinutes()
-        model[name] += " " + date.getHours() + ":" + date.getMinutes()
-      }
+      model[name] = value
     }
     const { onChange, index } = this.props
     if(onChange) {
-      var value = {}
-      value[name] = date
+      var val = {}
+      val[name] = date
       onChange(value, index)
     }
   };
 
+  isValid = (value) => {
+    const { maxDate } = this.props
+    const values = value.split("-")
+    const time = values[0] == ""? moment().year(values[2]).month(values[1]) : moment().year(values[2]).month(values[1]).date(values[0])
+    const now = moment(maxDate)
+    const { model } = this.props
+    if(now.year() == time.year() && time.month() > now.month() ) {
+      return false
+    } else if(now.year() == time.year() && time.month() == now.month() && time.date() > now.date()) {
+      return false
+    }
+    return true
+  }
+
   handleChange(itemValue, index) {
-    const { name, model, onDateChange } = this.props
+    const { name, model, onDateChange, maxDate } = this.props
     var value = model[name] == null? ['', '', ''] : model[name].split("-")
     value[index] = pad(itemValue)
-    model[name] = value.join("-")
 
+    /*if(value[2] != "" && value[1] != "" && maxDate && !this.isValid(value.join("-"))) {
+      value[index] = ""
+      itemValue = ""
+      //return
+    }*/
     var state = {}
     state.day = value[0]
     state.year = value[2]
     if(index == 1) {
-      state.month = this.monthLabels[index]
+      state.month = this.monthLabels[itemValue]
     }
+    model[name] = value.join("-")
     this.setState(state)
     if(onDateChange) {
       onDateChange(value.join("-"))
