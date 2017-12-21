@@ -7,8 +7,9 @@ import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import DateTimeInput from '../components/DateTimeInput'
 import FileInputComponent from '../components/FileInputComponent'
+import AEFIEventsSelectOneField from '../components/AEFIEventsSelectOneField'
 
-import { BOOLEAN_OPTIONS, AEFI_SEVERITY_REASON, BOOLEAN_UNKNOWN_OPTIONS, AEFI_OUTCOME, AEFI_ADVERSE_EVENTS } from '../../utils/FieldOptions'
+import { BOOLEAN_OPTIONS, AEFI_SEVERITY_REASON, BOOLEAN_UNKNOWN_OPTIONS, AEFI_OUTCOME, AEFI_ADVERSE_EVENTS, SEVERE_LOCAL_REACTIONS, SEIZURES } from '../../utils/FieldOptions'
 
 export default class AdverseEventsScene extends PureComponent {
 
@@ -23,7 +24,8 @@ export default class AdverseEventsScene extends PureComponent {
     return (
       <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <SelectMultipleField label="Adverse event (s):" name="adverse_events" model={ model } required={ true } options={ AEFI_ADVERSE_EVENTS }/>
-
+        <AEFIEventsSelectOneField name="reactions" model={ model } label="Local reactions" options={ SEVERE_LOCAL_REACTIONS }/>
+        <AEFIEventsSelectOneField name="seizures" model={ model } label="Seizures" options={ SEIZURES }/>
         <TextInputField label="Other" name="adverse_events_specify" model={ model }/>
         <DateTimeInput label="Date &amp; Time AEFI started (DD/MM/YYYY):" name="aefi_date" model={ model } showTime={ true } maxDate={ new Date() } onChange={ this.onChange }/>
         <SelectOneField label="Was patient hospitalized?" name="patient_hospitalization" options={ BOOLEAN_OPTIONS } model={ model }/>
