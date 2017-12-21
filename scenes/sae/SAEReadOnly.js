@@ -65,8 +65,8 @@ export default class SAEReadOnly extends Component{
             reported to:</Text>
         <ReadOnlyDataRenderer label="(a) MCAZ" model={ model } name="report_to_mcaz" options={["Yes", "No"]}/>
         <ReadOnlyDataRenderer label="Date" model={ model } name="report_to_mcaz_date" type="date"/>
-        <ReadOnlyDataRenderer label="(b) MRCZ" model={ model } name="report_to_mcrz" options={["Yes", "No"]}/>
-        <ReadOnlyDataRenderer label="Date" model={ model } name="report_to_mcrz_date" type="date"/>
+        <ReadOnlyDataRenderer label="(b) MRCZ" model={ model } name="report_to_mrcz" options={["Yes", "No"]}/>
+        <ReadOnlyDataRenderer label="Date" model={ model } name="report_to_mrcz_date" type="date"/>
         <ReadOnlyDataRenderer label="(c) Sponsor" model={ model } name="report_to_sponsor" options={["Yes", "No"]}/>
         <ReadOnlyDataRenderer label="Date" model={ model } name="report_to_sponsor_date" type="date"/>
         <ReadOnlyDataRenderer label="(d) IRB" model={ model } name="report_to_irb" options={["Yes", "No"]}/>
