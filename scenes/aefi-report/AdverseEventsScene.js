@@ -32,7 +32,7 @@ export default class AdverseEventsScene extends PureComponent {
         <SelectOneField label="Treatment provided:" options={ BOOLEAN_OPTIONS } name="treatment_provided" model={ model }/>
         <SelectOneField label="Serious:" options={ BOOLEAN_OPTIONS } name="serious" model={ model } required={ true }/>
         <SelectOneField label="If yes:" options={ AEFI_SEVERITY_REASON } name="serious_yes" model={ model }/>
-        <TextInputField label="Outcome:" name="outcome" model={ model } required={ true } options={ AEFI_OUTCOME }/>
+        <SelectOneField label="Outcome:" name="outcome" model={ model } required={ true } options={ AEFI_OUTCOME }/>
         <DateTimeInput label="If died, date of death (DD/MM/YYYY)::" name="died_date" model={ model } minDate={ this.state.aefi_date } maxDate={ new Date() }/>
         <SelectOneField label="Autopsy done:" name="autopsy" model={ model } options={ BOOLEAN_UNKNOWN_OPTIONS }/>
         <FileInputComponent name="reports" model={ model.reports[0] } label="Attach report"/>

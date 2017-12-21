@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, ScrollView, Button, Alert, CheckBox } from 'react-native'
+import { Text, View, ScrollView, Button, Alert, CheckBox } from 'react-native'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import SelectOneField from './SelectOneField'
 import DateTimeInput from './DateTimeInput'
@@ -70,7 +70,7 @@ export default class SAEDrugsTableComponent extends TableComponent {
       tableHead.push("")
       addBtn = ( <Button onPress={this.addRow} title="Add row" color="#841584" /> )
     }
-    
+
     return (
       <View style={ AppStyles.tableView }>
         <ScrollView horizontal={true}>

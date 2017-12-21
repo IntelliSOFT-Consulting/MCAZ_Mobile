@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, ScrollView, Button, Alert, CheckBox } from 'react-native'
+import { Text, View, ScrollView, Button, Alert, CheckBox } from 'react-native'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import AppStyles from '../../styles/AppStyles'
 import TableComponent from './TableComponent'
 import ReadOnlyDataRenderer from "./ReadOnlyDataRenderer"
 
+import TextInputField from './TextInputField'
 
 export default class VaccineDosesTableComponent extends TableComponent {
 
@@ -22,8 +23,8 @@ export default class VaccineDosesTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInput key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] }/>,
-      <TextInput key={Math.floor(Math.random() * 10000) } name="vaccination_doses" model={ model[name][index] } keyboardType="numeric"/>,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccination_doses" model={ model[name][index] } keyboardType="numeric"/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row

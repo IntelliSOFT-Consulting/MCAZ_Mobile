@@ -24,9 +24,9 @@ export default class AEFIDilutentTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInput key={Math.floor(Math.random() * 10000) } name="diluent_name" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="diluent_name" model={ model[name][index] }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_date" model={ model[name][index] } maxDate={ new Date() }/>,
-      <TextInput key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } options={ DOSE } />,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } options={ DOSE } />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="expiry_date" model={ model[name][index] } />,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]

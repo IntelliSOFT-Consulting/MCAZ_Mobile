@@ -75,19 +75,19 @@ export default class AgeAtOnsetInput extends Component {
           <View style={{ flex: 1 }}>
             <TextField labelHeight={ labelHeight }
               label='Years' onChangeText={ (itemValue) => this.handleChange(itemValue, 'age_at_onset_years') }
-              value={ this.state.years } keyboardType="numeric"
+              value={ this.state.age_at_onset_years } keyboardType="numeric"
             />
           </View>
           <View style={{ flex: 2 }}>
             <TextField labelHeight={ labelHeight }
               label='Months' onChangeText={ (itemValue, itemIndex) => this.handleChange(itemValue, 'age_at_onset_months') }
-              value={ this.state.months } keyboardType="numeric"
+              value={ this.state.age_at_onset_months } keyboardType="numeric"
             />
           </View>
           <View style={{ flex: 1 }}>
             <TextField labelHeight={ labelHeight }
-              label='Days' onChangeText={ (itemValue) => this.handleChange(itemValue, 'age_at_onset_years') }
-              value={ this.state.days } keyboardType="numeric"
+              label='Days' onChangeText={ (itemValue) => this.handleChange(itemValue, 'age_at_onset_days') }
+              value={ this.state.age_at_onset_days } keyboardType="numeric"
             />
           </View>
         </View>

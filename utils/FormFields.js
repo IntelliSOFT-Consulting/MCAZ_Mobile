@@ -70,7 +70,7 @@ export const SAE_MANDATORY_FIELS  = [
 export const AEFI_MANDATORY_FIELS  = [
   { name : "patient_name", text : "Patient name", page : 1 },
   { name : "patient_address", text: "Patient Address", page : 1},
-  { name : "date_of_birth", text : "Date of birth", page : 1, dependent: "age_at_onset", value: "" },
+  { name : "date_of_birth", text : "Date of birth", page : 1, dependent: "age_at_onset_years", value: "" },
   { name : "age_at_onset_years", text : "Age on onset - Years", page : 1, dependent: "date_of_birth", value : "" },
   { name : "age_at_onset_months", text : "Age on onset - Months", page : 1, dependent: "date_of_birth", value : "" },
   { name : "age_at_onset_days", text : "Age on onset - Days", page : 1, dependent: "date_of_birth", value : "" },

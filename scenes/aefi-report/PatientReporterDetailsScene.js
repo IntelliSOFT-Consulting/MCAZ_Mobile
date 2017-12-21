@@ -26,7 +26,6 @@ export default class PatientReporterDetailsScene extends PureComponent {
       model['age_at_onset_days'] = ""
       model['age_at_onset_months'] = ""
       model['age_at_onset_years'] = ""
-      model['age_at_onset_specify'] = ""
       this.setState({ date_of_birth: value, age_at_onset: "", age_at_onset_specify: '' })
     }
 
@@ -62,7 +61,6 @@ export default class PatientReporterDetailsScene extends PureComponent {
         <SelectOneField label="Gender:" name="gender" model={ model } options={ GENDER }/>
         <DateSelectInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model } required={ true } maxDate={ new Date() } onDateChange={ this.validateDateofBirth } value={ this.state.date_of_birth }/>
         <AgeAtOnsetInput label="OR Age at onset" name="age_at_onset" model={ model } options={ AGE_ON_ONSET } value={ this.state.age_at_onset } onChange={ this.validateAge }/>
-        <TextInputField label="Specify" name="age_at_onset_specify" model={ model } keyboardType="numeric" value={ this.state.age_at_onset_specify } onChange={ this.validateAgeSpec }/>
         <TextInputField label="Reporter’s Name:" name="reporter_name" model={ model } required={ true }/>
         <SelectOneField label="Designation:" name="designation_id" model={ model } options={ DESIGNATION }/>
         <TextInputField label="Institution:" name="reporter_institution" model={ model }/>
