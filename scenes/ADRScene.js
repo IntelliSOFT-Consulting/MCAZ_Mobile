@@ -55,9 +55,7 @@ class ADRScene extends PureComponent {
         model.parent_id = ""
       }
     }
-    //model = {"rid":1512503271856,"type":"REPORT_TYPE_ADR","name_of_institution":"Nairobi Hosp","sadr_list_of_drugs":[{"brand_name":"dawa","dose_id":"2","route_id":"4","frequency_id":"3","start_date":"14-10-2017","stop_date":"4-11-2017","indication":"1","suspected_drug":"1"}],"action_taken":"Drug withdrawn","outcome":"Recovered","relatedness":"Certain","designation_id":"1","reporter_name":"John Muiruri","reporter_email":"jihn@ggh.con","reporter_phone":"07555555","date_of_onset_of_reaction":"22-10-2017","date_of_end_of_reaction":"1-11-2017","severity":"No","severity_reason":"Death","institution_code":"Ggg","patient_name":"Jm","ip_no":"Ggh","date_of_birth":"13-11-1990","age_group":"child","weight":"23","height":"123","gender":"Male","medical_history":"Hone","past_drug_therapy":"Kit","lab_test_results":"Limr","description_of_reaction":"This i"}
-    //model = {"rid":1510853208716,"type":"REPORT_TYPE_ADR","name_of_institution":"Nairobi Hosp","sadr_list_of_drugs":[{"brand_name":"dawa","dose_id":"7","route_id":"4","frequency_id":"4","drug_name":"wwqq","dose":"1","indication":"1","start_date":"1-10-2017","stop_date":"21-10-2017","suspected_drug":""}],"user":{},"patient_name":"xxsss","date_of_birth":"6-4-2015","weight":"34","height":"12","gender":"Male","date_of_onset_of_reaction":"8-2-2017","severity":"No","medical_history":"ss","lab_test_results":"ssds","action_taken":"Dose reduced","outcome":"Recovering","":"Probable / Likely","designation_id":"2","reporter_name":"John","reporter_email":"john@gmail.com","description_of_reaction":"hhhn"}
-    //state.model = model
+    
     this.state = {
       model: model,
       index: 0,
@@ -79,7 +77,7 @@ class ADRScene extends PureComponent {
       { name : "date_of_onset_of_reaction", text : "Date of onset", page : 2 },
       { name : 'description_of_reaction', text : "Description of ADR", page : 2},
       { name : "severity", text : "Serious", page : 2 }, { name : "outcome", text : "Outcome", page : 3 },
-      { name : "sadr_list_of_drugs", fields: [{ name : "brand_name", text : "Generic/Brand name" }, { name : "dose_id", text : "Dose" },
+      { name : "sadr_list_of_drugs", fields: [{ name : "drug_name", text : "Generic name" }, { name : "dose_id", text : "Dose" },
         { name : "frequency_id", text : "Frequency" }, { name : "start_date", text : "Start date" }], page: 3},
       { name : 'action_taken', text : "Action taken", page : 3 },
       { name : "reporter_name", text : "Forename & Surname", page : 4 },

@@ -22,6 +22,17 @@ export default class PatientDetails extends PureComponent {
     this.state = { model }
   }
 
+  onSelectOfInstitution = (value) => {
+    const { model } = this.props
+    if(typeof value == "object") {
+      this.setState({ institution_code : value.code })
+      model['institution_code'] = value.code
+    } else {
+      this.setState({ institution_code : "" })
+      model['institution_code'] = ""
+    }
+  }
+
   render() {
     const { model, saveAndContinue, cancel, validate, followUp } = this.props
     const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
@@ -32,8 +43,8 @@ export default class PatientDetails extends PureComponent {
 
         { followUpField }
         <Text style={ AppStyles.boldText }>Patient Details</Text>
-        <AutoCompleteInput name="evaluator" model={ model } label="Clinical/Hospital Name :" returnKeyType="next"/>
-        <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :" returnKeyType="next"/>
+        <AutoCompleteInput name="evaluator" model={ model } label="Clinical/Hospital Name :" returnKeyType="next" onChange={ this.onSelectOfInstitution }/>
+        <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :" returnKeyType="next" value={ this.state.institution_code }/>
         <TextInputField name="patient_name" model={ model } label="Patient Initials:" required={ true } validate={ this.props.validate } returnKeyType="next"/>
         <TextInputField name="ip_no" model={ model } label="VCT/OI/TB Number"/>
         <DateSelectInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate } maxDate={ new Date() } onDateChange={ this.onDateChange } value={ this.state.date_of_birth }/>

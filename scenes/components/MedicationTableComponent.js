@@ -133,6 +133,7 @@ export default class MedicationTableComponent extends TableComponent {
     const { label, readonly } = this.props
 
     var widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 60]
+    var headerArr = [120, 120, 120, 240, 120, 120, 120, 120, 120, 60]
     const headerEls = this.getHeader()
     const rows = this.initializeRows(readonly)
     var addRowBtn = null
@@ -140,13 +141,14 @@ export default class MedicationTableComponent extends TableComponent {
       addRowBtn = (<Button onPress={this.addRow} title="Add row"  />)
       widthArr[7] = 240
       widthArr[8] = 240
+      headerArr.push(30)
       widthArr.push(30)
     }
     return (
       <View style={ AppStyles.tableView }>
         <ScrollView horizontal={true}>
           <Table>
-            <Row data={ headerEls } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } widthArr={ widthArr }/>
+            <Row data={ headerEls } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } widthArr={ headerArr }/>
             <Rows data={ rows }  widthArr={widthArr}/>
           </Table>
         </ScrollView>

@@ -5,7 +5,7 @@ export default class AutoCompleteTextInput extends Component {
 
   constructor(props, context) {
     super(props, context)
-    const { data, nameKey } = this.props
+    const { data, nameKey, value } = this.props
     this.state = { value : "", data: data, results: [] }
     if(data.length > 0) {
       const first = data[0]
@@ -13,6 +13,7 @@ export default class AutoCompleteTextInput extends Component {
         this.nameKey = nameKey == null? "name" : nameKey
       }
     }
+    this.state = { value : value }
   }
 
   _keyExtractor = (item, index) => index;
@@ -59,13 +60,17 @@ export default class AutoCompleteTextInput extends Component {
     const inputLength = text.length
     var results = []
     if(this.nameKey != null) {
-      results =  inputLength === 0 ? [] : this.state.data.filter(lang =>
+      results = inputLength === 0 ? [] : this.state.data.filter(lang =>
         lang[this.nameKey].toLowerCase().slice(0, inputLength) === text.toLowerCase()
       );
     } else {
-      results =  inputLength === 0 ? [] : this.state.data.filter(lang =>
+      results = inputLength === 0 ? [] : this.state.data.filter(lang =>
         lang.toLowerCase().slice(0, inputLength) === text.toLowerCase()
       );
+    }
+    if(results.length == 0 && inputLength > 0) {
+      const { onItemPress } = this.props
+      onItemPress(text)
     }
     this.setState({ value : text, results: results })
   }

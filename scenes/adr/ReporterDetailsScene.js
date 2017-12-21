@@ -15,10 +15,10 @@ export default class ReporterDetailsScene extends PureComponent {
     const { model, saveAndContinue, cancel, saveAndSubmit, user } = this.props
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ]  }>
-        <TextInputField model={ model } name="reporter_name" label="Forename(s) and Surname: " required={ true }/>
-        <SelectOneField model={ model } name="designation_id" label="Designation: " options={ DESIGNATION } required={ true }/>
-        <TextInputField model={ model } name="reporter_email" label="Email Address: " keyboardType = 'email-address' required={ true }/>
-        <TextInputField model={ model } name="reporter_phone" label="Phone number" keyboardType = 'phone-pad'/>
+        <TextInputField model={ model } name="reporter_name" label="Reporter name: " required={ true }/>
+        <SelectOneField model={ model } name="designation_id" label="Designation" options={ DESIGNATION } required={ true }/>
+        <TextInputField model={ model } name="reporter_email" label="Reporter email " keyboardType = 'email-address' required={ true }/>
+        <TextInputField model={ model } name="reporter_phone" label="Reporter phone" keyboardType = 'phone-pad'/>
         <TextInputField model={ model } name="institution_name" label="Institution name" />
         <TextInputField model={ model } name="institution_address" label="Institution address"/>
         <View style={ AppStyles.rowButtons }>

@@ -25,8 +25,16 @@ export default class AutoCompleteInput extends Component {
     this.setState({ value })
     var { name, model } = this.props
     if(model) {
-      model[name] = value
-      //model['institution_code'] = code
+      if(typeof value == "object") {
+        model[name] = value.name
+      } else {
+        model[name] = value
+      }
+      this.setState({ value : model[name] })
+    }
+    const { onChange } = this.props
+    if(onChange) {
+      onChange(value)
     }
   }
 
@@ -50,7 +58,7 @@ export default class AutoCompleteInput extends Component {
     return (
       <View>
         <AutoCompleteTextInput otherTextInputProps={{ editable: true }}
-          placeholder="Enter facility"
+          placeholder="Enter facility" value={ this.state.value }
           onItemPress={(item) => this.handleChange(item) }
           data={ facilities }
         />
