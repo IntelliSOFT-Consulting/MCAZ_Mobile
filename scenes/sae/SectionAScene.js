@@ -25,7 +25,7 @@ export default class SectionAScene extends PureComponent {
         <TextInputField label="MRCZ Protocol #" name="mrcz_protocol_number" model={ model } validate={ this.state.validate } required={ true } />
         <TextInputField label="MCAZ Protocol #"  name="mcaz_protocol_number"model={ model } validate={ this.state.validate } required={ true } />
         <TextInputField label="Institution"  name="name_of_institution" model={ model } validate={ this.state.validate } required={ true }/>
-        <TextInputField label="Principle Investigator:"  name="principal_investigator" model={ model } validate={ this.state.validate } required={ true }/>
+        <TextInputField label="Principal Investigator:"  name="principal_investigator" model={ model } validate={ this.state.validate } required={ true }/>
         <TextInputField label="Phone:" keyboardType = 'phone-pad' name="reporter_phone" model={ model } validate={ this.state.validate } required={ true }/>
         <TextInputField label="Email:" keyboardType = 'email-address' name="reporter_email" model={ model } validate={ this.state.validate } required={ true }/>
         <TextInputField label="Report prepared by:" name="reporter_name" model={ model } validate={ this.state.validate } required={ true }/>

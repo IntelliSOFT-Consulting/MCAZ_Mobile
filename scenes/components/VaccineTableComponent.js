@@ -68,11 +68,13 @@ export default class VaccineTableComponent extends TableComponent {
     var labelsArr = [120, 240, 120, 120, 120, 120, 120, 120]
 
     const rows = this.initializeRows(readonly)
+    var addRowBtn = null
     if(!readonly) {
       widthArr.push(30)
       labelsArr.push(30)
       headerWidth[1]+= 30
       tableHead.push("")
+      addRowBtn = <Button onPress={this.addRow} title="Add row" color="#841584" />
     }
 
     return (
@@ -84,7 +86,7 @@ export default class VaccineTableComponent extends TableComponent {
             <Rows data={ rows }  widthArr={ widthArr }/>
           </Table>
         </ScrollView>
-        <Button onPress={this.addRow} title="Add row" color="#841584" />
+        { addRowBtn }
       </View>
     )
   }

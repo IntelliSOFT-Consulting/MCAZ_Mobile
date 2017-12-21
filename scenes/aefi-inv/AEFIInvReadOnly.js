@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Button } from 'react-native'
 import ReadOnlyDataRenderer from '../components/ReadOnlyDataRenderer'
-import MedicationTableComponent from '../components/MedicationTableComponent'
+import VaccineDosesTableComponent from '../components/VaccineDosesTableComponent'
 import FileAttachmentComponent from '../components/FileAttachmentComponent'
 import ConcomitantTableComponent from '../components/ConcomitantTableComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
-import { BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, GENDER, STATUS_ON_DATE, DESIGNATION, INFANT_BIRTH_OPTS, MULTI_VIALS, DELIVERY_OPTS, SOURCE_INFO,
-  WHEN_VACCINATED, SYRINGES_USED, PLACE_VACCINATION, SITE_TYPE, VACCINATION_IN, BOOLEAN_UNABLE_OPTIONS } from '../../utils/FieldOptions'
+import { BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, GENDER, STATUS_ON_DATE, DESIGNATION, INFANT_BIRTH_OPTS, MULTI_VIALS, DELIVERY_OPTS, SOURCE_INFO, RESEARCH_INVOLVES, BOOLEAN_NA_OPTIONS,
+  WHEN_VACCINATED, SYRINGES_USED, PLACE_VACCINATION, SITE_TYPE, VACCINATION_IN, BOOLEAN_UNABLE_OPTIONS, EVENT_TYPE, SAE_EVENT_TYPE, SAE_TOXICITY_GRADE, LOCATION_ADVERSE_EVENT } from '../../utils/FieldOptions'
 
 export default class AEFIInvReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
@@ -22,9 +22,9 @@ export default class AEFIInvReadOnly extends Component{
   }
   render() {
     const { goBack} = this.props
-    const { model } = this.state 
+    const { model } = this.state
     return (
-      <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
+      <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.aefiBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
         <ReadOnlyDataRenderer type="text"  label="Basic details" model={ model } name="basic_details" />
@@ -97,7 +97,7 @@ export default class AEFIInvReadOnly extends Component{
         <Text>
           Number vaccinated for each antigen at session site. Attach record if available.
         </Text>
-        <VaccineDosesTableTableComponent model={ model } name="saefi_list_of_vaccines" readonly={ true }/>
+        <VaccineDosesTableComponent model={ model } name="saefi_list_of_vaccines" readonly={ true }/>
         <ReadOnlyDataRenderer type="option"  label="(a) When was the patient vaccinated?" model={ model } name="when_vaccinated" options={ WHEN_VACCINATED }/>
         <ReadOnlyDataRenderer type="option"  label="In case of multidose vials, was the vaccine given" model={ model } name="when_vaccinated" options={ WHEN_VACCINATED }/>
         <ReadOnlyDataRenderer type="text"  label="Specify" model={ model } name="when_vaccinated_specify"/>
@@ -136,12 +136,12 @@ export default class AEFIInvReadOnly extends Component{
         <ReadOnlyDataRenderer type="text"  model={ model } name="syringes_used_findings" label="Specific key findings/additional observations and comments:" multiline={true} numberOfLines={4}/>
         <Text style={ AppStyles.boldText }>Reconstitution: (complete only if applicable,  NA if not applicable)</Text>
         <Text>Reconstitution procedure ()</Text>
-        <ReadOnlyDataRenderer type="option"  model={ model } name="reconstitution_multiple" options={ BOOLEAN_OPTIONS } label="Same reconstitution syringe used for multiple vials of same vaccine?" />
-        <ReadOnlyDataRenderer type="option"  model={ model } name="reconstitution_different" options={ BOOLEAN_OPTIONS } label="Same reconstitution syringe used for reconstituting different vaccines?" />
-        <ReadOnlyDataRenderer type="option"  model={ model } name="reconstitution_vial" options={ BOOLEAN_OPTIONS } label="Separate reconstitution syringe for each vaccine vial?" />
-        <ReadOnlyDataRenderer type="option"  model={ model } name="reconstitution_syringe" options={ BOOLEAN_OPTIONS } label="Separate reconstitution syringe for each vaccination?" />
+        <ReadOnlyDataRenderer type="option"  model={ model } name="reconstitution_multiple" options={ BOOLEAN_NA_OPTIONS } label="Same reconstitution syringe used for multiple vials of same vaccine?" />
+        <ReadOnlyDataRenderer type="option"  model={ model } name="reconstitution_different" options={ BOOLEAN_NA_OPTIONS } label="Same reconstitution syringe used for reconstituting different vaccines?" />
+        <ReadOnlyDataRenderer type="option"  model={ model } name="reconstitution_vial" options={ BOOLEAN_NA_OPTIONS } label="Separate reconstitution syringe for each vaccine vial?" />
+        <ReadOnlyDataRenderer type="option"  model={ model } name="reconstitution_syringe" options={ BOOLEAN_NA_OPTIONS } label="Separate reconstitution syringe for each vaccination?" />
 
-        <ReadOnlyDataRenderer type="option"  model={ model } name="reconstitution_vaccines" label="Are the vaccines and diluents used the same as those recommended by the manufacturer?" />
+        <ReadOnlyDataRenderer type="option"  model={ model } name="reconstitution_vaccines" options={ BOOLEAN_NA_OPTIONS } label="Are the vaccines and diluents used the same as those recommended by the manufacturer?" />
         <ReadOnlyDataRenderer type="text"  model={ model } name="reconstitution_observations" multiline={ true } label="Specific key findings/additional observations and comments:" multiline = {true} numberOfLines = {4}/>
 
         <Text>(Complete this section by asking and/or observing practice)</Text>
@@ -170,7 +170,7 @@ export default class AEFIInvReadOnly extends Component{
         <ReadOnlyDataRenderer type="text"  model={ model } name="affected_unknown" label="Unknown:" />
         <ReadOnlyDataRenderer type="text"  model={ model } name="community_comments" label="Other comments:" multiline={true} numberOfLines={4}/>
 
-        <ReadOnlyDataRenderer type="text"  name="relevant_findings" label="Other comments:" multiline={true} numberOfLines={4}/>
+        <ReadOnlyDataRenderer type="text"  name="relevant_findings" label="Other comments:" multiline={true} numberOfLines={4} model={ model }/>
 
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => goBack() } title="Close"/>

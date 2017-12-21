@@ -3,6 +3,7 @@ import { Text, View, TextInput, ScrollView, Button, Alert, CheckBox } from 'reac
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import AppStyles from '../../styles/AppStyles'
 import TableComponent from './TableComponent'
+import ReadOnlyDataRenderer from "./ReadOnlyDataRenderer"
 
 
 export default class VaccineDosesTableComponent extends TableComponent {
@@ -22,7 +23,7 @@ export default class VaccineDosesTableComponent extends TableComponent {
     const { model, name } = this.props
     var row = [
       <TextInput key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] }/>,
-      <TextInput key={Math.floor(Math.random() * 10000) } name="vaccination_doses" model={ model[name][index] }/>,
+      <TextInput key={Math.floor(Math.random() * 10000) } name="vaccination_doses" model={ model[name][index] } keyboardType="numeric"/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
@@ -49,9 +50,11 @@ export default class VaccineDosesTableComponent extends TableComponent {
     var widthArr = [120, 120]
 
     const rows = this.initializeRows(readonly)
+    var addRowBtn = null
     if(!readonly) {
       widthArr.push(30)
       tableHead.push("")
+      addRowBtn = <Button onPress={this.addRow} title="Add row" color="#841584" />
     }
 
     return (
@@ -62,7 +65,7 @@ export default class VaccineDosesTableComponent extends TableComponent {
             <Rows data={ rows }  widthArr={widthArr}/>
           </Table>
         </ScrollView>
-        <Button onPress={this.addRow} title="Add row" color="#841584" />
+        { addRowBtn }
       </View>
     )
   }

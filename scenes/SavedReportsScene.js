@@ -74,7 +74,7 @@ class SavedReportsScene extends Component {
     return (
       <View style={ AppStyles.sectionListContainer }>
         <FlatList data={[{ key: "ADR", type : { main : REPORT_TYPE_ADR, followUp: REPORT_TYPE_ADR_FOLLOW_UP } }, { key: "SAE", type : REPORT_TYPE_SAE },
-          { key: "AEFI", type : { main : REPORT_TYPE_AEFI, followUp : REPORT_TYPE_AEFI_FOLLOW_UP } }, { key: "AEFI Inv.", type : REPORT_TYPE_AEFI_INV } ]}
+          { key: "AEFI", type : { main : REPORT_TYPE_AEFI, followUp : REPORT_TYPE_AEFI_FOLLOW_UP } }, { key: "AEFI Inv.", type : { main : REPORT_TYPE_AEFI_INV } } ]}
           renderItem={this.renderItem} ItemSeparatorComponent={ this._renderSeparator }/>
       </View>
     );
