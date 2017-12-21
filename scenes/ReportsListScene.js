@@ -11,7 +11,7 @@ import { saveDraft } from '../actions'
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 
 // Follow up types.
-import { REPORT_TYPE_ADR_FOLLOW_UP, REPORT_TYPE_AEFI_FOLLOW_UP } from '../utils/Constants'
+import { REPORT_TYPE_ADR_FOLLOW_UP, REPORT_TYPE_AEFI_FOLLOW_UP, REPORT_TYPE_SAE_FOLLOW_UP } from '../utils/Constants'
 
 
 class ReportsListScene extends Component {
@@ -74,6 +74,8 @@ class ReportsListScene extends Component {
     } else if(item.type == REPORT_TYPE_ADR_FOLLOW_UP) {
       navigate('ReadOnlyReportScene', model)
     } else if(item.type == REPORT_TYPE_AEFI_FOLLOW_UP) {
+      navigate('ReadOnlyReportScene', model)
+    } else if(item.type == REPORT_TYPE_SAE_FOLLOW_UP) {
       navigate('ReadOnlyReportScene', model)
     }
   }

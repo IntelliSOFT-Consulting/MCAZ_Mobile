@@ -12,14 +12,18 @@ import { SEVERITY_REASON, OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR, DESIGNATION
  SAE_TOXICITY_GRADE, EVENT_TYPE, SAE_EVENT_TYPE, BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, LOCATION_ADVERSE_EVENT, RESEARCH_INVOLVES
  } from '../../utils/FieldOptions'
 
+import { REPORT_TYPE_SAE_FOLLOW_UP } from "../../utils/Constants"
+
 export default class SAEReadOnly extends Component{
-  // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
+  //
   render() {
-    const { model, goBack } = this.props
+    const { model, goBack, createFollowup } = this.props
+    const newFollowUp = { rid : Date.now(), "type": REPORT_TYPE_SAE_FOLLOW_UP, parent_reference : model.reference_number, report_type : "FollowUp" }
+    const followUpBtn = model.reference_number != null ? (<Button onPress={ () => createFollowup(newFollowUp, 'SAEFollowupScene') } title="Create Followup report"/>) : null
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
-
+        <ReadOnlyDataRenderer label="MCAZ Reference Number" name="reference_number" model={ model }/>
         <ReadOnlyDataRenderer label="MRCZ Protocol #:" name="mrcz_protocol_number" model={ model }/>
         <ReadOnlyDataRenderer label="MCAZ Protocol #"  name="mraz_protocol_number"model={ model }/>
         <ReadOnlyDataRenderer label="Institution"  name="name_of_institution" model={ model }/>
@@ -109,6 +113,7 @@ export default class SAEReadOnly extends Component{
             risks and benefits to the subjects in this research." model={ model } name="assess_risk" options={ ["Yes", "No"] }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => goBack() } title="Close"/>
+          
         </View>
 
       </ScrollView>

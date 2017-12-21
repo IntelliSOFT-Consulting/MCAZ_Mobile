@@ -5,7 +5,7 @@ import AppStyles from '../styles/AppStyles'
 
 import { connect } from 'react-redux'
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
-import { REPORT_TYPE_ADR_FOLLOW_UP, REPORT_TYPE_AEFI_FOLLOW_UP } from '../utils/Constants'
+import { REPORT_TYPE_ADR_FOLLOW_UP, REPORT_TYPE_AEFI_FOLLOW_UP, REPORT_TYPE_SAE_FOLLOW_UP } from '../utils/Constants'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
 import ADRReadOnly from './adr/ADRReadOnly'
@@ -44,7 +44,7 @@ class ReadOnlyReportScene extends PureComponent {
       case REPORT_TYPE_ADR:
         return (<ADRReadOnly model={ model } goBack={ this.goBack } createFollowup={ this.createFollowup } />)
       case REPORT_TYPE_SAE:
-        return (<SAEReadOnly model={ model } goBack={ this.goBack } />)
+        return (<SAEReadOnly model={ model } goBack={ this.goBack } createFollowup={ this.createFollowup } />)
       case REPORT_TYPE_AEFI:
         return (<AEFIReportReadOnly model={ model } goBack={ this.goBack } createFollowup={ this.createFollowup } />)
       case REPORT_TYPE_AEFI_INV:
@@ -53,6 +53,8 @@ class ReadOnlyReportScene extends PureComponent {
         return (<ADRFollowupReadOnly model={ model } goBack={ this.goBack } />)
       case REPORT_TYPE_AEFI_FOLLOW_UP:
         return (<AEFIFollowupReadOnly model={ model } goBack={ this.goBack } />)
+      case REPORT_TYPE_SAE_FOLLOW_UP:
+        return (<SAEFollowupReadOnly model={ model } goBack={ this.goBack }/>)
       default:
         return null
     }

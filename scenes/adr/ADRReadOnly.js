@@ -20,6 +20,8 @@ export default class ADRReadOnly extends Component{
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
+        <ReadOnlyDataRenderer label="MCAZ Reference Number" name="reference_number" model={ model }/>
+
         <Text style={ AppStyles.boldText }>Patient Details</Text>
 
         <ReadOnlyDataRenderer name="evaluator" model={ model } label="Clinical/Hospital Name :" type="text"/>

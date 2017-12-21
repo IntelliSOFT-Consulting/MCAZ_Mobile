@@ -41,7 +41,6 @@ export default class PatientDetails extends PureComponent {
       <ScrollView style={ [AppStyles.scrollContainer, AppStyles.adrBackground] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
-        { followUpField }
         <Text style={ AppStyles.boldText }>Patient Details</Text>
         <AutoCompleteInput name="evaluator" model={ model } label="Clinical/Hospital Name :" returnKeyType="next" onChange={ this.onSelectOfInstitution }/>
         <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :" returnKeyType="next" value={ this.state.institution_code }/>
