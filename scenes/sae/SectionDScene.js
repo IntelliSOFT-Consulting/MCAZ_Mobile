@@ -27,8 +27,9 @@ export default class SectionDScene extends PureComponent {
         <FileAttachmentComponent model={ model } name="attachments" label="Attach any files"/>
         <Text>If changes are required, please attach a copy of the revised protocol/consent form with changes highlighted with a bright coloured highlighter.</Text>
 
-        <TextInputField label="If changes are not required, please explain as to why changes to the protocol /consent
-          form are not necessary based on the event." multiline = {true} numberOfLines = {4} model={ model } validate={ this.state.validate } required={ true } name="changes_explain"/>
+        <Text>If changes are not required, please explain as to why changes to the protocol /consent
+          form are not necessary based on the event.</Text>
+        <TextInputField label="" multiline = {true} numberOfLines = {4} model={ model } validate={ this.state.validate } required={ true } name="changes_explain"/>
 
         <SelectOneField label="From the data obtained or from currently available information, do you see any need to reassess the
           risks and benefits to the subjects in this research." model={ model } validate={ this.state.validate } required={ true } name="assess_risk" options={  BOOLEAN_OPTIONS  }/>

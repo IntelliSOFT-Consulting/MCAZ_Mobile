@@ -32,13 +32,13 @@ export default class SectionCScene extends PureComponent {
         <Text>11. Has the Adverse Event been
           reported to:</Text>
         <SelectOneField label="(a) MCAZ" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcaz" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcaz_date" maxDate={ new Date() }/>
-        <SelectOneField label="(b) MRCZ" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcrz" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_mcrz_date" maxDate={ new Date() }/>
+        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_mcaz_date" maxDate={ new Date() }/>
+        <SelectOneField label="(b) MRCZ" model={ model } validate={ this.state.validate } required={ true } name="report_to_mrcz" options={ BOOLEAN_OPTIONS }/>
+        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_mrcz_date" maxDate={ new Date() }/>
         <SelectOneField label="(c) Sponsor" model={ model } validate={ this.state.validate } required={ true } name="report_to_sponsor" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_sponsor_date" maxDate={ new Date() }/>
+        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_sponsor_date" maxDate={ new Date() }/>
         <SelectOneField label="(d) IRB" model={ model } validate={ this.state.validate } required={ true } name="report_to_irb" options={ BOOLEAN_OPTIONS }/>
-        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } required={ true } name="report_to_irb_date" maxDate={ new Date() }/>
+        <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_irb_date" maxDate={ new Date() }/>
 
         <Text>12. Describe the SAE with diagnosis, immediate cause or precipitating events, symptoms, any investigations, management,
           results and outcome (with dates where possible). Include relevant medical history. Additional narrative, photocopies of

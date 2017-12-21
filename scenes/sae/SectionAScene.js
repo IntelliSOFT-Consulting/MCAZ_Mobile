@@ -40,8 +40,8 @@ export default class SectionAScene extends PureComponent {
         <DateTimeInput label="Date of Birth:" name="date_of_birth" model={ model } validate={ this.state.validate } required={ true }/>
         <SelectOneField label="Gender " name="gender" model={ model } validate={ this.state.validate } required={ true } options={ GENDER }/>
         <SelectOneField label="Type of Report" name="report_type" model={ model } validate={ this.state.validate } required={ true } options={ SAE_REPORT_TYPE }/>
-        <TextInputField label="Study week" name="study_week" model={ model } validate={ this.state.validate } required={ true }/>
-        <TextInputField label="Visit number:-" name="visit_number" model={ model } validate={ this.state.validate } required={ true }/>
+        <TextInputField label="Study week" name="study_week" model={ model } validate={ this.state.validate } required={ true } keyboardType="numeric"/>
+        <TextInputField label="Visit number:-" name="visit_number" model={ model } validate={ this.state.validate } required={ true } keyboardType="numeric"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(2) } title="Save changes" color="#841584" style={ AppStyles.saeButton }/>
           <Button onPress={ () => cancel() } color="#841584"  title="Cancel"/>
