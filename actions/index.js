@@ -6,7 +6,7 @@ import { MAIN_URL, LOGIN_URL, SIGNUP_URL, REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPO
 import { getRequestPayload, getURL } from '../utils/utils'
 import messages from '../utils/messages.json'
 
-import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL } from '../utils/Constants'
+import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL, CONTACT_US_URL } from '../utils/Constants'
 
 /**
   Saves a draft report
@@ -272,3 +272,17 @@ export const fetchAllReports = (url, token) => {
 export const setCurrentRouteName= (currentRoute) => (
   { type : CURRENT_ROUTE, currentRoute }
 )
+
+export const contactUs = (data) => {
+  return dispatch => {
+    return fetch(CONTACT_US_URL, {
+      method : "POST",
+      headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(res => res.json()).then((json) => {
+
+    }).catch((error) => {
+      dispatch(setNotification({ message : messages.error_sending_message, level: "error", id: new Date().getTime() }))
+    })
+  }
+}

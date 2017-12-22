@@ -23,6 +23,7 @@ import LoadingScene from './scenes/components/LoadingScene'
 import SavedReportsScene from './scenes/SavedReportsScene'
 import ReportsListScene from './scenes/ReportsListScene'
 import ReadOnlyReportScene from './scenes/ReadOnlyReportScene'
+import ContactUsScene from './scenes/ContactUsScene'
 
 import ADRFollowupScene from "./scenes/ADRFollowupScene"
 import AEFIReportFollowupScene from './scenes/AEFIReportFollowupScene'
@@ -66,6 +67,9 @@ const MainRoutes = {
   },
   SAEFollowupScene: {
     screen: SAEFollowupScene
+  },
+  ContactUsScene: {
+    screen : ContactUsScene
   }
 }
 

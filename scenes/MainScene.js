@@ -16,9 +16,20 @@ import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_IN
 import Modal from 'react-native-modal';
 
 class MainScene extends Component {
-  static navigationOptions = {
-    title: 'MCAZ - Home',
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'MCAZ - Home',
+      headerRight: (
+        <Button
+          title="Contact us"
+          onPress={
+            () => navigation.navigate("ContactUsScene")
+          }
+        />
+      )
+    }
   }
+
   constructor(props, context) {
     super(props, context)
     this.showNewADRReport = this.showNewADRReport.bind(this)

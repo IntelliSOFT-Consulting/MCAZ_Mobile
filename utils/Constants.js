@@ -27,3 +27,4 @@ export const AEFI_URL = 'http://45.79.130.91/api/aefis'
 export const SAEFI_URL = 'http://45.79.130.91/api/saefis'
 export const LOGIN_URL = 'http://45.79.130.91/api/users/token' // Url for login
 export const SIGNUP_URL = 'http://45.79.130.91/api/users/register' // Url for signup
+export const CONTACT_US_URL = 'http://45.79.130.91/api/users/register' // Url for signup

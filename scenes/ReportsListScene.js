@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { SectionList, Text, View, TextInput, ScrollView, Button, TouchableOpacity } from 'react-native'
+import { SectionList, Text, View, TextInput, ScrollView, Button, TouchableOpacity, Alert } from 'react-native'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'
 import SelectMultipleField from './components/SelectMultipleField'
 import MedicationTableComponent from './components/MedicationTableComponent'
 import AppStyles from '../styles/AppStyles'
 
-import { saveDraft } from '../actions'
+import { removeDraft } from '../actions'
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 
 // Follow up types.
@@ -23,6 +23,8 @@ class ReportsListScene extends Component {
     super(props, context)
     this.renderItem = this.renderItem.bind(this)
     this.onItemPressed = this.onItemPressed.bind(this)
+    this.onLongPressed = this.onLongPressed.bind(this)
+    this.deleteReport = this.deleteReport.bind(this)
   }
 
   renderItem({item}) {
@@ -32,7 +34,7 @@ class ReportsListScene extends Component {
 
     const followUp = item.report_type == "FollowUp"? " - Follow up" : ""
     return (
-      <TouchableOpacity onPress={ () => this.onItemPressed(item) }>
+      <TouchableOpacity onPress={ () => this.onItemPressed(item) } onLongPress={ () => this.onLongPressed(item) }>
         <View style={ AppStyles.rowItemStyle }>
           <Text >
             { title + followUp }
@@ -40,6 +42,22 @@ class ReportsListScene extends Component {
         </View>
       </TouchableOpacity>
     )
+  }
+
+  onLongPressed(item) {
+    const { drafts, completed, uploaded } = this.props
+    var found = drafts.find((i) => i.rid == item.rid)
+    if(found) {
+      Alert.alert("Confirm", "Delete this report?", [
+        {text: 'Yes', onPress: () => this.deleteReport(found) },
+        {text: 'No' }
+      ])
+    }
+  }
+
+  deleteReport(item) {
+    const { removeDraft } = this.props
+    removeDraft(item)
   }
 
   onItemPressed(item) {
@@ -121,9 +139,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveDraft: (data) => {
-      dispatch(saveDraft(data))
+    removeDraft: (data) => {
+      dispatch(removeDraft(data))
     },
+
     dispatch: dispatch
   }
 }
