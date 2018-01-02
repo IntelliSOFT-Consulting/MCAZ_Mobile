@@ -1,4 +1,4 @@
-import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT, VIEW_REPORT, CLEAR_DATA,
+import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT, VIEW_REPORT, CLEAR_DATA, SET_NEWS,
  SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS, SAVE_ERROR, SAVE_FETCHED_REPORTS,
  RESET_UPLOAD_STATUS, UPDATE_UPLOAD_STATUS, SET_NOTIFICATION, LOGGED_IN, LOGOUT, CURRENT_ROUTE }  from './actionTypes'
 
@@ -6,7 +6,7 @@ import { MAIN_URL, LOGIN_URL, SIGNUP_URL, REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPO
 import { getRequestPayload, getURL } from '../utils/utils'
 import messages from '../utils/messages.json'
 
-import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL, CONTACT_US_URL } from '../utils/Constants'
+import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL, CONTACT_US_URL, NEWS_URL } from '../utils/Constants'
 
 /**
   Saves a draft report
@@ -286,3 +286,20 @@ export const contactUs = (data) => {
     })
   }
 }
+
+export const fetchNews = () => {
+  return dispatch => {
+    return fetch(NEWS_URL, {
+      method : "GET",
+      headers: { "Accept" : "application/json", 'Content-Type': 'application/json' }
+    }).then(res => res.json()).then((json) => {
+      dispatch(setNews(json))
+    }).catch((error) => {
+      dispatch(setNotification({ message : messages.error_fetching_news, level: "error", id: new Date().getTime() }))
+    })
+  }
+}
+
+export const setNews = (data) => (
+  { type : SET_NEWS, data }
+)

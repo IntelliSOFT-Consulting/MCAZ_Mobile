@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler } from 'react-native';
 import AppStyles from '../styles/AppStyles'
-import { changeConnection, uploadCompletedReports, logout, fetchReport, setReport } from '../actions'
+import { changeConnection, uploadCompletedReports, logout, fetchReport, setReport, fetchNews } from '../actions'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 import RNFetchBlob from 'react-native-fetch-blob'
@@ -246,6 +246,9 @@ class MainScene extends Component {
     NetInfo.isConnected.fetch().then().done(() => {
       NetInfo.isConnected.addEventListener('connectionChange', this.changeConnection);
     });
+
+    const { fetchNews } = this.props
+    fetchNews()
   }
 
   showAlert(notification) {
@@ -322,6 +325,9 @@ const mapDispatchToProps = dispatch => {
     },
     setReport: (report) => {
       setReport(report)
+    },
+    fetchNews: () => {
+      dispatch(fetchNews())
     },
     dispatch: dispatch
   }
