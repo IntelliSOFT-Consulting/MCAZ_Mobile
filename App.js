@@ -24,12 +24,15 @@ import SavedReportsScene from './scenes/SavedReportsScene'
 import ReportsListScene from './scenes/ReportsListScene'
 import ReadOnlyReportScene from './scenes/ReadOnlyReportScene'
 import ContactUsScene from './scenes/ContactUsScene'
+import NewsScene from './scenes/NewsScene'
+
+import DrawerButton from './scenes/components/DrawerButton'
 
 import ADRFollowupScene from "./scenes/ADRFollowupScene"
 import AEFIReportFollowupScene from './scenes/AEFIReportFollowupScene'
 import SAEFollowupScene from "./scenes/SAEFollowupScene"
 
-import { StackNavigator, addNavigationHelpers } from 'react-navigation'
+import { StackNavigator, addNavigationHelpers, DrawerNavigator } from 'react-navigation'
 
 import { setCurrentRouteName } from './actions'
 
@@ -98,13 +101,21 @@ const SavedReportsNavigator = StackNavigator(SavedReportRoutes, {
   initialRouteName : 'SavedReportsScene', headerMode : 'float'
 })
 
+
+
 const MainNavigator = StackNavigator(MainRoutes, {
   initialRouteName : 'MainScene', //headerMode: "none"
-  navigationOptions: {
-    headerStyle: {
-      elevation: 0,
-      shadowOpacity: 0
+  navigationOptions : ({ navigation }) => {
+    return {
+      headerLeft: (
+        <DrawerButton navigation={ navigation }/>
+      ),
+      headerStyle: {
+        elevation: 0,
+        shadowOpacity: 0
+      }
     }
+
   }
 })
 
@@ -112,9 +123,29 @@ const AuthNavigator = StackNavigator(AuthRoutes, {
   initialRouteName : 'LoginScene', headerMode : 'float'
 })
 
-const MainAppRoutes = {
+/**
+  Routes rendered on the drawer.
+*/
+const DrawerRoutes = {
   Main: {
     screen: MainNavigator
+  },
+  NewsScene: {
+    screen: NewsScene
+  },
+  SavedReports: {
+    screen : SavedReportsNavigator
+  },
+  ContactUsScene: {
+    screen : ContactUsScene
+  }
+}
+// Drawer navigator.
+const drawerNav = DrawerNavigator(DrawerRoutes)
+
+const MainAppRoutes = {
+  Main: {
+    screen: drawerNav //MainNavigator
   },
   SavedReports: {
     screen : SavedReportsNavigator
@@ -127,6 +158,15 @@ const MainAppRoutes = {
 const { store, persistor} = pvStore({})
 
 const initial = (store.getState() != null && store.getState().token != null)? 'Main' : 'Auth'
+/*const MainAppNavigator = StackNavigator(MainAppRoutes, {
+  initialRouteName : initial, headerMode: "none", mode : 'modal', navigationOptions: {
+    headerStyle: {
+      elevation: 0,
+      shadowOpacity: 0
+    }
+  }
+})*/
+
 const MainAppNavigator = StackNavigator(MainAppRoutes, {
   initialRouteName : initial, headerMode: "none", mode : 'modal', navigationOptions: {
     headerStyle: {

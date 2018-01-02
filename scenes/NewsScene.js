@@ -9,7 +9,7 @@ import { TextField } from 'react-native-material-textfield'
 
 class NewsScene extends Component {
   static navigationOptions = {
-    title: 'Login',
+    title: 'News',
   }
   constructor(props, context) {
     super(props, context)
@@ -19,11 +19,10 @@ class NewsScene extends Component {
   }
 
   render() {
-    const completedCount = this.props.completed.length
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
         <Text style={ AppStyles.headerText }>Medicines Control Authourity of Zimbabwe</Text>
-
+        <Text>News</Text>
       </ScrollView>
     );
   }
