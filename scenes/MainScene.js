@@ -19,14 +19,14 @@ class MainScene extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: 'MCAZ - Home',
-      headerRight: (
+      /*headerRight: (
         <Button
           title="Contact us"
           onPress={
             () => navigation.navigate("ContactUsScene")
           }
         />
-      )
+      )*/
     }
   }
 
