@@ -269,6 +269,8 @@ class MainScene extends Component {
   }
 
   componentDidMount() {
+    const { fetchNews } = this.props
+    fetchNews()
     BackHandler.addEventListener('hardwareBackPress', function() {
       // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
       // Typically you would use the navigator here to go to the last state.

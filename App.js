@@ -73,6 +73,9 @@ const MainRoutes = {
   },
   ContactUsScene: {
     screen : ContactUsScene
+  },
+  NewsScene: {
+    screen: NewsScene
   }
 }
 
@@ -141,7 +144,14 @@ const DrawerRoutes = {
   }
 }
 // Drawer navigator.
-const drawerNav = DrawerNavigator(DrawerRoutes)
+const drawerNav = DrawerNavigator(DrawerRoutes, {
+  navigationOptions: {
+    headerStyle: {
+      elevation: 0,
+      shadowOpacity: 0
+    }
+  }
+})
 
 const MainAppRoutes = {
   Main: {

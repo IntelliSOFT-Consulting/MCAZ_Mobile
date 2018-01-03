@@ -300,6 +300,6 @@ export const fetchNews = () => {
   }
 }
 
-export const setNews = (data) => (
-  { type : SET_NEWS, data }
+export const setNews = (news) => (
+  { type : SET_NEWS, news }
 )

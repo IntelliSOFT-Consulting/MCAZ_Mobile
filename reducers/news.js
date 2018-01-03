@@ -3,8 +3,8 @@ import { SET_NEWS } from '../actions/actionTypes'
 const news = (state = null, action) => {
   switch(action.type) {
     case SET_NEWS:
-      if(action.data) {
-        return action.data
+      if(action.news) {
+        return action.news.site
       }
       return null
     default:
