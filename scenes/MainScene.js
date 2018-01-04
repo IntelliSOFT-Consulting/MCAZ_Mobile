@@ -185,7 +185,6 @@ class MainScene extends Component {
           <View style={ AppStyles.button }>
             <Button onPress={ () => this.createReport("AEFIInvFormScene") } title="New AEFI Investigation Form"/>
           </View>
-
           <View style={ AppStyles.button }>
             <Button onPress={ this.uploadReports } title={ "Upload completed reports (" + completedCount + ")" }/>
           </View>
@@ -194,9 +193,6 @@ class MainScene extends Component {
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ this.openReport } title={ "Open Report" }/>
-          </View>
-          <View style={ AppStyles.button }>
-            <Button onPress={ this.confirmLogout } title={ "Logout" }/>
           </View>
         </View>
         <Modal animationType = {"slide"} transparent = {true} presentationStyle={ "overFullScreen" }
