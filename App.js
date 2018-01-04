@@ -70,12 +70,6 @@ const MainRoutes = {
   },
   SAEFollowupScene: {
     screen: SAEFollowupScene
-  },
-  ContactUsScene: {
-    screen : ContactUsScene
-  },
-  NewsScene: {
-    screen: NewsScene
   }
 }
 
@@ -100,11 +94,29 @@ const SavedReportRoutes = {
   }
 }
 
+const NewsRoutes = {
+  NewsScene: {
+    screen: NewsScene
+  }
+}
+
+const ContactRoutes = {
+  ContactUsScene: {
+    screen : ContactUsScene
+  },
+}
+
 const SavedReportsNavigator = StackNavigator(SavedReportRoutes, {
   initialRouteName : 'SavedReportsScene', headerMode : 'float'
 })
 
+const NewsNavigator = StackNavigator(NewsRoutes, {
+  headerMode : 'float'
+})
 
+const ContactNavigator = StackNavigator(ContactRoutes, {
+  headerMode : 'float'
+})
 
 const MainNavigator = StackNavigator(MainRoutes, {
   initialRouteName : 'MainScene', //headerMode: "none"
@@ -134,13 +146,13 @@ const DrawerRoutes = {
     screen: MainNavigator
   },
   NewsScene: {
-    screen: NewsScene
+    screen: NewsNavigator
   },
   SavedReports: {
     screen : SavedReportsNavigator
   },
   ContactUsScene: {
-    screen : ContactUsScene
+    screen : ContactNavigator
   }
 }
 // Drawer navigator.

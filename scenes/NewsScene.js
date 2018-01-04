@@ -8,8 +8,18 @@ import { NavigationActions } from 'react-navigation'
 import { TextField } from 'react-native-material-textfield'
 
 class NewsScene extends Component {
-  static navigationOptions = {
-    title: 'News',
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'News',
+      headerRight: (
+        <Button
+          title="Close"
+          onPress={
+            () => navigation.goBack(null)
+          }
+        />
+      )
+    }
   }
   constructor(props, context) {
     super(props, context)
