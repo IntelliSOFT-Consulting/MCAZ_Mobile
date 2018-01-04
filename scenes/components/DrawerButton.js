@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { TouchableOpacity, Text } from 'react-native'
+import { TouchableOpacity, Text, Image } from 'react-native'
 
 const DrawerButton = ({ navigation }) => (
   <TouchableOpacity onPress={ () => navigation.navigate('DrawerOpen')} >
-    <Text>H</Text>
+    <Image source={ require("../../images/ic_menu_black_36dp_1x.png") }/>
   </TouchableOpacity>
 )
 

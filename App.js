@@ -167,7 +167,7 @@ const MainAppRoutes = {
 
 const { store, persistor} = pvStore({})
 
-const initial = (store.getState() != null && store.getState().token != null)? 'Main' : 'Auth'
+const initial = "Main" //(store.getState() != null && store.getState().token != null)? 'Main' : 'Auth'
 /*const MainAppNavigator = StackNavigator(MainAppRoutes, {
   initialRouteName : initial, headerMode: "none", mode : 'modal', navigationOptions: {
     headerStyle: {

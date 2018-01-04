@@ -16,17 +16,17 @@ import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_IN
 import Modal from 'react-native-modal';
 
 class MainScene extends Component {
-  static navigationOptions = ({ navigation }) => {
+  static navigationOptions = ({ navigation, state }) => {
     return {
       title: 'MCAZ - Home',
-      /*headerRight: (
+      headerRight: (
         <Button
-          title="Contact us"
+          title="Logout"
           onPress={
-            () => navigation.navigate("ContactUsScene")
+            () => navigation.state.params.logout() //navigate("ContactUsScene")
           }
         />
-      )*/
+      )
     }
   }
 
@@ -269,6 +269,7 @@ class MainScene extends Component {
   componentDidMount() {
     const { fetchNews } = this.props
     fetchNews()
+    this.props.navigation.setParams({ logout : this.confirmLogout })
     BackHandler.addEventListener('hardwareBackPress', function() {
       // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
       // Typically you would use the navigator here to go to the last state.
