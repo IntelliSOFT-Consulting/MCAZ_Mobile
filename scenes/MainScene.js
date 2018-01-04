@@ -185,9 +185,7 @@ class MainScene extends Component {
           <View style={ AppStyles.button }>
             <Button onPress={ () => this.createReport("AEFIInvFormScene") } title="New AEFI Investigation Form"/>
           </View>
-          <View style={ AppStyles.button }>
-            <Button onPress={ this.showSaved } title="Saved reports"/>
-          </View>
+
           <View style={ AppStyles.button }>
             <Button onPress={ this.uploadReports } title={ "Upload completed reports (" + completedCount + ")" }/>
           </View>
@@ -336,3 +334,8 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainScene)
+
+/*
+<View style={ AppStyles.button }>
+  <Button onPress={ this.showSaved } title="Saved reports"/>
+</View>*/

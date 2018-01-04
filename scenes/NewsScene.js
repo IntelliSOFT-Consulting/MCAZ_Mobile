@@ -23,7 +23,6 @@ class NewsScene extends Component {
     const newsContent = news != null ? news.content : " No news yet. "
     return (
       <WebView source={{ html : newsContent }} />
-
     );
   }
 
