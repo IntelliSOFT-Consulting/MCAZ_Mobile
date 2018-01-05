@@ -331,8 +331,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainScene)
-
-/*
-<View style={ AppStyles.button }>
-  <Button onPress={ this.showSaved } title="Saved reports"/>
-</View>*/
