@@ -21,19 +21,16 @@ class NewsScene extends Component {
       )
     }
   }
+
   constructor(props, context) {
     super(props, context)
-    const { token } = this.props
-    this.state = { "email" : "", password: "", token : token }
-
   }
 
   render() {
     const { news } = this.props
     const newsContent = news != null ? news.content : " No news yet. "
     return (
-      <WebView source={{ html :
-   newsContent }} />
+      <WebView source={{ html : newsContent }} />
     );
   }
 
@@ -41,7 +38,6 @@ class NewsScene extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.appState.news,
     currentRoute: state.appState.currentRoute,
     news: state.appState.news
   }

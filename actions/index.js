@@ -51,6 +51,9 @@ export const saveError = (error) => {
   { type : SAVE_ERROR, error }
 }
 
+/**
+  Sends the request to upload a report to the server.
+*/
 export const uploadData = (data, url, token, updateProgress) => {
   return dispatch => {
     dispatch(saveCompleted(data))
@@ -82,7 +85,6 @@ export const uploadData = (data, url, token, updateProgress) => {
         dispatch(saveUploaded(json.aefi))
         dispatch(removeCompleted(json.aefi))
       } else if(json.saefi) {
-        //json.saefi.id = json.id
         json.saefi.rid = rid
         json.saefi.type = REPORT_TYPE_AEFI_INV
         dispatch(saveUploaded(json.saefi))
@@ -110,7 +112,6 @@ export const uploadData = (data, url, token, updateProgress) => {
       } else {
         dispatch(setNotification({ message : messages.erroruploading, level: "info", id: new Date().getTime() }))
       }
-      dispatch(saveError(error))
     })
   }
 }
@@ -123,6 +124,9 @@ export const logout = () => (
   { type : LOGOUT }
 )
 
+/**
+  Sends the request to login a new user and get authentication token to be used in subsequent requests.
+*/
 export const login = (data) => {
   return (dispatch, getState) => {
     return fetch(LOGIN_URL, {
@@ -145,7 +149,6 @@ export const login = (data) => {
         const message = json.message != null? json.message : messages.login_error
         dispatch(setNotification({ message : message, level: "error", id: new Date().getTime(), title: "Error" }))
       }
-
     }).catch((error) => {
       dispatch(setNotification({ message : messages.login_error, level: "error", id: new Date().getTime() }))
     })
@@ -156,6 +159,9 @@ export const clearData = () => (
   { type : CLEAR_DATA }
 )
 
+/**
+  Sends the request to sign up a new user.
+*/
 export const signUp = (data) => {
   return dispatch => {
     return fetch(SIGNUP_URL, {
@@ -183,6 +189,9 @@ export const updateUploadStatus = () => (
   { type : UPDATE_UPLOAD_STATUS }
 )
 
+/**
+  This function goes through all the completed reports, dispatching an action to upload them.
+*/
 export const uploadCompletedReports = (completed, token) => {
   return dispatch => {
     dispatch(resetUploadStatus(completed.length))
@@ -200,6 +209,9 @@ export const setReport = (report) => (
   { type : VIEW_REPORT, report }
 )
 
+/**
+  Fetches one report given the id.
+*/
 export const fetchReport = (id, url, token) => {
   return dispatch => {
     return fetch(url + "/" + id, {
@@ -210,7 +222,6 @@ export const fetchReport = (id, url, token) => {
         'Authorization' : 'Bearer ' + token
       }
     }).then(response => response.json()).then((json) => {
-      console.log(json)
       if(json.sadr) {
         json.sadr.type = REPORT_TYPE_ADR
         dispatch(setReport(json.sadr))
@@ -233,6 +244,10 @@ export const fetchReport = (id, url, token) => {
   }
 }
 
+/**
+  fetches all the reports from the server and saves them.
+  Done after login.
+*/
 export const fetchAllReports = (url, token) => {
   return dispatch => {
     return fetch(url, {
@@ -243,8 +258,6 @@ export const fetchAllReports = (url, token) => {
         'Authorization' : 'Bearer ' + token
       }
     }).then(response => response.json()).then((json) => {
-      console.log(json)
-
       const getReports = (reports, type) => {
         return reports.map((r) => {
           r.type = type
@@ -260,7 +273,6 @@ export const fetchAllReports = (url, token) => {
       } else if(json.saefis) {
         dispatch(saveFetchedReports(getReports(json.saefis, REPORT_TYPE_AEFI_INV)))
       } else {
-        console.log(JSON.stringify(json))
         return
       }
     }).catch((error) => {
@@ -273,6 +285,9 @@ export const setCurrentRouteName= (currentRoute) => (
   { type : CURRENT_ROUTE, currentRoute }
 )
 
+/**
+  Action to send contact us information.
+*/
 export const contactUs = (data) => {
   return dispatch => {
     return fetch(CONTACT_US_URL, {
@@ -287,6 +302,9 @@ export const contactUs = (data) => {
   }
 }
 
+/**
+  Action to fetch the news
+*/
 export const fetchNews = () => {
   return dispatch => {
     return fetch(NEWS_URL, {
