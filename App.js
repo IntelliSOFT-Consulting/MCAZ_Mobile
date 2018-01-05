@@ -44,6 +44,9 @@ import { PersistGate } from 'redux-persist/lib/integration/react'
 var Fabric = require('react-native-fabric')
 var { Crashlytics } = Fabric
 
+/**
+  Main Screen routes.
+*/
 const MainRoutes = {
   MainScene : {
     name : "CTR PV",
@@ -73,6 +76,9 @@ const MainRoutes = {
   }
 }
 
+/**
+  Login and signup routes.
+*/
 const AuthRoutes = {
   LoginScene: {
     screen : LoginScene
@@ -82,6 +88,9 @@ const AuthRoutes = {
   }
 }
 
+/**
+  Saved reports routes.
+*/
 const SavedReportRoutes = {
   SavedReportsScene: {
     screen : SavedReportsScene
@@ -94,12 +103,18 @@ const SavedReportRoutes = {
   }
 }
 
+/**
+  News Routes.
+*/
 const NewsRoutes = {
   NewsScene: {
     screen: NewsScene
   }
 }
 
+/**
+  Contact us routes.
+*/
 const ContactRoutes = {
   ContactUsScene: {
     screen : ContactUsScene
@@ -130,7 +145,6 @@ const MainNavigator = StackNavigator(MainRoutes, {
         shadowOpacity: 0
       }
     }
-
   }
 })
 
@@ -165,6 +179,9 @@ const drawerNav = DrawerNavigator(DrawerRoutes, {
   }
 })
 
+/**
+  All routes for the app combined.
+*/
 const MainAppRoutes = {
   Main: {
     screen: drawerNav //MainNavigator
@@ -180,14 +197,6 @@ const MainAppRoutes = {
 const { store, persistor} = pvStore({})
 
 const initial = (store.getState() != null && store.getState().token != null)? 'Main' : 'Auth'
-/*const MainAppNavigator = StackNavigator(MainAppRoutes, {
-  initialRouteName : initial, headerMode: "none", mode : 'modal', navigationOptions: {
-    headerStyle: {
-      elevation: 0,
-      shadowOpacity: 0
-    }
-  }
-})*/
 
 const MainAppNavigator = StackNavigator(MainAppRoutes, {
   initialRouteName : initial, headerMode: "none", mode : 'modal', navigationOptions: {
@@ -197,15 +206,6 @@ const MainAppNavigator = StackNavigator(MainAppRoutes, {
     }
   }
 })
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-
 
 export default class App extends Component<{}> {
   constructor(props, context) {
@@ -218,7 +218,6 @@ export default class App extends Component<{}> {
         <PersistGate persistor={ persistor } store={ store } loading={ <LoadingScene /> }>
           <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
             onNavigationStateChange={(prevState, currentState) => {
-
             this._getCurrentRouteName(currentState)
           }}
             />
@@ -228,12 +227,9 @@ export default class App extends Component<{}> {
   }
 
   _getCurrentRouteName(navState) {
-    console.log(navState)
     if (navState.hasOwnProperty('index')) {
         this._getCurrentRouteName(navState.routes[navState.index])
     } else {
-        console.log("Current Route Name:", navState.routeName)
-       	// can then save this to the state (I used redux)
         store.dispatch(setCurrentRouteName(navState.routeName))
     }
   }
@@ -249,36 +245,3 @@ export default class App extends Component<{}> {
     };
   }
 }
-
-/*return (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>
-      Welcome to React Native!
-    </Text>
-    <Text style={styles.instructions}>
-      To get started, edit App.js
-    </Text>
-    <Text style={styles.instructions}>
-      {instructions}
-    </Text>
-  </View>
-);*/
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});

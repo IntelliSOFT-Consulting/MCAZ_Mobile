@@ -19,13 +19,13 @@ export const STATUS_DRAFT = 'STATUS_DRAFT'
 export const STATUS_COMPLETED = 'STATUS_COMPLETED'
 export const STATUS_UPLOADED = 'STATUS_UPLOADED'
 
-export const MAIN_URL = 'http://45.79.130.91/api/sadrs'
+export const MAIN_URL = 'http://45.79.130.91/api'
 
-export const ADR_URL = 'http://45.79.130.91/api/sadrs'
-export const SAE_URL = 'http://45.79.130.91/api/adrs'
-export const AEFI_URL = 'http://45.79.130.91/api/aefis'
-export const SAEFI_URL = 'http://45.79.130.91/api/saefis'
-export const LOGIN_URL = 'http://45.79.130.91/api/users/token' // Url for login
-export const SIGNUP_URL = 'http://45.79.130.91/api/users/register' // Url for signup
-export const CONTACT_US_URL = 'http://45.79.130.91/api/users/register' // Url for contact us
-export const NEWS_URL = 'http://45.79.130.91/api/sites/news' // Url to fetch news
+export const ADR_URL = MAIN_URL + '/sadrs' // Url for ADR
+export const SAE_URL = MAIN_URL + '/adrs' // Url for SAE
+export const AEFI_URL = MAIN_URL + '/aefis' // Url for AEFI
+export const SAEFI_URL = MAIN_URL + '/saefis' // Url for SAEFI
+export const LOGIN_URL = MAIN_URL + '/users/token' // Url for login
+export const SIGNUP_URL = MAIN_URL + '/users/register' // Url for signup
+export const CONTACT_US_URL = MAIN_URL + '/users/register' // Url for contact us
+export const NEWS_URL = MAIN_URL + '/sites/news' // Url to fetch news
