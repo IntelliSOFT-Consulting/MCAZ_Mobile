@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler } from 'react-native';
+import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler, TouchableOpacity, Image } from 'react-native';
 import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, logout, fetchReport, setReport, fetchNews } from '../actions'
 import { connect } from 'react-redux'
@@ -20,12 +20,9 @@ class MainScene extends Component {
     return {
       title: 'MCAZ - Home',
       headerRight: (
-        <Button
-          title="Logout"
-          onPress={
-            () => navigation.state.params.logout() //navigate("ContactUsScene")
-          }
-        />
+        <TouchableOpacity onPress={ () => () => navigation.state.params.logout() } >
+          <Image source={ require("../images/ic_power_settings_new_black_36dp_1x.png") }/>
+        </TouchableOpacity>
       )
     }
   }
