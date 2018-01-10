@@ -27,5 +27,5 @@ export const AEFI_URL = MAIN_URL + '/aefis' // Url for AEFI
 export const SAEFI_URL = MAIN_URL + '/saefis' // Url for SAEFI
 export const LOGIN_URL = MAIN_URL + '/users/token' // Url for login
 export const SIGNUP_URL = MAIN_URL + '/users/register' // Url for signup
-export const CONTACT_US_URL = MAIN_URL + '/users/register' // Url for contact us
+export const CONTACT_US_URL = MAIN_URL + '/feedbacks' // Url for contact us
 export const NEWS_URL = MAIN_URL + '/sites/news' // Url to fetch news

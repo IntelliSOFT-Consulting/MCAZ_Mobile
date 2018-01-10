@@ -24,8 +24,7 @@ class ContactUsScene extends Component {
   constructor(props, context) {
     super(props, context)
     const { token } = this.props
-    this.state = { "email" : "", message: "", token : token }
-
+    this.state = { email : "", feedback: "", subject: "", token : token }
   }
 
   handleChange = (name, value) => {
@@ -38,7 +37,7 @@ class ContactUsScene extends Component {
     if(this.state.email != '' && this.state.message != '') {
       this.sendMessage()
     } else {
-      this.showAlert({ title : "error", message : "Enter email and message"})
+      this.showAlert({ title : "error", message : "Enter email and feedback message."})
     }
   }
 
@@ -46,7 +45,8 @@ class ContactUsScene extends Component {
     const { contactUs } = this.props
     var data = {}
     data.email = this.state.email
-    data.message = this.state.message
+    data.subject = this.state.subject
+    data.feedback = this.state.message
     contactUs(data)
 
     const { goBack } = this.props.navigation
@@ -67,12 +67,17 @@ class ContactUsScene extends Component {
           value={ this.state.email } keyboardType="email-address"
           onChangeText={ (text) => this.handleChange("email", text) }
         />
+        <TextField {...this.props}
+          label="Subject" returnKeyType='next'
+          value={ this.state.email }
+          onChangeText={ (text) => this.handleChange("subject", text) }
+        />
         <TextField
-          label="Message"
+          label="Feedback"
           returnKeyType='next'
           multiline={true}
           value={ this.state.message }
-          onChangeText={ (text) => this.handleChange("message", text) }
+          onChangeText={ (text) => this.handleChange("feedback", text) }
         />
         <View style={ AppStyles.contactUsButtons }>
           <Button onPress={ this.goBack } title={ "Cancel" }/>
