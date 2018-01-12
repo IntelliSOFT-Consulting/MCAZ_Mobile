@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 
 import { View, ScrollView, Text, Button } from 'react-native';
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
@@ -19,7 +21,7 @@ export default class Medication extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel } = this.props
     return (
-      <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
+      <KeyboardAwareScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
         <Text style={ AppStyles.boldText }>Current Medication</Text>
         <MedicationTableComponent model={ model } name="sadr_list_of_drugs"/>
 
@@ -31,7 +33,7 @@ export default class Medication extends PureComponent {
           <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     )
   }
 }

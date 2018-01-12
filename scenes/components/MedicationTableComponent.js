@@ -27,9 +27,9 @@ export default class MedicationTableComponent extends TableComponent {
 
   getHeader() {
     const { readonly } = this.props
-    const headers = ['Generic ', 'Brand Name', 'Batch No.', 'Dose', '','Route', 'Frequency', 'Date Started', 'Date Stopped', "Indication", 'Tick Suspected medicine', ""];
+    const headers = ['Generic ', 'Brand Name', 'Batch No.', 'Dose','Route', 'Frequency', 'Date Started', 'Date Stopped', "Indication", 'Tick Suspected medicine', ""];
     var headerEls = []
-    mandatory = [0, 3, 4, 5, 8] // mandatory indices
+    mandatory = [0, 3, 5, 8] // mandatory indices
     for(let i = 0; i < headers.length; i++) {
       if(mandatory.indexOf(i) != -1) {
         const header = (
@@ -132,8 +132,8 @@ export default class MedicationTableComponent extends TableComponent {
   render() {
     const { label, readonly } = this.props
 
-    var widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 60]
-    var headerArr = [120, 120, 120, 240, 120, 120, 120, 120, 120, 60]
+    var widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 80]
+    var headerArr = [120, 120, 120, 240, 120, 120, 120, 120, 120, 80]
     const headerEls = this.getHeader()
     const rows = this.initializeRows(readonly)
     var addRowBtn = null
@@ -141,6 +141,9 @@ export default class MedicationTableComponent extends TableComponent {
       addRowBtn = (<Button onPress={this.addRow} title="Add row"  />)
       widthArr[7] = 240
       widthArr[8] = 240
+
+      headerArr[6] = 240
+      headerArr[7] = 240
       headerArr.push(30)
       widthArr.push(30)
     }

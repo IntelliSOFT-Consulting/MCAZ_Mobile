@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 
 import { View, ScrollView, Text, Button } from 'react-native';
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
@@ -15,7 +17,7 @@ export default class ReportDetailsScene extends PureComponent {
   render() {
     const { model, saveAndContinue, saveAndSubmit, cancel } = this.props
     return (
-      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <Text>First decision making level to complete (District level):</Text>
         <DateTimeInput label="Date report received at district level (DD/MM/YYYY):" name="district_receive_date" model={ model } maxDate={ new Date() }/>
         <SelectOneField label="Investigation needed:" options={ BOOLEAN_OPTIONS } name="investigation_needed" model={ model }/>
@@ -28,7 +30,7 @@ export default class ReportDetailsScene extends PureComponent {
           <Button onPress={ () => saveAndSubmit() } title="Save and Submit"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     )
   }
 }

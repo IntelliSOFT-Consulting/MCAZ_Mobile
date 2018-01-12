@@ -295,7 +295,7 @@ export const contactUs = (data) => {
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(res => res.json()).then((json) => {
-
+      dispatch(setNotification({ message : messages.message_sent, level: "error", id: new Date().getTime() }))
     }).catch((error) => {
       dispatch(setNotification({ message : messages.error_sending_message, level: "error", id: new Date().getTime() }))
     })

@@ -50,7 +50,7 @@ class ContactUsScene extends Component {
     contactUs(data)
 
     const { goBack } = this.props.navigation
-    goBack()
+    goBack(null)
   }
 
   signup = () => {
@@ -69,7 +69,7 @@ class ContactUsScene extends Component {
         />
         <TextField {...this.props}
           label="Subject" returnKeyType='next'
-          value={ this.state.email }
+          value={ this.state.subject }
           onChangeText={ (text) => this.handleChange("subject", text) }
         />
         <TextField
@@ -89,7 +89,7 @@ class ContactUsScene extends Component {
 
   goBack = () => {
     const { goBack } = this.props.navigation
-    goBack()
+    goBack(null)
   }
 
   componentWillReceiveProps(nextProps) {

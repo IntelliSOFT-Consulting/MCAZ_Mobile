@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 
 import { View, ScrollView, Text, Button } from 'react-native';
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
@@ -51,7 +53,7 @@ export default class PatientReporterDetailsScene extends PureComponent {
     const { model, saveAndContinue, cancel, followUp } = this.props
     const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
     return (
-      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         { followUpField }
         <TextInputField label="Patient first name:" name="patient_name" model={ model } required={ true }/>
         <TextInputField label="Patient Surname" name="patient_surname" model={ model }/>
@@ -74,7 +76,7 @@ export default class PatientReporterDetailsScene extends PureComponent {
           <Button onPress={ () => saveAndContinue(2) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     )
   }
 }

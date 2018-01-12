@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 
 import { View, ScrollView, Text, Button } from 'react-native';
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
@@ -22,7 +24,7 @@ export default class AdverseEventsScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel } = this.props
     return (
-      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <SelectMultipleField label="Adverse event (s):" name="adverse_events" model={ model } required={ true } options={ AEFI_ADVERSE_EVENTS }/>
         <AEFIEventsSelectOneField name="reactions" model={ model } label="Local reactions" options={ SEVERE_LOCAL_REACTIONS }/>
         <AEFIEventsSelectOneField name="seizures" model={ model } label="Seizures" options={ SEIZURES }/>
@@ -44,7 +46,7 @@ export default class AdverseEventsScene extends PureComponent {
           <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     )
   }
 

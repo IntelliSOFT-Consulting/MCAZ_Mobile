@@ -6,14 +6,14 @@ export default class AutoCompleteTextInput extends Component {
   constructor(props, context) {
     super(props, context)
     const { data, nameKey, value } = this.props
-    this.state = { value : "", data: data, results: [] }
+
     if(data.length > 0) {
       const first = data[0]
       if(typeof first == "object") {
         this.nameKey = nameKey == null? "name" : nameKey
       }
     }
-    this.state = { value : value }
+    this.state = { value : value, data: data, results: [] }
   }
 
   _keyExtractor = (item, index) => index;
@@ -76,10 +76,10 @@ export default class AutoCompleteTextInput extends Component {
   }
 
   render() {
-    //var data = ['a', 'b','c']
+    const placeholder = this.props.placeholder != null? this.props.placeholder : ""
     return (
       <View style={styles.container}>
-        <TextInput placeholder="Enter texts" value={ this.state.value }
+        <TextInput placeholder={ placeholder } value={ this.state.value }
          onChangeText={ (text) => this.onKeyInput(text) }/>
         <FlatList
           data={ this.state.results }

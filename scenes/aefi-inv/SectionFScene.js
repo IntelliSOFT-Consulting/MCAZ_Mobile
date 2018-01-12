@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 
 import { View, ScrollView, Text, Button } from 'react-native';
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
@@ -13,7 +15,7 @@ export default class SectionFScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <Text>(Complete this section by asking and/or observing practice)</Text>
         <Text>Last vaccine storage point:</Text>
         <SelectOneField model={ model } name="cold_temperature" options={ BOOLEAN_OPTIONS } label="Is the temperature of the vaccine storage refrigerator monitored?" />
@@ -34,7 +36,7 @@ export default class SectionFScene extends PureComponent {
           <Button onPress={ () => saveAndContinue(7) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     )
   }
 }

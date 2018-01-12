@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 
 import { View, ScrollView, Text, Button } from 'react-native';
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
@@ -13,7 +15,7 @@ export default class SectionGScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <SelectOneField model={ model } name="similar_events" options={ BOOLEAN_UNKNOWN_OPTIONS } label="Were any similar events reported within a time period similar to when the adverse event occurred and in the same locality?" />
         <TextInputField model={ model } name="similar_events_describe" label="If yes, describe:" multiline={true} numberOfLines={4}/>
         <TextInputField model={ model } name="similar_events_episodes" label="If yes, how many events/episodes?" multiline={true} numberOfLines={4} keyboardType="numeric"/>
@@ -26,7 +28,7 @@ export default class SectionGScene extends PureComponent {
           <Button onPress={ () => saveAndContinue(8) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     )
   }
 }

@@ -20,7 +20,7 @@ class MainScene extends Component {
     return {
       title: 'MCAZ - Home',
       headerRight: (
-        <TouchableOpacity onPress={ () => () => navigation.state.params.logout() } >
+        <TouchableOpacity onPress={ () => navigation.state.params.logout() } >
           <Image source={ require("../images/ic_power_settings_new_black_36dp_1x.png") }/>
         </TouchableOpacity>
       )

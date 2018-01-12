@@ -56,9 +56,9 @@ export default class AutoCompleteInput extends Component {
     const labelText = label? label : ""
 
     return (
-      <View>
+      <View> 
         <AutoCompleteTextInput otherTextInputProps={{ editable: true }}
-          placeholder="Enter facility" value={ this.state.value }
+          placeholder={ labelText } value={ this.state.value }
           onItemPress={(item) => this.handleChange(item) }
           data={ facilities }
         />

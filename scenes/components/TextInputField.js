@@ -30,7 +30,7 @@ export default class TextInputField extends Component {
   }
 
   render() {
-    const { label, required, validate, hideLabel } = this.props
+    const { label, required, validate, hideLabel, tintColor } = this.props
     const { value } = this.state
     var text = null
     if(required) {
@@ -45,12 +45,13 @@ export default class TextInputField extends Component {
     }
     const labelText = label? label : ""
     const labelHeight = hideLabel? 0 : 16
+    const tintColorValue = tintColor == null? "rgb(0, 145, 234)" : tintColor
     return (
       <View>
         <TextField {...this.props}
           label={ labelText } labelHeight={ labelHeight }
-          value={ this.state.value }
-          onChangeText={ (text) => this.handleChange(text) }
+          value={ this.state.value } baseColor={ "rgba(0, 0, 0, .80)" }
+          onChangeText={ (text) => this.handleChange(text) } tintColor={ tintColorValue }
         />
 
       </View>
