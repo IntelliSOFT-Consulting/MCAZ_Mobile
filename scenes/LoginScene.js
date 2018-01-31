@@ -146,7 +146,7 @@ class LoginScene extends Component {
     }
     const { notification } = this.props
     const nextNotification = nextProps.notification
-    if(this.props.currentRoute.name == this.props.navigation.state.routeName) {
+    if(this.props.currentRoute != null && this.props.currentRoute.name == this.props.navigation.state.routeName) {
       if(nextNotification && ((notification && notification.id != nextNotification.id) || notification == null)) {
         this.showAlert(nextNotification)
       }

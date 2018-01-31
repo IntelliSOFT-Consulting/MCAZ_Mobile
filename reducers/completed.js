@@ -1,4 +1,4 @@
-import { SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT } from '../actions/actionTypes'
+import { SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORTS } from '../actions/actionTypes'
 const completed = (state = [], action) => {
   switch(action.type) {
     case SAVE_COMPLETED_REPORT:
@@ -20,6 +20,8 @@ const completed = (state = [], action) => {
         return state
       }
       return state.filter((report) => report.rid != newReport.rid)
+    case REMOVE_COMPLETED_REPORTS:
+      return []
     default:
       return state // The main page is the default page.
 

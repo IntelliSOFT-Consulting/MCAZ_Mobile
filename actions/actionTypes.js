@@ -6,6 +6,8 @@ export const REMOVE_COMPLETED_REPORT = 'REMOVE_COMPLETED_REPORT' // Save a compl
 export const SAVE_UPLOADED_REPORT = 'SAVE_UPLOADED_REPORT' // Save an uploaded report
 export const REMOVE_UPLOADED_REPORT = 'REMOVE_UPLOADED_REPORT' // Save an uploaded report
 export const CHANGE_CONNECTION_STATUS = 'CHANGE_CONNECTION_STATUS' // Change connection status
+export const ARCHIVE_DATA = 'ARCHIVE_DATA' // archive saved data
+export const REMOVE_COMPLETED_REPORTS = 'REMOVE_COMPLETED_REPORTS' // remove all completed reports
 
 export const SAVE_ERROR = 'SAVE_ERROR'
 

@@ -1,6 +1,6 @@
 import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT, VIEW_REPORT, CLEAR_DATA, SET_NEWS,
  SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS, SAVE_ERROR, SAVE_FETCHED_REPORTS,
- RESET_UPLOAD_STATUS, UPDATE_UPLOAD_STATUS, SET_NOTIFICATION, LOGGED_IN, LOGOUT, CURRENT_ROUTE }  from './actionTypes'
+ RESET_UPLOAD_STATUS, UPDATE_UPLOAD_STATUS, SET_NOTIFICATION, LOGGED_IN, LOGOUT, CURRENT_ROUTE, REMOVE_COMPLETED_REPORTS, ARCHIVE_DATA }  from './actionTypes'
 
 import { MAIN_URL, LOGIN_URL, SIGNUP_URL, REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 import { getRequestPayload, getURL } from '../utils/utils'
@@ -50,6 +50,14 @@ export const changeConnection = (isConnected) => (
 export const saveError = (error) => {
   { type : SAVE_ERROR, error }
 }
+
+export const archiveData = (data) => (
+  { type : ARCHIVE_DATA, data }
+)
+
+export const removeCompletedReports = () => (
+  { type : REMOVE_COMPLETED_REPORTS }
+)
 
 /**
   Sends the request to upload a report to the server.

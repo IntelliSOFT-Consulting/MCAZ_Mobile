@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler, TouchableOpacity, Image } from 'react-native';
 import AppStyles from '../styles/AppStyles'
-import { changeConnection, uploadCompletedReports, logout, fetchReport, setReport, fetchNews } from '../actions'
+import { changeConnection, uploadCompletedReports, logout, fetchReport, setReport, fetchNews, removeCompletedReports, archiveData } from '../actions'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 import RNFetchBlob from 'react-native-fetch-blob'
@@ -10,6 +10,8 @@ import SelectOneField from './components/SelectOneField'
 import TextInputField from './components/TextInputField'
 import { REPORT_TYPES } from '../utils/FieldOptions'
 import { getURL } from '../utils/utils'
+
+import X2JS from 'x2js'
 
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 
@@ -72,8 +74,8 @@ class MainScene extends Component {
   uploadReports() {
     const { uploadCompletedReports, completed, connection, token } = this.props
     if(!connection.isConnected) {
-      Alert.alert("Warning", "You are currently offline.")
-      return
+      //Alert.alert("Warning", "You are currently offline.")
+      //return
     }
     if(completed.length == 0) {
       Alert.alert("Info", "No reports to upload.")
@@ -83,7 +85,7 @@ class MainScene extends Component {
   }
 
   downloadReports = () => {
-    const { uploadCompletedReports, completed, connection, token } = this.props
+    const { removeCompletedReports, completed, connection, token, archiveData } = this.props
     if(completed.length == 0) {
       Alert.alert("Info", "No reports to download.")
       return
@@ -94,12 +96,48 @@ class MainScene extends Component {
     reports.aefi = completed.filter(report => report.type == REPORT_TYPE_AEFI)
     reports.saefi = completed.filter(report => report.type == REPORT_TYPE_AEFI_INV)
 
-    const string = JSON.stringify(reports)
+    var x2js = new X2JS()
+
+    var sadr = {}
+    sadr.response = completed.filter(report => report.type == REPORT_TYPE_ADR).map((report) => {
+      var r = {}
+      r.sadrs = report
+      return r
+    })
+    xmls.push(x2js.json2xml_str(sadr))
+
+    var adr = {}
+    adr.response = completed.filter(report => report.type == REPORT_TYPE_SAE).map((report) => {
+      var r = {}
+      r.adrs = report
+      return r
+    })
+    xmls.push(x2js.json2xml_str(adr))
+
+    var aefi = {}
+    aefi.response = completed.filter(report => report.type == REPORT_TYPE_AEFI).map((report) => {
+      var r = {}
+      r.aefis = report
+      return r
+    })
+    xmls.push(x2js.json2xml_str(aefi))
+
+    var saefi = {}
+    saefi.response = completed.filter(report => report.type == REPORT_TYPE_AEFI_INV).map((report) => {
+      var r = {}
+      r.saefis = report
+      return r
+    })
+    xmls.push(x2js.json2xml_str(saefi))
+    //const string = JSON.stringify(reports)
+    const string = xmls.join("")
 
     const dirs = RNFetchBlob.fs.dirs
     const fs = RNFetchBlob.fs
-    const name = new Date().toString().split(/ /).join('_') + '.json'
+    const name = new Date().toString().split(/ /).join('_') + '.xml'
     fs.createFile(dirs.DownloadDir + '/' + name, string, 'utf8')
+    archiveData(completed)
+    removeCompletedReports()
     Alert.alert("Info", "File " + name + " created.")
   }
 
@@ -235,8 +273,15 @@ class MainScene extends Component {
   */
   componentDidMount() {
     NetInfo.isConnected.fetch().then().done(() => {
-      NetInfo.isConnected.addEventListener('connectionChange', this.changeConnection);
+      NetInfo.isConnected.addEventListener('change', this.changeConnection);
     });
+    /*NetInfo.isConnected.addEventListener('change', this.changeConnection);
+    NetInfo.isConnected.fetch().then().done((isConnected) => {
+      NetInfo.isConnected.addEventListener('change', this.changeConnection);
+      this.changeConnection(isConnected);
+    }) /*() => {
+      //NetInfo.isConnected.addEventListener('connectionChange', this.changeConnection);
+    });*/
 
     const { fetchNews } = this.props
     fetchNews()
@@ -322,6 +367,12 @@ const mapDispatchToProps = dispatch => {
     },
     fetchNews: () => {
       dispatch(fetchNews())
+    },
+    archiveData: () => {
+      dispatch(archiveData())
+    },
+    removeCompletedReports: () => {
+      dispatch(removeCompletedReports())
     },
     dispatch: dispatch
   }
