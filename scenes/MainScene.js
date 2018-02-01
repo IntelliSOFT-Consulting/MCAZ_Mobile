@@ -98,35 +98,27 @@ class MainScene extends Component {
 
     var x2js = new X2JS()
     var xmls = []
-    var output = {}
-    output.response = completed.filter(report => report.type == REPORT_TYPE_ADR).map((report) => {
-      var r = {}
-      r.sadrs = report
-      return r
-    })
-    //xmls.push(x2js.json2xml_str(sadr))
+    var output = { response : {}}
 
-    output.response = output.response.concat(completed.filter(report => report.type == REPORT_TYPE_SAE).map((report) => {
-      var r = {}
-      r.adrs = report
-      return r
-    }))
-    //xmls.push(x2js.json2xml_str(adr))
+    var sadrs = completed.filter(report => report.type == REPORT_TYPE_ADR);
+    if(sadrs.length > 0) {
+      output.response.sadrs = sadrs
+    }
+    var adrs = completed.filter(report => report.type == REPORT_TYPE_SAE)
+    if(adrs.length > 0) {
+      output.response.adrs = adrs
+    }
 
-    output.response = output.response.concat(completed.filter(report => report.type == REPORT_TYPE_AEFI).map((report) => {
-      var r = {}
-      r.aefis = report
-      return r
-    }))
-    //xmls.push(x2js.json2xml_str(aefi))
+    var aefis = completed.filter(report => report.type == REPORT_TYPE_AEFI)
+    if(aefis.length > 0) {
+      output.response.aefis = aefis
+    }
 
-    output.response = output.response.concat(completed.filter(report => report.type == REPORT_TYPE_AEFI_INV).map((report) => {
-      var r = {}
-      r.saefis = report
-      return r
-    }))
-    //xmls.push(x2js.json2xml_str(saefi))
-    //const string = JSON.stringify(reports)
+    var saefis = completed.filter(report => report.type == REPORT_TYPE_AEFI_INV)
+    if(saefis.length > 0) {
+      output.response.saefis = saefis
+    }
+
     const string = x2js.json2xml_str(output) //xmls.join("")
 
     const dirs = RNFetchBlob.fs.dirs
