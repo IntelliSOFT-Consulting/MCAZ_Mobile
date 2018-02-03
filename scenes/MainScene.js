@@ -9,7 +9,7 @@ import RNFetchBlob from 'react-native-fetch-blob'
 import SelectOneField from './components/SelectOneField'
 import TextInputField from './components/TextInputField'
 import { REPORT_TYPES } from '../utils/FieldOptions'
-import { getURL } from '../utils/utils'
+import { getURL, pad } from '../utils/utils'
 
 import X2JS from 'x2js'
 
@@ -98,36 +98,52 @@ class MainScene extends Component {
 
     var x2js = new X2JS()
     var xmls = []
-    var output = { response : {}}
+
+
+    const dirs = RNFetchBlob.fs.dirs
+    const fs = RNFetchBlob.fs
+    const date = new Date()
+    const name = date.getFullYear() + pad(date.getMonth() + 1) + pad(date.getDate()) + pad(date.getHours()) + pad(date.getMinutes()) + pad(date.getSeconds()) + ".xml"// new Date().toString().split(/ /).join('_') + '.xml'
 
     var sadrs = completed.filter(report => report.type == REPORT_TYPE_ADR);
+    var files = []
     if(sadrs.length > 0) {
+      var output = { response : {}}
       output.response.sadrs = sadrs
+      const string = x2js.json2xml_str(output) //xmls.join("")
+      fs.createFile(dirs.DownloadDir + '/sadrs_' + name, string, 'utf8')
+      files.push('sadrs_' + name)
     }
     var adrs = completed.filter(report => report.type == REPORT_TYPE_SAE)
     if(adrs.length > 0) {
+      var output = { response : {}}
       output.response.adrs = adrs
+      const string = x2js.json2xml_str(output) //xmls.join("")
+      fs.createFile(dirs.DownloadDir + '/adrs_' + name, string, 'utf8')
+      files.push('adrs_' + name)
     }
 
     var aefis = completed.filter(report => report.type == REPORT_TYPE_AEFI)
     if(aefis.length > 0) {
+      var output = { response : {}}
       output.response.aefis = aefis
+      const string = x2js.json2xml_str(output) //xmls.join("")
+      fs.createFile(dirs.DownloadDir + '/aefis_' + name, string, 'utf8')
+      files.push('aefis_' + name)
     }
 
     var saefis = completed.filter(report => report.type == REPORT_TYPE_AEFI_INV)
     if(saefis.length > 0) {
+      var output = { response : {}}
       output.response.saefis = saefis
+      const string = x2js.json2xml_str(output) //xmls.join("")
+      fs.createFile(dirs.DownloadDir + '/saefis_' + name, string, 'utf8')
+      files.push('saefis_' + name)
     }
 
-    const string = x2js.json2xml_str(output) //xmls.join("")
-
-    const dirs = RNFetchBlob.fs.dirs
-    const fs = RNFetchBlob.fs
-    const name = new Date().toString().split(/ /).join('_') + '.xml'
-    fs.createFile(dirs.DownloadDir + '/' + name, string, 'utf8')
     archiveData(completed)
     removeCompletedReports()
-    Alert.alert("Info", "File " + name + " created.")
+    Alert.alert("Info", "File(s)" + files.join(",") + " created.")
   }
 
   confirmLogout = () => {
