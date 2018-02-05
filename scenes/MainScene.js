@@ -143,7 +143,7 @@ class MainScene extends Component {
 
     archiveData(completed)
     removeCompletedReports()
-    Alert.alert("Info", "File(s)" + files.join(",") + " created.")
+    Alert.alert("Info", "File(s)\n" + files.join("\n") + " created.")
   }
 
   confirmLogout = () => {
