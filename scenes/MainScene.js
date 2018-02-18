@@ -11,6 +11,8 @@ import TextInputField from './components/TextInputField'
 import { REPORT_TYPES } from '../utils/FieldOptions'
 import { getURL, pad } from '../utils/utils'
 
+import base64 from 'base-64'
+
 import X2JS from 'x2js'
 
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
@@ -192,11 +194,12 @@ class MainScene extends Component {
 
     const { uploaded } = this.props
     const report = uploaded.find((i) => i.reference_number == this.state.searchModel.reference_number)
+    console.log(base64.encode(this.state.searchModel.reference_number))
     if(report) {
       this.displayReport(report)
     } else {
       const { fetchReport, token } = this.props
-      fetchReport(btoa(this.state.searchModel.reference_number), getURL({ type : this.state.searchModel.type }),token)
+      fetchReport(base64.encode(this.state.searchModel.reference_number), getURL({ type : this.state.searchModel.type }),token)
     }
   }
 
