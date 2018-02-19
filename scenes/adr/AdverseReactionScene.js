@@ -18,10 +18,13 @@ export default class AdverseReactionScene extends PureComponent {
     super(props, context)
     this.state = {}
     this.onChange = this.onChange.bind(this)
+    this.onSeverityChange = this.onSeverityChange.bind(this)
   }
 
   render() {
     const { model, saveAndContinue, cancel } = this.props
+    const severityReason = model['severity'] == 'Yes'? (<SelectOneField model={ model } name="severity_reason" label="Reason for Seriousness" options={ SEVERITY_REASON }/>) :
+    null
     return (
       <KeyboardAwareScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ]  }>
         <Text style={ AppStyles.boldText }>Adverse Reaction</Text>
@@ -30,8 +33,8 @@ export default class AdverseReactionScene extends PureComponent {
 
         <TextInputField model={ model } name="description_of_reaction" label="Description of ADR" multiline = {true}
          numberOfLines = {4} required={ true }/>
-        <SelectOneField model={ model } name="severity" label="Serious " required={ true } options={ BOOLEAN_OPTIONS }/>
-        <SelectOneField model={ model } name="severity_reason" label="Reason for Seriousness" options={ SEVERITY_REASON }/>
+       <SelectOneField model={ model } name="severity" label="Serious " required={ true } options={ BOOLEAN_OPTIONS } onChange={ this.onSeverityChange }/>
+        { severityReason }
         <TextInputField model={ model } name="medical_history" label="Relevant medical history, including any allergies" multiline = {true}
           numberOfLines = {4}/>
         <TextInputField model={ model } name="past_drug_therapy" label="Relevant Past Drug Therapy" multiline = {true}
@@ -48,5 +51,9 @@ export default class AdverseReactionScene extends PureComponent {
 
   onChange(value) {
     this.setState(value)
+  }
+
+  onSeverityChange(value) {
+    this.setState({ severity : value })
   }
 }
