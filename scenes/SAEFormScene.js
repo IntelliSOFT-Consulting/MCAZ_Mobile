@@ -36,7 +36,7 @@ class SAEScene extends PureComponent {
     this.goBack = this.goBack.bind(this)
     this.upload = this.upload.bind(this)
 
-    var { model, connection } = this.props
+    var { model, connection, user } = this.props
 
     const { navigation } = this.props;
     if(navigation.state.params && navigation.state.params.model) {
@@ -50,7 +50,7 @@ class SAEScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_SAE, data_source: "phone", device_type : DeviceInfo.getSystemName() }
+      model = { rid : Date.now(), type : REPORT_TYPE_SAE, data_source: "phone", device_type : DeviceInfo.getSystemName(),reporter_email: user.username }
       if(followUp) {
         model.parent_id = ""
       }
@@ -189,7 +189,8 @@ class SAEScene extends PureComponent {
   }
 
   upload() {
-    const { model } = this.state
+    var { model } = this.state
+    model.submitted = 2
     const { uploadData, saveCompleted, connection, token } = this.props
     if(connection.isConnected) {
       uploadData(model, SAE_URL, token)
@@ -204,7 +205,8 @@ class SAEScene extends PureComponent {
 const mapStateToProps = state => {
   return {
     connection: state.appState.connection,
-    token: state.appState.user.token
+    token: state.appState.user.token,
+    user: state.appState.user
   }
 }
 

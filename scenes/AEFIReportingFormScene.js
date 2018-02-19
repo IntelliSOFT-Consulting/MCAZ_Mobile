@@ -27,7 +27,7 @@ class AEFIReportingFormScene extends PureComponent {
     this.goBack = this.goBack.bind(this)
     this.upload = this.upload.bind(this)
 
-    var { model, connection } = this.props
+    var { model, connection, user } = this.props
 
     const { navigation } = this.props;
     if(navigation.state.params && navigation.state.params.model) {
@@ -41,7 +41,7 @@ class AEFIReportingFormScene extends PureComponent {
     }
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_AEFI, data_source: "phone", device_type : DeviceInfo.getSystemName() }
+      model = { rid : Date.now(), type : REPORT_TYPE_AEFI, data_source: "phone", device_type : DeviceInfo.getSystemName(), reporter_email: user.username }
       if(followUp) {
         model.parent_id = ""
       }
@@ -182,7 +182,8 @@ class AEFIReportingFormScene extends PureComponent {
   }
 
   upload() {
-    const { model } = this.state
+    var { model } = this.state
+    model.submitted = 2
     const { uploadData, saveCompleted, connection, token } = this.props
     if(connection.isConnected) {
       uploadData(model, AEFI_URL, token)
@@ -197,7 +198,8 @@ class AEFIReportingFormScene extends PureComponent {
 const mapStateToProps = state => {
   return {
     connection: state.appState.connection,
-    token: state.appState.user.token
+    token: state.appState.user.token,
+    user: state.appState.user
   }
 }
 

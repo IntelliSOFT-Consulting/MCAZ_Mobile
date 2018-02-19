@@ -353,6 +353,7 @@ const mapStateToProps = state => {
     token: state.appState.user.token,
     viewReport: state.appState.viewReport,
     currentRoute: state.appState.currentRoute
+
   }
 }
 
