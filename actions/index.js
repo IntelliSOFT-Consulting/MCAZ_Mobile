@@ -143,7 +143,7 @@ export const login = (data) => {
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
       if(json.success) {
-        const user = Object.assign({}, data, { token : json.data.token})
+        const user = Object.assign({}, json.user, { token : json.data.token})
         const state = getState()
         if(state.appState.user.username != null && state.appState.user.username != user.username) {
           dispatch(clearData())
@@ -178,7 +178,7 @@ export const signUp = (data) => {
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
       if(json.token) {
-        const user = Object.assign({}, data, { token : json.token})
+        const user = Object.assign({}, json.user, { token : json.data.token})
         dispatch(loggedIn(user))
       } else {
         dispatch(setNotification({ message : messages.signup_error, level: "error", id: new Date().getTime() }))
