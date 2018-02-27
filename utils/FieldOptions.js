@@ -334,3 +334,5 @@ export const SEIZURES = [
   { key : "ae_febrile", value: "febrile"},
   { key : "ae_afebrile", value: "afebrile"}
 ]
+
+export const AGE_GROUP_YEARS = [ { key : "< 1 year", value : "< 1 year"}, { key : "1-5 years", value : "1-5 years"}, { key : "> 5 years", value : "> 5 years"}]
