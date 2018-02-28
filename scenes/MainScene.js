@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler, TouchableOpacity, Image } from 'react-native';
+import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler, TouchableOpacity, Image, Dimensions } from 'react-native';
 import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, logout, fetchReport, setReport, fetchNews, removeCompletedReports, archiveData } from '../actions'
 import { connect } from 'react-redux'
@@ -210,10 +210,11 @@ class MainScene extends Component {
   }
 
   render() {
+    var {height, width} = Dimensions.get('window')
     const completedCount = this.props.completed.length
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
-        <Text style={ AppStyles.headerText }>Medicines Control Authority of Zimbabwe</Text>
+        <Image source={ require("../images/mcaz_3.png") } resizeMode="contain" style={{  width : width - 20 }} />
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <View style={ AppStyles.columnButtons }>
           <View style={ AppStyles.button }>
