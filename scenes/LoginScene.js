@@ -48,7 +48,7 @@ class LoginScene extends Component {
   doLogin = () => {
     const { login } = this.props
     var data = {}
-    data.username = this.state.email
+    data.email = this.state.email
     data.password = this.state.password
     login(data)
   }
