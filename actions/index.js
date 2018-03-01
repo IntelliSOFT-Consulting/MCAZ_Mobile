@@ -158,7 +158,7 @@ export const login = (data) => {
         dispatch(setNotification({ message : message, level: "error", id: new Date().getTime(), title: "Error" }))
       }
     }).catch((error) => {
-      dispatch(setNotification({ message : messages.login_error, level: "error", id: new Date().getTime() }))
+      dispatch(setNotification({ message : messages.connection_error, level: "error", id: new Date().getTime() }))
     })
   }
 }
@@ -184,7 +184,7 @@ export const signUp = (data) => {
         dispatch(setNotification({ message : messages.signup_error, level: "error", id: new Date().getTime() }))
       }
     }).catch((error) => {
-      dispatch(setNotification({ message : messages.signup_error, level: "error", id: new Date().getTime() }))
+      dispatch(setNotification({ message : messages.connection_error, level: "error", id: new Date().getTime() }))
     })
   }
 }

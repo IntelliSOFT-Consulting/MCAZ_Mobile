@@ -7,5 +7,6 @@
   "report_not_found" : "Report not found.",
   "error_fetching_news" : "Error fetching news",
   "message_sent" : "Message sent",
-  "signup_error" : "Signup error. Check the email is valid."
+  "signup_error" : "Signup error. Check the email is not registered.",
+  "connection_error" : "Error sending request."
 }
