@@ -98,10 +98,26 @@ class MainScene extends Component {
     reports.aefi = completed.filter(report => report.type == REPORT_TYPE_AEFI)
     reports.saefi = completed.filter(report => report.type == REPORT_TYPE_AEFI_INV)
 
-    var x2js = new X2JS()
     var xmls = []
 
+    const files = this.saveFiles(completed)
+    archiveData(completed)
+    removeCompletedReports()
+    Alert.alert("Info", "File(s)\n" + files.join("\n") + " created.")
+  }
 
+  downloadArchived = () => {
+    const { archived } = this.props
+    if(archived.length == 0) {
+      Alert.alert("Info", "No reports to download.")
+      return
+    }
+    const files = this.saveFiles(archived)
+    Alert.alert("Info", "File(s)\n" + files.join("\n") + " created.")
+  }
+
+  saveFiles = (completed) => {
+    var x2js = new X2JS()
     const dirs = RNFetchBlob.fs.dirs
     const fs = RNFetchBlob.fs
     const date = new Date()
@@ -142,10 +158,7 @@ class MainScene extends Component {
       fs.createFile(dirs.DownloadDir + '/saefis_' + name, string, 'utf8')
       files.push('saefis_' + name)
     }
-
-    archiveData(completed)
-    removeCompletedReports()
-    Alert.alert("Info", "File(s)\n" + files.join("\n") + " created.")
+    return files
   }
 
   confirmLogout = () => {
@@ -212,6 +225,7 @@ class MainScene extends Component {
   render() {
     var {height, width} = Dimensions.get('window')
     const completedCount = this.props.completed.length
+    const archivedCount = this.props.archived.length
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
         <Image source={ require("../images/mcaz_3.png") } resizeMode="contain" style={{  width : width - 20 }} />
@@ -237,6 +251,9 @@ class MainScene extends Component {
           </View>
           <View style={ AppStyles.button }>
             <Button onPress={ this.openReport } title={ "Open Report" }/>
+          </View>
+          <View style={ AppStyles.button }>
+            <Button onPress={ this.downloadArchived } title={ "Archived (" + archivedCount + ")" }/>
           </View>
         </View>
         <Modal animationType = {"slide"} transparent = {true} presentationStyle={ "overFullScreen" }
@@ -353,7 +370,8 @@ const mapStateToProps = state => {
     notification: state.appState.notification,
     token: state.appState.user.token,
     viewReport: state.appState.viewReport,
-    currentRoute: state.appState.currentRoute
+    currentRoute: state.appState.currentRoute,
+    archived : state.appState.archived,
 
   }
 }
