@@ -178,13 +178,13 @@ export const signUp = (data) => {
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
       if(json.token) {
-        const user = Object.assign({}, json.user, { token : json.data.token})
+        const user = Object.assign({}, json.user, { token : json.token})
         dispatch(loggedIn(user))
       } else {
         dispatch(setNotification({ message : messages.signup_error, level: "error", id: new Date().getTime() }))
       }
     }).catch((error) => {
-      dispatch(setNotification({ message : messages.login_error, level: "error", id: new Date().getTime() }))
+      dispatch(setNotification({ message : messages.signup_error, level: "error", id: new Date().getTime() }))
     })
   }
 }
