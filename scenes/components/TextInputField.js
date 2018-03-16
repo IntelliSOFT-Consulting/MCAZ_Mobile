@@ -10,7 +10,7 @@ export default class TextInputField extends Component {
     super(props)
     const { model, name } = this.props
     var value = ""
-    if(name && model) {
+    if(name && model && model[name]) {
       value = model[name]
     }
     this.state = { value : value }
