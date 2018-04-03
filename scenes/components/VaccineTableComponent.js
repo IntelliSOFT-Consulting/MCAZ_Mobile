@@ -87,6 +87,7 @@ export default class VaccineTableComponent extends TableComponent {
           </Table>
         </ScrollView>
         { addRowBtn }
+        <Text style={{ fontStyle : 'italic' }}>Scroll to the left to see whole table</Text>
       </View>
     )
   }

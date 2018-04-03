@@ -80,6 +80,7 @@ export default class SAEDrugsTableComponent extends TableComponent {
           </Table>
         </ScrollView>
         { addBtn }
+        <Text style={{ fontStyle : 'italic' }}>Scroll to the left to see whole table</Text>
       </View>
     )
   }
