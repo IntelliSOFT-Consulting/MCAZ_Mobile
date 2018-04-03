@@ -155,6 +155,7 @@ class ADRScene extends PureComponent {
             }
           }
           if(suspected_drug == 0) {
+            valid = false
             names += "\nCheck at least one suspected drug"
           }
         } else {
