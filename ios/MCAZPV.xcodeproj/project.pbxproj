@@ -379,6 +379,7 @@
 		ABC755B0860A4A319EFA8A81 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B0328F294585FADC52335CA4 /* Pods-MCAZPVTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAZPVTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAZPVTests/Pods-MCAZPVTests.release.xcconfig"; sourceTree = "<group>"; };
+		B97F545D20B4A16300E51E7E /* MCAZPV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MCAZPV.entitlements; path = MCAZPV/MCAZPV.entitlements; sourceTree = "<group>"; };
 		B987718920088B1000DE9576 /* MCAZPV-tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "MCAZPV-tvOS.entitlements"; path = "MCAZPV-tvOS/MCAZPV-tvOS.entitlements"; sourceTree = "<group>"; };
 		D9E9DF718A15BF3445E40CFF /* libPods-MCAZPV-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCAZPV-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99AA573CC7F4CE0A32E1820 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
@@ -531,6 +532,7 @@
 		13B07FAE1A68108700A75B9A /* MCAZPV */ = {
 			isa = PBXGroup;
 			children = (
+				B97F545D20B4A16300E51E7E /* MCAZPV.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -831,7 +833,12 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = CW6F8ESUHJ;
+						DevelopmentTeam = 3NC6P2339M;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1260,7 +1267,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n\nif [ \"${CONFIGURATION}\" == \"Debug\" ]; then\n  export SKIP_BUNDLING=true\nfi";
 		};
 		13AC517192314DA0B7F82854 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1604,9 +1611,10 @@
 			baseConfigurationReference = 21EA22C099EE0FA04E0CE122 /* Pods-MCAZPV.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MCAZPV/MCAZPV.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = CW6F8ESUHJ;
+				DEVELOPMENT_TEAM = 3NC6P2339M;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-fabric/ios/SMXCrashlytics",
@@ -1621,6 +1629,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = zw.co.mcaz.MCAZPV;
 				PRODUCT_NAME = MCAZPV;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1631,8 +1640,9 @@
 			baseConfigurationReference = 24071BC70FB804378C12BFCB /* Pods-MCAZPV.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MCAZPV/MCAZPV.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CW6F8ESUHJ;
+				DEVELOPMENT_TEAM = 3NC6P2339M;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-fabric/ios/SMXCrashlytics",
@@ -1647,6 +1657,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = zw.co.mcaz.MCAZPV;
 				PRODUCT_NAME = MCAZPV;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
