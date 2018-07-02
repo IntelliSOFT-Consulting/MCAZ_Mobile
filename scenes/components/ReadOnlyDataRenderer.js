@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TextInput } from 'react-native'
 import AppStyles from '../../styles/AppStyles'
+import moment from 'moment'
 
 export default class ReadOnlyDataRenderer extends Component {
 
@@ -15,6 +16,10 @@ export default class ReadOnlyDataRenderer extends Component {
       return ""
     }
     if(type == 'date') {
+      if(model[name] != null && model[name] != '') {
+        let val = moment(model[name]).format("DD-MM-YYYY");
+        return val;
+      }
       return model[name]
       /*var date = []
       if(model[name]['day']) {
@@ -37,7 +42,7 @@ export default class ReadOnlyDataRenderer extends Component {
 
       var renderValue = []
       options.forEach((option) => {
-        if(values.indexOf(option.key) != -1) {
+        if(values.indexOf(option.key) != -1 || (!isNaN(option.key) && values.indexOf(Number(option.key)) != -1)) {
           renderValue.push(option.value)
         }
       })

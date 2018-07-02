@@ -80,7 +80,7 @@ export default class FileAttachmentComponent extends TableComponent {
     var addRowBtn = null
     if(!readonly) {
       widthArr.push(30)
-      addRowBtn = (<Button onPress={this.addRow} title="Add row"  />)
+      addRowBtn = (<Button onPress={this.addRow} title="Add file"  />)
     }
     return (
       <View>
