@@ -108,11 +108,12 @@ class MainScene extends Component {
 
   downloadArchived = () => {
     const { archived } = this.props
-    if(archived.length == 0) {
+    const arch = archived.filter( i => i != null )
+    if(arch.length == 0) {
       Alert.alert("Info", "No reports to download.")
       return
     }
-    const files = this.saveFiles(archived)
+    const files = this.saveFiles(arch)
     Alert.alert("Info", "File(s)\n" + files.join("\n") + " created.")
   }
 
@@ -129,7 +130,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.sadrs = sadrs
       const string = x2js.json2xml_str(output) //xmls.join("")
-      fs.createFile(dirs.DownloadDir + '/sadrs_' + name, string, 'utf8')
+      fs.createFile(dirs.DocumentDir + '/sadrs_' + name, string, 'utf8')
       files.push('sadrs_' + name)
     }
     var adrs = completed.filter(report => report.type == REPORT_TYPE_SAE)
@@ -137,7 +138,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.adrs = adrs
       const string = x2js.json2xml_str(output) //xmls.join("")
-      fs.createFile(dirs.DownloadDir + '/adrs_' + name, string, 'utf8')
+      fs.createFile(dirs.DocumentDir + '/adrs_' + name, string, 'utf8')
       files.push('adrs_' + name)
     }
 
@@ -146,7 +147,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.aefis = aefis
       const string = x2js.json2xml_str(output) //xmls.join("")
-      fs.createFile(dirs.DownloadDir + '/aefis_' + name, string, 'utf8')
+      fs.createFile(dirs.DocumentDir + '/aefis_' + name, string, 'utf8')
       files.push('aefis_' + name)
     }
 
@@ -155,7 +156,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.saefis = saefis
       const string = x2js.json2xml_str(output) //xmls.join("")
-      fs.createFile(dirs.DownloadDir + '/saefis_' + name, string, 'utf8')
+      fs.createFile(dirs.DocumentDir + '/saefis_' + name, string, 'utf8')
       files.push('saefis_' + name)
     }
     return files
@@ -225,7 +226,7 @@ class MainScene extends Component {
   render() {
     var {height, width} = Dimensions.get('window')
     const completedCount = this.props.completed.length
-    const archivedCount = this.props.archived.length
+    const archivedCount = this.props.archived.filter( i => i != null ).length
     return (
       <ScrollView style={ AppStyles.scrollContainer }>
         <Image source={ require("../images/mcaz_3.png") } resizeMode="contain" style={{  width : width - 20 }} />
@@ -396,8 +397,8 @@ const mapDispatchToProps = dispatch => {
     fetchNews: () => {
       dispatch(fetchNews())
     },
-    archiveData: () => {
-      dispatch(archiveData())
+    archiveData: (data) => {
+      dispatch(archiveData(data))
     },
     removeCompletedReports: () => {
       dispatch(removeCompletedReports())
