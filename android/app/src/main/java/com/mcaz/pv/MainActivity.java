@@ -1,4 +1,4 @@
-package com.mcazpv;
+package com.mcaz.pv;
 
 import com.facebook.react.ReactActivity;
 

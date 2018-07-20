@@ -119,7 +119,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.mcazpv"
+        applicationId "com.mcaz.pv"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
