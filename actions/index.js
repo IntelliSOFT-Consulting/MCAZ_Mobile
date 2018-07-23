@@ -6,7 +6,7 @@ import { MAIN_URL, LOGIN_URL, SIGNUP_URL, REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPO
 import { getRequestPayload, getURL } from '../utils/utils'
 import messages from '../utils/messages.json'
 
-import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL, CONTACT_US_URL, NEWS_URL } from '../utils/Constants'
+import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL, CONTACT_US_URL, NEWS_URL, RESET_PASSWORD_URL } from '../utils/Constants'
 
 /**
   Saves a draft report
@@ -329,3 +329,17 @@ export const fetchNews = () => {
 export const setNews = (news) => (
   { type : SET_NEWS, news }
 )
+
+export const resetPassword = (email) => {
+  return (dispatch, getState) => {
+    return fetch(RESET_PASSWORD_URL, {
+      method : "POST",
+      headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email : email })
+    }).then((res) => {
+      dispatch(setNotification({ message : messages.passwordReset, title: "info", id: new Date().getTime() }))
+    }).catch((error) => {
+      dispatch(setNotification({ message : messages.request_error, level: "error", id: new Date().getTime() }))
+    })
+  }
+}

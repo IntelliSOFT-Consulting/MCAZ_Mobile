@@ -52,9 +52,15 @@ class LoginScene extends Component {
     data.password = this.state.password
     login(data)
   }
+
   signup = () => {
     const { navigate } = this.props.navigation;
     navigate("SignupScene")
+  }
+
+  resetPassword = () => {
+    const { navigate } = this.props.navigation;
+    navigate("ResetPasswordScene")
   }
 
   render() {
@@ -81,6 +87,10 @@ class LoginScene extends Component {
           <Text style={ AppStyles.subHeaderText }>No account?</Text>
           <View style={ AppStyles.button }>
             <Button onPress={ this.signup } title={ "Signup" }/>
+          </View>
+          <Text style={ AppStyles.subHeaderText }>Forgot password?</Text>
+          <View style={ AppStyles.button }>
+            <Button onPress={ this.resetPassword } title={ "Reset password" }/>
           </View>
         </View>
       </ScrollView>

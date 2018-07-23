@@ -29,3 +29,4 @@ export const LOGIN_URL = MAIN_URL + '/users/token' // Url for login
 export const SIGNUP_URL = MAIN_URL + '/users/register' // Url for signup
 export const CONTACT_US_URL = MAIN_URL + '/feedbacks' // Url for contact us
 export const NEWS_URL = MAIN_URL + '/sites/news' // Url to fetch news
+export const RESET_PASSWORD_URL = MAIN_URL + '/users/forgotPassword'

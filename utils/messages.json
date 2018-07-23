@@ -8,5 +8,6 @@
   "error_fetching_news" : "Error fetching news",
   "message_sent" : "Message sent",
   "signup_error" : "Signup error. Check the email is not registered.",
-  "connection_error" : "Error sending request."
+  "connection_error" : "Error sending request.",
+  "passwordReset" : "Your password has been reset, check your email."
 }

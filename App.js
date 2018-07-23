@@ -14,6 +14,7 @@ import {
 
 import MainScene  from './scenes/MainScene'
 import LoginScene  from './scenes/LoginScene'
+import ResetPasswordScene from './scenes/ResetPasswordScene'
 import SignupScene from './scenes/SignupScene'
 import ADRScene from './scenes/ADRScene'
 import SAEFormScene from './scenes/SAEFormScene'
@@ -85,6 +86,9 @@ const AuthRoutes = {
   },
   SignupScene: {
     screen : SignupScene
+  },
+  ResetPasswordScene : {
+    screen : ResetPasswordScene
   }
 }
 
