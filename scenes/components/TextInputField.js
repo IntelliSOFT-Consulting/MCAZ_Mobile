@@ -53,7 +53,6 @@ export default class TextInputField extends Component {
           value={ this.state.value } baseColor={ "rgba(0, 0, 0, .80)" }
           onChangeText={ (text) => this.handleChange(text) } tintColor={ tintColorValue }
         />
-
       </View>
     )
   }

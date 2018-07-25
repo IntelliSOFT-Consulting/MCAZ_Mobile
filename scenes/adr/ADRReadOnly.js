@@ -4,6 +4,7 @@ import ReadOnlyDataRenderer from '../components/ReadOnlyDataRenderer'
 import MedicationTableComponent from '../components/MedicationTableComponent'
 import FileAttachmentComponent from '../components/FileAttachmentComponent'
 import ConcomitantTableComponent from '../components/ConcomitantTableComponent'
+import ReactionsComponent from '../components/ReactionsComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
@@ -39,6 +40,7 @@ export default class ADRReadOnly extends Component{
         <ReadOnlyDataRenderer model={ model } name="date_of_end_of_reaction" label="Date of end of reaction (If ended)" type="date"/>
 
         <ReadOnlyDataRenderer model={ model } name="description_of_reaction" label="Description of ADR" type="text"/>
+        <ReactionsComponent model={ model } name="reactions" readonly={ true }/>
         <ReadOnlyDataRenderer model={ model } name="severity" label="Serious " required={ true } type="text" options={ BOOLEAN_OPTIONS }/>
         <ReadOnlyDataRenderer model={ model } name="severity_reason" label="Reason for Seriousness"  type="text" options={ SEVERITY_REASON }/>
         <ReadOnlyDataRenderer model={ model } name="medical_history" label="Relevant medical history" type="text" />

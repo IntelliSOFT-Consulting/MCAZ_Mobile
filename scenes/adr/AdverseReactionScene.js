@@ -9,6 +9,7 @@ import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import DateTimeInput from '../components/DateTimeInput'
 import DateSelectInput from '../components/DateSelectInput'
+import ReactionsComponent from '../components/ReactionsComponent'
 
 import { SEVERITY_REASON, BOOLEAN_OPTIONS } from '../../utils/FieldOptions'
 
@@ -33,6 +34,7 @@ export default class AdverseReactionScene extends PureComponent {
 
         <TextInputField model={ model } name="description_of_reaction" label="Description of ADR" multiline = {true}
          numberOfLines = {4} required={ true }/>
+        <ReactionsComponent model={ model } name="reactions" />
        <SelectOneField model={ model } name="severity" label="Serious " required={ true } options={ BOOLEAN_OPTIONS } onChange={ this.onSeverityChange }/>
         { severityReason }
         <TextInputField model={ model } name="medical_history" label="Relevant medical history, including any allergies" multiline = {true}
