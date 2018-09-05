@@ -75,12 +75,12 @@ class MainScene extends Component {
 
   uploadReports() {
     const { uploadCompletedReports, completed, connection, token } = this.props
-    if(!connection.isConnected) {
-      //Alert.alert("Warning", "You are currently offline.")
-      //return
-    }
     if(completed.length == 0) {
       Alert.alert("Info", "No reports to upload.")
+      return
+    }
+    if(!connection.isConnected) {
+      Alert.alert("Warning", "You are currently offline.")
       return
     }
     uploadCompletedReports(completed, token)

@@ -148,6 +148,8 @@ export const ROUTE = [ {"key":"1", value: ""},{"key":"2","value":"oral"},{"key":
 
 export const FREQUENCY = [{"key":"1", value: ""},{"key":"2","value":"OD (once daily)"},{"key":"3","value":"BD (twice daily)"},{"key":"4","value":"TID. (three times a day)"},{"key":"5","value":"QID|QDS (four times a day)"},{"key":"6","value":"PRN (as needed)"},{"key":"7","value":"MANE (in the morning)"},{"key":"8","value":"NOCTE (at night)"},{"key":"9","value":"STAT (immediately)"}]
 
+export const SAE_FREQUENCY = [{"key":"1", value: ""},{"key":"2","value":"OD (once daily)"},{"key":"3","value":"BD (twice daily)"},{"key":"4","value":"TID. (three times a day)"},{"key":"5","value":"QID|QDS (four times a day)"},{"key":"6","value":"PRN (as needed)"},{"key":"7","value":"MANE (in the morning)"},{"key":"8","value":"NOCTE (at night)"},{"key":"9","value":"STAT (immediately)"},{"key":"10","value":"Weekly"},{"key":"11", "value" :"Monthly" }]
+
 export const DESIGNATION = [ { key : "", value: ""},
   { key : "1", value: "Physician"}, { key : "2", value: "Therapist"}, { key : "3", value : "Nurse" },{ key : "4", value: "Pharmacy Technician"}, { key : "5", value: "Clinical Laboratory Technician"}, { key : "6", value: "Pharmacist"},
   { key : "7", value: "Health Information Technician"}, { key : "8", value: "Family Practitioner"}, { key : "9", value: "Dentist"}, { key : "10", value: "Occupational Therapist"}, { key : "11", value: "Ophthalmologist"}, { key : "12", value: "Veterinary surgeon"},

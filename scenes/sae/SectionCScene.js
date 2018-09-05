@@ -12,7 +12,7 @@ import SAEDrugsTableComponent from '../components/SAEDrugsTableComponent'
 import SAEConcomitantTableComponent from '../components/SAEConcomitantTableComponent'
 import LabsTableComponent from '../components/LabsTableComponent'
 
-import { BOOLEAN_OPTIONS } from '../../utils/FieldOptions'
+import { BOOLEAN_OPTIONS, OUTCOME } from '../../utils/FieldOptions'
 
 export default class SectionCScene extends PureComponent {
   state = {}
@@ -62,8 +62,8 @@ export default class SectionCScene extends PureComponent {
         <TextInputField label="(f) Management (Include management of study treatment, continued,
             temporarily held, reduced dose, permanent discontinuation, off Product):" multiline = {true}
           numberOfLines = {4} model={ model } validate={ this.state.validate } required={ true } name="management" tintColor="rgba(0, 0, 0, .60)"/>
-        <TextInputField label="(g) Outcome:" multiline = {true} model={ model } validate={ this.state.validate } required={ true } name="outcome"
-          numberOfLines = {4} tintColor="rgba(0, 0, 0, .60)"/>
+        <SelectOneField label="(g) Outcome:" multiline = {true} model={ model } validate={ this.state.validate } required={ true } name="outcome"
+          numberOfLines = {4} tintColor="rgba(0, 0, 0, .60)" options={ OUTCOME }/>
         <Text>NB If the outcome is death, please complete &amp; attach the death form.</Text>
 
         <View style={ AppStyles.rowButtons }>

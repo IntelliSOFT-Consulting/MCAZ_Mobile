@@ -71,7 +71,7 @@ class LoginScene extends Component {
         <Image source={ require("../images/mcaz_3.png") } resizeMode="contain" style={{ width : width - 20 }} />
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <TextField {...this.props}
-          label="Email/Username"
+          label="Email"
           value={ this.state.email } keyboardType="email-address"
           onChangeText={ (text) => this.handleChange("email", text) }
         />

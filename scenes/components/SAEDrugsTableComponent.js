@@ -9,7 +9,7 @@ import TextInputField from './TextInputField'
 
 import AppStyles from '../../styles/AppStyles'
 
-import { DOSE, RELATIONSHIP_SAE, ROUTE, FREQUENCY, BOOLEAN_OPTIONS } from '../../utils/FieldOptions'
+import { DOSE, RELATIONSHIP_SAE, ROUTE, SAE_FREQUENCY, BOOLEAN_OPTIONS } from '../../utils/FieldOptions'
 
 export default class SAEDrugsTableComponent extends TableComponent {
 
@@ -29,7 +29,7 @@ export default class SAEDrugsTableComponent extends TableComponent {
       <TextInputField key={Math.floor(Math.random() * 100000000)} name="dosage" model={ model[name][index] }/>,
       <SelectOneField key={Math.floor(Math.random() * 100000000)} name="dose_id" model={ model[name][index] } options={ DOSE }/>,
       <SelectOneField key={Math.floor(Math.random() * 100000000)} name="route_id" model={ model[name][index] } options={ ROUTE }/>,
-      <SelectOneField key={Math.floor(Math.random() * 100000000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY }/>,
+      <SelectOneField key={Math.floor(Math.random() * 100000000)} name="frequency_id" model={ model[name][index] } options={ SAE_FREQUENCY }/>,
       <DateTimeInput key={Math.floor(Math.random() * 100000000)} name="start_date" model={ model[name][index] }/>,
       <SelectOneField options={ BOOLEAN_OPTIONS } key={Math.floor(Math.random() * 10000000)} name="taking_drug" model={ model[name][index] }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE } model={ model[name][index] }/>,
@@ -51,7 +51,7 @@ export default class SAEDrugsTableComponent extends TableComponent {
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] }/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE } type="option"/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE } type="option"/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY } type="option"/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ SAE_FREQUENCY } type="option"/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] } type="date" />,
       <ReadOnlyDataRenderer options={ BOOLEAN_OPTIONS } key={Math.floor(Math.random() * 10000)} name="taking_drug" model={ model[name][index] } type="option"/>,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE } model={ model[name][index] } type="option"/>

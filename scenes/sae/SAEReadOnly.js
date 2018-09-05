@@ -9,7 +9,8 @@ import LabsTableComponent from '../components/LabsTableComponent'
 import AppStyles from '../../styles/AppStyles'
 
 import { SEVERITY_REASON, OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR, DESIGNATION, REPORT_TYPE_SAE, BOOLEAN_NA_OPTIONS,
- SAE_TOXICITY_GRADE, EVENT_TYPE, SAE_EVENT_TYPE, BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, LOCATION_ADVERSE_EVENT, RESEARCH_INVOLVES
+ SAE_TOXICITY_GRADE, EVENT_TYPE, SAE_EVENT_TYPE, BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, LOCATION_ADVERSE_EVENT,
+ RESEARCH_INVOLVES
  } from '../../utils/FieldOptions'
 
 import { REPORT_TYPE_SAE_FOLLOW_UP } from "../../utils/Constants"
@@ -96,8 +97,8 @@ export default class SAEReadOnly extends Component{
         <ReadOnlyDataRenderer label="(f) Management (Include management of study treatment, continued,
               temporarily held, reduced dose, permanent discontinuation, off Product):" multiline = {true}
             numberOfLines = {4} model={ model } name="management"/>
-        <ReadOnlyDataRenderer label="(g) Outcome:" multiline = {true} model={ model } name="outcome"
-            numberOfLines = {4}/>
+        <ReadOnlyDataRenderer type="option" label="(g) Outcome:" multiline = {true} model={ model } name="outcome"
+            numberOfLines = {4} options={ OUTCOME }/>
         <Text>NB If the outcome is death, please complete &amp; attach the death form.</Text>
 
         <ReadOnlyDataRenderer label="D1. Was this Adverse Event originally addressed in the protocol and consent form?" model={ model } name="d1_consent_form" options={ BOOLEAN_NA_OPTIONS }/>
@@ -113,7 +114,7 @@ export default class SAEReadOnly extends Component{
             risks and benefits to the subjects in this research." model={ model } name="assess_risk" options={ ["Yes", "No"] }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => goBack() } title="Close"/>
-          
+
         </View>
 
       </ScrollView>

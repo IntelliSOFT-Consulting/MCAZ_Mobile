@@ -9,7 +9,7 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View, NetInfo
 } from 'react-native';
 
 import MainScene  from './scenes/MainScene'
@@ -35,7 +35,7 @@ import SAEFollowupScene from "./scenes/SAEFollowupScene"
 
 import { StackNavigator, addNavigationHelpers, DrawerNavigator } from 'react-navigation'
 
-import { setCurrentRouteName } from './actions'
+import { setCurrentRouteName, changeConnection } from './actions'
 
 import { Provider } from 'react-redux'
 import pvStore from './store'
@@ -215,6 +215,7 @@ export default class App extends Component<{}> {
   constructor(props, context) {
     super(props, context)
     this._getCurrentRouteName = this._getCurrentRouteName.bind(this)
+    this.changeConnection = this.changeConnection.bind(this)
   }
   render() {
     return (
@@ -247,5 +248,18 @@ export default class App extends Component<{}> {
       Crashlytics.logException(args);
       // other custom handler
     };
+  }
+
+  changeConnection(isConnected) {
+    console.log(isConnected)
+    store.dispatch(changeConnection(isConnected))
+  }
+
+  componentDidMount() {
+    NetInfo.isConnected.fetch().then(isConnected => {
+      store.dispatch(changeConnection(isConnected))
+    }).done(() => {
+      NetInfo.isConnected.addEventListener('connectionChange', this.changeConnection);
+    });
   }
 }

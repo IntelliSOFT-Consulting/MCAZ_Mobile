@@ -61,7 +61,7 @@ export default class PatientReporterDetailsScene extends PureComponent {
         <TextInputField label="Patient’s physical address:" name="patient_address" model={ model } required={ true }/>
         <TextInputField label="Patient Telephone:" keyboardType="phone-pad" name="patient_telephone" model={ model }/>
         <SelectOneField label="Gender:" name="gender" model={ model } options={ GENDER }/>
-        <DateSelectInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model } required={ true } maxDate={ new Date() } onDateChange={ this.validateDateofBirth } value={ this.state.date_of_birth }/>
+        <DateTimeInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model } required={ true } maxDate={ new Date() } onDateChange={ this.validateDateofBirth } value={ this.state.date_of_birth }/>
         <AgeAtOnsetInput label="OR Age at onset" name="age_at_onset" model={ model } options={ AGE_ON_ONSET } value={ this.state.age_at_onset } onChange={ this.validateAge }/>
         <TextInputField label="Reporter’s Name:" name="reporter_name" model={ model } required={ true }/>
         <SelectOneField label="Designation:" name="designation_id" model={ model } options={ DESIGNATION }/>
