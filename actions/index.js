@@ -181,7 +181,8 @@ export const signUp = (data) => {
         const user = Object.assign({}, json.user, { token : json.token})
         dispatch(loggedIn(user))
       } else {
-        dispatch(setNotification({ message : messages.signup_error, level: "error", id: new Date().getTime() }))
+        let message = json.message != null? json.message : messages.signup_error
+        dispatch(setNotification({ message : message, level: "error", id: new Date().getTime() }))
       }
     }).catch((error) => {
       dispatch(setNotification({ message : messages.connection_error, level: "error", id: new Date().getTime() }))
