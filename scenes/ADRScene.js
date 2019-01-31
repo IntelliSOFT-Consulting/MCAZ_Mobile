@@ -130,6 +130,11 @@ class ADRScene extends PureComponent {
     var valid = true
     var names = ""
     var page = 0
+    // Validate the weight should not be less than 0
+    if(Number(model['weight']) < 0) {
+      valid = false;
+      names += '\nWeight, should not be less than 0.'
+    }
     this.mandatory.forEach((field) => {
       if(field.fields) {
         const fields = field.fields

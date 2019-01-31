@@ -51,7 +51,7 @@ export default class PatientDetails extends PureComponent {
         <DateTimeInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate } maxDate={ new Date() } onDateChange={ this.onDateChange } value={ this.state.date_of_birth }/>
         <TextInputField name="age" model={ model } keyboardType="numeric"  label="OR Age" onChange={ this.onAgeChange } value={ this.state.age }/>
 
-        <TextInputField name="weight" model={ model } label="Weight(Kg)" keyboardType='numeric'/>
+        <TextInputField name="weight" model={ model } label="Weight(Kg)" keyboardType='numeric' required={ true } validate={ this.props.validate }/>
         <TextInputField name="height" model={ model } label="Height(cm)" keyboardType='numeric'/>
         <SelectOneField name="gender" model={ model } label="Gender" options={ GENDER } required={ true } validate={ this.props.validate }/>
         <View style={ AppStyles.rowButtons }>
