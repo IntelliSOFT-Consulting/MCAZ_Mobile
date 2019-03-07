@@ -43,6 +43,8 @@ export default class AdverseReactionScene extends PureComponent {
           numberOfLines = {4}/>
         <TextInputField model={ model } name="lab_test_results" label="Laboratory test results" multiline = {true}
           numberOfLines = {4}/>
+        <TextInputField model={ model } name="any_other_information" label="Any other information" multiline = {true}
+          numberOfLines = {4}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(3) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Cancel"/>

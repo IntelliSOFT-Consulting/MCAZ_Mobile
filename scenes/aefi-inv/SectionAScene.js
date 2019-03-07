@@ -47,7 +47,7 @@ export default class SectionAScene extends PureComponent {
         <TextInputField label="Email:" keyboardType = 'email-address' model={ model } name="reporter_email"/>
         <DateTimeInput label="Date AEFI reported:" model={ model } name="report_date" maxDate={ new Date() } onChange={ this.onChange }/>
         <DateTimeInput label="Date investigation started:" model={ model } name="start_date" maxDate={ new Date() } minDate={ this.state.report_date } onChange={ this.onChange }/>
-        <DateTimeInput label="Date investigation completed:" model={ model } name="complete_date" maxDate={ new Date() } minDate={ this.state.start_date}/>
+        <DateTimeInput label="Date investigation completed:" model={ model } name="complete_date" maxDate={ new Date() } minDate={ this.state.start_date }/>
         <TextInputField label="Patient Name:" model={ model } name="patient_name"/>
         <SelectOneField label="Gender:" model={ model } name="gender" options={ GENDER }/>
         <TextInputField label="Patient’s physical address" model={ model } name="patient_address"/>
@@ -58,7 +58,7 @@ export default class SectionAScene extends PureComponent {
         <Text style={ AppStyles.boldText }>Vaccine/Dilutent</Text>
         <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" label="Vaccine"/>
 
-        <DateTimeInput label="Date of first/key symptom (DD/MM/YYYY)" model={ model } name="hospitalization_date" maxDate={ new Date() } showTime={ true }/>
+        <DateTimeInput label="Date of first/key symptom (DD/MM/YYYY)" model={ model } name="hospitalization_date" maxDate={ this.state.complete_date } showTime={ true }/>
         <DateTimeInput label="Date of hospitalization (DD/MM/YYYY):" model={ model } name="hospitalization_date" maxDate={ new Date() }/>
         <SelectOneField label="Status on the date of investigation:" model={ model } name="status_on_date" options={ STATUS_ON_DATE }/>
         <DateTimeInput label="If died, date and time of death:" model={ model } name="died_date" maxDate={ new Date() } onChange={ this.onChange } showTime={ true }/>

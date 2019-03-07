@@ -38,7 +38,9 @@ export default class SelectOneField extends Component {
     }
     this.setState({ value, label })
     if(onChange) {
-      onChange(model[name])
+      const val = {}
+      val[name] = value
+      onChange(val)
     }
   }
 
