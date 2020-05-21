@@ -15,11 +15,11 @@ const completed = (state = [], action) => {
       }
       return [...state]
     case REMOVE_COMPLETED_REPORT:
-      const newReport = action.data
+      const report = action.data
       if(state.length == 0){
         return state
       }
-      return state.filter((report) => report.rid != newReport.rid)
+      return state.filter((r) => r.rid != report.rid)
     case REMOVE_COMPLETED_REPORTS:
       return []
     default:

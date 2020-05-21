@@ -4,7 +4,7 @@ import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, logout, fetchReport, setReport, fetchNews, removeCompletedReports, archiveData } from '../actions'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
-import RNFetchBlob from 'react-native-fetch-blob'
+var RNFS = require('react-native-fs');
 
 import SelectOneField from './components/SelectOneField'
 import TextInputField from './components/TextInputField'
@@ -119,8 +119,8 @@ class MainScene extends Component {
 
   saveFiles = (completed) => {
     var x2js = new X2JS()
-    const dirs = RNFetchBlob.fs.dirs
-    const fs = RNFetchBlob.fs
+    // const dirs = RNFetchBlob.fs.dirs
+    // const fs = RNFetchBlob.fs
     const date = new Date()
     const name = date.getFullYear() + pad(date.getMonth() + 1) + pad(date.getDate()) + pad(date.getHours()) + pad(date.getMinutes()) + pad(date.getSeconds()) + ".xml"// new Date().toString().split(/ /).join('_') + '.xml'
 
@@ -130,7 +130,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.sadrs = sadrs
       const string = x2js.json2xml_str(output) //xmls.join("")
-      fs.createFile(dirs.DocumentDir + '/sadrs_' + name, string, 'utf8')
+      RNFS.writeFile(RNFS.DocumentDirectoryPath + '/sadrs_' + name, string, 'utf8')
       files.push('sadrs_' + name)
     }
     var adrs = completed.filter(report => report.type == REPORT_TYPE_SAE)
@@ -138,7 +138,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.adrs = adrs
       const string = x2js.json2xml_str(output) //xmls.join("")
-      fs.createFile(dirs.DocumentDir + '/adrs_' + name, string, 'utf8')
+      RNFS.writeFile(RNFS.DocumentDirectoryPath + '/adrs_' + name, string, 'utf8')
       files.push('adrs_' + name)
     }
 
@@ -147,7 +147,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.aefis = aefis
       const string = x2js.json2xml_str(output) //xmls.join("")
-      fs.createFile(dirs.DocumentDir + '/aefis_' + name, string, 'utf8')
+      RNFS.writeFile(RNFS.DocumentDirectoryPath + '/aefis_' + name, string, 'utf8')
       files.push('aefis_' + name)
     }
 
@@ -156,7 +156,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.saefis = saefis
       const string = x2js.json2xml_str(output) //xmls.join("")
-      fs.createFile(dirs.DocumentDir + '/saefis_' + name, string, 'utf8')
+      RNFS.writeFile(RNFS.DocumentDirectoryPath + '/saefis_' + name, string, 'utf8')
       files.push('saefis_' + name)
     }
     return files

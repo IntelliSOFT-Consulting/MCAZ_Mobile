@@ -20,11 +20,11 @@ const uploaded = (state = [], action) => {
       }
       return state
     case REMOVE_UPLOADED_REPORT:
-      const newReport = action.data
+      const report = action.data
       if(state.length == 0){
         return state
       }
-      return state.filter((report) => report.rid != newReport.rid)
+      return state.filter((r) => report.rid != r.rid)
     default:
       return state // The main page is the default page.
 

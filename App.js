@@ -42,8 +42,8 @@ import pvStore from './store'
 
 import { PersistGate } from 'redux-persist/lib/integration/react'
 
-var Fabric = require('react-native-fabric')
-var { Crashlytics } = Fabric
+// var Fabric = require('react-native-fabric')
+// var { Crashlytics } = Fabric
 
 /**
   Main Screen routes.
@@ -245,7 +245,7 @@ export default class App extends Component<{}> {
   componentWillMount() {
     ErrorUtils._globalHandler = function(...args){
       defaultHandler(...args);
-      Crashlytics.logException(args);
+      // Crashlytics.logException(args);
       // other custom handler
     };
   }
