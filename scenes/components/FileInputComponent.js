@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView, Button } from 'react-native'
 
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
-import RNFetchBlob from 'react-native-fetch-blob'
+const RNFS = require('react-native-fs');
 
 export default class FileInputComponent extends Component{
 
@@ -30,12 +30,11 @@ export default class FileInputComponent extends Component{
          res.fileName,
          res.fileSize
       );
-      model['filename'] = res.fileName
-      RNFetchBlob.fs.readFile(res.uri, 'base64')
-      .then((data) => {
+      model['filename'] = res.fileName;
+      RNFS.readFile(res.uri, 'base64').then((data) => {
         model['file'] = 'data:' + res.type + ';base64,' + data
         this.setState({ filename : model['filename']})
-      })
+      });
     });
   }
   render() {
