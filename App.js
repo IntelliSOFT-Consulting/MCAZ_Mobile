@@ -9,9 +9,9 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View, NetInfo
+  View, SafeAreaView, StatusBar
 } from 'react-native';
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import MainScene  from './scenes/MainScene'
 import LoginScene  from './scenes/LoginScene'
 import ResetPasswordScene from './scenes/ResetPasswordScene'
@@ -40,7 +40,8 @@ import { setCurrentRouteName, changeConnection } from './actions'
 import { Provider } from 'react-redux'
 import pvStore from './store'
 
-import { PersistGate } from 'redux-persist/lib/integration/react'
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import NetInfo, { NetInfoSubscription } from "@react-native-community/netinfo";
 
 // var Fabric = require('react-native-fabric')
 // var { Crashlytics } = Fabric
@@ -219,15 +220,17 @@ export default class App extends Component<{}> {
   }
   render() {
     return (
-      <Provider store={store}>
-        <PersistGate persistor={ persistor } store={ store } loading={ <LoadingScene /> }>
-          <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
-            onNavigationStateChange={(prevState, currentState) => {
-            this._getCurrentRouteName(currentState)
-          }}
-            />
-        </PersistGate>
-      </Provider>
+      <>
+        <Provider store={store}>
+            <PersistGate persistor={ persistor } store={ store } loading={ <LoadingScene /> }>
+              <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
+                onNavigationStateChange={(prevState, currentState) => {
+                this._getCurrentRouteName(currentState)
+              }}
+                />
+            </PersistGate>
+        </Provider>
+      </>
     )
   }
 
@@ -239,27 +242,25 @@ export default class App extends Component<{}> {
     }
   }
 
-  /**
-    Handle crash reporting.
-  */
-  componentWillMount() {
-    ErrorUtils._globalHandler = function(...args){
-      defaultHandler(...args);
-      // Crashlytics.logException(args);
-      // other custom handler
-    };
-  }
-
   changeConnection(isConnected) {
     console.log(isConnected)
     store.dispatch(changeConnection(isConnected))
   }
 
   componentDidMount() {
-    NetInfo.isConnected.fetch().then(isConnected => {
+    ErrorUtils._globalHandler = function(...args){
+      defaultHandler(...args);
+      // Crashlytics.logException(args);
+      // other custom handler
+    };
+    NetInfo.addEventListener(state => {
+      store.dispatch(changeConnection(state.isConnected))
+      console.log(state.type);
+    });
+    /*NetInfo.isConnected.fetch().then(isConnected => {
       store.dispatch(changeConnection(isConnected))
     }).done(() => {
       NetInfo.isConnected.addEventListener('connectionChange', this.changeConnection);
-    });
+    });*/
   }
 }
