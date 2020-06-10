@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
-import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import AppStyles from '../styles/AppStyles'
 import SectionAScene from './sae/SectionAScene'
 import SectionBScene from './sae/SectionBScene'
@@ -88,7 +88,7 @@ class SAEScene extends PureComponent {
 
   render() {
     return (
-      <TabViewAnimated
+      <TabView
         style={[AppStyles.container, this.props.style]}
         navigationState={this.state}
         renderScene={this._renderScene}

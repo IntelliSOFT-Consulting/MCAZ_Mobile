@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, StyleSheet, Alert, ScrollView, Button, Text } from 'react-native';
-import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import AppStyles from '../styles/AppStyles'
 import TextInputField from './components/TextInputField'
 import SelectOneField from './components/SelectOneField'

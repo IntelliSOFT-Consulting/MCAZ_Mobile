@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
-import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import Toast, { DURATION } from 'react-native-easy-toast'
 
 import AppStyles from '../styles/AppStyles'
@@ -100,14 +100,13 @@ class ADRScene extends PureComponent {
 
   render() {
     return (
-      <TabViewAnimated
+      <TabView
         style={[AppStyles.container, this.props.style]}
         navigationState={this.state}
         renderScene={this._renderScene}
         renderHeader={this._renderHeader}
         onIndexChange={this._handleIndexChange}
         changeRoute={this._updateRoute.bind(this)}
-
       />
     );
   }

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
-import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import AppStyles from '../styles/AppStyles'
 import PatientReporterDetailsScene from './aefi-report/PatientReporterDetailsScene'
 import AdverseEventsScene from './aefi-report/AdverseEventsScene'
@@ -81,7 +81,7 @@ class AEFIReportingFormScene extends PureComponent {
 
   render() {
     return (
-      <TabViewAnimated
+      <TabView
         style={[AppStyles.container, this.props.style]}
         navigationState={this.state}
         renderScene={this._renderScene}
