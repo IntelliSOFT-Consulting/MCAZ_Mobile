@@ -67,7 +67,11 @@ export default AppStyles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   tablabelStyle: {
-    color: '#000000'
+    color: '#ffffff'
+  },
+  tabStyle: {
+    width: 'auto',
+    backgroundColor: '#2196F3'
   },
   headerText : {
     fontSize: 30,

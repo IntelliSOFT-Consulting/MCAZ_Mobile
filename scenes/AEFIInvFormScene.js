@@ -89,7 +89,10 @@ class AEFIInvFormScene extends PureComponent {
 
   _handleIndexChange = index => this.setState({ index });
 
-  _renderHeader = props => <TabBar {...props} scrollEnabled style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
+_renderHeader = props => { 
+  console.log(props);
+  return (<TabBar {...props} scrollEnabled={true} tabStyle={AppStyles.tabStyle} style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />)
+};
 
   _renderScene = SceneMap({
     '1': () => <SectionAScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } followUp={ this.state.followUp }/>,
@@ -109,7 +112,7 @@ class AEFIInvFormScene extends PureComponent {
         style={[AppStyles.container, this.props.style]}
         navigationState={this.state}
         renderScene={this._renderScene}
-        renderHeader={this._renderHeader}
+        renderTabBar={this._renderHeader}
         onIndexChange={this._handleIndexChange}
       />
     );

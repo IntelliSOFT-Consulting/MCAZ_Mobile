@@ -221,15 +221,18 @@ export default class App extends Component<{}> {
   render() {
     return (
       <>
-        <Provider store={store}>
-            <PersistGate persistor={ persistor } store={ store } loading={ <LoadingScene /> }>
-              <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
-                onNavigationStateChange={(prevState, currentState) => {
-                this._getCurrentRouteName(currentState)
-              }}
-                />
-            </PersistGate>
-        </Provider>
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView style={{flex: 1}}>
+          <Provider store={store}>
+              <PersistGate persistor={ persistor } store={ store } loading={ <LoadingScene /> }>
+                <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
+                  onNavigationStateChange={(prevState, currentState) => {
+                  this._getCurrentRouteName(currentState)
+                }}
+                  />
+              </PersistGate>
+          </Provider>
+        </SafeAreaView>
       </>
     )
   }

@@ -88,7 +88,7 @@ class ADRScene extends PureComponent {
 
   _updateRoute = index => this.setState({ index })
 
-  _renderHeader = props => <TabBar {...props} scrollEnabled style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
+  _renderHeader = props => <TabBar {...props} scrollEnabled tabStyle={AppStyles.tabStyle} style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
 
   _renderScene = SceneMap({
     '1' : () => <PatientDetails model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } followUp={ this.state.followUp }/>,
@@ -104,7 +104,7 @@ class ADRScene extends PureComponent {
         style={[AppStyles.container, this.props.style]}
         navigationState={this.state}
         renderScene={this._renderScene}
-        renderHeader={this._renderHeader}
+        renderTabBar={this._renderHeader}
         onIndexChange={this._handleIndexChange}
         changeRoute={this._updateRoute.bind(this)}
       />
