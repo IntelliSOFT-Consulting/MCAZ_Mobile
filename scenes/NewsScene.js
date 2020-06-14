@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, Button, View, WebView, ScrollView, NetInfo, BackHandler } from 'react-native';
+import { Text, StyleSheet, Button, View, ScrollView, NetInfo, BackHandler } from 'react-native';
 import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, login } from '../actions'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
+import { WebView } from 'react-native-webview';
 
 import { TextField } from 'react-native-material-textfield'
 
