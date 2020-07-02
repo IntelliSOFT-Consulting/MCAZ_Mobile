@@ -21,7 +21,7 @@ export default class Medication extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel } = this.props
     return (
-      <KeyboardAwareScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
+      <KeyboardAwareScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] } keyboardShouldPersistTaps={'handled'}>
         <Text style={ AppStyles.boldText }>Current Medication</Text>
         <MedicationTableComponent model={ model } name="sadr_list_of_drugs"/>
 

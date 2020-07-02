@@ -16,7 +16,7 @@ export default class ReporterDetailsScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, saveAndSubmit, user } = this.props
     return (
-      <KeyboardAwareScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ]  }>
+      <KeyboardAwareScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ]  } keyboardShouldPersistTaps={'handled'}>
         <TextInputField model={ model } name="reporter_name" label="Reporter name: " required={ true }/>
         <SelectOneField model={ model } name="designation_id" label="Designation" options={ DESIGNATION } required={ true }/>
         <TextInputField model={ model } name="reporter_email" label="Reporter email " keyboardType = 'email-address' required={ true }/>

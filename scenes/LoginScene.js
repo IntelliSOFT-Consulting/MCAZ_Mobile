@@ -67,7 +67,7 @@ class LoginScene extends Component {
     var {height, width} = Dimensions.get('window')
     const completedCount = this.props.completed.length
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ AppStyles.scrollContainer } keyboardShouldPersistTaps={'handled'}>
         <Image source={ require("../images/mcaz_3.png") } resizeMode="contain" style={{ width : width - 20 }} />
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <TextField {...this.props}
@@ -154,13 +154,6 @@ class LoginScene extends Component {
       })
       this.props.navigation.dispatch(navigateAction)
       //navigate("Main")
-    }
-    const { notification } = this.props
-    const nextNotification = nextProps.notification
-    if(this.props.currentRoute != null && this.props.currentRoute.name == this.props.navigation.state.routeName) {
-      if(nextNotification && ((notification && notification.id != nextNotification.id) || notification == null)) {
-        this.showAlert(nextNotification)
-      }
     }
   }
 

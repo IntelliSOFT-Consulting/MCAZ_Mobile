@@ -17,7 +17,7 @@ export default class SectionCScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
         <SelectOneField label="Source of information" model={ model } name="source_examination" options={ SOURCE_INFO }/>
         <TextInputField label="Other" model={ model } name="source_other_specify"/>
         <TextInputField label="If from verbal autopsy, please mention source" model={ model } name="verbal_source"/>

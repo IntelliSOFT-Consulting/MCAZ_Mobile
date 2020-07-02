@@ -27,7 +27,7 @@ export default class AdverseReactionScene extends PureComponent {
     const severityReason = model['severity'] == 'Yes'? (<SelectOneField model={ model } name="severity_reason" label="Reason for Seriousness" options={ SEVERITY_REASON }/>) :
     null
     return (
-      <KeyboardAwareScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ]  }>
+      <KeyboardAwareScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ]  } keyboardShouldPersistTaps={'handled'}>
         <Text style={ AppStyles.boldText }>Adverse Reaction</Text>
         <DateTimeInput model={ model } name="date_of_onset_of_reaction" label="Date of onset" required={ true } onChange={ this.onChange } maxDate={ new Date() }/>
         <DateTimeInput model={ model } name="date_of_end_of_reaction" label="Date of end of reaction (If ended)" maxDate={ new Date() } minDate={ this.state.date_of_onset_of_reaction }/>

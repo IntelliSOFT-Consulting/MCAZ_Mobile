@@ -8,10 +8,11 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  Text,
+  Alert,
   View, SafeAreaView, StatusBar
 } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { connect } from 'react-redux'
 import MainScene  from './scenes/MainScene'
 import LoginScene  from './scenes/LoginScene'
 import ResetPasswordScene from './scenes/ResetPasswordScene'
@@ -20,7 +21,7 @@ import ADRScene from './scenes/ADRScene'
 import SAEFormScene from './scenes/SAEFormScene'
 import AEFIInvFormScene from './scenes/AEFIInvFormScene'
 import AEFIReportingFormScene from './scenes/AEFIReportingFormScene'
-import LoadingScene from './scenes/components/LoadingScene'
+
 import SavedReportsScene from './scenes/SavedReportsScene'
 import ReportsListScene from './scenes/ReportsListScene'
 import ReadOnlyReportScene from './scenes/ReadOnlyReportScene'
@@ -35,12 +36,7 @@ import SAEFollowupScene from "./scenes/SAEFollowupScene"
 
 import { StackNavigator, addNavigationHelpers, DrawerNavigator } from 'react-navigation'
 
-import { setCurrentRouteName, changeConnection } from './actions'
-
-import { Provider } from 'react-redux'
-import pvStore from './store'
-
-import { PersistGate } from 'redux-persist/lib/integration/react';
+import { setCurrentRouteName, changeConnection, setNotification } from './actions'
 import NetInfo, { NetInfoSubscription } from "@react-native-community/netinfo";
 
 // var Fabric = require('react-native-fabric')
@@ -199,12 +195,9 @@ const MainAppRoutes = {
   }
 }
 
-const { store, persistor} = pvStore({})
-
-const initial = (store.getState() != null && store.getState().token != null)? 'Main' : 'Auth'
-
+// const initial = (store.getState() != null && store.getState().token != null)? 'Main' : 'Auth'
 const MainAppNavigator = StackNavigator(MainAppRoutes, {
-  initialRouteName : initial, headerMode: "none", mode : 'modal', navigationOptions: {
+  initialRouteName : 'Auth', headerMode: "none", mode : 'modal', navigationOptions: {
     headerStyle: {
       elevation: 0,
       shadowOpacity: 0
@@ -212,7 +205,7 @@ const MainAppNavigator = StackNavigator(MainAppRoutes, {
   }
 })
 
-export default class App extends Component<{}> {
+class App extends Component<{}> {
   constructor(props, context) {
     super(props, context)
     this._getCurrentRouteName = this._getCurrentRouteName.bind(this)
@@ -223,15 +216,11 @@ export default class App extends Component<{}> {
       <>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView style={{flex: 1}}>
-          <Provider store={store}>
-              <PersistGate persistor={ persistor } store={ store } loading={ <LoadingScene /> }>
-                <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
+          <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
                   onNavigationStateChange={(prevState, currentState) => {
                   this._getCurrentRouteName(currentState)
                 }}
-                  />
-              </PersistGate>
-          </Provider>
+          />
         </SafeAreaView>
       </>
     )
@@ -241,13 +230,13 @@ export default class App extends Component<{}> {
     if (navState.hasOwnProperty('index')) {
         this._getCurrentRouteName(navState.routes[navState.index])
     } else {
-        store.dispatch(setCurrentRouteName(navState.routeName))
+      this.props.setCurrentRouteName(navState.routeName)
     }
   }
 
   changeConnection(isConnected) {
     console.log(isConnected)
-    store.dispatch(changeConnection(isConnected))
+    this.props.changeConnection(isConnected);
   }
 
   componentDidMount() {
@@ -257,7 +246,7 @@ export default class App extends Component<{}> {
       // other custom handler
     };
     NetInfo.addEventListener(state => {
-      store.dispatch(changeConnection(state.isConnected))
+      this.props.changeConnection(state.isConnected)
       console.log(state.type);
     });
     /*NetInfo.isConnected.fetch().then(isConnected => {
@@ -266,4 +255,39 @@ export default class App extends Component<{}> {
       NetInfo.isConnected.addEventListener('connectionChange', this.changeConnection);
     });*/
   }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.userID !== prevProps.userID) {
+      this.fetchData(this.props.userID);
+    }
+
+    const { notification } = this.props
+    const prevNotification = prevProps.notification
+    if (notification && (!prevNotification || (prevNotification.id != notification.id))) {
+      Alert.alert("info", notification.message, [
+        { text: 'OK', onPress: () => this.props.setNotification({ id: null, message: null })}
+      ])
+    }
+  }
 }
+
+const mapStateToProps = state => {
+  return {
+    notification: state.appState.notification,
+    token: state.appState.token
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setNotification: () => {
+      dispatch(setNotification())
+    },
+    changeConnection: (connection) => dispatch(changeConnection(connection)),
+    setCurrentRouteName: (routeName) => dispatch(setCurrentRouteName(routeName)),
+    dispatch: dispatch
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

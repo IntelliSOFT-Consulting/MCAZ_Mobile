@@ -40,7 +40,7 @@ export default class PatientDetails extends PureComponent {
     const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
 
     return (
-      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.adrBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.adrBackground] } keyboardShouldPersistTaps={'handled'}>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
         <Text style={ AppStyles.boldText }>Patient Details</Text>

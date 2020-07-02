@@ -39,7 +39,7 @@ class ResetPasswordScene extends Component {
 
   render() {
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ AppStyles.scrollContainer } keyboardShouldPersistTaps={'handled'}>
         <Text style={ AppStyles.headerText }>Medicines Control Authourity of Zimbabwe</Text>
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <TextField {...this.props}

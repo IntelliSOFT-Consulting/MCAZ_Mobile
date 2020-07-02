@@ -53,7 +53,7 @@ export default class PatientReporterDetailsScene extends PureComponent {
     const { model, saveAndContinue, cancel, followUp } = this.props
     const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
     return (
-      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
         { followUpField }
         <TextInputField label="Patient first name:" name="patient_name" model={ model } required={ true }/>
         <TextInputField label="Patient Surname" name="patient_surname" model={ model }/>

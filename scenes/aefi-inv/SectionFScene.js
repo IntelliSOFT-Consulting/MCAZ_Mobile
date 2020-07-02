@@ -15,7 +15,7 @@ export default class SectionFScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
         <Text>(Complete this section by asking and/or observing practice)</Text>
         <Text>Last vaccine storage point:</Text>
         <SelectOneField model={ model } name="cold_temperature" options={ BOOLEAN_OPTIONS } label="Is the temperature of the vaccine storage refrigerator monitored?" />

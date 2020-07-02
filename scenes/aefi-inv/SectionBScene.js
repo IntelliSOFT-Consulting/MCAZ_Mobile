@@ -15,7 +15,7 @@ export default class SectionBScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
         <SelectOneField label="Past history of similar event" model={ model } name="past_history" options={ BOOLEAN_UNKNOWN_OPTIONS }/>
         <TextInputField label="Remarks (If yes provide details)" model={ model } name="past_history_remarks"/>
         <SelectOneField label="Adverse event after previous vaccination(s)" model={ model } name="adverse_event" options={ BOOLEAN_UNKNOWN_OPTIONS}/>

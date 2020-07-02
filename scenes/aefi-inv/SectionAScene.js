@@ -28,7 +28,7 @@ export default class SectionAScene extends PureComponent {
     const { model, saveAndContinue, cancel, validate, followUp } = this.props
     const followUpField = followUp == true? (<TextInputField name="parent_id" model={ model } label="Parent MCAZ ID"/>) : null
     return (
-      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
         { followUpField }
         <SelectOneField label="Province:" name="province_id" model={ model } options={ PROVINCES }/>
         <TextInputField label="District:" name="district" model={ model }/>

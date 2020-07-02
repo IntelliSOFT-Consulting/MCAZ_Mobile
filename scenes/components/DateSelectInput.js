@@ -62,7 +62,7 @@ export default class DateSelectInput extends Component {
   isValid = (value) => {
     const { maxDate } = this.props
     const values = value.split("-")
-    const time = values[0] == ""? moment().year(values[2]).month(values[1]) : moment().year(values[2]).month(values[1]).date(values[0])
+    const time = values[0] == "" ? moment().year(values[2]).month(values[1]) : moment().year(values[2]).month(values[1]).date(values[0])
     const now = moment(maxDate)
     const { model } = this.props
     if(now.year() == time.year() && time.month() > now.month() ) {

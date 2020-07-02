@@ -15,7 +15,7 @@ export default class SectionEScene extends PureComponent {
   render() {
     const { model, saveAndContinue, cancel, validate } = this.props
     return (
-      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
+      <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
         <Text>(Complete this section by asking and/or observing practice)</Text>
 
         <Text>Syringes and needles used:</Text>

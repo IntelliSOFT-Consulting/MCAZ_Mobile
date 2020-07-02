@@ -10,8 +10,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^2.4.2",
     "@react-native-community/netinfo": "^5.9.2",
     "base-64": "^0.1.0",
+    "moment": "^2.27.0",
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-check-box": "^2.0.2",
@@ -25,7 +27,7 @@
     "react-native-material-dropdown": "git+https://github.com/noway/react-native-material-dropdown.git",
     "react-native-material-textfield": "git+https://github.com/javarahulsharma/react-native-material-textfield.git",
     "react-native-modal": "^4.1.1",
-    "react-native-modal-datetime-picker": "^4.13.0",
+    "react-native-modal-datetime-picker": "^8.7.1",
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.0.2",
     "react-native-tab-view": "^2.14.4",

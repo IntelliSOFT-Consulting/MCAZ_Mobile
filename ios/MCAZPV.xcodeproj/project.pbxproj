@@ -19,7 +19,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* MCAZPVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MCAZPVTests.m */; };
 		99333D3288053B8960555644 /* libPods-MCAZPV-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E9DF718A15BF3445E40CFF /* libPods-MCAZPV-tvOS.a */; };
-		B92313792491522800D21138 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92313782491522800D21138 /* File.swift */; };
+		B9E4468724A1208900FABCB1 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E4468624A1208900FABCB1 /* Dummy.swift */; };
 		EDFB155B609FDE9840DF4CAC /* libPods-MCAZPV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8C903AB7039E1FD1070E2E /* libPods-MCAZPV.a */; };
 /* End PBXBuildFile section */
 
@@ -69,10 +69,10 @@
 		A0ABDB69B0EEEFB8F75AFFE1 /* Pods-MCAZPV-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAZPV-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAZPV-tvOS/Pods-MCAZPV-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ABC755B0860A4A319EFA8A81 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
 		B0328F294585FADC52335CA4 /* Pods-MCAZPVTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAZPVTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAZPVTests/Pods-MCAZPVTests.release.xcconfig"; sourceTree = "<group>"; };
-		B92313782491522800D21138 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B940C3B02484F8E1000EA3AB /* MCAZPV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCAZPV-Bridging-Header.h"; sourceTree = "<group>"; };
 		B97F545D20B4A16300E51E7E /* MCAZPV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MCAZPV.entitlements; path = MCAZPV/MCAZPV.entitlements; sourceTree = "<group>"; };
 		B987718920088B1000DE9576 /* MCAZPV-tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "MCAZPV-tvOS.entitlements"; path = "MCAZPV-tvOS/MCAZPV-tvOS.entitlements"; sourceTree = "<group>"; };
+		B9E4468624A1208900FABCB1 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		D9E9DF718A15BF3445E40CFF /* libPods-MCAZPV-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCAZPV-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E35C8662398FDC6639A440F4 /* Pods-MCAZPV-MCAZPVTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAZPV-MCAZPVTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAZPV-MCAZPVTests/Pods-MCAZPV-MCAZPVTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB18AFC38ADF47298FB3C27A /* libSMXCrashlytics.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSMXCrashlytics.a; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				B940C3B02484F8E1000EA3AB /* MCAZPV-Bridging-Header.h */,
-				B92313782491522800D21138 /* File.swift */,
+				B9E4468624A1208900FABCB1 /* Dummy.swift */,
 			);
 			name = MCAZPV;
 			sourceTree = "<group>";
@@ -541,7 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				B92313792491522800D21138 /* File.swift in Sources */,
+				B9E4468724A1208900FABCB1 /* Dummy.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,8 +675,8 @@
 				CODE_SIGN_ENTITLEMENTS = MCAZPV/MCAZPV.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
-				DEAD_CODE_STRIPPING = NO;
+				CURRENT_PROJECT_VERSION = 19;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3NC6P2339M;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -701,6 +701,7 @@
 				PRODUCT_NAME = MCAZPV;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAZPV-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -718,7 +719,7 @@
 				CODE_SIGN_ENTITLEMENTS = MCAZPV/MCAZPV.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 3NC6P2339M;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -743,6 +744,7 @@
 				PRODUCT_NAME = MCAZPV;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAZPV-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1009,6 +1011,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "\"MCAZPV/MCAZPV-Bridging-Header.h\"";
 				VALIDATE_PRODUCT = YES;
 			};

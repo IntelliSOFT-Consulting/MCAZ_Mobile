@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler, TouchableOpacity, Image, Dimensions, PermissionsAndroid, Platform } from 'react-native';
 import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, logout, fetchReport, setReport, fetchNews, removeCompletedReports, archiveData } from '../actions'
 import { connect } from 'react-redux'
@@ -103,7 +103,7 @@ class MainScene extends Component {
     const files = this.saveFiles(completed)
     archiveData(completed)
     removeCompletedReports()
-    Alert.alert("Info", "File(s)\n" + files.join("\n") + " created.")
+    // Alert.alert("Info", "File(s)\n" + files.join("\n") + " created.")
   }
 
   downloadArchived = () => {
@@ -114,10 +114,14 @@ class MainScene extends Component {
       return
     }
     const files = this.saveFiles(arch)
-    Alert.alert("Info", "File(s)\n" + files.join("\n") + " created.")
   }
 
-  saveFiles = (completed) => {
+  saveFiles = async (completed) => {
+    let path = RNFS.DocumentDirectoryPath;
+    if(Platform.OS === 'android') {
+      const permission = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE);
+      path = RNFS.DownloadDirectoryPath;
+    }
     var x2js = new X2JS()
     // const dirs = RNFetchBlob.fs.dirs
     // const fs = RNFetchBlob.fs
@@ -130,7 +134,13 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.sadrs = sadrs
       const string = x2js.json2xml_str(output) //xmls.join("")
-      RNFS.writeFile(RNFS.DocumentDirectoryPath + '/sadrs_' + name, string, 'utf8')
+      console.log(RNFS.DownloadDirectoryPath)
+      RNFS.writeFile(path + '/sadrs_' + name, string, 'utf8').then((success) => {
+        console.log('SADR FILE WRITTEN!');
+        files.push('saefis_' + name)
+      }).catch((err) => {
+        console.log(err.message);
+      });
       files.push('sadrs_' + name)
     }
     var adrs = completed.filter(report => report.type == REPORT_TYPE_SAE)
@@ -138,7 +148,13 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.adrs = adrs
       const string = x2js.json2xml_str(output) //xmls.join("")
-      RNFS.writeFile(RNFS.DocumentDirectoryPath + '/adrs_' + name, string, 'utf8')
+      RNFS.writeFile(path + '/adrs_' + name, string, 'utf8').then((success) => {
+        console.log('ADR FILE WRITTEN!');
+        files.push('saefis_' + name)
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
       files.push('adrs_' + name)
     }
 
@@ -147,8 +163,14 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.aefis = aefis
       const string = x2js.json2xml_str(output) //xmls.join("")
-      RNFS.writeFile(RNFS.DocumentDirectoryPath + '/aefis_' + name, string, 'utf8')
-      files.push('aefis_' + name)
+      RNFS.writeFile(path + '/aefis_' + name, string, 'utf8')
+      files.push('aefis_' + name).then((success) => {
+        console.log('AEFIS FILE WRITTEN!');
+        files.push('saefis_' + name)
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
     }
 
     var saefis = completed.filter(report => report.type == REPORT_TYPE_AEFI_INV)
@@ -156,9 +178,16 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.saefis = saefis
       const string = x2js.json2xml_str(output) //xmls.join("")
-      RNFS.writeFile(RNFS.DocumentDirectoryPath + '/saefis_' + name, string, 'utf8')
-      files.push('saefis_' + name)
+      RNFS.writeFile(path + '/saefis_' + name, string, 'utf8').then((success) => {
+        console.log('SAEFI FILE WRITTEN!');
+        files.push('saefis_' + name)
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+      
     }
+    Alert.alert("Info", "File(s)\n" + files.join("\n") + " created.")
     return files
   }
 
@@ -321,9 +350,6 @@ class MainScene extends Component {
   componentWillReceiveProps(nextProps) {
     const { notification, viewReport } = this.props
     const nextNotification = nextProps.notification
-    if(nextNotification && ((notification && notification.id != nextNotification.id) || notification == null)) {
-      this.showAlert(nextNotification)
-    }
     if(viewReport == null && nextProps.viewReport != null) {
       this.displayReport(nextProps.viewReport)
       const { setReport } = this.props

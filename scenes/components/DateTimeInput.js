@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, View, Button } from 'react-native';
-import DateTimePicker from 'react-native-modal-datetime-picker';
-
+import { Text, TouchableOpacity, View, Button, Platform } from 'react-native';
+//import DateTimePicker from 'react-native-modal-datetime-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 export default class DateTimeInput extends Component {
 
 
@@ -15,7 +15,7 @@ export default class DateTimeInput extends Component {
           const v = model[name].split("-")
           value = new Date();
           value.setDate(v[0])
-          value.setMonth(parseInt(v[1]))
+          value.setMonth(parseInt(v[1]) - 1)
           value.setYear(v[2])
         }
       }
@@ -30,9 +30,15 @@ export default class DateTimeInput extends Component {
 
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
 
-  _handleDatePicked = (date) => {
+  _toggleDateTimePicker = (visibility) => this.setState({ isDateTimePickerVisible: visibility });
 
-    this._hideDateTimePicker();
+  _handleDatePicked = (event, date) => {
+    if (Platform.OS === 'android') {
+      this._hideDateTimePicker()
+    };
+    if (!date) {
+      return;
+    }
     const { model, name, showTime } = this.props
     if(model && name) {
       const mode = showTime? "datetime" : this.props.mode? this.props.mode : "date"
@@ -40,7 +46,7 @@ export default class DateTimeInput extends Component {
       value['day'] = date.getDate()
       value['month'] = date.getMonth()
       value['year'] = date.getFullYear()
-      model[name] = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()
+      model[name] = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
       if(showTime) {
         value['hour'] = date.getHours()
         value['minute'] = date.getMinutes()
@@ -61,7 +67,7 @@ export default class DateTimeInput extends Component {
 
   render () {
     const { label, required, showTime, maxDate, minDate, model, name } = this.props
-    const { date } = this.state
+    const { date, isDateTimePickerVisible } = this.state
     var text = null
     if(required) {
       text = (
@@ -73,7 +79,7 @@ export default class DateTimeInput extends Component {
       )
     }
     const mode = showTime? "datetime" : this.props.mode? this.props.mode : "date"
-    var dateLabel = mode == "time"? "Select time" : "Select date"
+    var dateLabel = mode == "time" ? "Select time" : "Select date"
     if(date != null && date != "" && model[name] != null) {
       dateLabel = model[name] // date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
     }
@@ -83,13 +89,19 @@ export default class DateTimeInput extends Component {
     return (
       <View style={ AppStyles.dateTimeInput }>
         <Text>{ text }</Text>
-        <Button onPress={this._showDateTimePicker} title={ dateLabel }/>
-
-        <DateTimePicker date={ this.state.date } datePickerModeAndroid="spinner"
-          isVisible={this.state.isDateTimePickerVisible} minimumDate={ minimumDate }
-          onConfirm={this._handleDatePicked} maximumDate={ maxDateVal }
-          onCancel={this._hideDateTimePicker} mode={ mode }
-        />
+        <Button onPress={() => this._toggleDateTimePicker(!isDateTimePickerVisible)} title={ dateLabel }/>
+        {isDateTimePickerVisible && (
+          <DateTimePicker
+            value={ date ? new Date(date) : new Date() }
+            datePickerModeAndroid="spinner"
+            minimumDate={ minimumDate }
+            maximumDate={ maxDateVal }
+            onChange={this._handleDatePicked}
+            onCancel={this._hideDateTimePicker}
+            mode={ mode }
+          />
+        )}
+        
       </View>
     );
   }
