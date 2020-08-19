@@ -16,10 +16,12 @@ import ADRFollowupReadOnly from "./adr/ADRFollowupReadOnly"
 import AEFIFollowupReadOnly from "./aefi-report/AEFIFollowupReadOnly"
 
 class ReadOnlyReportScene extends PureComponent {
-  static navigationOptions = {
-    title: 'ADR Report form',
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state;
+    return {
+      title: params ? params.title : 'Report',
+    }
   }
-
 
   constructor(props, context) {
     super(props, context)
@@ -35,11 +37,41 @@ class ReadOnlyReportScene extends PureComponent {
     this.state = {
       model : model
     }
+    this.getTitle(model);
+  }
 
+  getTitle = (model) => {
+    const { navigation } = this.props;
+    switch(model.type) {
+      case REPORT_TYPE_ADR:
+        navigation.setParams({ title: 'ADR Report' })
+        break;
+      case REPORT_TYPE_SAE:
+        navigation.setParams({ title: 'SAE Report' })
+        break;
+      case REPORT_TYPE_AEFI:
+        navigation.setParams({ title: 'AEFI Report' })
+        break;
+      case REPORT_TYPE_AEFI_INV:
+        navigation.setParams({ title: 'AEFI Inv. Report' })
+        break;
+      case REPORT_TYPE_ADR_FOLLOW_UP:
+        navigation.setParams({ title: 'ADR Followup Report' })
+        break;
+      case REPORT_TYPE_AEFI_FOLLOW_UP:
+        navigation.setParams({ title: 'AEFI Followup Report' })
+        break;
+      case REPORT_TYPE_SAE_FOLLOW_UP:
+        navigation.setParams({ title: 'SAE Followup Report' })
+        break;
+      default:
+        return null
+    }
   }
 
   _getReportView = () => {
     const { model } = this.state
+    const { navigation } = this.props;
     switch(model.type) {
       case REPORT_TYPE_ADR:
         return (<ADRReadOnly model={ model } goBack={ this.goBack } createFollowup={ this.createFollowup } />)
@@ -82,7 +114,7 @@ class ReadOnlyReportScene extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
+    connection: state.connection,
   }
 }
 

@@ -34,7 +34,7 @@ export default class SectionEScene extends PureComponent {
         <TextInputField model={ model } name="reconstitution_observations" multiline={ true } label="Specific key findings/additional observations and comments:" multiline = {true} numberOfLines = {4}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(6) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

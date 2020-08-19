@@ -22,7 +22,7 @@ export default class VaccinationScene extends PureComponent {
 
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(3) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

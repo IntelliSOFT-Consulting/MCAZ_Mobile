@@ -85,11 +85,11 @@ class ResetPasswordScene extends Component {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    completed : state.appState.completed,
-    notification: state.appState.notification,
-    token: state.appState.user.token,
-    currentRoute: state.appState.currentRoute
+    connection: state.connection,
+    completed : state.completed,
+    notification: state.notification,
+    token: state.user.token,
+    currentRoute: state.currentRoute
   }
 }
 

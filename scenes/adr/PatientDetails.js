@@ -22,6 +22,7 @@ export default class PatientDetails extends PureComponent {
     super(props, context)
     const { model } = this.props
     this.state = { model }
+    this.onSelectOfInstitution = this.onSelectOfInstitution.bind(this);
   }
 
   onSelectOfInstitution = (value) => {
@@ -44,7 +45,7 @@ export default class PatientDetails extends PureComponent {
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
         <Text style={ AppStyles.boldText }>Patient Details</Text>
-        <AutoCompleteInput name="evaluator" model={ model } label="Clinical/Hospital Name :" returnKeyType="next" onChange={ this.onSelectOfInstitution }/>
+        <AutoCompleteInput name="name_of_institution" model={ model } label="Clinical/Hospital Name :" returnKeyType="next" onChange={ this.onSelectOfInstitution }/>
         <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :" returnKeyType="next" value={ this.state.institution_code }/>
         <TextInputField name="patient_name" model={ model } label="Patient Initials:" required={ true } validate={ this.props.validate } returnKeyType="next"/>
         <TextInputField name="ip_no" model={ model } label="VCT/OI/TB Number"/>
@@ -56,7 +57,7 @@ export default class PatientDetails extends PureComponent {
         <SelectOneField name="gender" model={ model } label="Gender" options={ GENDER } required={ true } validate={ this.props.validate }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(2) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title='Close'/>
         </View>
       </KeyboardAwareScrollView>
     )

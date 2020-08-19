@@ -69,6 +69,11 @@ export default class SelectOneField extends Component {
     )
   }
 
+  static getDerivedStateFromProps(props, state) {
+    const { model } = props;
+    return null;
+  }
+
   componentWillReceiveProps(nextProps) {
     const { model, name, options } = this.props
     var { value } = this.state

@@ -35,6 +35,7 @@ class ADRScene extends PureComponent {
     this.cancel = this.cancel.bind(this)
     this.goBack = this.goBack.bind(this)
     this.upload = this.upload.bind(this)
+    this.handleModelChange = this.handleModelChange.bind(this);
 
     var { model, connection, user } = this.props
 
@@ -48,9 +49,11 @@ class ADRScene extends PureComponent {
     } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }
+    let cancelType = 'Close';
 
     if(model == null) {
       model = { rid : Date.now(), type : REPORT_TYPE_ADR, data_source: "phone", device_type : DeviceInfo.getSystemName(), reporter_email: user.email, reporter_name: user.name }
+      cancelType = 'Cancel';
       if(followUp) {
         model.parent_id = ""
       }
@@ -67,7 +70,8 @@ class ADRScene extends PureComponent {
       ],
       isConnected: connection.isConnected,
       validate: false,
-      followUp: followUp
+      followUp: followUp,
+      cancelType: cancelType
     }
     this.mandatory = [
       { name : "patient_name", text : "Patient Initials", page : 1 },
@@ -91,12 +95,52 @@ class ADRScene extends PureComponent {
   _renderHeader = props => <TabBar {...props} scrollEnabled tabStyle={AppStyles.tabStyle} style={AppStyles.tabbar} labelStyle={ AppStyles.tablabelStyle } />;
 
   _renderScene = SceneMap({
-    '1' : () => <PatientDetails model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } followUp={ this.state.followUp }/>,
-    '2' : () => <AdverseReactionScene saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } model={ this.state.model }/>,
-    '3' : () => <Medication model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
-    '4' : () => <ReporterDetailsScene model={ this.state.model } user={ this.state.model.user } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } saveAndSubmit={ this.saveAndSubmit }
-      validate={ this.state.validate } />,
+    '1' : () => (
+      <PatientDetails
+        model={ this.state.model }
+        saveAndContinue={ this.saveAndContinue }
+        cancel={ this.cancel }
+        validate={ this.state.validate }
+        followUp={ this.state.followUp }
+        handleModelChange={this.handleModelChange}
+        cancelType={this.state.cancelType}
+      />),
+    '2' : () => (
+      <AdverseReactionScene
+        saveAndContinue={ this.saveAndContinue }
+        cancel={ this.cancel }
+        validate={ this.state.validate }model={ this.state.model }
+        handleModelChange={this.handleModelChange}
+        cancelType={this.state.cancelType} 
+      />
+    ),
+    '3' : () => (
+      <Medication
+        model={ this.state.model }
+        saveAndContinue={ this.saveAndContinue }
+        cancel={ this.cancel }
+        validate={ this.state.validate }
+        cancelType={this.state.cancelType} 
+      />
+    ),
+    '4' : () => (
+      <ReporterDetailsScene
+        model={ this.state.model }
+        user={ this.state.model.user }
+        saveAndContinue={ this.saveAndContinue }
+        cancel={ this.cancel }
+        saveAndSubmit={ this.saveAndSubmit }
+        validate={ this.state.validate }
+        cancelType={this.state.cancelType} 
+      />
+    ),
   });
+
+  handleModelChange = (change) => {
+    const { model } = this.state;
+    const newModel = {...model, ...change};
+    this.setState({ model: newModel });
+  }
 
   render() {
     return (
@@ -115,6 +159,7 @@ class ADRScene extends PureComponent {
     const { saveDraft } = this.props
     const { model } = this.state
     saveDraft(model)
+    this.setState({ cancelType: 'Close' })
     if(next) {
       this._updateRoute(next - 1)
     }
@@ -209,7 +254,13 @@ class ADRScene extends PureComponent {
   }
 
   cancel() {
-    Alert.alert("Confirm", "Stop data entry?", [
+    let message = '';
+    if (this.state.cancelType === 'Close') {
+      message = 'You can always open this version from draft to complete it, close this form?';
+    } else {
+      message = "Stop data entry, all changes would be lost. Close?";
+    }
+    Alert.alert("Confirm", message, [
       {text: 'Yes', onPress: () => this.goBack() },
       {text: 'No' }
     ])
@@ -236,9 +287,9 @@ class ADRScene extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    token: state.appState.user.token,
-    user: state.appState.user
+    connection: state.connection,
+    token: state.user.token,
+    user: state.user
   }
 }
 

@@ -17,6 +17,7 @@ import { REPORT_TYPE_AEFI, AEFI_URL } from '../utils/Constants'
 import { AEFI_FOLLOW_UP_MANDATORY_FIELDS } from '../utils/FormFields'
 import { BOOLEAN_OPTIONS, AEFI_SEVERITY_REASON, BOOLEAN_UNKNOWN_OPTIONS, AEFI_OUTCOME, AEFI_ADVERSE_EVENTS } from '../utils/FieldOptions'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
+import Base64 from '../utils/Base64';
 
 import DeviceInfo from 'react-native-device-info';
 
@@ -45,8 +46,9 @@ class AEFIReportFollowupScene extends PureComponent {
     } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }
-
+    let cancelType = 'Close';
     if(model == null) {
+      cancelType = 'Cancel';
       model = { rid : Date.now(), type : REPORT_TYPE_AEFI, data_source: "phone", device_type : DeviceInfo.getSystemName() }
       if(followUp) {
         model.parent_id = ""
@@ -60,7 +62,8 @@ class AEFIReportFollowupScene extends PureComponent {
       model: model,
       isConnected: connection.isConnected,
       validate: false,
-      followUp: followUp
+      followUp: followUp,
+      cancelType
     }
   }
 
@@ -95,6 +98,7 @@ class AEFIReportFollowupScene extends PureComponent {
     const { saveDraft } = this.props
     const { model } = this.state
     saveDraft(model)
+    this.setState({ cancelType: 'Close' });
 
   }
 
@@ -167,7 +171,13 @@ class AEFIReportFollowupScene extends PureComponent {
   }
 
   cancel() {
-    Alert.alert("Confirm", "Stop data entry?", [
+    let message = '';
+    if (this.state.cancelType === 'Close') {
+      message = 'You can always open this version from draft to complete it, close this form?';
+    } else {
+      message = "Stop data entry, all changes would be lost. Close?";
+    }
+    Alert.alert("Confirm", message, [
       {text: 'Yes', onPress: () => this.goBack() },
       {text: 'No' }
     ])
@@ -182,7 +192,7 @@ class AEFIReportFollowupScene extends PureComponent {
     const { model } = this.state
     const { uploadData, saveCompleted, connection, token } = this.props
     if(connection.isConnected) {
-      const url = AEFI_URL + "/followup/" + btoa(model.parent_reference)
+      const url = AEFI_URL + "/followup/" + Base64.btoa(model.parent_reference)
       uploadData(model, url, token)
     } else {
       Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
@@ -194,8 +204,8 @@ class AEFIReportFollowupScene extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    token: state.appState.user.token
+    connection: state.connection,
+    token: state.user.token
   }
 }
 

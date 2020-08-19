@@ -129,9 +129,9 @@ const getVisibleReports = (reports, filter) => {
 
 const mapStateToProps = state => {
   return {
-    drafts : getVisibleReports(state.appState.drafts, state.appState.reportFilter),
-    completed : getVisibleReports(state.appState.completed, state.appState.reportFilter),
-    uploaded : getVisibleReports(state.appState.uploaded, state.appState.reportFilter),
+    drafts : getVisibleReports(state.drafts, state.reportFilter),
+    completed : getVisibleReports(state.completed, state.reportFilter),
+    uploaded : getVisibleReports(state.uploaded, state.reportFilter),
     //archived: state.currentForms.archived,
     //formListVisible: (state.currentFormList == null)? false : true
   }

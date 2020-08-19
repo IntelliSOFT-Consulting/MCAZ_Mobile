@@ -51,7 +51,7 @@ export default class SectionDScene extends PureComponent {
         <TextInputField model={ model } name="vaccinated_cluster_vial_number" label="b. If no, number of vials used in the cluster (enter details separately)" keyboardType="numeric"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(5) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

@@ -42,8 +42,9 @@ class AEFIInvFormScene extends PureComponent {
     } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }
-
+    let cancelType = 'Close';
     if(model == null) {
+      cancelType = 'Cancel';
       model = { rid : Date.now(), type : REPORT_TYPE_AEFI_INV, data_source: "phone", device_type : DeviceInfo.getSystemName(), reporter_email: user.email, reporter_name: user.name }
       if(followUp) {
         model.parent_id = ""
@@ -69,20 +70,16 @@ class AEFIInvFormScene extends PureComponent {
       ],
       isConnected: connection.isConnected,
       validate: false,
-      followUp: followUp
+      followUp: followUp,
+      cancelType
     }
     this.mandatory = [
-      { name : "patient_name", text : "Patient Initials", page : 1 },
-      { name : "date_of_birth", text: "Date of bith", page : 1},
+      { name : "name_of_vaccination_site", text : "Name of vaccination site", page : 1 },
+      { name : "designation_id", text: "Designation id", page : 1},
       { name : "gender", text : "Sex", page : 1 },
-      { name : "date_of_onset_of_reaction", text : "Date of onset", page : 2 },
-      { name : 'description_of_reaction', text : "Description of ADR", page : 2},
-      { name : "severity", text : "Serious", page : 2 }, { name : "outcome", text : "Outcome", page : 3 },
-      { name : "sadr_list_of_drugs", fields: [{ name : "brand_name", text : "Generic/Brand name" }, { name : "dose_id", text : "Dose" },
-        { name : "frequency_id", text : "Frequency" }, { name : "start_date", text : "Start date" }, { name : "suspected_drug", text : "Tick suspected medicine" }]},
-      { name : 'action_taken', text : "Action taken", page : 3 },
-      { name : "reporter_name", text : "Forename & Surname", page : 4 },
-      { name : "designation_id", text : "Designation", page : 4 }, { name : "reporter_email", text : "Email Address", page : 4 }]
+      { name : "patient_name", text : "Patient name", page : 1 },
+      { name : 'signs_symptoms', text : "Signs and symptoms", page : 3},
+    ]
   }
 
   _updateRoute = index => this.setState({ index })
@@ -122,6 +119,7 @@ _renderHeader = props => {
     const { saveDraft } = this.props
     const { model } = this.state
     saveDraft(model)
+    this.setState({ cancelType: 'Close' })
     if(next) {
       this._updateRoute(next - 1)
     }
@@ -136,7 +134,7 @@ _renderHeader = props => {
     var valid = true
     var names = ""
     var page = 0
-    /*this.mandatory.forEach((field) => {
+    this.mandatory.forEach((field) => {
       if(field.fields) {
         const fields = field.fields
         const values = model[field.name]
@@ -172,7 +170,7 @@ _renderHeader = props => {
           names += field.text
         }
       }
-    }) */
+    })
     if(!valid) {
       Alert.alert("Warning", "Fill in required fields\n " + names)
       this.setState({ validate : true })
@@ -188,7 +186,13 @@ _renderHeader = props => {
   }
 
   cancel() {
-    Alert.alert("Confirm", "Stop data entry?", [
+    let message = '';
+    if (this.state.cancelType === 'Close') {
+      message = 'You can always open this version from draft to complete it, close this form?';
+    } else {
+      message = "Stop data entry, all changes would be lost. Close?";
+    }
+    Alert.alert("Confirm", message, [
       {text: 'Yes', onPress: () => this.goBack() },
       {text: 'No' }
     ])
@@ -215,9 +219,9 @@ _renderHeader = props => {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    token: state.appState.user.token,
-    user: state.appState.user
+    connection: state.connection,
+    token: state.user.token,
+    user: state.user
   }
 }
 

@@ -29,3 +29,8 @@ export const CURRENT_ROUTE = 'CURRENT_ROUTE' // Sets the current route name.
 export const CLEAR_DATA = 'CLEAR_DATA' // Clear data action.
 
 export const SET_NEWS = 'SET_NEWS' // add the news to the app state.
+
+export const LOADING = {
+  SET_LOADING: 'SET_LOADING',
+  STOP_LOADING: 'STOP_LOADING'
+};

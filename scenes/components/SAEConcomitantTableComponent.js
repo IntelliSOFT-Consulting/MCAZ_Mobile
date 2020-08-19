@@ -55,7 +55,7 @@ export default class SAEConcomitantTableComponent extends TableComponent {
         const v = data['start_date'].split("-")
         value = new Date();
         value.setDate(v[0])
-        value.setMonth(parseInt(v[1]))
+        value.setMonth(parseInt(v[1]) - 1)
         value.setYear(v[2])
         return value
       }
@@ -95,7 +95,7 @@ export default class SAEConcomitantTableComponent extends TableComponent {
       <View style={ AppStyles.tableView }>
         <ScrollView horizontal={true}>
           <Table>
-            <Row data={ tableHead } style={AppStyles.tableHead} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
+            <Row data={ tableHead } style={{...AppStyles.tableHead, ...{ height: 60 }}} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
             <Rows data={ rows }  widthArr={ widthArr }/>
           </Table>
         </ScrollView>

@@ -10,6 +10,13 @@ export default class ReadOnlyDataRenderer extends Component {
     this.getFieldValue = this.getFieldValue.bind(this)
   }
 
+  pad = (value) => {
+    if (value < 10) {
+      return `0${value}`;
+    }
+    return value;
+  }
+
   getFieldValue(name) {
     const { model, type, options } = this.props
     if(model[name] == null) {
@@ -17,7 +24,13 @@ export default class ReadOnlyDataRenderer extends Component {
     }
     if(type == 'date') {
       if(model[name] != null && model[name] != '') {
-        let val = moment(model[name]).format("DD-MM-YYYY");
+        let date = new Date(model[name]);
+        console.log(date);
+        if (!(date instanceof Date && !isNaN(date))) {
+          const parts = model[name].split('-');
+          return `${this.pad(parts[0])}-${this.pad(parts[1])}-${parts[2]}`;
+        }
+        let val = moment(date).format("DD-MM-YYYY");
         return val;
       }
       return model[name]

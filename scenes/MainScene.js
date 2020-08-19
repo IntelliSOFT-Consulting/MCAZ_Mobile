@@ -135,7 +135,7 @@ class MainScene extends Component {
       output.response.sadrs = sadrs
       const string = x2js.json2xml_str(output) //xmls.join("")
       console.log(RNFS.DownloadDirectoryPath)
-      RNFS.writeFile(path + '/sadrs_' + name, string, 'utf8').then((success) => {
+      const saved = await RNFS.writeFile(path + '/sadrs_' + name, string, 'utf8').then((success) => {
         console.log('SADR FILE WRITTEN!');
         files.push('saefis_' + name)
       }).catch((err) => {
@@ -148,7 +148,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.adrs = adrs
       const string = x2js.json2xml_str(output) //xmls.join("")
-      RNFS.writeFile(path + '/adrs_' + name, string, 'utf8').then((success) => {
+      const saved = await RNFS.writeFile(path + '/adrs_' + name, string, 'utf8').then((success) => {
         console.log('ADR FILE WRITTEN!');
         files.push('saefis_' + name)
       })
@@ -163,7 +163,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.aefis = aefis
       const string = x2js.json2xml_str(output) //xmls.join("")
-      RNFS.writeFile(path + '/aefis_' + name, string, 'utf8')
+      const saved = await RNFS.writeFile(path + '/aefis_' + name, string, 'utf8')
       files.push('aefis_' + name).then((success) => {
         console.log('AEFIS FILE WRITTEN!');
         files.push('saefis_' + name)
@@ -178,7 +178,7 @@ class MainScene extends Component {
       var output = { response : {}}
       output.response.saefis = saefis
       const string = x2js.json2xml_str(output) //xmls.join("")
-      RNFS.writeFile(path + '/saefis_' + name, string, 'utf8').then((success) => {
+      const saved = await RNFS.writeFile(path + '/saefis_' + name, string, 'utf8').then((success) => {
         console.log('SAEFI FILE WRITTEN!');
         files.push('saefis_' + name)
       })
@@ -391,14 +391,14 @@ class MainScene extends Component {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    completed : state.appState.completed,
-    uploaded : state.appState.uploaded,
-    notification: state.appState.notification,
-    token: state.appState.user.token,
-    viewReport: state.appState.viewReport,
-    currentRoute: state.appState.currentRoute,
-    archived : state.appState.archived,
+    connection: state.connection,
+    completed : state.completed,
+    uploaded : state.uploaded,
+    notification: state.notification,
+    token: state.user.token,
+    viewReport: state.viewReport,
+    currentRoute: state.currentRoute,
+    archived : state.archived,
 
   }
 }

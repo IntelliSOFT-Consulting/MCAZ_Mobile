@@ -35,18 +35,18 @@ export default class SectionAScene extends PureComponent {
 
         <TextInputField label="Study Title:" name="study_title" model={ model } validate={ this.state.validate } required={ true } tintColor="rgba(0, 0, 0, .60)"/>
         <TextInputField label="Study Sponsor:" name="study_sponsor" model={ model } validate={ this.state.validate } required={ true } tintColor="rgba(0, 0, 0, .60)"/>
-        <DateTimeInput label="Date of Adverse Event:" name="date_of_adverse_event" model={ model } validate={ this.state.validate } required={ true }/>
-        <DateTimeInput label="Date of Site Awareness:" name="date_of_site_awareness" model={ model } validate={ this.state.validate } required={ true }/>
+        <DateTimeInput label="Date of Adverse Event:" name="date_of_adverse_event" model={ model } validate={ this.state.validate } required={ true } maxDate={ new Date() } />
+        <DateTimeInput label="Date of Site Awareness:" name="date_of_site_awareness" model={ model } validate={ this.state.validate } required={ true } maxDate={ new Date() } />
         <TextInputField label="Hosp. Num.:" name="institution_code" model={ model } validate={ this.state.validate } required={ true } tintColor="rgba(0, 0, 0, .60)"/>
         <TextInputField label="Participant ID:" name="participant_number" model={ model } validate={ this.state.validate } required={ true } tintColor="rgba(0, 0, 0, .60)"/>
-        <DateTimeInput label="Date of Birth:" name="date_of_birth" model={ model } validate={ this.state.validate } required={ true }/>
+        <DateTimeInput label="Date of Birth:" name="date_of_birth" model={ model } validate={ this.state.validate } required={ true } maxDate={ new Date() }/>
         <SelectOneField label="Gender " name="gender" model={ model } validate={ this.state.validate } required={ true } options={ GENDER }/>
         <SelectOneField label="Type of Report" name="report_type" model={ model } validate={ this.state.validate } required={ true } options={ SAE_REPORT_TYPE }/>
         <TextInputField label="Study week" name="study_week" model={ model } validate={ this.state.validate } required={ true } keyboardType="numeric" tintColor="rgba(0, 0, 0, .60)"/>
         <TextInputField label="Visit number:-" name="visit_number" model={ model } validate={ this.state.validate } required={ true } keyboardType="numeric" tintColor="rgba(0, 0, 0, .60)"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(2) } title="Save changes" color="#841584" style={ AppStyles.saeButton }/>
-          <Button onPress={ () => cancel() } color="#841584"  title="Cancel"/>
+          <Button onPress={ () => cancel() } color="#841584"  title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

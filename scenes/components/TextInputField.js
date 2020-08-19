@@ -43,13 +43,16 @@ export default class TextInputField extends Component {
         <Text>{ label }</Text>
       )
     }
-    const labelText = label? label : ""
-    const labelHeight = hideLabel? 0 : 16
+    const labelText = label ? text : ""
+    const labelHeight = hideLabel ? 0 : undefined
     const tintColorValue = tintColor == null? "rgb(0, 145, 234)" : tintColor
     return (
       <View>
+        {!hideLabel && (
+          <Text style={{ fontWeight: '600', fontSize: 16 }}>{labelText}</Text>
+        )}
         <TextField {...this.props}
-          label={ labelText } labelHeight={ labelHeight }
+          label={ '' } labelHeight={ labelHeight }
           value={ this.state.value } baseColor={ "rgba(0, 0, 0, .80)" }
           onChangeText={ (text) => this.handleChange(text) } tintColor={ tintColorValue }
         />

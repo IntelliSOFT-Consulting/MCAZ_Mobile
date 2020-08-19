@@ -1,6 +1,6 @@
 import { SAVE_DRAFT_REPORT, REMOVE_DRAFT_REPORT, SAVE_COMPLETED_REPORT, REMOVE_COMPLETED_REPORT, VIEW_REPORT, CLEAR_DATA, SET_NEWS,
  SAVE_UPLOADED_REPORT, REMOVE_UPLOADED_REPORT, SET_REPORT_FILTER, CHANGE_CONNECTION_STATUS, SAVE_ERROR, SAVE_FETCHED_REPORTS,
- RESET_UPLOAD_STATUS, UPDATE_UPLOAD_STATUS, SET_NOTIFICATION, LOGGED_IN, LOGOUT, CURRENT_ROUTE, REMOVE_COMPLETED_REPORTS, ARCHIVE_DATA }  from './actionTypes'
+ RESET_UPLOAD_STATUS, UPDATE_UPLOAD_STATUS, SET_NOTIFICATION, LOGGED_IN, LOGOUT, CURRENT_ROUTE, REMOVE_COMPLETED_REPORTS, ARCHIVE_DATA, LOADING }  from './actionTypes'
 
 import { MAIN_URL, LOGIN_URL, SIGNUP_URL, REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 import { getRequestPayload, getURL } from '../utils/utils'
@@ -63,8 +63,12 @@ export const removeCompletedReports = () => (
   Sends the request to upload a report to the server.
 */
 export const uploadData = (data, url, token, updateProgress) => {
-  return dispatch => {
-    dispatch(saveCompleted(data))
+  return (dispatch, getState)=> {
+    const message = updateProgress ? null : 'Uploading data...';
+    dispatch(setLoading({ loading: true, message }));
+    if (!updateProgress) {
+      dispatch(saveCompleted(data))
+    }
     dispatch(removeDraft(data))
     const rid = data.rid
     const type = data.type
@@ -106,20 +110,29 @@ export const uploadData = (data, url, token, updateProgress) => {
         } else {
           dispatch(setNotification({ message : messages.erroruploading, level: "info", id: new Date().getTime() }))
         }
-        return
+        dispatch(setLoading({ loading: false }));
+        //return
       }
       if(updateProgress) {
+        const state = getState();
+        const completed = state.completed;
         dispatch(updateUploadStatus())
-      } else {
+        if (completed.length === 0) {
+          dispatch(setLoading({ loading: false }));
+          dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
+        } else {
+          dispatch(setLoading({ message: `Uploading ${completed.length} reports.`}))
+        }
+        
+      } else if (!json.message) {
+        dispatch(setLoading({ loading: false }));
         dispatch(setNotification({ message : messages.datauploaded, level: "info", id: new Date().getTime() }))
       }
 
     }).catch((error) => {
-      if(updateProgress) {
-        dispatch(updateUploadStatus())
-      } else {
-        dispatch(setNotification({ message : messages.erroruploading, level: "info", id: new Date().getTime() }))
-      }
+      console.log(error);
+      dispatch(setLoading({ loading: false }));
+      dispatch(setNotification({ message : messages.erroruploading, level: "info", id: new Date().getTime() }))
     })
   }
 }
@@ -137,15 +150,17 @@ export const logout = () => (
 */
 export const login = (data) => {
   return (dispatch, getState) => {
+    dispatch(setLoading({ loading: true, message: 'Logging in...' }));
     return fetch(LOGIN_URL, {
       method : "POST",
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
+      dispatch(setLoading({ loading: false }));
       if(json.success) {
         const user = Object.assign({}, json.user, { token : json.data.token})
         const state = getState()
-        if(state.appState.user.username != null && state.appState.user.username != user.username) {
+        if(state.user.username != null && state.user.username != user.username) {
           dispatch(clearData())
         }
         dispatch(loggedIn(user))
@@ -155,9 +170,12 @@ export const login = (data) => {
         dispatch(fetchAllReports(SAEFI_URL, json.data.token))
       } else {
         const message = json.message != null? json.message : messages.login_error
-        dispatch(setNotification({ message : message, level: "error", id: new Date().getTime(), title: "Error" }))
+        setTimeout(() => {
+          dispatch(setNotification({ message : message, level: "error", id: new Date().getTime(), title: "Error" }))
+        }, 500)
       }
     }).catch((error) => {
+      dispatch(setLoading({ loading: false }));
       dispatch(setNotification({ message : messages.connection_error, level: "error", id: new Date().getTime() }))
     })
   }
@@ -172,19 +190,35 @@ export const clearData = () => (
 */
 export const signUp = (data) => {
   return dispatch => {
+    dispatch(setLoading({ loading: true, message: 'Signing up...' }));
     return fetch(SIGNUP_URL, {
       method : "POST",
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(response => response.json()).then((json) => {
+      dispatch(setLoading({ loading: false }));
       if(json.token) {
         const user = Object.assign({}, json.user, { token : json.token})
         dispatch(loggedIn(user))
       } else {
-        let message = json.message != null? json.message : messages.signup_error
-        dispatch(setNotification({ message : message, level: "error", id: new Date().getTime() }))
+        let message = json.message != null? json.message : messages.signup_error;
+        const errors = json.errors;
+        const keys = Object.keys(errors);
+        const msgs = [];
+        keys.forEach((key) => {
+          const msg = errors[key];
+          let m = [];
+          Object.keys(msg).forEach((k) => {
+            m.push(msg[k]);
+          });
+          msgs.push(key + ' : ' + m.join('\n'));
+        })
+        setTimeout(() => {
+          dispatch(setNotification({ message : message + '\n' + msgs.join('\n'), level: "error", id: new Date().getTime() }))
+        }, 500)
       }
     }).catch((error) => {
+      dispatch(setLoading({ loading: false }));
       dispatch(setNotification({ message : messages.connection_error, level: "error", id: new Date().getTime() }))
     })
   }
@@ -204,6 +238,7 @@ export const updateUploadStatus = () => (
 export const uploadCompletedReports = (completed, token) => {
   return dispatch => {
     dispatch(resetUploadStatus(completed.length))
+    dispatch(setLoading({ message: `Uploading ${completed.length} reports...`}));
     completed.forEach((data) => {
       dispatch(uploadData(data, getURL(data), token, true))
     })
@@ -333,14 +368,24 @@ export const setNews = (news) => (
 
 export const resetPassword = (email) => {
   return (dispatch, getState) => {
+    dispatch(setLoading({ loading: true, message: "Resetting password..."}));
     return fetch(RESET_PASSWORD_URL, {
       method : "POST",
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email : email })
-    }).then((res) => {
-      dispatch(setNotification({ message : messages.passwordReset, title: "info", id: new Date().getTime() }))
+      body: JSON.stringify(email)
+    }).then(res => res.json()).then((json) => {
+      dispatch(setLoading({ loading: false }));
+      setTimeout(() => {
+        dispatch(setNotification({ message : json.message || messages.passwordReset, title: "info", id: new Date().getTime() }))
+      }, 500)
     }).catch((error) => {
+      dispatch(setLoading({ loading: false }));
       dispatch(setNotification({ message : messages.request_error, level: "error", id: new Date().getTime() }))
     })
   }
 }
+
+export const setLoading = (loading) => (
+  { type : LOADING.SET_LOADING, loading }
+)
+

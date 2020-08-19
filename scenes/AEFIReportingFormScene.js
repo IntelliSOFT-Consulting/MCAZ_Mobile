@@ -39,8 +39,9 @@ class AEFIReportingFormScene extends PureComponent {
     } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }
-
+    let cancelType = 'Close';
     if(model == null) {
+      cancelType = 'Cancel';
       model = { rid : Date.now(), type : REPORT_TYPE_AEFI, data_source: "phone", device_type : DeviceInfo.getSystemName(), reporter_email: user.email, reporter_name: user.name }
       if(followUp) {
         model.parent_id = ""
@@ -61,7 +62,8 @@ class AEFIReportingFormScene extends PureComponent {
       ],
       isConnected: connection.isConnected,
       validate: false,
-      followUp: followUp
+      followUp: followUp,
+      cancelType
     }
   }
 
@@ -95,6 +97,7 @@ class AEFIReportingFormScene extends PureComponent {
     const { saveDraft } = this.props
     const { model } = this.state
     saveDraft(model)
+    this.setState({ cancelType: 'Close' });
     if(next) {
       this._updateRoute(next - 1)
     }
@@ -136,7 +139,7 @@ class AEFIReportingFormScene extends PureComponent {
         names += arrayNames.join(',\n')
       } else {
         if(field.dependent) {
-          if((model[field.dependent] == field.value || (field.value == "" && model[field.name] == null)) && (model[field.name] == null || model[field.name] === "")) {
+          if((model[field.dependent] == field.value || (field.value == "" && model[field.dependent] == null)) && (model[field.name] == null || model[field.name] === "")) {
             valid = false
             if(names != "") {
               names += ",\n "
@@ -170,7 +173,13 @@ class AEFIReportingFormScene extends PureComponent {
   }
 
   cancel() {
-    Alert.alert("Confirm", "Stop data entry?", [
+    let message = '';
+    if (this.state.cancelType === 'Close') {
+      message = 'You can always open this version from draft to complete it, close this form?';
+    } else {
+      message = "Stop data entry, all changes would be lost. Close?";
+    }
+    Alert.alert("Confirm", message, [
       {text: 'Yes', onPress: () => this.goBack() },
       {text: 'No' }
     ])
@@ -197,9 +206,9 @@ class AEFIReportingFormScene extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    token: state.appState.user.token,
-    user: state.appState.user
+    connection: state.connection,
+    token: state.user.token,
+    user: state.user
   }
 }
 

@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.11.0",
     "@react-native-community/datetimepicker": "^2.4.2",
     "@react-native-community/netinfo": "^5.9.2",
     "base-64": "^0.1.0",
@@ -41,8 +42,8 @@
     "x2js": "github:abdmob/x2js"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/runtime": "^7.6.2",
+    "@babel/core": "^7.10.4",
+    "@babel/runtime": "^7.10.4",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
     "eslint": "^6.5.1",

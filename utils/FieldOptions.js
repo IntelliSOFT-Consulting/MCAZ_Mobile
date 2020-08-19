@@ -1,6 +1,6 @@
 export const SEVERITY_REASON = [ { key: "", value: "select one" },
   { key : 'Death', value : 'Death'}, { key : 'Life-threatening', value : 'Life-threatening'},
-  { key : 'Hospitalizaion/Prolonged', value : 'Hospitalizaion/Prolonged'},
+  { key : 'Hospitalization/Prolonged', value : 'Hospitalization/Prolonged'},
   { key : 'Disabling', value : 'Disabling'}, { key : 'Congenital-anomaly', value : 'Congenital-anomaly'},
   { key : 'Other Medically Important Reason', value : 'Other Medically Important Reason'}
 ]
@@ -200,7 +200,7 @@ export const SAE_TOXICITY_GRADE = [
 ]
 
 export const LOCATION_ADVERSE_EVENT = [
-  { key : "", value : "select one"}, { key : "Home", value : "1. Home"}, { key : "Clinic/Hospital", value : "2. Clinic/Hospital"}, { key : "Work", value : "3. Work"}, { key : "Study site", value : "4. Study site"} , { key : "Other,", value : "5. Other, Specify"}
+  { key : "", value : "select one"}, { key : "Home", value : "1. Home"}, { key : "Clinic/Hospital", value : "2. Clinic/Hospital"}, { key : "Work", value : "3. Work"}, { key : "Study site", value : "4. Study site"} , { key : "Other", value : "5. Other, Specify"}
 ]
 
 export const RESEARCH_INVOLVES = [
@@ -226,7 +226,7 @@ export const GENDER = [
 
 export const AEFI_SEVERITY_REASON = [ { key: "", value: "select one" },
   { key : 'Death', value : 'Death'}, { key : 'Life-threatening', value : 'Life-threatening'},
-  { key : 'Hospitalizaion/Prolonged', value : 'Hospitalizaion/Prolonged'},
+  { key : 'Hospitalization/Prolonged', value : 'Hospitalization/Prolonged'},
   { key : 'Disabling', value : 'Disabling'}, { key : 'Congenital-anomaly', value : 'Congenital-anomaly' }
 ]
 

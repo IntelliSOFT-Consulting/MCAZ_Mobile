@@ -87,7 +87,7 @@ export default class DateSelectInput extends Component {
     state.day = value[0]
     state.year = value[2]
     if(index == 1) {
-      state.month = this.monthLabels[itemValue]
+      state.month = this.monthLabels[itemValue - 1]
     }
     model[name] = value.join("-")
     this.setState(state)
@@ -116,7 +116,7 @@ export default class DateSelectInput extends Component {
     }
 
     const months = [ { key: "", value: "" }].concat(this.monthLabels.map((month, index) => (
-      { key : index, value : month }
+      { key : index + 1, value : month }
     )))
 
     const year = new Date().getFullYear() + 1;

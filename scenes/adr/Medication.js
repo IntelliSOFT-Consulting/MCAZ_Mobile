@@ -31,7 +31,7 @@ export default class Medication extends PureComponent {
         <FileAttachmentComponent model={ model } name="attachments" label="Attach any files"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

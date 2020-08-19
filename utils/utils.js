@@ -1,6 +1,7 @@
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV, REPORT_TYPE_ADR_FOLLOW_UP } from './Constants'
 import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL } from './Constants'
 import moment from 'moment'
+import Base64 from './Base64';
 
 export const getRequestPayload  = (data) => {
   /*if(data.type == REPORT_TYPE_ADR) {
@@ -33,9 +34,9 @@ export const getURL = (data) => {
   } else if(data.type == REPORT_TYPE_AEFI_INV) {
     return SAEFI_URL
   } else if(data.type == REPORT_TYPE_ADR_FOLLOW_UP) {
-    return ADR_URL + "/followup/" + btoa(data.parent_reference)
+    return ADR_URL + "/followup/" + Base64.btoa(data.parent_reference)
   } /*else if(data.type == REPORT_TYPE_AEFI_FOLLOW_UP) {
-    return AEFI_URL + "/followup/" + btoa(data.parent_reference)
+    return AEFI_URL + "/followup/" + Base64.btoa(data.parent_reference)
   }*/
 }
 

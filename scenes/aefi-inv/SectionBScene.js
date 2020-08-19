@@ -44,7 +44,7 @@ export default class SectionBScene extends PureComponent {
         <TextInputField label="Specify:" model={ model } name="delivery_procedure_specify"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(3) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

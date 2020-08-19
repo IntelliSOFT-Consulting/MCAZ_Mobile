@@ -25,7 +25,7 @@ export default class ADRReadOnly extends Component{
 
         <Text style={ AppStyles.boldText }>Patient Details</Text>
 
-        <ReadOnlyDataRenderer name="evaluator" model={ model } label="Clinical/Hospital Name :" type="text"/>
+        <ReadOnlyDataRenderer name="name_of_institution" model={ model } label="Clinical/Hospital Name :" type="text"/>
         <ReadOnlyDataRenderer name="institution_code" model={ model } label="Clinical/Hospital Number :" type="text"/>
         <ReadOnlyDataRenderer name="patient_name" model={ model } label="Patient Initials:" type="text"/>
         <ReadOnlyDataRenderer name="ip_no" model={ model } label="VCT/OI/TB Number" type="text"/>

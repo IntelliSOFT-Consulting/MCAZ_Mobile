@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView, Button } from 'react-native'
 import ReadOnlyDataRenderer from '../components/ReadOnlyDataRenderer'
 import VaccineDosesTableComponent from '../components/VaccineDosesTableComponent'
+import VaccineTableComponent from '../components/VaccineTableComponent';
 import FileAttachmentComponent from '../components/FileAttachmentComponent'
 import ConcomitantTableComponent from '../components/ConcomitantTableComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
 import { BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, GENDER, STATUS_ON_DATE, DESIGNATION, INFANT_BIRTH_OPTS, MULTI_VIALS, DELIVERY_OPTS, SOURCE_INFO, RESEARCH_INVOLVES, BOOLEAN_NA_OPTIONS,
-  WHEN_VACCINATED, SYRINGES_USED, PLACE_VACCINATION, SITE_TYPE, VACCINATION_IN, BOOLEAN_UNABLE_OPTIONS, EVENT_TYPE, SAE_EVENT_TYPE, SAE_TOXICITY_GRADE, LOCATION_ADVERSE_EVENT, PROVINCES } from '../../utils/FieldOptions'
+  WHEN_VACCINATED, SYRINGES_USED, PLACE_VACCINATION, SITE_TYPE, VACCINATION_IN, BOOLEAN_UNABLE_OPTIONS, EVENT_TYPE, SAE_EVENT_TYPE, SAE_TOXICITY_GRADE, LOCATION_ADVERSE_EVENT, PROVINCES, AGE_GROUP_YEARS } from '../../utils/FieldOptions'
 
 export default class AEFIInvReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>

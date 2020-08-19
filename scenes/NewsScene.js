@@ -39,8 +39,8 @@ class NewsScene extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentRoute: state.appState.currentRoute,
-    news: state.appState.news
+    currentRoute: state.currentRoute,
+    news: state.news
   }
 }
 

@@ -11,6 +11,7 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+// import com.facebook.react.BuildConfig;
 
 // Crashlytics
 // import com.crashlytics.android.Crashlytics;

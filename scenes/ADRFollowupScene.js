@@ -20,6 +20,7 @@ import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 import { SEVERITY_REASON, BOOLEAN_OPTIONS } from '../utils/FieldOptions'
 
 import DeviceInfo from 'react-native-device-info';
+import Base64 from '../utils/Base64';
 
 class ADRFollowupScene extends PureComponent {
   static navigationOptions = {
@@ -46,8 +47,9 @@ class ADRFollowupScene extends PureComponent {
     } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }
-
+    let cancelType = 'Close';
     if(model == null) {
+      cancelType = 'Cancel';
       model = { rid : Date.now(), type : REPORT_TYPE_ADR, data_source: "phone", device_type : DeviceInfo.getSystemName() }
     }
     //model = {"rid":Date.now(),"type":"REPORT_TYPE_ADR_FOLLOW_UP","parent_reference":"ADR1/2017","report_type":"FollowUp","date_of_onset_of_reaction":"01-11-2017","severity":"No","description_of_reaction":"Gh","sadr_list_of_drugs":[{"drug_name":"S","brand_name":"G","dose_id":"2","route_id":"2","frequency_id":"2","start_date":"01-11-2017","stop_date":"01-11-2017","suspected_drug":"1"}]}
@@ -57,7 +59,8 @@ class ADRFollowupScene extends PureComponent {
     this.state = {
       model: model,
       isConnected: connection.isConnected,
-      validate: false
+      validate: false,
+      cancelType
     }
     this.mandatory = [
       { name : "date_of_onset_of_reaction", text : "Date of onset", page : 2 },
@@ -68,8 +71,17 @@ class ADRFollowupScene extends PureComponent {
     ]
   }
 
+  onSeverityChange = (severity) => {
+    if (severity.severity === 'No') {
+      const { model } = this.state;
+      model['severity_reason'] = '';
+    }
+    this.setState({ severity })
+  }
+
   render() {
-    const { model } = this.state
+    const { model } = this.state;
+    const severityReason = model['severity'] == 'Yes'? (<SelectOneField model={ model } name="severity_reason" label="Reason for Seriousness" options={ SEVERITY_REASON }/>) : null;
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ]  }>
         <ReadOnlyDataRenderer name="parent_reference" model={ model } />
@@ -79,8 +91,8 @@ class ADRFollowupScene extends PureComponent {
 
         <TextInputField model={ model } name="description_of_reaction" label="Description of ADR" multiline = {true}
          numberOfLines = {4} required={ true }/>
-        <SelectOneField model={ model } name="severity" label="Serious " required={ true } options={ BOOLEAN_OPTIONS }/>
-        <SelectOneField model={ model } name="severity_reason" label="Reason for Seriousness" options={ SEVERITY_REASON }/>
+        <SelectOneField model={ model } name="severity" label="Serious " required={ true } options={ BOOLEAN_OPTIONS } onChange={ this.onSeverityChange }/>
+        {severityReason}
         <TextInputField model={ model } name="medical_history" label="Relevant medical history, including any allergies" multiline = {true}
           numberOfLines = {4}/>
         <TextInputField model={ model } name="past_drug_therapy" label="Relevant Past Drug Therapy" multiline = {true}
@@ -93,7 +105,7 @@ class ADRFollowupScene extends PureComponent {
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => this.saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => this.saveAndSubmit() } title="Save and Submit"/>
-          <Button onPress={ () => this.cancel() } title="Cancel"/>
+          <Button onPress={ () => this.cancel() } title="Close"/>
         </View>
       </ScrollView>
     )
@@ -102,6 +114,7 @@ class ADRFollowupScene extends PureComponent {
   saveAndContinue(next) {
     const { saveDraft } = this.props
     const { model } = this.state
+    this.setState({ cancelType: 'Close' })
     saveDraft(model)
   }
 
@@ -167,7 +180,7 @@ class ADRFollowupScene extends PureComponent {
     if(!valid) {
       Alert.alert("Warning", "Fill in required fields\n " + names)
       this.setState({ validate : true })
-      this._updateRoute(page - 1)
+      // this._updateRoute(page - 1)
       return
     }
     Alert.alert("Confirm", "Submit data to MCAZ?", [
@@ -178,7 +191,13 @@ class ADRFollowupScene extends PureComponent {
   }
 
   cancel() {
-    Alert.alert("Confirm", "Stop data entry?", [
+    let message = '';
+    if (this.state.cancelType === 'Close') {
+      message = 'You can always open this version from draft to complte it, close this form?';
+    } else {
+      message = "Stop data entry, all changes would be lost. Close?";
+    }
+    Alert.alert("Confirm", message, [
       {text: 'Yes', onPress: () => this.goBack() },
       {text: 'No' }
     ])
@@ -193,7 +212,7 @@ class ADRFollowupScene extends PureComponent {
     const { model } = this.state
     const { uploadData, saveCompleted, connection, token } = this.props
     if(connection.isConnected) {
-      const url = ADR_URL + "/followup/" + btoa(model.parent_reference)
+      const url = ADR_URL + "/followup/" + Base64.btoa(model.parent_reference)
       uploadData(model, url, token)
     } else {
       Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
@@ -205,8 +224,8 @@ class ADRFollowupScene extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    token: state.appState.token
+    connection: state.connection,
+    token: state.user.token
   }
 }
 

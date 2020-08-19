@@ -72,6 +72,7 @@ class LoginScene extends Component {
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <TextField {...this.props}
           label="Email"
+          autoCapitalize={'none'}
           value={ this.state.email } keyboardType="email-address"
           onChangeText={ (text) => this.handleChange("email", text) }
         />
@@ -165,12 +166,12 @@ class LoginScene extends Component {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    completed : state.appState.completed,
-    notification: state.appState.notification,
-    token: state.appState.user.token,
-    user: state.appState.user,
-    currentRoute: state.appState.currentRoute
+    connection: state.connection,
+    completed : state.completed,
+    notification: state.notification,
+    token: state.user.token,
+    user: state.user,
+    currentRoute: state.currentRoute
   }
 }
 

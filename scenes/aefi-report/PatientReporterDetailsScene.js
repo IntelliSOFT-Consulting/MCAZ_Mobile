@@ -74,7 +74,7 @@ export default class PatientReporterDetailsScene extends PureComponent {
         <TextInputField label="Reporter  E-mail" name="reporter_email" model={ model } keyboardType="email-address"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(2) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

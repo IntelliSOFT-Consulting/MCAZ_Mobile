@@ -17,7 +17,7 @@ export default class SectionHScene extends PureComponent {
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => saveAndSubmit() } title="Save and Submit"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

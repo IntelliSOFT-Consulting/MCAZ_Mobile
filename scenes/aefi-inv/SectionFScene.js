@@ -34,7 +34,7 @@ export default class SectionFScene extends PureComponent {
         <TextInputField model={ model } name="transport_findings" label="Specific key findings/additional observations and comments:" multiline={true} numberOfLines={4}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(7) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

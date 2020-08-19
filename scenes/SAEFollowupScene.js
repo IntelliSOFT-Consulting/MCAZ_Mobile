@@ -14,7 +14,7 @@ import MedicationTableComponent from "./components/MedicationTableComponent"
 import FileAttachmentComponent from "./components/FileAttachmentComponent"
 
 import { connect } from 'react-redux'
-import { REPORT_TYPE_ADR, ADR_URL } from '../utils/Constants'
+import { REPORT_TYPE_SAE, SAE_URL } from '../utils/Constants'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
 import { SEVERITY_REASON, BOOLEAN_OPTIONS } from '../utils/FieldOptions'
@@ -46,9 +46,10 @@ class SAEFollowupScene extends PureComponent {
     } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }
-
+    let cancelType = 'Close';
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_ADR, data_source: "phone", device_type : DeviceInfo.getSystemName() }
+      cancelType = 'Cancel';
+      model = { rid : Date.now(), type : REPORT_TYPE_SAE, data_source: "phone", device_type : DeviceInfo.getSystemName() }
     }
     //model = {"rid":Date.now(),"type":"REPORT_TYPE_ADR_FOLLOW_UP","parent_reference":"ADR1/2017","report_type":"FollowUp","date_of_onset_of_reaction":"01-11-2017","severity":"No","description_of_reaction":"Gh","sadr_list_of_drugs":[{"drug_name":"S","brand_name":"G","dose_id":"2","route_id":"2","frequency_id":"2","start_date":"01-11-2017","stop_date":"01-11-2017","suspected_drug":"1"}]}
     //model = {"rid":1512503271856,"type":"REPORT_TYPE_ADR","name_of_institution":"Nairobi Hosp","sadr_list_of_drugs":[{"brand_name":"dawa","dose_id":"2","route_id":"4","frequency_id":"3","start_date":"14-10-2017","stop_date":"4-11-2017","indication":"1","suspected_drug":"1"}],"action_taken":"Drug withdrawn","outcome":"Recovered","relatedness":"Certain","designation_id":"1","reporter_name":"John Muiruri","reporter_email":"jihn@ggh.con","reporter_phone":"07555555","date_of_onset_of_reaction":"22-10-2017","date_of_end_of_reaction":"1-11-2017","severity":"No","severity_reason":"Death","institution_code":"Ggg","patient_name":"Jm","ip_no":"Ggh","date_of_birth":"13-11-1990","age_group":"child","weight":"23","height":"123","gender":"Male","medical_history":"Hone","past_drug_therapy":"Kit","lab_test_results":"Limr","description_of_reaction":"This i"}
@@ -57,7 +58,8 @@ class SAEFollowupScene extends PureComponent {
     this.state = {
       model: model,
       isConnected: connection.isConnected,
-      validate: false
+      validate: false,
+      cancelType
     }
     this.mandatory = [
       { name : "date_of_onset_of_reaction", text : "Date of onset", page : 2 },
@@ -102,6 +104,7 @@ class SAEFollowupScene extends PureComponent {
   saveAndContinue(next) {
     const { saveDraft } = this.props
     const { model } = this.state
+    this.setState({ cancelType: 'Close' });
     saveDraft(model)
   }
 
@@ -178,7 +181,13 @@ class SAEFollowupScene extends PureComponent {
   }
 
   cancel() {
-    Alert.alert("Confirm", "Stop data entry?", [
+    let message = '';
+    if (this.state.cancelType === 'Close') {
+      message = 'You can always open this version from draft to complete it, close this form?';
+    } else {
+      message = "Stop data entry, all changes would be lost. Close?";
+    }
+    Alert.alert("Confirm", message, [
       {text: 'Yes', onPress: () => this.goBack() },
       {text: 'No' }
     ])
@@ -193,7 +202,7 @@ class SAEFollowupScene extends PureComponent {
     const { model } = this.state
     const { uploadData, saveCompleted, connection, token } = this.props
     if(connection.isConnected) {
-      const url = ADR_URL + "/followup/" + btoa(model.parent_reference)
+      const url = SAE_URL + "/followup/" + btoa(model.parent_reference)
       uploadData(model, url, token)
     } else {
       Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
@@ -205,8 +214,8 @@ class SAEFollowupScene extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    token: state.appState.token
+    connection: state.connection,
+    token: state.token
   }
 }
 

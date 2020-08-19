@@ -47,7 +47,7 @@ export default class AdverseReactionScene extends PureComponent {
           numberOfLines = {4}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(3) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )
@@ -57,7 +57,15 @@ export default class AdverseReactionScene extends PureComponent {
     this.setState(value)
   }
 
-  onSeverityChange(value) {
-    this.setState({ severity : value })
+  onSeverityChange(severity) {
+    
+    if (severity.severity === 'No') {
+      const newModel = {};
+      newModel['severity_reason'] = '';
+      const { model } = this.props;
+      model['severity_reason'] = ''
+      // this.props.handleModelChange(newModel);
+    }
+    this.setState({ severity })
   }
 }

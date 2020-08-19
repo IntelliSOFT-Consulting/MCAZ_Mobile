@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Button } from 'react-native'
 
-import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
+import DocumentPicker from 'react-native-document-picker';
 const RNFS = require('react-native-fs');
 
 export default class FileInputComponent extends Component{
@@ -18,28 +18,35 @@ export default class FileInputComponent extends Component{
     this.state = { filename : filename }
   }
 
-  selectFile() {
+  async selectFile() {
     const { model } = this.props
-    DocumentPicker.show({
-      filetype: [ DocumentPickerUtil.allFiles() ],
-    },(error,res) => {
-      // Android
-      console.log(
-         res.uri,
-         res.type, // mime type
-         res.fileName,
-         res.fileSize
-      );
-      model['filename'] = res.fileName;
-      RNFS.readFile(res.uri, 'base64').then((data) => {
-        model['file'] = 'data:' + res.type + ';base64,' + data
-        this.setState({ filename : model['filename']})
+    try {
+      const res = await DocumentPicker.pick({
+        // type: DocumentPicker.allFiles
       });
-    });
+      console.log(
+        res.uri,
+        res.type, // mime type
+        res.name,
+        res.size
+     );
+     model['filename'] = res.name;
+     RNFS.readFile(res.uri, 'base64').then((data) => {
+       model['file'] = 'data:' + res.type + ';base64,' + data
+       this.setState({ filename : model['filename']})
+     });
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        // User cancelled the picker, exit any dialogs or menus and move on
+      } else {
+        throw err;
+      }
+      console.error(err);
+    }
   }
   render() {
     const { hideLabel, label } = this.props
-    const labelText = hideLabel? null : (<Text>{ label }</Text>)
+    const labelText = hideLabel ? null : (<Text>{ label }</Text>)
     return (
       <View>
         { labelText }

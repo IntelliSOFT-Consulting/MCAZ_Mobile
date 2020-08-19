@@ -26,7 +26,7 @@ export default class SectionGScene extends PureComponent {
         <TextInputField model={ model } name="community_comments" label="Other comments:" multiline={true} numberOfLines={4}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(8) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

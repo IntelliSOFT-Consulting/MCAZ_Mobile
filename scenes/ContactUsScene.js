@@ -108,12 +108,12 @@ class ContactUsScene extends Component {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    completed : state.appState.completed,
-    notification: state.appState.notification,
-    token: state.appState.user.token,
-    user: state.appState.user,
-    currentRoute: state.appState.currentRoute
+    connection: state.connection,
+    completed : state.completed,
+    notification: state.notification,
+    token: state.user.token,
+    user: state.user,
+    currentRoute: state.currentRoute
   }
 }
 

@@ -23,7 +23,7 @@ export default class SectionCScene extends PureComponent {
         <TextInputField label="If from verbal autopsy, please mention source" model={ model } name="verbal_source"/>
         <TextInputField label="Name of the person who first examined/treated the patient:" model={ model } name="examiner_name"/>
         <TextInputField label="Other sources who provided information (specify):" model={ model } name="other_sources"/>
-        <TextInputField label="Signs and symptoms in chronological order from the time of vaccination:" model={ model } name="signs_symptoms" />
+        <TextInputField label="Signs and symptoms in chronological order from the time of vaccination:" model={ model } name="signs_symptoms" required={ true }/>
         <TextInputField label="Name and contact information of person completing these clinical details:" model={ model } name="person_details"/>
         <TextInputField label="Designation:" model={ model } name="person_designation"/>
         <DateTimeInput label="Date/time" model={ model } name="person_date"/>
@@ -46,7 +46,7 @@ export default class SectionCScene extends PureComponent {
         <TextInputField label="Provisional / Final diagnosis:" model={ model } name="final_diagnosis"/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

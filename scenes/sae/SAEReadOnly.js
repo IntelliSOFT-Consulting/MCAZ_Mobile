@@ -114,9 +114,7 @@ export default class SAEReadOnly extends Component{
             risks and benefits to the subjects in this research." model={ model } name="assess_risk" options={ ["Yes", "No"] }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => goBack() } title="Close"/>
-
         </View>
-
       </ScrollView>
     )
   }

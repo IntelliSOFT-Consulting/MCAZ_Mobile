@@ -49,7 +49,7 @@ class SignupScene extends Component {
   render() {
     const completedCount = this.props.completed.length
     return (
-      <ScrollView style={ AppStyles.scrollContainer }>
+      <ScrollView style={ AppStyles.scrollContainer } keyboardShouldPersistTaps={'handled'}>
         <Text style={ AppStyles.headerText }>Medicines Control Authourity of Zimbabwe</Text>
         <Text style={ AppStyles.subHeaderText }>SAE, ADR and AEFI electronic reporting.</Text>
         <TextField {...this.props}
@@ -92,10 +92,10 @@ class SignupScene extends Component {
 
 const mapStateToProps = state => {
   return {
-    connection: state.appState.connection,
-    completed : state.appState.completed,
-    notification: state.appState.notification,
-    token: state.appState.user.token
+    connection: state.connection,
+    completed : state.completed,
+    notification: state.notification,
+    token: state.user.token
   }
 }
 

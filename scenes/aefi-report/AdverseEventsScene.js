@@ -41,8 +41,8 @@ export default class AdverseEventsScene extends PureComponent {
         <DateTimeInput label="Date patient notified event to health system (DD/MM/YYYY):" name="notification_date" model={ model } minDate={ this.state.aefi_date } maxDate={ new Date() }/>
         <TextInputField label="Describe AEFI (Signs and symptoms):" multiline={true} numberOfLines={4} name="description_of_reaction" model={ model }/>
         <SelectOneField label="Treatment provided:" options={ BOOLEAN_OPTIONS } name="treatment_provided" model={ model }/>
-        <SelectOneField label="Serious:" options={ BOOLEAN_OPTIONS } name="serious" model={ model } required={ true }/>
-        <SelectOneField label="If yes:" options={ AEFI_SEVERITY_REASON } name="serious_yes" model={ model }/>
+        <SelectOneField label="Serious:" options={ BOOLEAN_OPTIONS } name="serious" model={ model } required={ true } onChange={this.onChange}/>
+        {this.state.serious == 'Yes' && (<SelectOneField label="If yes:" options={ AEFI_SEVERITY_REASON } name="serious_yes" model={ model }/>)}
         <SelectOneField label="Outcome:" name="outcome" model={ model } required={ true } options={ AEFI_OUTCOME } onChange={this.onChange}/>
         { autopsyDod }
         <FileInputComponent name="reports" model={ model.reports[0] } label="Attach report"/>
@@ -50,7 +50,7 @@ export default class AdverseEventsScene extends PureComponent {
           (e.g. other cases). Use additional sheet if needed :" multiline={true} numberOfLines={4} name="past_medical_history" model={ model }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Cancel"/>
+          <Button onPress={ () => cancel() } title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

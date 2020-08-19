@@ -39,7 +39,7 @@ export default class SectionDScene extends PureComponent {
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } color="#841584"  title="Save changes"/>
           <Button onPress={ () => saveAndSubmit() } color="#841584"  title="Save and Submit"/>
-          <Button onPress={ () => cancel() } color="#841584"  title="Cancel"/>
+          <Button onPress={ () => cancel() } color="#841584"  title="Close"/>
         </View>
       </KeyboardAwareScrollView>
     )

@@ -1,27 +1,26 @@
-import { createStore, compose, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import {
   persistStore,
-  persistCombineReducers, autoRehydrate
 } from 'redux-persist'
-import { AsyncStorage } from 'react-native'
-import appState from '../reducers'
+import rootReducers from '../reducers'
+import { storeMiddleWare } from '../middleware';
 import thunk from 'redux-thunk'
 
-const config = {
-  key: 'root',
-  storage: AsyncStorage,
-  debug: true
+const middlewares = [
+  thunk,
+  storeMiddleWare,
+];
+
+export const configureStore = () => {
+  const store = createStore(rootReducers, {}, applyMiddleware(...middlewares));
+  return { store, persistedStore: persistStore(store) };
 };
 
-const reducers = persistCombineReducers(config, {
-  appState
-});
-
-const pvStore = (state) => {
+/*const pvStore = (state) => {
   const store = createStore(reducers, state, applyMiddleware(thunk))
   const persistor = persistStore(store);
 
   return { persistor, store };
 }
 
-export default pvStore
+export default pvStore*/

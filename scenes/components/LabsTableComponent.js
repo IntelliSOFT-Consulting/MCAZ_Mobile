@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, Button, Alert, CheckBox } from 'react-native'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
-import SelectOneField from './SelectOneField'
 import DateTimeInput from './DateTimeInput'
 import TextInputField from './TextInputField'
 import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
@@ -70,7 +69,7 @@ export default class LabsTableComponent extends TableComponent {
       <View>
         <ScrollView horizontal={true}>
           <Table>
-            <Row data={tableHead} style={AppStyles.tableHead} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
+            <Row data={tableHead} style={{...AppStyles.tableHead, ...{ height: 80 }}} textStyle={AppStyles.tableHeadText} widthArr={widthArr}/>
             <Rows data={ rows }  widthArr={widthArr}/>
           </Table>
         </ScrollView>

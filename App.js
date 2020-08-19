@@ -38,7 +38,7 @@ import { StackNavigator, addNavigationHelpers, DrawerNavigator } from 'react-nav
 
 import { setCurrentRouteName, changeConnection, setNotification } from './actions'
 import NetInfo, { NetInfoSubscription } from "@react-native-community/netinfo";
-
+import LoadingComponent from './scenes/components/LoadingComponent';
 // var Fabric = require('react-native-fabric')
 // var { Crashlytics } = Fabric
 
@@ -210,6 +210,9 @@ class App extends Component<{}> {
     super(props, context)
     this._getCurrentRouteName = this._getCurrentRouteName.bind(this)
     this.changeConnection = this.changeConnection.bind(this)
+    this.state = {
+      loading: props.loading,
+    }
   }
   render() {
     return (
@@ -219,7 +222,10 @@ class App extends Component<{}> {
           <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
                   onNavigationStateChange={(prevState, currentState) => {
                   this._getCurrentRouteName(currentState)
-                }}
+            }}
+          />
+          <LoadingComponent
+            loading={this.state.loading}
           />
         </SafeAreaView>
       </>
@@ -261,7 +267,7 @@ class App extends Component<{}> {
     if (this.props.userID !== prevProps.userID) {
       this.fetchData(this.props.userID);
     }
-
+    
     const { notification } = this.props
     const prevNotification = prevProps.notification
     if (notification && (!prevNotification || (prevNotification.id != notification.id))) {
@@ -270,12 +276,22 @@ class App extends Component<{}> {
       ])
     }
   }
+
+  static getDerivedStateFromProps(props, state) {
+    const newState = {}
+    if (props.loading != state.loading) {
+      return { loading: props.loading };
+    }
+    // newState.loading = props.loading;
+    return null;
+  }
 }
 
 const mapStateToProps = state => {
   return {
-    notification: state.appState.notification,
-    token: state.appState.token
+    notification: state.notification,
+    token: state.token,
+    loading: state.loading
   }
 }
 
