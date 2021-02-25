@@ -3,12 +3,10 @@ import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler
 import AppStyles from '../styles/AppStyles'
 import { changeConnection, contactUs, login } from '../actions'
 import { connect } from 'react-redux'
-import { NavigationActions } from 'react-navigation'
-
 import { TextField } from 'react-native-material-textfield'
 
 class ContactUsScene extends Component {
-  static navigationOptions = ({ navigation }) => {
+  /*static navigationOptions = ({ navigation }) => {
     return {
       title: 'Contact us',
       headerRight: (
@@ -20,7 +18,7 @@ class ContactUsScene extends Component {
         />
       )
     }
-  }
+  }*/
   constructor(props, context) {
     super(props, context)
     const { token } = this.props

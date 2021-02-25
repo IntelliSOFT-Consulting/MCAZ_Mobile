@@ -13,13 +13,14 @@ export const REPORT_TYPE_AEFI = 'REPORT_TYPE_AEFI'
 export const REPORT_TYPE_ADR_FOLLOW_UP = 'REPORT_TYPE_ADR_FOLLOW_UP'
 export const REPORT_TYPE_AEFI_FOLLOW_UP = 'REPORT_TYPE_AEFI_FOLLOW_UP'
 export const REPORT_TYPE_SAE_FOLLOW_UP = 'REPORT_TYPE_SAE_FOLLOW_UP'
+export const REPORT_TYPE_AEFI_INV_FOLLOW_UP = 'REPORT_TYPE_AEFI_INV_FOLLOW_UP'
 
 // Report status
 export const STATUS_DRAFT = 'STATUS_DRAFT'
 export const STATUS_COMPLETED = 'STATUS_COMPLETED'
 export const STATUS_UPLOADED = 'STATUS_UPLOADED'
 
-export const MAIN_URL = 'http://104.237.146.235/api' // 'https://e-pv.mcaz.co.zw/api'
+export const MAIN_URL = 'http://104.237.146.235/api'//  'https://e-pv.mcaz.co.zw/api' // 
 
 export const ADR_URL = MAIN_URL + '/sadrs' // Url for ADR
 export const SAE_URL = MAIN_URL + '/adrs' // Url for SAE

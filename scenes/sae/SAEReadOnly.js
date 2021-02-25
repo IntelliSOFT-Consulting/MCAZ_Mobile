@@ -19,14 +19,14 @@ export default class SAEReadOnly extends Component{
   //
   render() {
     const { model, goBack, createFollowup } = this.props
-    const newFollowUp = { rid : Date.now(), "type": REPORT_TYPE_SAE_FOLLOW_UP, parent_reference : model.reference_number, report_type : "FollowUp" }
-    const followUpBtn = model.reference_number != null ? (<Button onPress={ () => createFollowup(newFollowUp, 'SAEFollowupScene') } title="Create Followup report"/>) : null
+    const newFollowUp = {...model, rid : Date.now(), "type": REPORT_TYPE_SAE_FOLLOW_UP, report_type : "Follow-up" }
+    const followUpBtn = model.reference_number != null ? (<Button onPress={ () => createFollowup(newFollowUp, 'SAEFormScene') } title="Create Followup report"/>) : null
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
         <ReadOnlyDataRenderer label="MCAZ Reference Number" name="reference_number" model={ model }/>
         <ReadOnlyDataRenderer label="MRCZ Protocol #:" name="mrcz_protocol_number" model={ model }/>
-        <ReadOnlyDataRenderer label="MCAZ Protocol #"  name="mraz_protocol_number"model={ model }/>
+        <ReadOnlyDataRenderer label="MCAZ Protocol #"  name="mcaz_protocol_number"model={ model }/>
         <ReadOnlyDataRenderer label="Institution"  name="name_of_institution" model={ model }/>
         <ReadOnlyDataRenderer label="Principle Investigator:"  name="principal_investigator" model={ model }/>
         <ReadOnlyDataRenderer label="Phone:" keyboardType = 'phone-pad' name="reporter_phone" model={ model }/>
@@ -114,6 +114,7 @@ export default class SAEReadOnly extends Component{
             risks and benefits to the subjects in this research." model={ model } name="assess_risk" options={ ["Yes", "No"] }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => goBack() } title="Close"/>
+          {followUpBtn}
         </View>
       </ScrollView>
     )

@@ -1,4 +1,5 @@
-import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV, REPORT_TYPE_ADR_FOLLOW_UP } from './Constants'
+import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV, REPORT_TYPE_ADR_FOLLOW_UP, REPORT_TYPE_SAE_FOLLOW_UP,
+  REPORT_TYPE_AEFI_FOLLOW_UP, REPORT_TYPE_AEFI_INV_FOLLOW_UP } from './Constants'
 import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL } from './Constants'
 import moment from 'moment'
 import Base64 from './Base64';
@@ -27,14 +28,16 @@ export const getRequestPayload  = (data) => {
 export const getURL = (data) => {
   if(data.type == REPORT_TYPE_ADR) {
     return ADR_URL
-  } else if(data.type == REPORT_TYPE_SAE) {
+  } else if(data.type == REPORT_TYPE_SAE || data.type == REPORT_TYPE_SAE_FOLLOW_UP) {
     return SAE_URL
-  } else if(data.type == REPORT_TYPE_AEFI) {
+  } else if(data.type == REPORT_TYPE_AEFI || data.type === REPORT_TYPE_AEFI_FOLLOW_UP) {
     return AEFI_URL
-  } else if(data.type == REPORT_TYPE_AEFI_INV) {
+  } else if(data.type == REPORT_TYPE_AEFI_INV || data.type == REPORT_TYPE_AEFI_INV_FOLLOW_UP) {
     return SAEFI_URL
   } else if(data.type == REPORT_TYPE_ADR_FOLLOW_UP) {
     return ADR_URL + "/followup/" + Base64.btoa(data.parent_reference)
+  } /*else if(data.type == REPORT_TYPE_SAE_FOLLOW_UP) {
+    return SAE_URL + "/followup/" + Base64.btoa(data.reference_number)
   } /*else if(data.type == REPORT_TYPE_AEFI_FOLLOW_UP) {
     return AEFI_URL + "/followup/" + Base64.btoa(data.parent_reference)
   }*/
@@ -63,3 +66,8 @@ export const getDateTimeFromString = (dateTime) => {
     }
     return date
   }
+
+  export const validEmail = (email) => {
+    const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+  };

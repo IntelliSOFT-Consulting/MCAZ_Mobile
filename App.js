@@ -9,7 +9,7 @@ import {
   Platform,
   StyleSheet,
   Alert,
-  View, SafeAreaView, StatusBar
+  View, SafeAreaView, StatusBar, Button, TouchableOpacity, Image
 } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { connect } from 'react-redux'
@@ -29,12 +29,15 @@ import ContactUsScene from './scenes/ContactUsScene'
 import NewsScene from './scenes/NewsScene'
 
 import DrawerButton from './scenes/components/DrawerButton'
+import LogoutButton from './scenes/components/LogoutButton';
 
 import ADRFollowupScene from "./scenes/ADRFollowupScene"
 import AEFIReportFollowupScene from './scenes/AEFIReportFollowupScene'
 import SAEFollowupScene from "./scenes/SAEFollowupScene"
 
-import { StackNavigator, addNavigationHelpers, DrawerNavigator } from 'react-navigation'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { setCurrentRouteName, changeConnection, setNotification } from './actions'
 import NetInfo, { NetInfoSubscription } from "@react-native-community/netinfo";
@@ -45,34 +48,7 @@ import LoadingComponent from './scenes/components/LoadingComponent';
 /**
   Main Screen routes.
 */
-const MainRoutes = {
-  MainScene : {
-    name : "CTR PV",
-    screen : MainScene
-  },
-  ADRScene : {
-    name : "ADR Report Form",
-    screen : ADRScene
-  },
-  SAEFormScene: {
-    screen : SAEFormScene
-  },
-  AEFIInvFormScene: {
-    screen : AEFIInvFormScene
-  },
-  AEFIReportingFormScene: {
-    screen : AEFIReportingFormScene
-  },
-  ADRFollowupScene: {
-    screen: ADRFollowupScene
-  },
-  AEFIReportFollowupScene: {
-    screen: AEFIReportFollowupScene
-  },
-  SAEFollowupScene: {
-    screen: SAEFollowupScene
-  }
-}
+
 
 /**
   Login and signup routes.
@@ -122,36 +98,184 @@ const ContactRoutes = {
   },
 }
 
-const SavedReportsNavigator = StackNavigator(SavedReportRoutes, {
+const SavedReportsNavigator = createStackNavigator();
+const SavedReportsStack = () => {
+  return (
+    <SavedReportsNavigator.Navigator
+      screenOptions={({ navigation, route }) => ({
+        headerRight: (props) => (
+          <Button title="Close" onPress={() => navigation.goBack()} />
+        ),
+        title: 'MCAZ - Saved reports',
+      })}
+    >
+      <SavedReportsNavigator.Screen
+        name={'SavedReportsScene'}
+        component={SavedReportsScene}
+      />
+      <SavedReportsNavigator.Screen
+        name={'ReportsListScene'}
+        component={ReportsListScene}
+      />
+      <SavedReportsNavigator.Screen
+        name={'ReadOnlyReportScene'}
+        component={ReadOnlyReportScene}
+      />
+    </SavedReportsNavigator.Navigator>
+  )
+}
+
+/*const SavedReportsNavigator = StackNavigator(SavedReportRoutes, {
   initialRouteName : 'SavedReportsScene', headerMode : 'float'
 })
+*/
+const NewsNavigator = createStackNavigator();
+const NewsStack = () => {
+  return (
+    <NewsNavigator.Navigator
+      screenOptions={({ navigation, route }) => ({
+        headerRight: (props) => (
+          <Button title="Close" onPress={() => navigation.goBack()} />
+        )
+      })}
+    >
+      <NewsNavigator.Screen
+        name={'NewsScene'}
+        component={NewsScene}
+        options={{
+          headerTitle: 'News'
+        }}
+      />
+    </NewsNavigator.Navigator>
+  )
+}
 
-const NewsNavigator = StackNavigator(NewsRoutes, {
-  headerMode : 'float'
-})
+const ContactNavigator = createStackNavigator();
+const ContactStack = () => {
+  return (
+    <ContactNavigator.Navigator
+      screenOptions={({ navigation, route }) => ({
+        headerRight: (props) => (
+          <Button title="Close" onPress={() => navigation.goBack()} />
+        )
+      })}
+    >
+      <ContactNavigator.Screen
+        name={'ContactUsScene'}
+        options={{
+          headerTitle: 'Contact us'
+        }}
+        component={ContactUsScene}
+      />
+    </ContactNavigator.Navigator>
+  )
+}
 
-const ContactNavigator = StackNavigator(ContactRoutes, {
-  headerMode : 'float'
-})
 
-const MainNavigator = StackNavigator(MainRoutes, {
-  initialRouteName : 'MainScene', //headerMode: "none"
-  navigationOptions : ({ navigation }) => {
-    return {
-      headerLeft: (
-        <DrawerButton navigation={ navigation }/>
-      ),
-      headerStyle: {
-        elevation: 0,
-        shadowOpacity: 0
-      }
-    }
-  }
-})
+const MainNavigator = createStackNavigator();
+const MainStack = () => {
+  return (
+    <MainNavigator.Navigator
+      screenOptions={({ navigation, route }) => ({
+        headerLeft: (props) => (
+          <DrawerButton navigation={navigation} />
+        ),
+        headerRight: (props) => (
+          <LogoutButton />
+        )
+      })}
+    >
+      <MainNavigator.Screen
+        name={'MainScene'}
+        component={MainScene}
+        options={({ navigation, route }) => ({
+          headerMode : 'float',
+          headerLeft: (props) => (
+            <DrawerButton navigation={navigation} />
+          ),
+          title: 'MCAZ - Home',
+        })}
+      />
+      <MainNavigator.Screen
+        name={'ADRScene'}
+        component={ADRScene}
+        options={{
+          headerTitle: 'ADR Report form'
+        }}
+      />
+      <MainNavigator.Screen
+        name={'SAEFormScene'}
+        component={SAEFormScene}
+        options={{
+          headerTitle: 'SAE Report form'
+        }}
+      />
+      <MainNavigator.Screen
+        name={'AEFIInvFormScene'}
+        component={AEFIInvFormScene}
+        options={{
+          headerTitle: 'AEFI Investigation Form'
+        }}
+      />
+      <MainNavigator.Screen
+        name={'AEFIReportingFormScene'}
+        component={AEFIReportingFormScene}
+        options={{
+          headerTitle: 'AEFI Report form'
+        }}
+      />
+      <MainNavigator.Screen
+        name={'ADRFollowupScene'}
+        component={ADRFollowupScene}
+      />
+      <MainNavigator.Screen
+        name={'AEFIReportFollowupScene'}
+        component={AEFIReportFollowupScene}
+        options={{
+          headerTitle: 'AEFI Report Follow up'
+        }}
+      />
+      <MainNavigator.Screen
+        name={'SAEFollowupScene'}
+        component={SAEFollowupScene}
+        options={{
+          headerTitle: 'SAE Follow up'
+        }}
+      />
+    </MainNavigator.Navigator>
+  )
+}
 
-const AuthNavigator = StackNavigator(AuthRoutes, {
-  initialRouteName : 'LoginScene', headerMode : 'float'
-})
+
+const AuthStackNavigator = createStackNavigator();
+const AuthStack = () => {
+  return (
+    <AuthStackNavigator.Navigator>
+      <AuthStackNavigator.Screen
+        name={'LoginScene'}
+        component={LoginScene}
+        options={{
+          headerMode : 'float',
+          title: 'MCAZ - Login',
+        }}
+      />
+      <AuthStackNavigator.Screen
+        name={'SignupScene'}
+        component={SignupScene}
+        options={{
+          title: 'MCAZ - Signup',
+        }}
+      />
+      <AuthStackNavigator.Screen
+        name={'ResetPasswordScene'}
+        component={ResetPasswordScene}
+        options={{
+          title: 'MCAZ - Reset password',
+        }}
+      />
+    </AuthStackNavigator.Navigator>
+  )
+}
 
 /**
   Routes rendered on the drawer.
@@ -161,16 +285,40 @@ const DrawerRoutes = {
     screen: MainNavigator
   },
   NewsScene: {
-    screen: NewsNavigator
+    screen: NewsStack
   },
   SavedReports: {
-    screen : SavedReportsNavigator
+    screen : SavedReportsStack
   },
   ContactUsScene: {
-    screen : ContactNavigator
+    screen : ContactStack
   }
 }
-// Drawer navigator.
+
+const DrawerNavigator = createDrawerNavigator();
+
+const Drawer = () => {
+  return (
+    <DrawerNavigator.Navigator initialRouteName="Home">
+        <DrawerNavigator.Screen
+          name="Home" component={MainStack}
+        />
+        <DrawerNavigator.Screen
+          name={'News'}
+          component={NewsStack}
+        />
+        <DrawerNavigator.Screen
+          name={'Saved reports'}
+          component={SavedReportsStack}
+        />
+        <DrawerNavigator.Screen
+          name={'Contact us'}
+          component={ContactStack}
+        />
+    </DrawerNavigator.Navigator>
+  )
+}
+/* Drawer navigator.
 const drawerNav = DrawerNavigator(DrawerRoutes, {
   navigationOptions: {
     headerStyle: {
@@ -178,12 +326,12 @@ const drawerNav = DrawerNavigator(DrawerRoutes, {
       shadowOpacity: 0
     }
   }
-})
+})*/
 
 /**
   All routes for the app combined.
 */
-const MainAppRoutes = {
+/*const MainAppRoutes = {
   Main: {
     screen: drawerNav //MainNavigator
   },
@@ -203,7 +351,7 @@ const MainAppNavigator = StackNavigator(MainAppRoutes, {
       shadowOpacity: 0
     }
   }
-})
+})*/
 
 class App extends Component<{}> {
   constructor(props, context) {
@@ -219,11 +367,11 @@ class App extends Component<{}> {
       <>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView style={{flex: 1}}>
-          <MainAppNavigator ref={ nav => { this.navigator = nav; }} screenProps={ this.state }
-                  onNavigationStateChange={(prevState, currentState) => {
-                  this._getCurrentRouteName(currentState)
-            }}
-          />
+          <NavigationContainer>
+            {this.props.token ? (
+              <Drawer />
+            ): <AuthStack />}
+          </NavigationContainer>
           <LoadingComponent
             loading={this.state.loading}
           />
@@ -290,7 +438,7 @@ class App extends Component<{}> {
 const mapStateToProps = state => {
   return {
     notification: state.notification,
-    token: state.token,
+    token: state.user.token,
     loading: state.loading
   }
 }

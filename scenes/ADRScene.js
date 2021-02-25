@@ -39,20 +39,20 @@ class ADRScene extends PureComponent {
 
     var { model, connection, user } = this.props
 
-    const { navigation } = this.props;
-    if(navigation.state.params && navigation.state.params.model) {
-      model = navigation.state.params.model
+    const { route } = this.props;
+    if(route.params && route.params.model) {
+      model = route.params.model
     }
     var followUp = null
-    if(navigation.state.params && navigation.state.params.followUp) {
-      followUp = navigation.state.params.followUp
+    if(route.params && route.params.followUp) {
+      followUp = route.params.followUp
     } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }
     let cancelType = 'Close';
 
     if(model == null) {
-      model = { rid : Date.now(), type : REPORT_TYPE_ADR, data_source: "phone", device_type : DeviceInfo.getSystemName(), reporter_email: user.email, reporter_name: user.name }
+      model = { rid : Date.now(), type : REPORT_TYPE_ADR, data_source: "phone", device_type : DeviceInfo.getSystemName(), reporter_email: user.email, reporter_name: user.name, in_utero: "" }
       cancelType = 'Cancel';
       if(followUp) {
         model.parent_id = ""
@@ -74,16 +74,20 @@ class ADRScene extends PureComponent {
       cancelType: cancelType
     }
     this.mandatory = [
-      { name : "patient_name", text : "Patient Initials", page : 1 },
-      { name : "date_of_birth", text: "Date of bith", page : 1,  dependent: "age", value: ""},
-      { name : "age", text: "Age", page : 1,  dependent: "date_of_birth", value: ""},
-      { name : "gender", text : "Sex", page : 1 },
-      { name : "date_of_onset_of_reaction", text : "Date of onset", page : 2 },
-      { name : 'description_of_reaction', text : "Description of ADR", page : 2},
-      { name : "severity", text : "Serious", page : 2 }, { name : "outcome", text : "Outcome", page : 3 },
-      { name : "sadr_list_of_drugs", fields: [{ name : "drug_name", text : "Generic name" }, { name : "dose_id", text : "Dose" },
-        { name : "frequency_id", text : "Frequency" }, { name : "start_date", text : "Start date" }], page: 3},
-      { name : 'action_taken', text : "Action taken", page : 3 },
+      //{ name : "patient_name", text : "Patient Initials", page : 1 },
+      //{ name : "date_of_birth", text: "Date of bith", page : 1,  dependent: "age", value: ""},
+      //{ name : "age", text: "Age", page : 1,  dependent: "date_of_birth", value: ""},
+      //{ name : "gender", text : "Sex", page : 1 },
+      //{ name : "date_of_onset_of_reaction", text : "Date of onset", page : 2 },
+      //{ name : 'description_of_reaction', text : "Description of ADR", page : 2},
+      //{ name : "severity", text : "Serious", page : 2 }, { name : "outcome", text : "Outcome", page : 3 },
+      { name : "sadr_list_of_drugs", fields: [
+        //{ name : "drug_name", text : "Generic name" },
+        //{ name : "dose_id", text : "Dose" },
+        //{ name : "frequency_id", text : "Frequency" },
+        //{ name : "start_date", text : "Start date" }
+      ], page: 3},
+     // { name : 'action_taken', text : "Action taken", page : 3 },
       { name : "reporter_name", text : "Forename & Surname", page : 4 },
       { name : "designation_id", text : "Designation", page : 4 }, { name : "reporter_email", text : "Email Address", page : 4 }]
   }
@@ -203,13 +207,13 @@ class ADRScene extends PureComponent {
               suspected_drug++
             }
           }
-          if(suspected_drug == 0) {
+          /*if(suspected_drug == 0) {
             valid = false
             names += "\nCheck at least one suspected drug"
-          }
+          }*/
         } else {
-          valid = false
-          names += "\nAdd at least one suspected drug."
+          //valid = false
+          //names += "\nAdd at least one suspected drug."
         }
         if(names != "" && arrayNames.length > 0) {
           names += ",\n"

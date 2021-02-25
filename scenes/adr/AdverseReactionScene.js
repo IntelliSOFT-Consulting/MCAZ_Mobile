@@ -8,7 +8,7 @@ import TextInputField from '../components/TextInputField'
 import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import DateTimeInput from '../components/DateTimeInput'
-import DateSelectInput from '../components/DateSelectInput'
+import CheckBoxInput from '../components/CheckBoxInput';
 import ReactionsComponent from '../components/ReactionsComponent'
 
 import { SEVERITY_REASON, BOOLEAN_OPTIONS } from '../../utils/FieldOptions'
@@ -29,13 +29,18 @@ export default class AdverseReactionScene extends PureComponent {
     return (
       <KeyboardAwareScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ]  } keyboardShouldPersistTaps={'handled'}>
         <Text style={ AppStyles.boldText }>Adverse Reaction</Text>
-        <DateTimeInput model={ model } name="date_of_onset_of_reaction" label="Date of onset" required={ true } onChange={ this.onChange } maxDate={ new Date() }/>
+        <DateTimeInput model={ model } name="date_of_onset_of_reaction" label="Date of onset" onChange={ this.onChange } maxDate={ new Date() }/>
         <DateTimeInput model={ model } name="date_of_end_of_reaction" label="Date of end of reaction (If ended)" maxDate={ new Date() } minDate={ this.state.date_of_onset_of_reaction }/>
-
-        <TextInputField model={ model } name="description_of_reaction" label="Description of ADR" multiline = {true}
-         numberOfLines = {4} required={ true }/>
+        <CheckBoxInput model={model} name="in_utero" label={'Did reaction occur in utero?'} />
+        <TextInputField
+          model={ model }
+          name="description_of_reaction"
+          label="Description of ADR"
+          multiline = {true}
+          numberOfLines = {4}
+         />
         <ReactionsComponent model={ model } name="reactions" />
-       <SelectOneField model={ model } name="severity" label="Serious " required={ true } options={ BOOLEAN_OPTIONS } onChange={ this.onSeverityChange }/>
+       <SelectOneField model={ model } name="severity" label="Serious " options={ BOOLEAN_OPTIONS } onChange={ this.onSeverityChange }/>
         { severityReason }
         <TextInputField model={ model } name="medical_history" label="Relevant medical history, including any allergies" multiline = {true}
           numberOfLines = {4}/>

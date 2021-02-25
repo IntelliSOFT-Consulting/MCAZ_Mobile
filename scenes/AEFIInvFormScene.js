@@ -32,13 +32,13 @@ class AEFIInvFormScene extends PureComponent {
 
     var { model, connection, user } = this.props
 
-    const { navigation } = this.props;
-    if(navigation.state.params && navigation.state.params.model) {
-      model = navigation.state.params.model
+    const { route } = this.props;
+    if(route.params && route.params.model) {
+      model = route.params.model
     }
     var followUp = null
-    if(navigation.state.params && navigation.state.params.followUp) {
-      followUp = navigation.state.params.followUp
+    if(route.params && route.params.followUp) {
+      followUp = route.params.followUp
     } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }
@@ -51,7 +51,7 @@ class AEFIInvFormScene extends PureComponent {
       }
     }
     //model =  {"rid":Date.now(),"type":"REPORT_TYPE_AEFI_INV","reporter_name":"John","telephone":"02099988","start_date":"7-11-2017","report_date":"7-11-2017","complete_date":"31-11-2017","gender":"Male","hospitalization_date":"13-11-2017","status_on_date":"Disabled","autopsy_done":"Yes","autopsy_planned":"Yes","past_history":"Unknown","adverse_event":"Unknown","allergy_history":"Unknown","existing_illness":"Unknown","hospitalization_history":"Unknown","medication_vaccination":"Unknown","faith_healers":"Unknown","family_history":"Unknown","pregnant":"Unknown","breastfeeding":"Unknown","infant":"pre-term","birth_weight":"3","delivery_procedure":"Caesarean","source_examination":"source_examination","signs_symptoms":"ss","person_details":"Ludacris","person_designation":"Speaker","person_date":"13-11-2017","medical_care":"sss","not_medical_care":"sss","final_diagnosis":"ssd","when_vaccinated":"Within the first vaccinations of the session","saefi_list_of_vaccines":[{"vaccine_name":"ss","vaccination_doses":"2"}],"prescribing_error":"No","vaccine_unsterile":"Unable to assess","vaccine_condition":"Unable to assess","vaccine_reconstitution":"Unable to assess","vaccine_handling":"Unable to assess","vaccinated_vial":"2","vaccinated_session":"1","vaccinated_locations":"2","vaccinated_cluster":"Unknown","vaccinated_cluster_vial":"Unknown","syringes_used":"Unknown","syringes_used_specify":"Other","reconstitution_multiple":"No","reconstitution_different":"Yes","cold_temperature":"No","cold_temperature_deviation":"No","procedure_followed":"No","other_items":"No","partial_vaccines":"No","unusable_vaccines":"No","cold_transportation":"No","vaccine_carrier":"No","similar_events":"Unknown","affected_vaccinated":"2","affected_unknown":"3","affected_not_vaccinated":"1","relevant_findings":"asas"}
-    if(model.reports == null) {
+    if(model.reports == null || model.reports.length == 0) {
       model.reports = [{}]
     }
     //state.model = model
@@ -74,11 +74,18 @@ class AEFIInvFormScene extends PureComponent {
       cancelType
     }
     this.mandatory = [
-      { name : "name_of_vaccination_site", text : "Name of vaccination site", page : 1 },
-      { name : "designation_id", text: "Designation id", page : 1},
-      { name : "gender", text : "Sex", page : 1 },
-      { name : "patient_name", text : "Patient name", page : 1 },
-      { name : 'signs_symptoms', text : "Signs and symptoms", page : 3},
+      //{ name : "name_of_vaccination_site", text : "Name of vaccination site", page : 1 },
+      //{ name : "designation_id", text: "Designation id", page : 1},
+      //{ name : "gender", text : "Sex", page : 1 },
+      //{ name : "patient_name", text : "Patient name", page : 1 },
+      //{ name : 'signs_symptoms', text : "Signs and symptoms", page : 3},
+      { name : "aefi_list_of_vaccines", fields: [
+        { name : "batch_number", text : "Batch number" },
+        { name: "vaccine_name", text: "Vaccination name"},
+        { name: "vaccination_date", text: "Vaccination date"},
+        { name: "vaccination_time", text: "Vaccination time"},
+        { name: "dosage", text: "Dose"},
+      ]}
     ]
   }
 
@@ -140,6 +147,10 @@ _renderHeader = props => {
         const values = model[field.name]
         var arrayNames = []
         if(Array.isArray(values)) {
+          var suspected_drug = -1;
+          if (field.name === 'aefi_list_of_vaccines') {
+            suspected_drug = 0;
+          }
           for(let i = 0; i < values.length; i++) {
             const val = values[i]
             fields.forEach((f) => {
@@ -153,6 +164,13 @@ _renderHeader = props => {
                 }
               }
             })
+            if(val['suspected_drug'] == '1') {
+              suspected_drug++
+            }
+          }
+          if(suspected_drug == 0) {
+            valid = false
+            arrayNames.push("Select at least one suspected drug");
           }
         }
         if(names != "") {
@@ -174,7 +192,7 @@ _renderHeader = props => {
     if(!valid) {
       Alert.alert("Warning", "Fill in required fields\n " + names)
       this.setState({ validate : true })
-      this._updateRoute(page - 1)
+      // this._updateRoute(page - 1)
       return
     }
 

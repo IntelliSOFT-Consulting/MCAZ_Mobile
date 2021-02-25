@@ -55,16 +55,16 @@ export default class PatientReporterDetailsScene extends PureComponent {
     return (
       <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
         { followUpField }
-        <TextInputField label="Patient first name:" name="patient_name" model={ model } required={ true }/>
-        <TextInputField label="Patient Surname" name="patient_surname" model={ model }/>
+        <TextInputField label="Patient first name:" name="patient_name" model={ model } />
+        <TextInputField label="Patient Surname" name="patient_surname" model={ model } />
         <TextInputField label="Patient next of Kin:" name="patient_next_of_kin" model={ model }/>
-        <TextInputField label="Patient’s physical address:" name="patient_address" model={ model } required={ true }/>
+        <TextInputField label="Patient’s physical address:" name="patient_address" model={ model } />
         <TextInputField label="Patient Telephone:" keyboardType="phone-pad" name="patient_telephone" model={ model }/>
         <SelectOneField label="Gender:" name="gender" model={ model } options={ GENDER }/>
-        <DateTimeInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model } required={ true } maxDate={ new Date() } onDateChange={ this.validateDateofBirth } value={ this.state.date_of_birth }/>
+        <DateTimeInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model } maxDate={ new Date() } onDateChange={ this.validateDateofBirth } value={ this.state.date_of_birth }/>
         <AgeAtOnsetInput label="OR Age at onset" name="age_at_onset" model={ model } options={ AGE_ON_ONSET } value={ this.state.age_at_onset } onChange={ this.validateAge }/>
-        <TextInputField label="Reporter’s Name:" name="reporter_name" model={ model } required={ true }/>
-        <SelectOneField label="Designation:" name="designation_id" model={ model } options={ DESIGNATION }/>
+        <TextInputField label="Reporter’s Name:" name="reporter_name" model={ model } />
+        <SelectOneField label="Designation:" name="designation_id" model={ model } options={ DESIGNATION } required={ true }/>
         <TextInputField label="Institution:" name="reporter_institution" model={ model }/>
         <TextInputField label="Department:" name="reporter_department" model={ model }/>
         <TextInputField label="Address:" name="reporter_address" model={ model }/>

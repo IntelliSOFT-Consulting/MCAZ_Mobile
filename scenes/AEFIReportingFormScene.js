@@ -29,13 +29,13 @@ class AEFIReportingFormScene extends PureComponent {
 
     var { model, connection, user } = this.props
 
-    const { navigation } = this.props;
-    if(navigation.state.params && navigation.state.params.model) {
-      model = navigation.state.params.model
+    const { route } = this.props;
+    if(route.params && route.params.model) {
+      model = route.params.model
     }
     var followUp = null
-    if(navigation.state.params && navigation.state.params.followUp) {
-      followUp = navigation.state.params.followUp
+    if(route.params && route.params.followUp) {
+      followUp = route.params.followUp
     } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }
@@ -118,6 +118,10 @@ class AEFIReportingFormScene extends PureComponent {
         const values = model[field.name]
         var arrayNames = []
         if(Array.isArray(values)) {
+          var suspected_drug = -1;
+          if (field.name === 'aefi_list_of_vaccines') {
+            suspected_drug = 0;
+          }
           for(let i = 0; i < values.length; i++) {
             const val = values[i]
             fields.forEach((f) => {
@@ -131,7 +135,14 @@ class AEFIReportingFormScene extends PureComponent {
                 }
               }
             })
+            if(val['suspected_drug'] == '1') {
+              suspected_drug++
+            }
           }
+          /*if(suspected_drug == 0) {
+            valid = false
+            arrayNames.push("Select at least one suspected drug");
+          }*/
         }
         if(names != "") {
           names += ",\n"

@@ -3,9 +3,10 @@ import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler
 import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, login } from '../actions'
 import { connect } from 'react-redux'
-import { NavigationActions } from 'react-navigation'
+// import { NavigationActions } from 'react-navigation'
 
 import { TextField } from 'react-native-material-textfield'
+import { validEmail } from '../utils/utils';
 
 class LoginScene extends Component {
   static navigationOptions = {
@@ -30,7 +31,14 @@ class LoginScene extends Component {
   }
 
   login = () => {
-    if(this.state.email != '' && this.state.password != '') {
+    const { email, password } = this.state;
+    if (email === '') {
+      Alert.alert('Error',"Fill in the email.");
+    } else if (!validEmail(email)) {
+      Alert.alert('Error',"Fill in a valid email address.");
+    } else if (password === '') {
+      Alert.alert('Error',"Fill in the password.");
+    } else {
       if(this.props.user.username != null && this.state.email != this.props.user.username) {
         Alert.alert("Confirm", "Another user had logged in in this device, if you proceed it will wipe out all data, continue?", [
           { text: 'Yes', onPress: () => this.doLogin() },
@@ -39,9 +47,6 @@ class LoginScene extends Component {
       } else {
         this.doLogin()
       }
-
-    } else {
-      this.setState({ validate: true })
     }
   }
 
@@ -102,12 +107,12 @@ class LoginScene extends Component {
     const { token } = this.state
     if(token != null) {
       const { navigate } = this.props.navigation;
-      const navigateAction = NavigationActions.navigate({
+      /*const navigateAction = NavigationActions.navigate({
         routeName: 'Main',
         params: {},
         action: NavigationActions.navigate({ routeName: 'MainScene'})
       })
-      this.props.navigation.dispatch(navigateAction)
+      this.props.navigation.dispatch(navigateAction)*/
       //navigate("MainScene")
     }
     BackHandler.addEventListener('hardwareBackPress', function() {
@@ -141,7 +146,7 @@ class LoginScene extends Component {
     if(token == null && nextToken != null) {
       const { navigate } = this.props.navigation;
       this.setState({ token : nextToken })
-      const resetAction = NavigationActions.reset({
+      /*const resetAction = NavigationActions.reset({
         index: 0,
         actions: [
           NavigationActions.navigate({ routeName: 'MainScene'})
@@ -154,7 +159,7 @@ class LoginScene extends Component {
         action: NavigationActions.navigate({ routeName: 'MainScene'})
       })
       this.props.navigation.dispatch(navigateAction)
-      //navigate("Main")
+      //navigate("Main")*/
     }
   }
 

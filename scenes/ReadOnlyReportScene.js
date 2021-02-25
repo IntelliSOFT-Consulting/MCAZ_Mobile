@@ -30,9 +30,9 @@ class ReadOnlyReportScene extends PureComponent {
 
     var { model, connection } = this.props
 
-    const { navigation } = this.props;
-    if(navigation.state.params && navigation.state.params.model) {
-      model = navigation.state.params.model
+    const { route } = this.props;
+    if(route.params && route.params.model) {
+      model = route.params.model
     }
     this.state = {
       model : model
@@ -44,25 +44,25 @@ class ReadOnlyReportScene extends PureComponent {
     const { navigation } = this.props;
     switch(model.type) {
       case REPORT_TYPE_ADR:
-        navigation.setParams({ title: 'ADR Report' })
+        navigation.setOptions({ title: 'ADR Report' })
         break;
       case REPORT_TYPE_SAE:
-        navigation.setParams({ title: 'SAE Report' })
+        navigation.setOptions({ title: 'SAE Report' })
         break;
       case REPORT_TYPE_AEFI:
-        navigation.setParams({ title: 'AEFI Report' })
+        navigation.setOptions({ title: 'AEFI Report' })
         break;
       case REPORT_TYPE_AEFI_INV:
-        navigation.setParams({ title: 'AEFI Inv. Report' })
+        navigation.setOptions({ title: 'AEFI Inv. Report' })
         break;
       case REPORT_TYPE_ADR_FOLLOW_UP:
-        navigation.setParams({ title: 'ADR Followup Report' })
+        navigation.setOptions({ title: 'ADR Followup Report' })
         break;
       case REPORT_TYPE_AEFI_FOLLOW_UP:
-        navigation.setParams({ title: 'AEFI Followup Report' })
+        navigation.setOptions({ title: 'AEFI Followup Report' })
         break;
       case REPORT_TYPE_SAE_FOLLOW_UP:
-        navigation.setParams({ title: 'SAE Followup Report' })
+        navigation.setOptions({ title: 'SAE Followup Report' })
         break;
       default:
         return null
@@ -80,9 +80,9 @@ class ReadOnlyReportScene extends PureComponent {
       case REPORT_TYPE_AEFI:
         return (<AEFIReportReadOnly model={ model } goBack={ this.goBack } createFollowup={ this.createFollowup } />)
       case REPORT_TYPE_AEFI_INV:
-        return (<AEFIInvReadOnly model={ model } goBack={ this.goBack } />)
+        return (<AEFIInvReadOnly model={ model } goBack={ this.goBack } createFollowup={ this.createFollowup } />)
       case REPORT_TYPE_ADR_FOLLOW_UP:
-        return (<ADRFollowupReadOnly model={ model } goBack={ this.goBack } />)
+        return (<ADRReadOnly model={ model } goBack={ this.goBack } />)
       case REPORT_TYPE_AEFI_FOLLOW_UP:
         return (<AEFIFollowupReadOnly model={ model } goBack={ this.goBack } />)
       case REPORT_TYPE_SAE_FOLLOW_UP:

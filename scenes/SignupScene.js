@@ -5,6 +5,7 @@ import { changeConnection, uploadCompletedReports, signUp } from '../actions'
 import { connect } from 'react-redux'
 
 import { TextField } from 'react-native-material-textfield'
+import { validEmail } from '../utils/utils';
 
 class SignupScene extends Component {
   static navigationOptions = {
@@ -23,11 +24,20 @@ class SignupScene extends Component {
   }
 
   signup = () => {
-    if(this.state.password != this.state.confirmPassword) {
+    const { email, password, confirmPassword } = this.state;
+    if (email === '') {
+      Alert.alert('Error','Fill in the email address');
+    } else if (!validEmail(email)) {
+      Alert.alert('Error','Fill in a valid email address');
+    } else if (password === '') {
+      Alert.alert('Error','Fill in the password.');
+    } else if (confirmPassword === '') {
+      Alert.alert('Error','Fill in the confirm password.')
+    } else if (password !== confirmPassword){
       Alert.alert("Error", "Passwords do not match.")
-    } else if(this.state.password.length < 6) {
+    } else if (password.length < 6) {
       Alert.alert("Error", "Password should be at least 6 characters.")
-    } else if(this.state.email != "" && this.state.password != '' && this.state.confirmPassword != '' ) {
+    } else {
       const { signUp } = this.props
       var data = {}
       data.email = this.state.email
@@ -35,9 +45,6 @@ class SignupScene extends Component {
       data.confirm_password = this.state.confirmPassword
       data.is_active = false
       signUp(data)
-    } else {
-
-      this.setState({ validate: true })
     }
   }
 

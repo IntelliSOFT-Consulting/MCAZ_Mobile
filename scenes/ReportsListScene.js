@@ -11,7 +11,7 @@ import { removeDraft } from '../actions'
 import { REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPORT_TYPE_AEFI, REPORT_TYPE_AEFI_INV } from '../utils/Constants'
 
 // Follow up types.
-import { REPORT_TYPE_ADR_FOLLOW_UP, REPORT_TYPE_AEFI_FOLLOW_UP, REPORT_TYPE_SAE_FOLLOW_UP } from '../utils/Constants'
+import { REPORT_TYPE_ADR_FOLLOW_UP, REPORT_TYPE_AEFI_FOLLOW_UP, REPORT_TYPE_SAE_FOLLOW_UP, REPORT_TYPE_AEFI_INV_FOLLOW_UP } from '../utils/Constants'
 
 
 class ReportsListScene extends Component {
@@ -32,7 +32,7 @@ class ReportsListScene extends Component {
 
     const title = item.reference_number != null? item.reference_number : new Date(item.rid).toString()
 
-    const followUp = item.report_type == "FollowUp"? " - Follow up" : ""
+    const followUp = `${item.report_type}`.toLowerCase() == "followup" || item.report_type == 'Follow-up' ? " - Follow up" : ""
     return (
       <TouchableOpacity onPress={ () => this.onItemPressed(item) } onLongPress={ () => this.onLongPressed(item) }>
         <View style={ AppStyles.rowItemStyle }>
@@ -72,9 +72,9 @@ class ReportsListScene extends Component {
         navigate('ADRScene', model) //
       } else if(item.type == REPORT_TYPE_SAE) {
         navigate('SAEFormScene', model)
-      } else if(item.type == REPORT_TYPE_AEFI_INV) {
+      } else if(item.type == REPORT_TYPE_AEFI_INV || item.type === REPORT_TYPE_AEFI_INV_FOLLOW_UP) {
         navigate('AEFIInvFormScene', model)
-      } else if(item.type == REPORT_TYPE_AEFI) {
+      } else if(item.type == REPORT_TYPE_AEFI || item.type === REPORT_TYPE_AEFI_FOLLOW_UP) {
         navigate('AEFIReportingFormScene', model)
       } else if(item.type == REPORT_TYPE_ADR_FOLLOW_UP) {
         navigate('ADRFollowupScene', model)

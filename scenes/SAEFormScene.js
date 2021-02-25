@@ -38,13 +38,13 @@ class SAEScene extends PureComponent {
 
     var { model, connection, user } = this.props
 
-    const { navigation } = this.props;
-    if(navigation.state.params && navigation.state.params.model) {
-      model = navigation.state.params.model
+    const { route } = this.props;
+    if(route.params && route.params.model) {
+      model = route.params.model
     }
     var followUp = null
-    if(navigation.state.params && navigation.state.params.followUp) {
-      followUp = navigation.state.params.followUp
+    if(route.params && route.params.followUp) {
+      followUp = route.params.followUp
     } else if(model && model.parent_id != null) { // if the model has the parent_id field, this must be a followUp form
       followUp = true
     }

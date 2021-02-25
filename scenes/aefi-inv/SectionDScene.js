@@ -9,7 +9,7 @@ import SelectOneField from '../components/SelectOneField'
 import SelectMultipleField from '../components/SelectMultipleField'
 import VaccineDosesTableTableComponent from '../components/VaccineDosesTableComponent'
 
-import { BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, WHEN_VACCINATED, BOOLEAN_UNABLE_OPTIONS } from '../../utils/FieldOptions'
+import { BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, WHEN_VACCINATED, BOOLEAN_UNABLE_OPTIONS, VACCINE_GIVEN } from '../../utils/FieldOptions'
 
 export default class SectionDScene extends PureComponent {
 
@@ -22,7 +22,8 @@ export default class SectionDScene extends PureComponent {
         </Text>
         <VaccineDosesTableTableComponent model={ model } name="saefi_list_of_vaccines"/>
         <SelectOneField label="(a) When was the patient vaccinated?" model={ model } name="when_vaccinated" options={ WHEN_VACCINATED }/>
-        <SelectOneField label="In case of multidose vials, was the vaccine given" model={ model } name="when_vaccinated" options={ WHEN_VACCINATED }/>
+        {/*<SelectOneField label="In case of multidose vials, was the vaccine given" model={ model } name="when_vaccinated" options={ WHEN_VACCINATED }/>*/}
+        <SelectOneField label="In case of multidose vials, was the vaccine given" model={ model } name="vaccine_given" options={ VACCINE_GIVEN }/>
         <TextInputField label="Specify" model={ model } name="when_vaccinated_specify"/>
         <SelectOneField model={ model } name="prescribing_error" options={ BOOLEAN_UNABLE_OPTIONS } label="(b) Was there an error in prescribing or non-adherence to recommendations for use of this vaccine?" />
         <TextInputField label="Remarks" model={ model } name="prescribing_error_specify"/>

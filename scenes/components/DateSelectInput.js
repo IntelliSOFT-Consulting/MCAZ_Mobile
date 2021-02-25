@@ -16,17 +16,21 @@ export default class DateSelectInput extends Component {
     var state = {}
     if(model) {
       if(model[name]) {
-        if(typeof model[name] == "string") {
-          const v = model[name].split("-")
-          value = new Date();
-          state.day = v[0]
+        let date = new Date(model[name]);
+        if (!(date instanceof Date && !isNaN(date))) {
+          const v = model[name].split('-');
+          state.day = v[0];
           if(v[1] !== '') {
             state.month = this.monthLabels[parseInt(v[1])]
           } else {
             state.month = ''
           }
           state.year = v[2]
-
+          // return `${this.pad(parts[0])}-${this.pad(parts[1])}-${parts[2]}`;
+        } else {
+          state.day = date.getDate();
+          state.month = this.monthLabels[date.getMonth()];
+          state.year = date.getFullYear();
         }
       }
     }

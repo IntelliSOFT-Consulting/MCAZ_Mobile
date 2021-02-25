@@ -29,7 +29,7 @@ export default class MedicationTableComponent extends TableComponent {
     const { readonly } = this.props
     const headers = ['Generic ', 'Brand Name', 'Batch No.', 'Dose','Route', 'Frequency', 'Date Started', 'Date Stopped', "Indication", 'Tick Suspected medicine', ""];
     var headerEls = []
-    mandatory = [0, 3, 5, 8] // mandatory indices
+    mandatory = [] // 0, 3, 5, 8 mandatory indices
     for(let i = 0; i < headers.length; i++) {
       if(mandatory.indexOf(i) != -1) {
         const header = (

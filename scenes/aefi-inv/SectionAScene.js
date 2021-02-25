@@ -33,7 +33,7 @@ export default class SectionAScene extends PureComponent {
         <SelectOneField label="Province:" name="province_id" model={ model } options={ PROVINCES }/>
         <TextInputField label="District:" name="district" model={ model }/>
         <TextInputField label="AEFI Report ID" name="aefi_report_ref" model={ model }/>
-        <TextInputField label="Name of vaccination site " model={ model } name="name_of_vaccination_site" required={ true }/>
+        <TextInputField label="Name of vaccination site" model={ model } name="name_of_vaccination_site" />
         <SelectOneField label="Place of vaccination:" model={ model } name="place_vaccination" options={ PLACE_VACCINATION }/>
         <TextInputField label="If other, specify" model={ model } name="place_vaccination_other" />
         <SelectOneField label="Type of site" model={ model } name="site_type" options={ SITE_TYPE }/>
@@ -41,24 +41,24 @@ export default class SectionAScene extends PureComponent {
         <SelectOneField label="Vaccination in" model={ model } name="vaccination_in" options={ VACCINATION_IN }/>
         <TextInputField label="If other, specify" model={ model } name="vaccination_in_other" />
         <TextInputField label="Name of Investigating Health Worker:" model={ model } name="reporter_name"/>
-        <SelectOneField label="Designation / Position:" model={ model } name="designation_id" options={ DESIGNATION } required={ true }/>
+        <SelectOneField label="Designation / Position:" model={ model } name="designation_id" options={ DESIGNATION } />
         <TextInputField label="Telephone # landline (with code):" keyboardType = 'phone-pad' model={ model } name="telephone"/>
         <TextInputField label="Mobile:" keyboardType = 'phone-pad' model={ model } name="mobile"/>
         <TextInputField label="Email:" keyboardType = 'email-address' model={ model } name="reporter_email"/>
         <DateTimeInput label="Date AEFI reported:" model={ model } name="report_date" maxDate={ new Date() } onChange={ this.onChange }/>
         <DateTimeInput label="Date investigation started:" model={ model } name="start_date" maxDate={ new Date() } minDate={ this.state.report_date } onChange={ this.onChange }/>
         <DateTimeInput label="Date investigation completed:" model={ model } name="complete_date" maxDate={ new Date() } minDate={ this.state.start_date }/>
-        <TextInputField label="Patient Name:" model={ model } name="patient_name" required={ true }/>
-        <SelectOneField label="Gender:" model={ model } name="gender" options={ GENDER } required={ true }/>
+        <TextInputField label="Patient Name:" model={ model } name="patient_name" />
+        <SelectOneField label="Gender:" model={ model } name="gender" options={ GENDER } />
         <TextInputField label="Patient’s physical address" model={ model } name="patient_address"/>
-        <DateSelectInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model } required={ true } maxDate={ new Date() } onDateChange={ this.validateDateofBirth } value={ this.state.date_of_birth }/>
+        <DateSelectInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model }  maxDate={ new Date() } onDateChange={ this.validateDateofBirth } value={ this.state.date_of_birth }/>
         <AgeAtOnsetInput label="OR Age at onset" name="age_at_onset" model={ model } value={ this.state.age_at_onset } onChange={ this.validateAge }/>
         <SelectOneField label="OR Age group:" model={ model } name="age_group" options={ AGE_GROUP_YEARS }/>
         <Text>*Complete below table if vaccination information missing on the AEFI reporting form</Text>
         <Text style={ AppStyles.boldText }>Vaccine/Dilutent</Text>
-        <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" label="Vaccine"/>
+        <VaccineTableComponent model={ model } name="saefi_list_of_vaccines" label="Vaccine"/>
 
-        <DateTimeInput label="Date of first/key symptom (DD/MM/YYYY)" model={ model } name="hospitalization_date" maxDate={ this.state.complete_date } showTime={ true }/>
+        <DateTimeInput label="Date of first/key symptom (DD/MM/YYYY)" model={ model } name="symptom_date" maxDate={ this.state.complete_date } showTime={ true }/>
         <DateTimeInput label="Date of hospitalization (DD/MM/YYYY):" model={ model } name="hospitalization_date" maxDate={ new Date() }/>
         <SelectOneField label="Status on the date of investigation:" model={ model } name="status_on_date" options={ STATUS_ON_DATE }/>
         <DateTimeInput label="If died, date and time of death:" model={ model } name="died_date" maxDate={ new Date() } onChange={ this.onChange } showTime={ true }/>

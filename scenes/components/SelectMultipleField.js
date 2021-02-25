@@ -40,7 +40,7 @@ export default class SelectMultipleField extends Component {
   }
 
   render() {
-    const { label, options } = this.props
+    const { label, options, required } = this.props
     var checkBoxes = []
     if(options != null) {
       checkBoxes = options.map((option, index) => {
@@ -51,9 +51,19 @@ export default class SelectMultipleField extends Component {
         }
       })
     }
+    var text = null
+    if(required) {
+      text = (
+        <Text>{ label } <Text style={ AppStyles.required }>*</Text></Text>
+      )
+    } else {
+      text =(
+        <Text>{ label }</Text>
+      )
+    }
     return (
       <View>
-        <Text>{ label }</Text>
+        {text}
           { checkBoxes }
       </View>
     )

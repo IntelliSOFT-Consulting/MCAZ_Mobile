@@ -13,7 +13,7 @@ export default class SelectOneField extends Component {
     if(model && model[name]) {
       value = model[name]
       const selected = options.find((option) => option.key == value || option == value )
-      label = selected.value
+      label = selected != null ? selected.value : ''
     }
 
     this.state = { value : value, label : label }
@@ -70,11 +70,19 @@ export default class SelectOneField extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    const { model } = props;
+    const { model, name, options } = props;
+    var { value } = state
+    // const newModel = nextProps.model
+    if(value != model[name] && model[name] != null) {
+      const val = model[name]
+      const selected = options.find((option) => option.key == val || option == val )
+      const label = selected != null ? selected.value : ""
+      return { value : val,label : label }
+    }
     return null;
   }
 
-  componentWillReceiveProps(nextProps) {
+  /*componentWillReceiveProps(nextProps) {
     const { model, name, options } = this.props
     var { value } = this.state
     const newModel = nextProps.model
@@ -84,7 +92,7 @@ export default class SelectOneField extends Component {
       const label = selected != null? selected.value : ""
       this.setState({ value : val,label : label })
     }
-  }
+  }*/
 }
 
 /*

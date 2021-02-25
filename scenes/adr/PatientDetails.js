@@ -47,14 +47,14 @@ export default class PatientDetails extends PureComponent {
         <Text style={ AppStyles.boldText }>Patient Details</Text>
         <AutoCompleteInput name="name_of_institution" model={ model } label="Clinical/Hospital Name :" returnKeyType="next" onChange={ this.onSelectOfInstitution }/>
         <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :" returnKeyType="next" value={ this.state.institution_code }/>
-        <TextInputField name="patient_name" model={ model } label="Patient Initials:" required={ true } validate={ this.props.validate } returnKeyType="next"/>
+        <TextInputField name="patient_name" model={ model } label="Patient Initials:" validate={ this.props.validate } returnKeyType="next"/>
         <TextInputField name="ip_no" model={ model } label="VCT/OI/TB Number"/>
-        <DateTimeInput name="date_of_birth" model={ model } label="Date of birth " required={ true } validate={ this.props.validate } maxDate={ new Date() } onDateChange={ this.onDateChange } value={ this.state.date_of_birth }/>
+        <DateTimeInput name="date_of_birth" model={ model } label="Date of birth " validate={ this.props.validate } maxDate={ new Date() } onDateChange={ this.onDateChange } value={ this.state.date_of_birth }/>
         <TextInputField name="age" model={ model } keyboardType="numeric"  label="OR Age" onChange={ this.onAgeChange } value={ this.state.age }/>
 
-        <TextInputField name="weight" model={ model } label="Weight(Kg)" keyboardType='numeric' required={ true } validate={ this.props.validate }/>
+        <TextInputField name="weight" model={ model } label="Weight(Kg)" keyboardType='numeric' validate={ this.props.validate }/>
         <TextInputField name="height" model={ model } label="Height(cm)" keyboardType='numeric'/>
-        <SelectOneField name="gender" model={ model } label="Gender" options={ GENDER } required={ true } validate={ this.props.validate }/>
+        <SelectOneField name="gender" model={ model } label="Gender" options={ GENDER } validate={ this.props.validate }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(2) } title="Save changes"/>
           <Button onPress={ () => cancel() } title='Close'/>

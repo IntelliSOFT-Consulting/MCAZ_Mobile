@@ -3,7 +3,7 @@ import { Text, View, ScrollView, Button, Alert, CheckBox } from 'react-native'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import AppStyles from '../../styles/AppStyles'
 import TableComponent from './TableComponent'
-
+import CheckBoxInput from './CheckBoxInput'
 import DateTimeInput from './DateTimeInput'
 import TextInputField from './TextInputField'
 
@@ -24,14 +24,15 @@ export default class VaccineTableComponent extends TableComponent {
     const { model, name } = this.props
     var row = [
       <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_date" model={ model[name][index] } showTime={ true } maxDate={ new Date() }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_date" model={ model[name][index] } showTime={ false } maxDate={ new Date() }/>,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_time" model={ model[name][index] } mode={ "time" } />,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] } />,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="expiry_date" model={ model[name][index] } />,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="diluent_batch_number" model={ model[name][index] } />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_expiry_date" model={ model[name][index] } />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_date" model={ model[name][index] } maxDate={ new Date() } showTime={ true }/>,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_date" model={ model[name][index] } maxDate={ new Date() } showTime={ true } />,
+      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
@@ -54,7 +55,8 @@ export default class VaccineTableComponent extends TableComponent {
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="expiry_date" type="date" model={ model[name][index] } />,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_batch_number"  model={ model[name][index] } />,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_expiry_date" type="date" model={ model[name][index] } />,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_date" type="date" model={ model[name][index] } showTime={ true }/>
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_date" type="date" model={ model[name][index] } showTime={ true }/>,
+      <CheckBoxInput key={ Math.floor(Math.random() * 10000) } name="suspected_drug" model={ model[name][index] }/>
     ]
     return row
   }
@@ -62,10 +64,10 @@ export default class VaccineTableComponent extends TableComponent {
   render() {
     const { label, model, readonly } = this.props
     var tableHeader = ['Vaccine', 'Diluent']
-    var headerWidth = [720, 360]
-    var tableHead = ['Name', 'Date and time of vaccination', 'Dose (1st, 2nd, etc)', 'Batch/Lot number', "Expiry date", 'Batch/ Lot Number', 'Expiry date', 'Time of reconstitution'];
-    var widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120]
-    var labelsArr = [120, 240, 120, 120, 120, 120, 120, 120]
+    var headerWidth = [720, 480]
+    var tableHead = ['Name', 'Date and time of vaccination', 'Dose (1st, 2nd, etc)', 'Batch/Lot number', "Expiry date", 'Batch/ Lot Number', 'Expiry date', 'Time of reconstitution', 'Tick suspected medicine(s)'];
+    var widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 120]
+    var labelsArr = [120, 240, 120, 120, 120, 120, 120, 120, 120]
 
     const rows = this.initializeRows(readonly)
     var addRowBtn = null
@@ -80,10 +82,10 @@ export default class VaccineTableComponent extends TableComponent {
     return (
       <View>
         <ScrollView horizontal={true}>
-          <Table>
+          <Table borderStyle={{borderWidth: 1, borderColor: '#808080'}}>
             <Row data={ tableHeader } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } widthArr={ headerWidth }/>
             <Row data={ tableHead } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } widthArr={ labelsArr }/>
-            <Rows data={ rows }  widthArr={ widthArr }/>
+            <Rows data={ rows }  widthArr={ widthArr } style={{ marginLeft: 0, marginRight: 0 }}/>
           </Table>
         </ScrollView>
         { addRowBtn }

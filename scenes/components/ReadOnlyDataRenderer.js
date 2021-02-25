@@ -25,7 +25,6 @@ export default class ReadOnlyDataRenderer extends Component {
     if(type == 'date') {
       if(model[name] != null && model[name] != '') {
         let date = new Date(model[name]);
-        console.log(date);
         if (!(date instanceof Date && !isNaN(date))) {
           const parts = model[name].split('-');
           return `${this.pad(parts[0])}-${this.pad(parts[1])}-${parts[2]}`;

@@ -263,6 +263,12 @@ export const WHEN_VACCINATED = [
   { key : "Unknown", value: "Unknown" }
 ]
 
+export const VACCINE_GIVEN = [
+  { key : "within the first few doses of the vial administered", value: "within the first few doses of the vial administered" },
+  { key : "within the last doses of the vial administered", value: "within the last doses of the vial administered" },
+  { key : "Unknown", value: "Unknown" }
+]
+
 export const MULTI_VIALS = [
   { key : "within the first few doses of the vial administered", value: "within the first few doses of the vial administered" },
   { key : "within the last doses of the vial administered", value: "within the last doses of the vial administered" },

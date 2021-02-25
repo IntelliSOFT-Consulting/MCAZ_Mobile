@@ -32,18 +32,18 @@ export default class AdverseEventsScene extends PureComponent {
     ) : null;
     return (
       <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
-        <SelectMultipleField label="Adverse event (s):" name="adverse_events" model={ model } required={ true } options={ AEFI_ADVERSE_EVENTS }/>
+        <SelectMultipleField label="Adverse event (s):" name="adverse_events" model={ model } options={ AEFI_ADVERSE_EVENTS }/>
         <AEFIEventsSelectOneField name="reactions" model={ model } label="Local reactions" options={ SEVERE_LOCAL_REACTIONS }/>
         <AEFIEventsSelectOneField name="seizures" model={ model } label="Seizures" options={ SEIZURES }/>
         <TextInputField label="Other" name="adverse_events_specify" model={ model }/>
         <DateTimeInput label="Date &amp; Time AEFI started (DD/MM/YYYY):" name="aefi_date" model={ model } showTime={ true } maxDate={ new Date() } onChange={ this.onChange }/>
         <SelectOneField label="Was patient hospitalized?" name="patient_hospitalization" options={ BOOLEAN_OPTIONS } model={ model }/>
         <DateTimeInput label="Date patient notified event to health system (DD/MM/YYYY):" name="notification_date" model={ model } minDate={ this.state.aefi_date } maxDate={ new Date() }/>
-        <TextInputField label="Describe AEFI (Signs and symptoms):" multiline={true} numberOfLines={4} name="description_of_reaction" model={ model }/>
+        <TextInputField label="Describe AEFI (Signs and symptoms):" multiline={true} numberOfLines={4} name="description_of_reaction" model={ model } />
         <SelectOneField label="Treatment provided:" options={ BOOLEAN_OPTIONS } name="treatment_provided" model={ model }/>
-        <SelectOneField label="Serious:" options={ BOOLEAN_OPTIONS } name="serious" model={ model } required={ true } onChange={this.onChange}/>
+        <SelectOneField label="Serious:" options={ BOOLEAN_OPTIONS } name="serious" model={ model }  onChange={this.onChange}/>
         {this.state.serious == 'Yes' && (<SelectOneField label="If yes:" options={ AEFI_SEVERITY_REASON } name="serious_yes" model={ model }/>)}
-        <SelectOneField label="Outcome:" name="outcome" model={ model } required={ true } options={ AEFI_OUTCOME } onChange={this.onChange}/>
+        <SelectOneField label="Outcome:" name="outcome" model={ model } options={ AEFI_OUTCOME } onChange={this.onChange}/>
         { autopsyDod }
         <FileInputComponent name="reports" model={ model.reports[0] } label="Attach report"/>
         <TextInputField label="Past medical history (including history of similar reaction or other allergies), concomitant medication and other relevant information

@@ -7,7 +7,7 @@ import FileAttachmentComponent from '../components/FileAttachmentComponent'
 
 import AppStyles from '../../styles/AppStyles'
 
-import { AEFI_SEVERITY_REASON, OUTCOME, BOOLEAN_UNKNOWN_OPTIONS, BOOLEAN_OPTIONS, DESIGNATION, GENDER, PROVINCES, AEFI_OUTCOME } from '../../utils/FieldOptions'
+import { AEFI_SEVERITY_REASON, OUTCOME, BOOLEAN_UNKNOWN_OPTIONS, BOOLEAN_OPTIONS, DESIGNATION, GENDER, PROVINCES, AEFI_OUTCOME, AEFI_ADVERSE_EVENTS } from '../../utils/FieldOptions'
 
 import { REPORT_TYPE_AEFI_FOLLOW_UP } from "../../utils/Constants"
 
@@ -15,8 +15,8 @@ export default class AEFIReportReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
   render() {
     const { model, goBack, createFollowup } = this.props
-    const newFollowUp = { rid : Date.now(), type : REPORT_TYPE_AEFI_FOLLOW_UP, parent_reference : model.reference_number, report_type : "FollowUp" }
-    const followUpBtn = model.reference_number != null ? (<Button onPress={ () => createFollowup(newFollowUp, 'AEFIReportFollowupScene') } title="Create Followup report"/>) : null
+    const newFollowUp = {...model, rid : Date.now(), type : REPORT_TYPE_AEFI_FOLLOW_UP, parent_reference : model.reference_number, report_type : "Follow-up" }
+    const followUpBtn = model.reference_number != null ? (<Button onPress={ () => createFollowup(newFollowUp, 'AEFIReportingFormScene') } title="Create Followup report"/>) : null
     return (
       <ScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
@@ -32,7 +32,7 @@ export default class AEFIReportReadOnly extends Component{
         <ReadOnlyDataRenderer label="OR Age at onset" name="age_at_onset" model={ model }/>
         <ReadOnlyDataRenderer label="Specify" name="age_at_onset_specify" model={ model }/>
         <ReadOnlyDataRenderer label="Reporter’s Name:" name="reporter_name" model={ model } required={ true }/>
-        <ReadOnlyDataRenderer label="Designation:" name="reporter_name" model={ model } options={ DESIGNATION }/>
+        <ReadOnlyDataRenderer label="Designation:" name="designation_id" model={ model } options={ DESIGNATION }  type="option"/>
         <ReadOnlyDataRenderer label="Department:" name="reporter_department" model={ model }/>
         <ReadOnlyDataRenderer label="Address:" name="reporter_address" model={ model }/>
         <ReadOnlyDataRenderer label="District:" name="reporter_district" model={ model }/>
@@ -43,7 +43,7 @@ export default class AEFIReportReadOnly extends Component{
         <ReadOnlyDataRenderer label="Name of vaccination centre:" name="name_of_vaccination_center" model={ model }/>
         <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" readonly={ true }/>
 
-        <ReadOnlyDataRenderer label="Adverse event (s):" name="adverse_events" model={ model } required={ true } options={ [] }/>
+        <ReadOnlyDataRenderer label="Adverse event (s):" name="adverse_events" model={ model } required={ true } type="option" options={ AEFI_ADVERSE_EVENTS }/>
 
         <ReadOnlyDataRenderer label="Other" name="adverse_events_specify" model={ model }/>
         <ReadOnlyDataRenderer label="Date &amp; Time AEFI started (DD/MM/YYYY)" name="aefi_date" model={ model } showTime={ true } type="date"/>

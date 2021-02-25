@@ -5,11 +5,13 @@ import VaccineDosesTableComponent from '../components/VaccineDosesTableComponent
 import VaccineTableComponent from '../components/VaccineTableComponent';
 import FileAttachmentComponent from '../components/FileAttachmentComponent'
 import ConcomitantTableComponent from '../components/ConcomitantTableComponent'
+import moment from 'moment';
 
 import AppStyles from '../../styles/AppStyles'
 
 import { BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS, GENDER, STATUS_ON_DATE, DESIGNATION, INFANT_BIRTH_OPTS, MULTI_VIALS, DELIVERY_OPTS, SOURCE_INFO, RESEARCH_INVOLVES, BOOLEAN_NA_OPTIONS,
   WHEN_VACCINATED, SYRINGES_USED, PLACE_VACCINATION, SITE_TYPE, VACCINATION_IN, BOOLEAN_UNABLE_OPTIONS, EVENT_TYPE, SAE_EVENT_TYPE, SAE_TOXICITY_GRADE, LOCATION_ADVERSE_EVENT, PROVINCES, AGE_GROUP_YEARS } from '../../utils/FieldOptions'
+import { REPORT_TYPE_AEFI_INV_FOLLOW_UP } from '../../utils/Constants';
 
 export default class AEFIInvReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
@@ -22,14 +24,23 @@ export default class AEFIInvReadOnly extends Component{
     this.state = { model : model }
   }
   render() {
-    const { goBack} = this.props
+    const { goBack, createFollowup } = this.props
     const { model } = this.state
+    const newFollowUp = {...model, rid : Date.now(), "type": REPORT_TYPE_AEFI_INV_FOLLOW_UP, report_type : "Followup" }
+    if (newFollowUp['symptom_date']) {
+      newFollowUp['symptom_date'] = moment(newFollowUp['symptom_date']).format('DD-MM-YYYY');
+    }
+    if (newFollowUp['hospitalization_date']) {
+      newFollowUp['hospitalization_date'] = moment(newFollowUp['hospitalization_date']).format('DD-MM-YYYY');
+    }
+    const followUpBtn = model.reference_number != null ? (<Button onPress={ () => createFollowup(newFollowUp, 'AEFIInvFormScene') } title="Create Followup report"/>) : null
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.aefiBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
         <ReadOnlyDataRenderer type="option" label="Province:" name="province_id" model={ model } options={ PROVINCES }/>
         <ReadOnlyDataRenderer label="District:" name="district" model={ model }/>
         <ReadOnlyDataRenderer label="AEFI Report ID" name="aefi_report_ref" model={ model }/>
+        <ReadOnlyDataRenderer type="text"  label="Name of vaccination site " model={ model } name="name_of_vaccination_site" />
         <ReadOnlyDataRenderer type="option"  label="Place of vaccination:" model={ model } name="place_vaccination" options={ PLACE_VACCINATION }/>
         <ReadOnlyDataRenderer type="text"  label="If other, specify" model={ model } name="place_vaccination_other" />
         <ReadOnlyDataRenderer type="option"  label="Type of site" model={ model } name="site_type" options={ SITE_TYPE }/>
@@ -52,7 +63,7 @@ export default class AEFIInvReadOnly extends Component{
         <ReadOnlyDataRenderer type="option" label="OR Age group:" model={ model } name="age_group" options={ AGE_GROUP_YEARS }/>
         <Text>*Complete below table if vaccination information missing on the AEFI reporting form</Text>
         <Text style={ AppStyles.boldText }>Vaccine/Dilutent</Text>
-        <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" label="Vaccine" readonly={ true }/>
+        <VaccineTableComponent model={ model } name="saefi_list_of_vaccines" label="Vaccine" readonly={ true }/>
 
         <ReadOnlyDataRenderer type="date" label="Date of first/key symptom (DD/MM/YYYY)" model={ model } name="hospitalization_date" maxDate={ new Date() } showTime={ true }/>
         <ReadOnlyDataRenderer type="date"  label="Date of hospitalization (DD/MM/YYYY):" model={ model } name="hospitalization_date"/>
@@ -181,10 +192,11 @@ export default class AEFIInvReadOnly extends Component{
         <ReadOnlyDataRenderer type="text"  model={ model } name="affected_unknown" label="Unknown:" />
         <ReadOnlyDataRenderer type="text"  model={ model } name="community_comments" label="Other comments:" multiline={true} numberOfLines={4}/>
 
-        <ReadOnlyDataRenderer type="text"  name="relevant_findings" label="Other comments:" multiline={true} numberOfLines={4} model={ model }/>
+        <ReadOnlyDataRenderer type="text"  name="relevant_findings" label="Other relevant findings/observations/comments" multiline={true} numberOfLines={4} model={ model }/>
 
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => goBack() } title="Close"/>
+          {followUpBtn}
         </View>
       </ScrollView>
     )

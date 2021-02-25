@@ -3,7 +3,7 @@ import { Text, StyleSheet, Button, View, Alert, ScrollView, NetInfo, BackHandler
 import AppStyles from '../styles/AppStyles'
 import { changeConnection, uploadCompletedReports, logout, fetchReport, setReport, fetchNews, removeCompletedReports, archiveData } from '../actions'
 import { connect } from 'react-redux'
-import { NavigationActions } from 'react-navigation'
+// import { NavigationActions } from 'react-navigation'
 var RNFS = require('react-native-fs');
 
 import SelectOneField from './components/SelectOneField'
@@ -23,11 +23,11 @@ class MainScene extends Component {
   static navigationOptions = ({ navigation, state }) => {
     return {
       title: 'MCAZ - Home',
-      headerRight: (
+      /*headerRight: (
         <TouchableOpacity onPress={ () => navigation.state.params.logout() } >
           <Image source={ require("../images/ic_power_settings_new_black_36dp_1x.png") }/>
         </TouchableOpacity>
-      )
+      )*/
     }
   }
 
@@ -114,6 +114,17 @@ class MainScene extends Component {
       return
     }
     const files = this.saveFiles(arch)
+  }
+
+  logout = () => {
+    Alert.alert('Confirm', 'Logout of the app?', [{
+      text: 'No',
+    }, {
+      text: 'Yes',
+      onPress: () => {
+        this.props.logout()
+      }
+    }])
   }
 
   saveFiles = async (completed) => {
@@ -210,12 +221,12 @@ class MainScene extends Component {
     logout()
     //navigate("LoginScene")
 
-    const navigateAction = NavigationActions.navigate({
+    /*const navigateAction = NavigationActions.navigate({
       routeName: 'Auth',
       params: {},
       action: NavigationActions.navigate({ routeName: 'LoginScene'})
     })
-    this.props.navigation.dispatch(navigateAction)
+    this.props.navigation.dispatch(navigateAction)*/
   }
 
   createReport = (screen) => {
@@ -360,7 +371,7 @@ class MainScene extends Component {
   componentDidMount() {
     const { fetchNews } = this.props
     fetchNews()
-    this.props.navigation.setParams({ logout : this.confirmLogout })
+    // this.props.navigation.setParams({ logout : this.confirmLogout })
     BackHandler.addEventListener('hardwareBackPress', function() {
       // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
       // Typically you would use the navigator here to go to the last state.
@@ -428,6 +439,9 @@ const mapDispatchToProps = dispatch => {
     },
     removeCompletedReports: () => {
       dispatch(removeCompletedReports())
+    },
+    logout: () => {
+      dispatch(logout())
     },
     dispatch: dispatch
   }

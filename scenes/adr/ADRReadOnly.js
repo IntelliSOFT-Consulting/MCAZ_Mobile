@@ -5,7 +5,7 @@ import MedicationTableComponent from '../components/MedicationTableComponent'
 import FileAttachmentComponent from '../components/FileAttachmentComponent'
 import ConcomitantTableComponent from '../components/ConcomitantTableComponent'
 import ReactionsComponent from '../components/ReactionsComponent'
-
+import moment from 'moment';
 import AppStyles from '../../styles/AppStyles'
 
 import { SEVERITY_REASON, OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR, DESIGNATION, BOOLEAN_OPTIONS } from '../../utils/FieldOptions'
@@ -15,8 +15,18 @@ export default class ADRReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
   render() {
     const { model, goBack, createFollowup } = this.props
-    const newFollowUp = { rid : Date.now(), "type": REPORT_TYPE_ADR_FOLLOW_UP, parent_reference : model.reference_number, report_type : "FollowUp" }
-    const followUpBtn = model.reference_number != null ? (<Button onPress={ () => createFollowup(newFollowUp, 'ADRFollowupScene') } title="Create Followup report"/>) : null
+    const newFollowUp = {...model, rid : Date.now(), "type": REPORT_TYPE_ADR_FOLLOW_UP, parent_reference : model.reference_number, report_type : "FollowUp" }
+    if (newFollowUp.sadr_list_of_drugs) {
+      newFollowUp.sadr_list_of_drugs.map(sl => {
+        if (sl.start_date) {
+          sl.start_date = moment(sl.start_date).format('DD-MM-YYYY')
+        }
+        if (sl.stop_date) {
+          sl.stop_date = moment(sl.stop_date).format('DD-MM-YYYY')
+        }
+      })
+    }
+    const followUpBtn = model.reference_number != null ? (<Button onPress={ () => createFollowup(newFollowUp, 'ADRScene') } title="Create Followup report"/>) : null
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>

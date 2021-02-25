@@ -13,7 +13,7 @@ export default class SectionHScene extends PureComponent {
     const { model, saveAndContinue, saveAndSubmit, cancel, validate } = this.props
     return (
       <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
-        <TextInputField name="relevant_findings" label="Other comments:" multiline={true} numberOfLines={4}/>
+        <TextInputField name="relevant_findings" label="Other relevant findings/observations/comments" multiline={true} numberOfLines={4} model={model} />
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => saveAndSubmit() } title="Save and Submit"/>

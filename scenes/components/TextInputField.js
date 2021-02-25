@@ -45,7 +45,7 @@ export default class TextInputField extends Component {
     }
     const labelText = label ? text : ""
     const labelHeight = hideLabel ? 0 : undefined
-    const tintColorValue = tintColor == null? "rgb(0, 145, 234)" : tintColor
+    const tintColorValue = tintColor == null ? "rgb(0, 145, 234)" : tintColor
     return (
       <View>
         {!hideLabel && (
@@ -53,7 +53,9 @@ export default class TextInputField extends Component {
         )}
         <TextField {...this.props}
           label={ '' } labelHeight={ labelHeight }
-          value={ this.state.value } baseColor={ "rgba(0, 0, 0, .80)" }
+          value={ this.state.value } baseColor={ "rgba(0, 0, 0, .1)" }
+          multiline={true}
+          inputContainerStyle={{ borderWidth: 1, borderColor: '#f0f0f0', paddingLeft: 5}}
           onChangeText={ (text) => this.handleChange(text) } tintColor={ tintColorValue }
         />
       </View>

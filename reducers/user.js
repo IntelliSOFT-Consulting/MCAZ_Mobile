@@ -9,7 +9,8 @@ const token = (state = {}, action) => {
     case LOGOUT:
       if(state.token != null) {
         state.token = null
-        return Object.assign({}, state)
+        return {...state, token: null };
+        //return Object.assign({}, state)
       }
       return state
     default:
