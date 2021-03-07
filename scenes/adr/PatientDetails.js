@@ -45,6 +45,7 @@ export default class PatientDetails extends PureComponent {
         <Text style={ AppStyles.boldText }>Identities of Reporter, Patient and Institute will remain confidential</Text>
 
         <Text style={ AppStyles.boldText }>Patient Details</Text>
+        <Text style={{ fontWeight: '600', fontSize: 16 }}>Clinical/Hospital Name</Text>
         <AutoCompleteInput name="name_of_institution" model={ model } label="Clinical/Hospital Name :" returnKeyType="next" onChange={ this.onSelectOfInstitution }/>
         <TextInputField name="institution_code" model={ model } label="Clinical/Hospital Number :" returnKeyType="next" value={ this.state.institution_code }/>
         <TextInputField name="patient_name" model={ model } label="Patient Initials:" validate={ this.props.validate } returnKeyType="next"/>

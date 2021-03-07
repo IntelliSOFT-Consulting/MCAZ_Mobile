@@ -10,19 +10,32 @@ import AppStyles from '../../styles/AppStyles'
 
 import { SEVERITY_REASON, OUTCOME, ACTION_TAKEN, RELATEDNESS_TO_ADR, DESIGNATION, BOOLEAN_OPTIONS } from '../../utils/FieldOptions'
 import { REPORT_TYPE_ADR_FOLLOW_UP } from "../../utils/Constants"
+import { pad } from '../../utils/utils';
+
+const reformatDate = (value) => {
+  let date = new Date(value);
+  if (!(date instanceof Date && !isNaN(date))) {
+    const parts = value.split('-');
+    return `${pad(parts[0])}-${pad(parts[1])}-${parts[2]}`;
+  }
+  let val = moment(date).format("DD-MM-YYYY");
+  return val;
+}
 
 export default class ADRReadOnly extends Component{
   // <ReadOnlyDataRenderer label="MCAZ Reference Number (MCAZ use only)"/>
   render() {
-    const { model, goBack, createFollowup } = this.props
-    const newFollowUp = {...model, rid : Date.now(), "type": REPORT_TYPE_ADR_FOLLOW_UP, parent_reference : model.reference_number, report_type : "FollowUp" }
+    const { model, goBack, createFollowup } = this.props;
+    // deep copy json object
+    const nm = JSON.parse(JSON.stringify(model));
+    const newFollowUp = {...nm, rid : Date.now(), "type": REPORT_TYPE_ADR_FOLLOW_UP, parent_reference : model.reference_number, report_type : "FollowUp" }
     if (newFollowUp.sadr_list_of_drugs) {
       newFollowUp.sadr_list_of_drugs.map(sl => {
         if (sl.start_date) {
-          sl.start_date = moment(sl.start_date).format('DD-MM-YYYY')
+          sl.start_date = reformatDate(sl.start_date)
         }
         if (sl.stop_date) {
-          sl.stop_date = moment(sl.stop_date).format('DD-MM-YYYY')
+          sl.stop_date = reformatDate(sl.stop_date)
         }
       })
     }

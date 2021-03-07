@@ -56,7 +56,7 @@ export default class VaccineTableComponent extends TableComponent {
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_batch_number"  model={ model[name][index] } />,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_expiry_date" type="date" model={ model[name][index] } />,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_date" type="date" model={ model[name][index] } showTime={ true }/>,
-      <CheckBoxInput key={ Math.floor(Math.random() * 10000) } name="suspected_drug" model={ model[name][index] }/>
+      <CheckBoxInput key={ Math.floor(Math.random() * 10000) } name="suspected_drug" model={ model[name][index] } readonly={true} />
     ]
     return row
   }

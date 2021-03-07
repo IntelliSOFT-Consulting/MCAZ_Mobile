@@ -26,7 +26,9 @@ export default class AEFIInvReadOnly extends Component{
   render() {
     const { goBack, createFollowup } = this.props
     const { model } = this.state
-    const newFollowUp = {...model, rid : Date.now(), "type": REPORT_TYPE_AEFI_INV_FOLLOW_UP, report_type : "Followup" }
+    // deep copy json object
+    const nm = JSON.parse(JSON.stringify(model));
+    const newFollowUp = {...nm, rid : Date.now(), "type": REPORT_TYPE_AEFI_INV_FOLLOW_UP, report_type : "Followup" }
     if (newFollowUp['symptom_date']) {
       newFollowUp['symptom_date'] = moment(newFollowUp['symptom_date']).format('DD-MM-YYYY');
     }

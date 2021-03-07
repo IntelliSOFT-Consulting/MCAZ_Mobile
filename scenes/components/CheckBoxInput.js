@@ -49,15 +49,17 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 }*/
 
 const CheckBoxInput = (props) => {
-  const { model, name } = props;
+  const { model, name, readonly } = props;
   const [checked, setChecked] = useState(model && model[name] === '1' ? true : false);
 
   const onPressed = () => {
-    const { name, model } = props
-    if(model) {
-      model[name] = !checked? "1" : "0"
+    if (!readonly) {
+      const { name, model } = props
+      if(model) {
+        model[name] = !checked? "1" : "0"
+      }
+      setChecked(!checked);
     }
-    setChecked(!checked);
   };
 
   const getInputIcon = () => {
@@ -70,7 +72,7 @@ const CheckBoxInput = (props) => {
 
   return (
     <TouchableOpacity
-      onPress={onPressed}
+      onPress={readonly ? null : onPressed}
       style={{
         flexDirection: 'row',
         alignItems: 'center',
