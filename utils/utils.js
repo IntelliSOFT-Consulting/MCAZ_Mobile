@@ -28,19 +28,21 @@ export const getRequestPayload  = (data) => {
 export const getURL = (data) => {
   if(data.type == REPORT_TYPE_ADR) {
     return ADR_URL
-  } else if(data.type == REPORT_TYPE_SAE || data.type == REPORT_TYPE_SAE_FOLLOW_UP) {
+  } else if(data.type == REPORT_TYPE_SAE) {
     return SAE_URL
-  } else if(data.type == REPORT_TYPE_AEFI || data.type === REPORT_TYPE_AEFI_FOLLOW_UP) {
+  } else if(data.type == REPORT_TYPE_AEFI) {
     return AEFI_URL
-  } else if(data.type == REPORT_TYPE_AEFI_INV || data.type == REPORT_TYPE_AEFI_INV_FOLLOW_UP) {
+  } else if(data.type == REPORT_TYPE_AEFI_INV) {
     return SAEFI_URL
   } else if(data.type == REPORT_TYPE_ADR_FOLLOW_UP) {
     return ADR_URL + "/followup/" + Base64.btoa(data.parent_reference)
-  } /*else if(data.type == REPORT_TYPE_SAE_FOLLOW_UP) {
+  } else if(data.type == REPORT_TYPE_SAE_FOLLOW_UP) {
     return SAE_URL + "/followup/" + Base64.btoa(data.reference_number)
-  } /*else if(data.type == REPORT_TYPE_AEFI_FOLLOW_UP) {
+  } else if(data.type == REPORT_TYPE_AEFI_FOLLOW_UP) {
     return AEFI_URL + "/followup/" + Base64.btoa(data.parent_reference)
-  }*/
+  } else if (data.type === 'REPORT_TYPE_AEFI_INV_FOLLOW_UP') {
+    return SAEFI_URL + "/followup/" + Base64.btoa(data.parent_reference)
+  }
 }
 
 

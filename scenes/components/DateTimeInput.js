@@ -11,6 +11,7 @@ export default class DateTimeInput extends Component {
     super(props)
     const { model, name, showTime } = this.props
     var value = undefined
+    let dateVal = undefined
     if(model) {
       if(model[name]) {
         let date = new Date(model[name]);
@@ -20,6 +21,7 @@ export default class DateTimeInput extends Component {
           value.setDate(v[0])
           value.setMonth(parseInt(v[1]) - 1)
           value.setYear(v[2])
+          dateVal = value;
           if (showTime) {
             value = moment(value).format('DD-MM-YYYY HH:mm')
           } else {
@@ -28,6 +30,7 @@ export default class DateTimeInput extends Component {
           // return `${this.pad(parts[0])}-${this.pad(parts[1])}-${parts[2]}`;
         } else {
           value = date;
+          dateVal = date;
           if (showTime) {
             value = moment(date).format('DD-MM-YYYY HH:mm')
           } else {
@@ -38,7 +41,8 @@ export default class DateTimeInput extends Component {
     }
     this.state = {
       isDateTimePickerVisible: false,
-      date : value
+      date : value,
+      dateVal
     };
   }
 
@@ -49,9 +53,9 @@ export default class DateTimeInput extends Component {
   _toggleDateTimePicker = (visibility) => this.setState({ isDateTimePickerVisible: visibility });
 
   _handleDatePicked = (event, date) => {
-    if (Platform.OS === 'android') {
-      this._hideDateTimePicker()
-    };
+    //if (Platform.OS === 'android') {
+      // this._hideDateTimePicker()
+    //};
     if (!date) {
       return;
     }
@@ -79,7 +83,7 @@ export default class DateTimeInput extends Component {
         model[name] = " " + date.getHours() + ":" + pad(date.getMinutes())
       }
       const display = mode === 'time' ? model[name] : showTime ? moment(date).format('DD-MM-YYYY HH:mm') : moment(date).format('DD-MM-YYYY');
-      this.setState({ date : display })
+      this.setState({ date : display, isDateTimePickerVisible: false, dateVal: date  })
     }
     
     const { onChange, index } = this.props
@@ -92,7 +96,7 @@ export default class DateTimeInput extends Component {
 
   render () {
     const { label, required, showTime, maxDate, minDate, model, name } = this.props
-    const { date, isDateTimePickerVisible } = this.state
+    const { date, isDateTimePickerVisible, dateVal } = this.state
     var text = null
     if(required) {
       text = (
@@ -124,7 +128,7 @@ export default class DateTimeInput extends Component {
         />
         {isDateTimePickerVisible && (
           <DateTimePicker
-            value={ date ? new Date(date) : new Date() }
+            value={ dateVal ? dateVal : new Date() }
             datePickerModeAndroid="spinner"
             minimumDate={ minimumDate }
             maximumDate={ maxDateVal }

@@ -13,6 +13,7 @@ import { SAE_MANDATORY_FIELS } from '../utils/FormFields'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
 import DeviceInfo from 'react-native-device-info';
+import { getURL } from '../utils/utils';
 
 class SAEScene extends PureComponent {
   static navigationOptions = {
@@ -202,7 +203,7 @@ class SAEScene extends PureComponent {
     model.submitted = 2
     const { uploadData, saveCompleted, connection, token } = this.props
     if(connection.isConnected) {
-      uploadData(model, SAE_URL, token)
+      uploadData(model, getURL(model), token)
     } else {
       Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
       saveCompleted(model)

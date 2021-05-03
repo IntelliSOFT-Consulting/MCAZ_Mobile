@@ -226,7 +226,7 @@ _renderHeader = props => {
     model.submitted = 2
     const { uploadData, saveCompleted, connection, token } = this.props
     if(connection.isConnected) {
-      uploadData(model, SAEFI_URL, token)
+      uploadData(model, getURL(model), token)
     } else {
       Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
       saveCompleted(model)

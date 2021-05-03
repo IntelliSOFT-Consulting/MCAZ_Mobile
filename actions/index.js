@@ -63,6 +63,9 @@ export const removeCompletedReports = () => (
   Sends the request to upload a report to the server.
 */
 export const uploadData = (data, url, token, updateProgress) => {
+  console.log(JSON.stringify(data));
+  console.log(token);
+  console.log(url);
   return (dispatch, getState)=> {
     const message = updateProgress ? null : 'Uploading data...';
     dispatch(setLoading({ loading: true, message }));
