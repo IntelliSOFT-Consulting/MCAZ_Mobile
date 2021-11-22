@@ -150,5 +150,22 @@ export default AppStyles = StyleSheet.create({
     borderTopColor: 'lightgrey',
     borderBottomColor: 'lightgrey',
     borderBottomWidth: 1
+  },
+  text: {
+    fontSize: 15,
+    color: '#333333',
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+    paddingBottom: 5,
+    textAlign: 'left',
+  },
+  formGroup: {
+    marginBottom: 10,
+  },
+  rowFlex: {
+    flexDirection: 'row',
+  },
+  textBold: {
+    fontWeight: '700',
   }
 })

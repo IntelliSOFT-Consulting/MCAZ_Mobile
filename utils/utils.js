@@ -35,13 +35,13 @@ export const getURL = (data) => {
   } else if(data.type == REPORT_TYPE_AEFI_INV) {
     return SAEFI_URL
   } else if(data.type == REPORT_TYPE_ADR_FOLLOW_UP) {
-    return ADR_URL + "/followup/" + Base64.btoa(data.parent_reference)
+    return ADR_URL + "/followup/" + Base64.btoa(data.parent_reference || data.reference_number)
   } else if(data.type == REPORT_TYPE_SAE_FOLLOW_UP) {
-    return SAE_URL + "/followup/" + Base64.btoa(data.reference_number)
+    return SAE_URL + "/followup/" + Base64.btoa(data.reference_number || data.reference_number)
   } else if(data.type == REPORT_TYPE_AEFI_FOLLOW_UP) {
-    return AEFI_URL + "/followup/" + Base64.btoa(data.parent_reference)
-  } else if (data.type === 'REPORT_TYPE_AEFI_INV_FOLLOW_UP') {
-    return SAEFI_URL + "/followup/" + Base64.btoa(data.parent_reference)
+    return AEFI_URL + "/followup/" + Base64.btoa(data.parent_reference || data.reference_number)
+  } else if (data.type === REPORT_TYPE_AEFI_INV_FOLLOW_UP) {
+    return SAEFI_URL + "/followup/" + Base64.btoa(data.parent_reference || data.reference_number)
   }
 }
 

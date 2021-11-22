@@ -28,7 +28,7 @@ export default class SectionBScene extends PureComponent {
       if (value['adverse_event_type'] === 'SAE') {
         this.props.model['sae_description'] = '';
       } else {
-        this.props.model['sae_type'] = null;
+        delete this.props.model['sae_type'];
       }
     }
     if (value['previous_events']) {

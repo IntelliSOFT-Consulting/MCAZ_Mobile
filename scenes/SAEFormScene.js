@@ -203,10 +203,10 @@ class SAEScene extends PureComponent {
     model.submitted = 2
     const { uploadData, saveCompleted, connection, token } = this.props
     if(connection.isConnected) {
-      uploadData(model, getURL(model), token)
+      uploadData(model, getURL({...model, submitted: 2 }), token)
     } else {
       Alert.alert("Offline", "data has been saved to memory and will be uploaded when online.")
-      saveCompleted(model)
+      saveCompleted({...model, submitted: 2 })
     }
     this.goBack()
   }

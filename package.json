@@ -36,6 +36,7 @@
     "react-native-reanimated": "^1.13.0",
     "react-native-safe-area-context": "^3.1.4",
     "react-native-screens": "^2.10.1",
+    "react-native-ssl-pinning": "^1.5.4",
     "react-native-tab-view": "^2.14.4",
     "react-native-table-component": "^1.1.2",
     "react-native-vector-icons": "^7.1.0",

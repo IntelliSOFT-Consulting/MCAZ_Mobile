@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, View, Button, Platform } from 'react-native';
+import { Text, Appearance, View, Button, Platform } from 'react-native';
 //import DateTimePicker from 'react-native-modal-datetime-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
+import { CustomModal } from '../modal';
 
 export default class DateTimeInput extends Component {
-
 
   constructor(props) {
     super(props)
@@ -42,7 +42,8 @@ export default class DateTimeInput extends Component {
     this.state = {
       isDateTimePickerVisible: false,
       date : value,
-      dateVal
+      dateVal,
+      value: dateVal
     };
   }
 
@@ -52,7 +53,7 @@ export default class DateTimeInput extends Component {
 
   _toggleDateTimePicker = (visibility) => this.setState({ isDateTimePickerVisible: visibility });
 
-  _handleDatePicked = (event, date) => {
+  _handleDatePicked = (date) => {
     //if (Platform.OS === 'android') {
       // this._hideDateTimePicker()
     //};
@@ -96,7 +97,9 @@ export default class DateTimeInput extends Component {
 
   render () {
     const { label, required, showTime, maxDate, minDate, model, name } = this.props
-    const { date, isDateTimePickerVisible, dateVal } = this.state
+    const { date, isDateTimePickerVisible, dateVal, value } = this.state;
+    const colorScheme = Appearance.getColorScheme();
+    const isDarkMode = colorScheme === 'dark';
     var text = null
     if(required) {
       text = (
@@ -126,15 +129,51 @@ export default class DateTimeInput extends Component {
           title={ dateLabel }
           style={{ color: '#ffffff' }}
         />
-        {isDateTimePickerVisible && (
+        {isDateTimePickerVisible && Platform.OS !== 'ios' && (
           <DateTimePicker
             value={ dateVal ? dateVal : new Date() }
             datePickerModeAndroid="spinner"
             minimumDate={ minimumDate }
             maximumDate={ maxDateVal }
-            onChange={this._handleDatePicked}
+            onChange={(e,d) => this._handleDatePicked(d)}
             onCancel={this._hideDateTimePicker}
             mode={ mode }
+          />
+        )}
+        {Platform.OS === 'ios' && (
+          <CustomModal
+            onCancel={() => {
+              this.setState({ value: new Date(), isDateTimePickerVisible : false });
+            }}
+            visible={isDateTimePickerVisible}
+            onConfirm={() => {
+              this._handleDatePicked(value);
+            }}
+            containerStyle={{
+              backgroundColor: '#ffffff',
+              maxWidth: 600,
+            }}
+            body={
+              <DateTimePicker
+                style={{
+                  minWidth: '100%',
+                  backgroundColor: '#ffffff',
+                  minHeight: 30,
+                }}
+                testID="dateTimePicker"
+                value={value || new Date()}
+                is24Hour={true}
+                mode={mode}
+                display={"inline"}
+                minimumDate={ minimumDate }
+                maximumDate={ maxDateVal }
+                onChange={(e, d) => {
+                  if (d) {
+                    this.setState({ value: d });
+                  }
+                }}
+              />
+            }
           />
         )}
       </View>

@@ -16,6 +16,7 @@ import { REPORT_TYPE_AEFI_INV, SAEFI_URL } from '../utils/Constants'
 import { saveDraft, uploadData, saveCompleted, removeDraft } from '../actions'
 
 import DeviceInfo from 'react-native-device-info';
+import { getURL } from '../utils/utils';
 
 class AEFIInvFormScene extends PureComponent {
   static navigationOptions = {
@@ -168,10 +169,10 @@ _renderHeader = props => {
               suspected_drug++
             }
           }
-          if(suspected_drug == 0) {
+          /*if(suspected_drug == 0) {
             valid = false
             arrayNames.push("Select at least one suspected drug");
-          }
+          }*/
         }
         if(names != "") {
           names += ",\n"

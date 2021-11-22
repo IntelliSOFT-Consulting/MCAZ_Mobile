@@ -19,6 +19,10 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* MCAZPVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MCAZPVTests.m */; };
 		99333D3288053B8960555644 /* libPods-MCAZPV-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E9DF718A15BF3445E40CFF /* libPods-MCAZPV-tvOS.a */; };
+		B96984EB267FA150000DD1E9 /* mcaz.cer in Resources */ = {isa = PBXBuildFile; fileRef = B96984EA267FA150000DD1E9 /* mcaz.cer */; };
+		B96984EC267FA150000DD1E9 /* mcaz.cer in Resources */ = {isa = PBXBuildFile; fileRef = B96984EA267FA150000DD1E9 /* mcaz.cer */; };
+		B96984ED267FA150000DD1E9 /* mcaz.cer in Resources */ = {isa = PBXBuildFile; fileRef = B96984EA267FA150000DD1E9 /* mcaz.cer */; };
+		B96984EE267FA150000DD1E9 /* mcaz.cer in Resources */ = {isa = PBXBuildFile; fileRef = B96984EA267FA150000DD1E9 /* mcaz.cer */; };
 		B9E4468724A1208900FABCB1 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E4468624A1208900FABCB1 /* Dummy.swift */; };
 		EDFB155B609FDE9840DF4CAC /* libPods-MCAZPV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8C903AB7039E1FD1070E2E /* libPods-MCAZPV.a */; };
 /* End PBXBuildFile section */
@@ -70,6 +74,7 @@
 		ABC755B0860A4A319EFA8A81 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
 		B0328F294585FADC52335CA4 /* Pods-MCAZPVTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAZPVTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAZPVTests/Pods-MCAZPVTests.release.xcconfig"; sourceTree = "<group>"; };
 		B940C3B02484F8E1000EA3AB /* MCAZPV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCAZPV-Bridging-Header.h"; sourceTree = "<group>"; };
+		B96984EA267FA150000DD1E9 /* mcaz.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = mcaz.cer; path = ../mcaz.cer; sourceTree = "<group>"; };
 		B97F545D20B4A16300E51E7E /* MCAZPV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MCAZPV.entitlements; path = MCAZPV/MCAZPV.entitlements; sourceTree = "<group>"; };
 		B987718920088B1000DE9576 /* MCAZPV-tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "MCAZPV-tvOS.entitlements"; path = "MCAZPV-tvOS/MCAZPV-tvOS.entitlements"; sourceTree = "<group>"; };
 		B9E4468624A1208900FABCB1 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
@@ -170,6 +175,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B96984EA267FA150000DD1E9 /* mcaz.cer */,
 				B987718920088B1000DE9576 /* MCAZPV-tvOS.entitlements */,
 				13B07FAE1A68108700A75B9A /* MCAZPV */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -384,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B96984EC267FA150000DD1E9 /* mcaz.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B96984EB267FA150000DD1E9 /* mcaz.cer in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
+				B96984ED267FA150000DD1E9 /* mcaz.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +417,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B96984EE267FA150000DD1E9 /* mcaz.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,7 +838,7 @@
 				CODE_SIGN_ENTITLEMENTS = MCAZPV/MCAZPV.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 15;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3NC6P2339M;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -874,7 +884,7 @@
 				CODE_SIGN_ENTITLEMENTS = MCAZPV/MCAZPV.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 3NC6P2339M;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				HEADER_SEARCH_PATHS = (

@@ -6,8 +6,9 @@ import { MAIN_URL, LOGIN_URL, SIGNUP_URL, REPORT_TYPE_ADR, REPORT_TYPE_SAE, REPO
 import { getRequestPayload, getURL } from '../utils/utils'
 import messages from '../utils/messages.json'
 
-import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL, CONTACT_US_URL, NEWS_URL, RESET_PASSWORD_URL } from '../utils/Constants'
+import { ADR_URL, SAE_URL, AEFI_URL, SAEFI_URL, CONTACT_US_URL, NEWS_URL, RESET_PASSWORD_URL, DISABLE_ALL_SECURITY } from '../utils/Constants'
 
+import { fetch } from 'react-native-ssl-pinning';
 /**
   Saves a draft report
 */
@@ -82,7 +83,11 @@ export const uploadData = (data, url, token, updateProgress) => {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token
       },
-      body: JSON.stringify(getRequestPayload(data))
+      body: JSON.stringify(getRequestPayload(data)),
+      disableAllSecurity: DISABLE_ALL_SECURITY,
+      sslPinning: {
+        certs: ["mcaz"]
+      },
     }).then(response => response.json()).then((json) => {
       if(json.sadr) {
         json.sadr.rid = rid
@@ -157,7 +162,11 @@ export const login = (data) => {
     return fetch(LOGIN_URL, {
       method : "POST",
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      disableAllSecurity: DISABLE_ALL_SECURITY,
+      sslPinning: {
+        certs: ["mcaz"]
+      },
     }).then(response => response.json()).then((json) => {
       dispatch(setLoading({ loading: false }));
       if(json.success) {
@@ -178,6 +187,7 @@ export const login = (data) => {
         }, 500)
       }
     }).catch((error) => {
+      console.log(error);
       dispatch(setLoading({ loading: false }));
       dispatch(setNotification({ message : messages.connection_error, level: "error", id: new Date().getTime() }))
     })
@@ -197,7 +207,11 @@ export const signUp = (data) => {
     return fetch(SIGNUP_URL, {
       method : "POST",
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      disableAllSecurity: DISABLE_ALL_SECURITY,
+      sslPinning: {
+        certs: ["mcaz"]
+      },
     }).then(response => response.json()).then((json) => {
       dispatch(setLoading({ loading: false }));
       if(json.token) {
@@ -267,7 +281,11 @@ export const fetchReport = (id, url, token) => {
         "Accept" : "application/json",
         'Content-Type': 'application/json',
         'Authorization' : 'Bearer ' + token
-      }
+      },
+      disableAllSecurity: DISABLE_ALL_SECURITY,
+      sslPinning: {
+        certs: ["mcaz"]
+      },
     }).then(response => response.json()).then((json) => {
       if(json.sadr) {
         json.sadr.type = REPORT_TYPE_ADR
@@ -303,7 +321,11 @@ export const fetchAllReports = (url, token) => {
         "Accept" : "application/json",
         'Content-Type': 'application/json',
         'Authorization' : 'Bearer ' + token
-      }
+      },
+      disableAllSecurity: DISABLE_ALL_SECURITY,
+      sslPinning: {
+        certs: ["mcaz"]
+      },
     }).then(response => response.json()).then((json) => {
       const getReports = (reports, type) => {
         return reports.map((r) => {
@@ -340,7 +362,11 @@ export const contactUs = (data) => {
     return fetch(CONTACT_US_URL, {
       method : "POST",
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      disableAllSecurity: DISABLE_ALL_SECURITY,
+      sslPinning: {
+        certs: ["mcaz"]
+      },
     }).then(res => res.json()).then((json) => {
       dispatch(setNotification({ message : messages.message_sent, level: "error", id: new Date().getTime() }))
     }).catch((error) => {
@@ -356,7 +382,11 @@ export const fetchNews = () => {
   return dispatch => {
     return fetch(NEWS_URL, {
       method : "GET",
-      headers: { "Accept" : "application/json", 'Content-Type': 'application/json' }
+      headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
+      disableAllSecurity: DISABLE_ALL_SECURITY,
+      sslPinning: {
+        certs: ["mcaz"]
+      },
     }).then(res => res.json()).then((json) => {
       dispatch(setNews(json))
     }).catch((error) => {
@@ -375,7 +405,11 @@ export const resetPassword = (email) => {
     return fetch(RESET_PASSWORD_URL, {
       method : "POST",
       headers: { "Accept" : "application/json", 'Content-Type': 'application/json' },
-      body: JSON.stringify(email)
+      body: JSON.stringify(email),
+      disableAllSecurity: DISABLE_ALL_SECURITY,
+      sslPinning: {
+        certs: ["mcaz"]
+      },
     }).then(res => res.json()).then((json) => {
       dispatch(setLoading({ loading: false }));
       setTimeout(() => {

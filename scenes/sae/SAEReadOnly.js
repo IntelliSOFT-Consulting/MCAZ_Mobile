@@ -19,7 +19,7 @@ export default class SAEReadOnly extends Component{
   //
   render() {
     const { model, goBack, createFollowup } = this.props
-    const newFollowUp = {...model, rid : Date.now(), "type": REPORT_TYPE_SAE_FOLLOW_UP, report_type : "Follow-up" }
+    const newFollowUp = {...model, rid : Date.now(), "type": REPORT_TYPE_SAE_FOLLOW_UP, report_type : "Follow-up", parent_reference : model.reference_number, }
     const followUpBtn = model.reference_number != null ? (<Button onPress={ () => createFollowup(newFollowUp, 'SAEFormScene') } title="Create Followup report"/>) : null
     return (
       <ScrollView style={ [ AppStyles.scrollContainer, AppStyles.adrBackground ] }>
