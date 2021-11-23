@@ -19,14 +19,14 @@
     "@react-navigation/stack": "^5.9.0",
     "base-64": "^0.1.0",
     "moment": "^2.27.0",
-    "react": "16.13.1",
-    "react-native": "0.63.3",
+    "react": "17.0.2",
+    "react-native": "0.66.3",
     "react-native-check-box": "^2.0.2",
     "react-native-checkbox": "^1.2.0",
     "react-native-device-info": "^5.5.8",
     "react-native-document-picker": "^3.4.0",
     "react-native-easy-toast": "^1.0.9",
-    "react-native-fs": "^2.16.6",
+    "react-native-fs": "^2.18.0",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.2",
     "react-native-material-dropdown": "git+https://github.com/noway/react-native-material-dropdown.git",
@@ -48,14 +48,14 @@
     "x2js": "github:abdmob/x2js"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/runtime": "^7.10.4",
-    "@react-native-community/eslint-config": "^0.0.5",
-    "babel-jest": "^24.9.0",
-    "eslint": "^6.5.1",
-    "jest": "^24.9.0",
-    "metro-react-native-babel-preset": "^0.58.0",
-    "react-test-renderer": "16.11.0"
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "7.14.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "react-test-renderer": "17.0.2"
   },
   "jest": {
     "preset": "react-native"
