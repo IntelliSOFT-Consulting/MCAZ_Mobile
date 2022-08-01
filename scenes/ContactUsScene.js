@@ -4,6 +4,7 @@ import AppStyles from '../styles/AppStyles'
 import { changeConnection, contactUs, login } from '../actions'
 import { connect } from 'react-redux'
 import { TextField } from 'react-native-material-textfield'
+import { validEmail } from '../utils/utils';
 
 class ContactUsScene extends Component {
   /*static navigationOptions = ({ navigation }) => {
@@ -31,6 +32,10 @@ class ContactUsScene extends Component {
     this.setState(state)
   }
 
+  resetState = () => {
+    this.setState({ email : "", feedback: "", subject: ""})
+  }
+
   send = () => {
     if(this.state.email != '' && this.state.message != '') {
       this.sendMessage()
@@ -41,11 +46,20 @@ class ContactUsScene extends Component {
 
   sendMessage = () => {
     const { contactUs } = this.props
+    const { email, feedback } = this.state;
     var data = {}
-    data.email = this.state.email
+    if (!validEmail(email)) {
+      Alert.alert("", "Email not valid.");
+      return;
+    } else if (feedback.length < 10) {
+      Alert.alert("", "Message is too short.");
+      return;
+    }
+    data.email = email
     data.subject = this.state.subject
-    data.feedback = this.state.message
+    data.feedback = feedback
     contactUs(data)
+    this.resetState()
 
     const { goBack } = this.props.navigation
     goBack(null)

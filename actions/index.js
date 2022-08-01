@@ -140,7 +140,7 @@ export const uploadData = (data, url, token, updateProgress) => {
     }).catch((error) => {
       console.log(error);
       dispatch(setLoading({ loading: false }));
-      dispatch(setNotification({ message : messages.erroruploading, level: "info", id: new Date().getTime() }))
+      dispatch(setNotification({ message : messages.connectionerroruploading, level: "info", id: new Date().getTime() }))
     })
   }
 }
@@ -370,6 +370,7 @@ export const contactUs = (data) => {
     }).then(res => res.json()).then((json) => {
       dispatch(setNotification({ message : messages.message_sent, level: "error", id: new Date().getTime() }))
     }).catch((error) => {
+      
       dispatch(setNotification({ message : messages.error_sending_message, level: "error", id: new Date().getTime() }))
     })
   }
