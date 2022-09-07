@@ -20,7 +20,7 @@ export const STATUS_DRAFT = 'STATUS_DRAFT'
 export const STATUS_COMPLETED = 'STATUS_COMPLETED'
 export const STATUS_UPLOADED = 'STATUS_UPLOADED'
 
-export const MAIN_URL = 'https://e-pv.mcaz.co.zw/api' // http://104.237.146.235/api'  // ''
+export const MAIN_URL = 'http://104.237.146.235/api' // 'https://e-pv.mcaz.co.zw/api' // 
 
 export const ADR_URL = MAIN_URL + '/sadrs' // Url for ADR
 export const SAE_URL = MAIN_URL + '/adrs' // Url for SAE
@@ -33,4 +33,4 @@ export const NEWS_URL = MAIN_URL + '/sites/news' // Url to fetch news
 export const RESET_PASSWORD_URL = MAIN_URL + '/users/forgotPassword'
 
 // Should be true for testing/non https
-export const DISABLE_ALL_SECURITY = false;
+export const DISABLE_ALL_SECURITY = true;

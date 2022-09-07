@@ -19,18 +19,18 @@ export default class TextInputField extends Component {
 
   handleChange(value) {
     this.setState({ value })
-    var { name, model } = this.props
-    if(model) {
+    var { name, model, handleModelChange, onChange } = this.props;
+    if (handleModelChange) {
+      handleModelChange({ [name]: value });
+    } else if (onChange) {
+      onChange({ [name]: value })
+    } else {
       model[name] = value
-    }
-    const { onChange } = this.props
-    if(onChange) {
-      onChange(model[name])
     }
   }
 
   render() {
-    const { label, required, validate, hideLabel, tintColor } = this.props
+    const { label, required, validate, hideLabel, tintColor, numberOfLines } = this.props
     const { value } = this.state
     var text = null
     if(required) {
@@ -51,18 +51,28 @@ export default class TextInputField extends Component {
         {!hideLabel && (
           <Text style={{ fontWeight: '600', fontSize: 16 }}>{labelText}</Text>
         )}
-        <TextField {...this.props}
+        <TextInput
+          keyboardType={this.props.keyboardType}
           label={ '' } labelHeight={ labelHeight }
-          value={ this.state.value } baseColor={ "rgba(0, 0, 0, .1)" }
+          value={ this.state.value }
           multiline={true}
-          inputContainerStyle={{ borderWidth: 1, borderColor: '#f0f0f0', paddingLeft: 5}}
+          numberOfLines={numberOfLines}
+          style={{ borderWidth: 1, borderColor: '#f0f0f0', paddingLeft: 5, color: '#000', backgroundColor: 'fff'}}
           onChangeText={ (text) => this.handleChange(text) } tintColor={ tintColorValue }
         />
       </View>
     )
   }
 
-  componentWillReceiveProps(nextProps) {
+  static getDerivedStateFromProps(props, state) {
+    const { value } = state;
+    const { model, name } = props;
+    if (model[name] != null && value != model[name]) {
+      return { value: model[name] };
+    }
+    return null;
+  }
+  /*componentWillReceiveProps(nextProps) {
     const { model, name } = this.props
     var { value } = this.state
     const newModel = nextProps.model
@@ -70,7 +80,7 @@ export default class TextInputField extends Component {
       const val = newModel[name]
       this.setState({ value : val })
     }
-  }
+  }*/
 }
 // { text }
 // <TextInput {...this.props} onChangeText={(text) => this.handleChange(text)} value={ this.state.value }/>

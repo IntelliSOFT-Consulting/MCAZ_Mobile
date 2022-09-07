@@ -33,11 +33,15 @@ export default class MedicationTableComponent extends TableComponent {
     for(let i = 0; i < headers.length; i++) {
       if(mandatory.indexOf(i) != -1) {
         const header = (
-          <Text>{ headers[i] } <Text style={ AppStyles.required }>*</Text></Text>
+          <View style={AppStyles.tableHeaderView}><Text>{ headers[i] } <Text style={ AppStyles.required }>*</Text></Text></View>
         )
         headerEls[i] = header
       } else {
-        headerEls[i] = headers[i]
+        headerEls[i] = (
+          <View style={AppStyles.tableHeaderView}>
+            <Text>{ headers[i]}</Text>
+          </View>
+        )
       }
     }
     if(readonly) {
@@ -60,16 +64,16 @@ export default class MedicationTableComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] } />,
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] }/>,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="dose" model={ model[name][index] }/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] } hideLabel={true} />,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } hideLabel={true} />,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } hideLabel={true}/>,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="dose" model={ model[name][index] } hideLabel={true}/>,
+      <SelectOneField key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE } hideLabel={true}/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE }/>,
       <SelectOneField key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY}/>,
       <DateSelectInput key={Math.floor(Math.random() * 10000)} name="start_date" hideLabel={ true } label="" model={ model[name][index] } index={ index } maxDate={ new Date() } onChange={ this.onChange }/>,
       <DateSelectInput key={Math.floor(Math.random() * 10000)} name="stop_date" hideLabel={ true } label="" model={ model[name][index] } minDate={ this.getMinStopDate(index) } maxDate={ new Date() }/>,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="indication" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="indication" model={ model[name][index] } hideLabel={true}/>,
       <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]

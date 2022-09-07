@@ -23,8 +23,8 @@ export default class VaccineDosesTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] }/>,
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccination_doses" model={ model[name][index] } keyboardType="numeric"/>,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] } hideLabel={true} />,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccination_doses" model={ model[name][index] } keyboardType="numeric" hideLabel={true} />,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row

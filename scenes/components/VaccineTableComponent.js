@@ -23,16 +23,16 @@ export default class VaccineTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_date" model={ model[name][index] } showTime={ false } maxDate={ new Date() }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_time" model={ model[name][index] } mode={ "time" } />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] } />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="expiry_date" model={ model[name][index] } />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="diluent_batch_number" model={ model[name][index] } />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_expiry_date" model={ model[name][index] } />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_date" model={ model[name][index] } maxDate={ new Date() } showTime={ true } />,
-      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] } hideLabel={true} />,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_date" model={ model[name][index] } showTime={ false } maxDate={ new Date() } hideLabel={true} />,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_time" model={ model[name][index] } mode={ "time" } hideLabel={true}  />,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] } hideLabel={true} />,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } hideLabel={true} />,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="expiry_date" model={ model[name][index] } hideLabel={true} />,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="diluent_batch_number" model={ model[name][index] } hideLabel={true} />,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_expiry_date" model={ model[name][index] } hideLabel={true} />,
+      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_date" model={ model[name][index] } maxDate={ new Date() } showTime={ true } hideLabel={true} />,
+      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] } hideLabel={true} />,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row

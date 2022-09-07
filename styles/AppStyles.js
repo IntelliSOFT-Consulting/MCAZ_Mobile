@@ -45,9 +45,15 @@ export default AppStyles = StyleSheet.create({
     height: 40
   },
   tableHead: {
-    height: 40, backgroundColor: '#f1f8ff'
+    height: 46, backgroundColor: '#f1f8ff',
   },
-  tableHeadText: { marginLeft: 5, marginRight : 5 },
+  tableHeaderView: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#2196F3',
+    padding: 3
+  },
+  tableHeadText: { marginLeft: 5, marginRight : 5, color: '#000' },
   listItem: { height: 44, padding: 10, fontSize: 18 },
   sectionHeader: {
     paddingTop: 2,

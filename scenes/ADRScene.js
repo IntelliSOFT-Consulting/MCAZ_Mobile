@@ -126,6 +126,7 @@ class ADRScene extends PureComponent {
         cancel={ this.cancel }
         validate={ this.state.validate }
         cancelType={this.state.cancelType} 
+        handleModelChange={this.handleModelChange}
       />
     ),
     '4' : () => (
@@ -135,6 +136,7 @@ class ADRScene extends PureComponent {
         saveAndContinue={ this.saveAndContinue }
         cancel={ this.cancel }
         saveAndSubmit={ this.saveAndSubmit }
+        handleModelChange={this.handleModelChange}
         validate={ this.state.validate }
         cancelType={this.state.cancelType} 
       />
@@ -143,7 +145,7 @@ class ADRScene extends PureComponent {
 
   handleModelChange = (change) => {
     const { model } = this.state;
-    const newModel = {...model, ...change};
+    const newModel = Object.assign({}, model, change);
     this.setState({ model: newModel });
   }
 

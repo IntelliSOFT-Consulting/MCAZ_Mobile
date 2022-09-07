@@ -6,6 +6,7 @@ import FileInputComponent from './FileInputComponent'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
 import ReadOnlyDataRenderer from './ReadOnlyDataRenderer'
+import AppStyles from '../../styles/AppStyles';
 
 export default class FileAttachmentComponent extends TableComponent {
 
@@ -26,7 +27,11 @@ export default class FileAttachmentComponent extends TableComponent {
         )
         headerEls[i] = header
       } else {
-        headerEls[i] = headers[i]
+        headerEls[i] = (
+          <View style={AppStyles.tableHeaderView}>
+            <Text style={AppStyles.tableHeadText}>{ headers[i]}</Text>
+          </View>
+        )
       }
     }
     if(readonly) {
@@ -45,7 +50,7 @@ export default class FileAttachmentComponent extends TableComponent {
 
     var row = [
       <FileInputComponent key={Math.floor(Math.random() * 10000) } name="file" model={ model[name][index] } hideLabel={ true }/>,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="description" model={ model[name][index] }/>,
+      <TextInputField key={Math.floor(Math.random() * 10000)} name="description" model={ model[name][index] } hideLabel={true} />,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row

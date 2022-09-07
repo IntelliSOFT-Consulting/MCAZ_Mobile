@@ -67,7 +67,9 @@ export default class DateTimeInput extends Component {
       return value
     }
     
-    const { model, name, showTime } = this.props
+    const { name, showTime } = this.props;
+    const model = {};
+    let display;
     if(model && name) {
       const mode = showTime ? "datetime" : this.props.mode ? this.props.mode : "date"
       var value = {}
@@ -83,20 +85,38 @@ export default class DateTimeInput extends Component {
       if(mode == "time") {
         model[name] = " " + date.getHours() + ":" + pad(date.getMinutes())
       }
-      const display = mode === 'time' ? model[name] : showTime ? moment(date).format('DD-MM-YYYY HH:mm') : moment(date).format('DD-MM-YYYY');
-      this.setState({ date : display, isDateTimePickerVisible: false, dateVal: date  })
+      display = mode === 'time' ? model[name] : showTime ? moment(date).format('DD-MM-YYYY HH:mm') : moment(date).format('DD-MM-YYYY');
+      this.setState({ isDateTimePickerVisible: false, dateVal: date  })
     }
     
-    const { onChange, index } = this.props
-    if(onChange) {
+    const { onChange, index, handleModelChange } = this.props
+    if (handleModelChange) {
+      handleModelChange(model);
+    } else if(onChange) {
       var value = {}
       value[name] = date
-      onChange(value, index)
+      onChange(model, index)
+    } else {
+      this.setState({ date: display });
     }
   };
 
+  static getDerivedStateFromProps(props, state) {
+    const { date } = state;
+    const { model, name } = props;
+    if (model[name] != null && date != model[name]) {
+      return { date: model[name] };
+    }
+    return null;
+  }
+
+  getDate = (d) => {
+    const p = d.split('-');
+    return new Date(`${p[1]}-${p[0]}-${p[2]}`)
+  }
+
   render () {
-    const { label, required, showTime, maxDate, minDate, model, name } = this.props
+    const { label, required, showTime, maxDate, minDate, model, name, hideLabel } = this.props
     const { date, isDateTimePickerVisible, dateVal, value } = this.state;
     const colorScheme = Appearance.getColorScheme();
     const isDarkMode = colorScheme === 'dark';
@@ -120,10 +140,10 @@ export default class DateTimeInput extends Component {
     }
 
     const maxDateVal = maxDate? maxDate : undefined
-    const minimumDate = minDate? minDate : undefined
+    const minimumDate = minDate? this.getDate(minDate) : undefined
     return (
       <View style={ AppStyles.dateTimeInput }>
-        <Text>{ text }</Text>
+        {!hideLabel && (<Text>{ text }</Text>)}
         <Button
           onPress={() => this._toggleDateTimePicker(!isDateTimePickerVisible)}
           title={ dateLabel }
