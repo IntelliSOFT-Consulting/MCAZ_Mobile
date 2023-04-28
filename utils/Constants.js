@@ -20,7 +20,7 @@ export const STATUS_DRAFT = 'STATUS_DRAFT'
 export const STATUS_COMPLETED = 'STATUS_COMPLETED'
 export const STATUS_UPLOADED = 'STATUS_UPLOADED'
 
-export const MAIN_URL = 'http://104.237.146.235/api' // 'https://e-pv.mcaz.co.zw/api' // 
+export const MAIN_URL = 'https://e-pv.mcaz.co.zw/api'; // 'http://104.237.146.235/api' // '' // 
 
 export const ADR_URL = MAIN_URL + '/sadrs' // Url for ADR
 export const SAE_URL = MAIN_URL + '/adrs' // Url for SAE
