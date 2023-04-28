@@ -111,6 +111,9 @@ export default class DateTimeInput extends Component {
   }
 
   getDate = (d) => {
+    if (typeof d === 'object') {
+      return d;
+    }
     const p = d.split('-');
     return new Date(`${p[1]}-${p[0]}-${p[2]}`)
   }
@@ -139,8 +142,8 @@ export default class DateTimeInput extends Component {
       dateLabel = `${date}`; //model[name] // date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
     }
 
-    const maxDateVal = maxDate? maxDate : undefined
-    const minimumDate = minDate? this.getDate(minDate) : undefined
+    const maxDateVal = maxDate ? maxDate : undefined
+    const minimumDate = minDate ? this.getDate(minDate) : undefined
     return (
       <View style={ AppStyles.dateTimeInput }>
         {!hideLabel && (<Text>{ text }</Text>)}

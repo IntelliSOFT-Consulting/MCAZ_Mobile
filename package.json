@@ -28,7 +28,7 @@
     "react-native-easy-toast": "^1.0.9",
     "react-native-fs": "^2.18.0",
     "react-native-gesture-handler": "^1.7.0",
-    "react-native-keyboard-aware-scroll-view": "^0.9.2",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-material-dropdown": "git+https://github.com/noway/react-native-material-dropdown.git",
     "react-native-material-textfield": "git+https://github.com/javarahulsharma/react-native-material-textfield.git",
     "react-native-modal": "^4.1.1",
