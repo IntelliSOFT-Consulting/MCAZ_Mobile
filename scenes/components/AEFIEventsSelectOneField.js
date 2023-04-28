@@ -37,6 +37,11 @@ export default class AEFIEventsSelectOneField extends Component {
       value = option
     }
     this.setState({ value, label })
+    if(onChange) {
+      const val = {}
+      val[name] = value
+      onChange(val)
+    }
   }
 
   render() {

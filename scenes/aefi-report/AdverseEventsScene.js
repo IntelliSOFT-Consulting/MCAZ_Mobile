@@ -23,32 +23,33 @@ export default class AdverseEventsScene extends PureComponent {
   }
 
   render() {
-    const { model, saveAndContinue, cancel } = this.props
+    const { saveAndContinue, cancel } = this.props
+    const { model } = this.state;
     const autopsyDod = this.state.outcome === 'Died' ? (
       <View>
-        <DateTimeInput label="If died, date of death (DD/MM/YYYY)::" name="died_date" model={ model } minDate={ this.state.aefi_date } maxDate={ new Date() }/>
-        <SelectOneField label="Autopsy done:" name="autopsy" model={ model } options={ BOOLEAN_UNKNOWN_OPTIONS }/>
+        <DateTimeInput label="If died, date of death (DD/MM/YYYY)::" name="died_date" model={ model } minDate={ this.state.aefi_date } maxDate={ new Date() } onChange={this.onChange} />
+        <SelectOneField label="Autopsy done:" name="autopsy" model={ model } options={ BOOLEAN_UNKNOWN_OPTIONS } onChange={this.onChange} />
       </View>
     ) : null;
     return (
       <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
         <SelectMultipleField label="Adverse event (s):" name="adverse_events" model={ model } options={ AEFI_ADVERSE_EVENTS }/>
-        <AEFIEventsSelectOneField name="reactions" model={ model } label="Local reactions" options={ SEVERE_LOCAL_REACTIONS }/>
-        <AEFIEventsSelectOneField name="seizures" model={ model } label="Seizures" options={ SEIZURES }/>
-        <TextInputField label="Other" name="adverse_events_specify" model={ model }/>
+        <AEFIEventsSelectOneField name="reactions" model={ model } label="Local reactions" options={ SEVERE_LOCAL_REACTIONS } onChange={this.onChange} />
+        <AEFIEventsSelectOneField name="seizures" model={ model } label="Seizures" options={ SEIZURES } onChange={this.onChange} />
+        <TextInputField label="Other" name="adverse_events_specify" model={ model } handleModelChange={this.props.handleModelChange}/>
         <DateTimeInput label="Date &amp; Time AEFI started (DD/MM/YYYY):" name="aefi_date" model={ model } showTime={ true } maxDate={ new Date() } onChange={ this.onChange }/>
-        <SelectOneField label="Was patient hospitalized?" name="patient_hospitalization" options={ BOOLEAN_OPTIONS } model={ model }/>
-        <DateTimeInput label="Date patient notified event to health system (DD/MM/YYYY):" name="notification_date" model={ model } minDate={ this.state.aefi_date } maxDate={ new Date() }/>
-        <TextInputField label="Describe AEFI (Signs and symptoms):" multiline={true} numberOfLines={4} name="description_of_reaction" model={ model } />
-        <SelectOneField label="Treatment provided:" options={ BOOLEAN_OPTIONS } name="treatment_provided" model={ model }/>
+        <SelectOneField label="Was patient hospitalized?" name="patient_hospitalization" options={ BOOLEAN_OPTIONS } model={ model } onChange={this.onChange}/>
+        <DateTimeInput label="Date patient notified event to health system (DD/MM/YYYY):" name="notification_date" model={ model } minDate={ this.state.aefi_date } maxDate={ new Date() } onChange={ this.onChange }/>
+        <TextInputField label="Describe AEFI (Signs and symptoms):" multiline={true} numberOfLines={4} name="description_of_reaction" model={ model } handleModelChange={this.props.handleModelChange} />
+        <SelectOneField label="Treatment provided:" options={ BOOLEAN_OPTIONS } name="treatment_provided" model={ model } onChange={this.onChange}/>
         <SelectOneField label="Serious:" options={ BOOLEAN_OPTIONS } name="serious" model={ model }  onChange={this.onChange}/>
-        {this.state.serious == 'Yes' && (<SelectOneField label="If yes:" options={ AEFI_SEVERITY_REASON } name="serious_yes" model={ model }/>)}
+        {this.state.serious == 'Yes' && (<SelectOneField label="If yes:" options={ AEFI_SEVERITY_REASON } name="serious_yes" model={ model } onChange={this.onChange}/>)}
         <SelectOneField label="Outcome:" name="outcome" model={ model } options={ AEFI_OUTCOME } onChange={this.onChange}/>
         { autopsyDod }
         <FileInputComponent name="reports" model={ model.reports[0] } label="Attach report"/>
         <TextInputField label="Past medical history (including history of similar reaction or other allergies), concomitant medication
           and dates of administration (exclude those used to treat reaction) other relevant information
-          (e.g. other cases). Use additional sheet if needed :" multiline={true} numberOfLines={4} name="past_medical_history" model={ model }/>
+          (e.g. other cases). Use additional sheet if needed :" multiline={true} numberOfLines={4} name="past_medical_history" model={ model } handleModelChange={this.props.handleModelChange}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>
           <Button onPress={ () => cancel() } title="Close"/>
@@ -58,6 +59,10 @@ export default class AdverseEventsScene extends PureComponent {
   }
 
   onChange(value) {
-    this.setState(value)
+    this.setState((prevState) => ({
+      model: {...prevState.model, ...value}
+    }), () => {
+      this.props.handleModelChange(this.state.model)
+    })
   }
 }

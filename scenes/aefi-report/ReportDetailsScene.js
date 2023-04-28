@@ -19,12 +19,12 @@ export default class ReportDetailsScene extends PureComponent {
     return (
       <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
         <Text>First decision making level to complete (District level):</Text>
-        <DateTimeInput label="Date report received at district level (DD/MM/YYYY):" name="district_receive_date" model={ model } maxDate={ new Date() }/>
-        <SelectOneField label="Investigation needed:" options={ BOOLEAN_OPTIONS } name="investigation_needed" model={ model }/>
-        <DateTimeInput label="If yes, date investigation planned (DD/MM/YYYY):" name="investigation_date" model={ model }/>
+        <DateTimeInput label="Date report received at district level (DD/MM/YYYY):" name="district_receive_date" model={ model } maxDate={ new Date() } handleModelChange={this.props.handleModelChange}/>
+        <SelectOneField label="Investigation needed:" options={ BOOLEAN_OPTIONS } name="investigation_needed" model={ model } onChange={this.props.handleModelChange}/>
+        <DateTimeInput label="If yes, date investigation planned (DD/MM/YYYY):" name="investigation_date" model={ model } handleModelChange={this.props.handleModelChange}/>
         <Text>National level to complete:</Text>
-        <DateTimeInput label="Date report received at national level (DD/MM/YYYY):" name="national_receive_date" model={ model } maxDate={ new Date() }/>
-        <TextInputField label="Comments:" name="comments" model={ model }/>
+        <DateTimeInput label="Date report received at national level (DD/MM/YYYY):" name="national_receive_date" model={ model } maxDate={ new Date() } handleModelChange={this.props.handleModelChange}/>
+        <TextInputField label="Comments:" name="comments" model={ model } handleModelChange={this.props.handleModelChange}/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue() } title="Save changes"/>
           <Button onPress={ () => saveAndSubmit() } title="Save and Submit"/>
