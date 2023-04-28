@@ -13,7 +13,7 @@ import VaccineTableComponent from '../components/VaccineTableComponent'
 import DateSelectInput from '../components/DateSelectInput'
 import AgeAtOnsetInput from '../components/AgeAtOnsetInput'
 
-import { BOOLEAN_OPTIONS, GENDER, STATUS_ON_DATE, DESIGNATION, PLACE_VACCINATION, SITE_TYPE, VACCINATION_IN, PROVINCES, AGE_GROUP_YEARS } from '../../utils/FieldOptions'
+import { BOOLEAN_OPTIONS, GENDER, STATUS_ON_DATE, DESIGNATION, PLACE_VACCINATION, SITE_TYPE, VACCINATION_IN, PROVINCES, AGE_GROUP_YEARS, AGE_GROUP_YEARS_2 } from '../../utils/FieldOptions'
 
 export default class SectionAScene extends PureComponent {
 
@@ -53,7 +53,7 @@ export default class SectionAScene extends PureComponent {
         <TextInputField label="Patient’s physical address" model={ model } name="patient_address"/>
         <DateSelectInput label="Date of birth (DD/MM/YYYY):" name="date_of_birth" model={ model }  maxDate={ new Date() } onDateChange={ this.validateDateofBirth } value={ this.state.date_of_birth }/>
         <AgeAtOnsetInput label="OR Age at onset" name="age_at_onset" model={ model } value={ this.state.age_at_onset } onChange={ this.validateAge }/>
-        <SelectOneField label="OR Age group:" model={ model } name="age_group" options={ AGE_GROUP_YEARS }/>
+        <SelectOneField label="OR Age group:" model={ model } name="age_group" options={ AGE_GROUP_YEARS_2 }/>
         <Text>*Complete below table if vaccination information missing on the AEFI reporting form</Text>
         <Text style={ AppStyles.boldText }>Vaccine/Dilutent</Text>
         <VaccineTableComponent model={ model } name="saefi_list_of_vaccines" label="Vaccine"/>

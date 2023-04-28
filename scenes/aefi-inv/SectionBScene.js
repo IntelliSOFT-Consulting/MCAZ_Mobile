@@ -22,10 +22,20 @@ export default class SectionBScene extends PureComponent {
         <TextInputField label="Remarks (If yes provide details)" model={ model } name="adverse_event_remarks"/>
         <SelectOneField label="History of allergy to vaccine, drug or food" model={ model } name="allergy_history" options={ BOOLEAN_UNKNOWN_OPTIONS}/>
         <TextInputField label="Remarks (If yes provide details)" model={ model } name="allergy_history_remarks"/>
-        <SelectOneField label="Pre-existing illness (30 days) / congenital disorder" model={ model } name="existing_illness" options={ BOOLEAN_UNKNOWN_OPTIONS}/>
+
+        <SelectOneField label="Pre-existing comorbidity/ congenital disorder?" model={ model } name="comorbidity_disorder" options={ BOOLEAN_UNKNOWN_OPTIONS}/>
+        <TextInputField label="Remarks (If yes provide details)" model={ model } name="comorbidity_disorder_remarks"/>
+        <SelectOneField label="Pre-existing acute illness (30 days) prior to vaccination?" model={ model } name="existing_illness" options={ BOOLEAN_UNKNOWN_OPTIONS}/>
         <TextInputField label="Remarks (If yes provide details)" model={ model } name="existing_illness_remarks"/>
+        <SelectOneField label="Has the patient tested Covid19 positive prior to vaccination?" model={ model } name="covid_positive" options={ BOOLEAN_UNKNOWN_OPTIONS}/>
+        <TextInputField label="Remarks (If yes provide details)" model={ model } name="covid_positive_remarks"/>
+
         <SelectOneField label="History of hospitalization in last 30 days, with cause" model={ model } name="hospitalization_history" options={ BOOLEAN_UNKNOWN_OPTIONS}/>
         <TextInputField label="Remarks (If yes provide details)" model={ model } name="hospitalization_history_remarks"/>
+        
+        <SelectOneField label="Was the patient receiving any concomitant medication?" model={ model } name="medication_vaccination" options={ BOOLEAN_UNKNOWN_OPTIONS}/>
+        <TextInputField label="Remarks (If yes, name the drug, indication, doses & treatment dates)" model={ model } name="medication_vaccination_remarks"/>
+
         <SelectOneField label="Was patient on medication at time of vaccination? (If yes, name the drug, indication, doses &amp; treatment dates)" model={ model } name="medication_vaccination" options={ BOOLEAN_UNKNOWN_OPTIONS}/>
         <TextInputField label="Remarks (If yes provide details)" multiline = {true} model={ model } name="medication_vaccination_remarks"
           numberOfLines = {4}/>

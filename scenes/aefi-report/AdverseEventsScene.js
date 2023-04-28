@@ -46,7 +46,8 @@ export default class AdverseEventsScene extends PureComponent {
         <SelectOneField label="Outcome:" name="outcome" model={ model } options={ AEFI_OUTCOME } onChange={this.onChange}/>
         { autopsyDod }
         <FileInputComponent name="reports" model={ model.reports[0] } label="Attach report"/>
-        <TextInputField label="Past medical history (including history of similar reaction or other allergies), concomitant medication and other relevant information
+        <TextInputField label="Past medical history (including history of similar reaction or other allergies), concomitant medication
+          and dates of administration (exclude those used to treat reaction) other relevant information
           (e.g. other cases). Use additional sheet if needed :" multiline={true} numberOfLines={4} name="past_medical_history" model={ model }/>
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(4) } title="Save changes"/>

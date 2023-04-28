@@ -221,7 +221,10 @@ export const BOOLEAN_UNKNOWN_OPTIONS = [
 ]
 
 export const GENDER = [
-  { key : "", value : "select one"}, { key : "Male", value : "Male"}, { key : "Female", value : "Female"}, { key : "Unknown", value : "Unknown"}
+  { key : "", value : "select one"},
+  { key : "Male", value : "Male"},
+  { key : "Female", value : "Female"},
+  { key : "Unknown", value : "Unknown"}
 ]
 
 export const AEFI_SEVERITY_REASON = [ { key: "", value: "select one" },
@@ -344,3 +347,17 @@ export const SEIZURES = [
 ]
 
 export const AGE_GROUP_YEARS = [ { key : "< 1 year", value : "< 1 year"}, { key : "1-5 years", value : "1-5 years"}, { key : "> 5 years", value : "> 5 years"}]
+
+export const AGE_GROUP_YEARS_2 = [
+  { key : "0 < 1 year", value : "0 < 1 year"},
+  { key : "1-5 years", value : "1-5 years"},
+  { key : "> 5 years - 18 years", value : "> 5 years - 18 years"},
+  { key : "> 18 years - 60 years", value : "> 18 years  - 60 years"},
+  { key : "> 60 years", value : "> 60 years"},
+];
+
+export const PREG_LAC = [
+  { key : "", value : "select one"},
+  { key : "Pregnant", value : "Pregnant"},
+  { key : "Lactating", value : "Lactating"},
+]

@@ -29,7 +29,7 @@ export default class SectionCScene extends PureComponent {
         <DateTimeInput label="Date/time" model={ model } name="person_date"/>
         <Text style={ AppStyles.boldText }>
           **Instructions – Attach copies of ALL available documents (including case sheet, discharge summary, case notes,
-          laboratory reports and autopsy reports) and then complete additional information NOT AVAILABLE in
+          laboratory reports and autopsy reports, prescriptions for concomitant medication) and then complete additional information NOT AVAILABLE in
           existing documents, i.e.
         </Text>
         <Text>If patient has received medical care  attach copies of all available documents (including case sheet, discharge

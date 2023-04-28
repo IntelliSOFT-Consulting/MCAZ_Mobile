@@ -24,6 +24,7 @@ export default class VaccineTableComponent extends TableComponent {
     const { model, name } = this.props
     var row = [
       <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] } hideLabel={true} />,
+      <TextInputField key={Math.floor(Math.random() * 10000) } name="manufacturer" model={ model[name][index] } hideLabel={true} />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_date" model={ model[name][index] } showTime={ false } maxDate={ new Date() } hideLabel={true} />,
       <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_time" model={ model[name][index] } mode={ "time" } hideLabel={true}  />,
       <TextInputField key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] } hideLabel={true} />,
@@ -48,6 +49,7 @@ export default class VaccineTableComponent extends TableComponent {
 
     var row = [
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="vaccine_name" type="" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="manufacturer" type="date" model={ model[name][index] } />,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="vaccination_date" type="date" model={ model[name][index] } />,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="vaccination_time" type="" model={ model[name][index] } />,
       <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] } type="text"/>,
@@ -64,10 +66,10 @@ export default class VaccineTableComponent extends TableComponent {
   render() {
     const { label, model, readonly } = this.props
     var tableHeader = ['Vaccine', 'Diluent']
-    var headerWidth = [720, 480]
-    var tableHead = ['Name', 'Date and time of vaccination', 'Dose (1st, 2nd, etc)', 'Batch/Lot number', "Expiry date", 'Batch/ Lot Number', 'Expiry date', 'Time of reconstitution', 'Tick suspected medicine(s)'];
-    var widthArr = [120, 120, 120, 120, 120, 120, 120, 120, 120, 120]
-    var labelsArr = [120, 240, 120, 120, 120, 120, 120, 120, 120]
+    var headerWidth = [880, 480]
+    var tableHead = ['Name', 'Brand Name incl. Name of Manufacturer', 'Date and time of vaccination', 'Dose (1st, 2nd, etc)', 'Batch/Lot number', "Expiry date", 'Batch/ Lot Number', 'Expiry date', 'Time of reconstitution', 'Tick suspected medicine(s)'];
+    var widthArr = [120, 160,120, 120, 120, 120, 120, 120, 120, 120, 120]
+    var labelsArr = [120, 160,240, 120, 120, 120, 120, 120, 120, 120]
 
     const rows = this.initializeRows(readonly)
     var addRowBtn = null
