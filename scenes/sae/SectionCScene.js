@@ -21,9 +21,17 @@ export default class SectionCScene extends PureComponent {
     super(props,context)
     this.onOtherDrugsChange = this.onOtherDrugsChange.bind(this)
     this.onOptionChange = this.onOptionChange.bind(this);
-    this.state = {
-      otherDrugs: 'No'
-    }
+    const { model } = this.props
+    this.state = { model }
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(value) {
+    this.setState((prevState) => ({
+      model: {...prevState.model, ...value}
+    }), () => {
+      this.props.handleModelChange(this.state.model)
+    })
   }
 
   onOtherDrugsChange(otherDrugs) {
@@ -34,65 +42,81 @@ export default class SectionCScene extends PureComponent {
     this.setState({ otherDrugs: otherDrugs.patient_other_drug })
   }
 
+  onOptionChange(newValue) {
+    
+    const keys = Object.keys(newValue);
+    if (keys.indexOf('report_to_mcaz') !== -1 && newValue['report_to_mcaz'] !== 'Yes') {
+      this.onChange({...newValue, report_to_mcaz_date: '' });
+    } else if (keys.indexOf('report_to_mrcz') !== -1 && newValue['report_to_mrcz'] !== 'Yes') {
+      this.onChange({...newValue, report_to_mrcz_date: '' });
+      model['report_to_mrcz_date'] = '';
+    } else if (keys.indexOf('report_to_sponsor') !== -1 && newValue['report_to_sponsor'] !== 'Yes') {
+      this.onChange({...newValue, report_to_sponsor_date: '' });
+    } else if (keys.indexOf('report_to_irb') !== -1 && newValue['report_to_irb'] !== 'Yes') {
+      this.onChange({...newValue, report_to_irb_date: '' });
+    }
+  }
+
   render() {
-    const { model, saveAndContinue, cancel, validate } = this.props
+    const { saveAndContinue, cancel, validate } = this.props;
+    const { model } = this.state;
     const otherDrugs = model['patient_other_drug'] == 'Yes'? (
       <>
         <Text>10. If yes, then list all concomitant medication being taken at least one month before the onset of the SAE and describe the
           relationship to the SAE:</Text>
-        <SAEConcomitantTableComponent model={ model } validate={ this.state.validate } name="adr_other_drugs"/>
+        <SAEConcomitantTableComponent model={ model } validate={ this.state.validate } name="adr_other_drugs" onChange={this.onChange} />
       </>
     ) :
     null;
 
     return (
-      <KeyboardAwareScrollView style={ [ AppStyles.scrollContainer, AppStyles.sadrBackground ] } keyboardShouldPersistTaps={'handled'}>
+      <KeyboardAwareScrollView enableOnAndroid={true} style={ [ AppStyles.scrollContainer, AppStyles.sadrBackground ] } keyboardShouldPersistTaps={'handled'}>
         <Text>8a. List all study / intervention drugs being taken at the time of onset of the SAE, or within 30 days prior to onset, and describe
           their relationship to the SAE:</Text>
-        <SAEDrugsTableComponent model={ model } validate={ this.state.validate } name="adr_list_of_drugs"/>
+        <SAEDrugsTableComponent model={ model } validate={ this.state.validate } name="adr_list_of_drugs" onChange={this.onChange} />
         <SelectOneField label="9. Was the patient taking any other drug at the time of onset of the AE?" model={ model } validate={ this.state.validate } name="patient_other_drug" options={ BOOLEAN_OPTIONS } onChange={ this.onOtherDrugsChange } />
         {otherDrugs}
         <Text>11. Has the Adverse Event been
           reported to:</Text>
         <SelectOneField label="(a) MCAZ" model={ model } validate={ this.state.validate } name="report_to_mcaz" options={ BOOLEAN_OPTIONS } onChange={this.onOptionChange} />
         {this.state.report_to_mcaz === 'Yes' && (
-          <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_mcaz_date" maxDate={ new Date() }/>
+          <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_mcaz_date" maxDate={ new Date() } onChange={this.onChange} />
         )}
         <SelectOneField label="(b) MRCZ" model={ model } validate={ this.state.validate } name="report_to_mrcz" options={ BOOLEAN_OPTIONS } onChange={this.onOptionChange}/>
         {this.state.report_to_mrcz === 'Yes' && (
-          <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_mrcz_date" maxDate={ new Date() }/>
+          <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_mrcz_date" maxDate={ new Date() } onChange={this.onChange} />
         )}
         <SelectOneField label="(c) Sponsor" model={ model } validate={ this.state.validate } name="report_to_sponsor" options={ BOOLEAN_OPTIONS } onChange={this.onOptionChange}/>
         {this.state.report_to_sponsor === 'Yes' && (
-          <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_sponsor_date" maxDate={ new Date() }/>
+          <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_sponsor_date" maxDate={ new Date() } onChange={this.onChange} />
         )}
         <SelectOneField label="(d) IRB" model={ model } validate={ this.state.validate } name="report_to_irb" options={ BOOLEAN_OPTIONS } onChange={this.onOptionChange}/>
         {this.state.report_to_irb === 'Yes' && (
-          <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_irb_date" maxDate={ new Date() }/>
+          <DateTimeInput label="Date" model={ model } validate={ this.state.validate } name="report_to_irb_date" maxDate={ new Date() } onChange={this.onChange} />
         )}
 
         <Text>12. Describe the SAE with diagnosis, immediate cause or precipitating events, symptoms, any investigations, management,
           results and outcome (with dates where possible). Include relevant medical history. Additional narrative, photocopies of
           results of abnormal investigations and a hospital discharge letter may be attached:</Text>
         <TextInputField label="Summary of relevant past medical history of participant" multiline = {true}
-          numberOfLines = {4} model={ model } validate={ this.state.validate }  name="medical_history" tintColor="rgba(0, 0, 0, .60)"/>
+          numberOfLines = {4} model={ model } validate={ this.state.validate }  name="medical_history" tintColor="rgba(0, 0, 0, .60)" onChange={this.onChange} />
         <TextInputField label="(a) Diagnosis" multiline = {true}
-          numberOfLines = {4} model={ model } validate={ this.state.validate } name="diagnosis" tintColor="rgba(0, 0, 0, .60)"/>
+          numberOfLines = {4} model={ model } validate={ this.state.validate } name="diagnosis" tintColor="rgba(0, 0, 0, .60)" onChange={this.onChange} />
         <TextInputField label="(b) Immediate Cause" multiline = {true}
-          numberOfLines = {4} model={ model } validate={ this.state.validate } name="immediate_cause" tintColor="rgba(0, 0, 0, .60)"/>
+          numberOfLines = {4} model={ model } validate={ this.state.validate } name="immediate_cause" tintColor="rgba(0, 0, 0, .60)" onChange={this.onChange} />
         <TextInputField label="(c) Symptoms" multiline = {true}
-          numberOfLines = {4} model={ model } validate={ this.state.validate }  name="symptoms" tintColor="rgba(0, 0, 0, .60)"/>
+          numberOfLines = {4} model={ model } validate={ this.state.validate }  name="symptoms" tintColor="rgba(0, 0, 0, .60)" onChange={this.onChange} />
         <TextInputField label="(d) Investigations-Laboratory and any other significant
           investigations conducted:" multiline = {true} model={ model } validate={ this.state.validate } name="investigations"
-          numberOfLines = {4} tintColor="rgba(0, 0, 0, .60)"/>
+          numberOfLines = {4} tintColor="rgba(0, 0, 0, .60)" onChange={this.onChange} />
         <LabsTableComponent model={ model } validate={ this.state.validate } name="adr_lab_tests"/>
         <TextInputField label="(e) Results:" multiline = {true} model={ model } validate={ this.state.validate } name="results"
-          numberOfLines = {4} tintColor="rgba(0, 0, 0, .60)"/>
+          numberOfLines = {4} tintColor="rgba(0, 0, 0, .60)" onChange={this.onChange} />
         <TextInputField label="(f) Management (Include management of study treatment, continued,
             temporarily held, reduced dose, permanent discontinuation, off Product):" multiline = {true}
-          numberOfLines = {4} model={ model } validate={ this.state.validate } name="management" tintColor="rgba(0, 0, 0, .60)"/>
+          numberOfLines = {4} model={ model } validate={ this.state.validate } name="management" tintColor="rgba(0, 0, 0, .60)" onChange={this.onChange} />
         <SelectOneField label="(g) Outcome:" multiline = {true} model={ model } validate={ this.state.validate } name="outcome"
-          numberOfLines = {4} tintColor="rgba(0, 0, 0, .60)" options={ OUTCOME }/>
+          numberOfLines = {4} tintColor="rgba(0, 0, 0, .60)" options={ OUTCOME } onChange={this.onChange} />
         <Text>NB If the outcome is death, please complete &amp; attach the death form.</Text>
 
         <View style={ AppStyles.rowButtons }>
@@ -101,22 +125,5 @@ export default class SectionCScene extends PureComponent {
         </View>
       </KeyboardAwareScrollView>
     )
-  }
-
-  onOptionChange(newValue) {
-    const state = this.state;
-    this.setState({...state, ...newValue});
-    const { model } = this.props;
-    
-    const keys = Object.keys(newValue);
-    if (keys.indexOf('report_to_mcaz') !== -1 && newValue['report_to_mcaz'] !== 'Yes') {
-      model['report_to_mcaz_date'] = '';
-    } else if (keys.indexOf('report_to_mrcz') !== -1 && newValue['report_to_mrcz'] !== 'Yes') {
-      model['report_to_mrcz_date'] = '';
-    } else if (keys.indexOf('report_to_sponsor') !== -1 && newValue['report_to_sponsor'] !== 'Yes') {
-      model['report_to_sponsor_date'] = '';
-    } else if (keys.indexOf('report_to_irb') !== -1 && newValue['report_to_irb'] !== 'Yes') {
-      model['report_to_irb_date'] = '';
-    }
   }
 }

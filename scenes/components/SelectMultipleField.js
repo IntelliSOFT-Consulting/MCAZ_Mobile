@@ -24,17 +24,21 @@ export default class SelectMultipleField extends Component {
   }
 
   handleCheck(option, index) {
-    const { options, name } = this.props
-    var modelProp = this.props.model
-    var { model } = this.state
+    const { options, name, onChange } = this.props
+    
+    const { model } = this.state;
+    const modelProp = {};
     if(typeof option == "object") {
-      model[option.key] = model[option.key] == "1"? "0" : "1"
-      modelProp[option.key] = model[option.key]
+      model[option.key] = model[option.key] == "1" ? "0" : "1"
+      //modelProp[option.key] = model[option.key]
       const keys = Object.keys(model)
       const selected = keys.filter(key => model[key] == "1")
       modelProp[name] = selected.join(",")
     } else {
       model[index] = !model[index]
+    }
+    if (onChange) {
+      onChange(modelProp);
     }
     this.setState(model)
   }

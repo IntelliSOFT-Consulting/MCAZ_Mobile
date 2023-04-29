@@ -29,6 +29,15 @@ export default class TextInputField extends Component {
     }
   }
 
+  static getDerivedStateFromProps(props, state) {
+    const { value } = state;
+    const { model, name } = props;
+    if (model[name] != null && value != model[name]) {
+      return { value: model[name] };
+    }
+    return null;
+  }
+
   render() {
     const { label, required, validate, hideLabel, tintColor, numberOfLines } = this.props
     const { value } = this.state
@@ -62,15 +71,6 @@ export default class TextInputField extends Component {
         />
       </View>
     )
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    const { value } = state;
-    const { model, name } = props;
-    if (model[name] != null && value != model[name]) {
-      return { value: model[name] };
-    }
-    return null;
   }
   /*componentWillReceiveProps(nextProps) {
     const { model, name } = this.props

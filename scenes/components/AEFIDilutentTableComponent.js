@@ -24,11 +24,11 @@ export default class AEFIDilutentTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="diluent_name" model={ model[name][index] }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_date" model={ model[name][index] } maxDate={ new Date() }/>,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } options={ DOSE } />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="expiry_date" model={ model[name][index] } />,
-      <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
+      <TextInputField key={`diluent_name-0-${name}` } name="diluent_name" model={ model[name][index] } onChange={(value) => this.onChange(value, index)}/>,
+      <DateTimeInput key={`diluent_date-1-${name}`} name="diluent_date" model={ model[name][index] } maxDate={ new Date() } onChange={(value) => this.onChange(value, index)}/>,
+      <TextInputField key={`batch_number-2-${name}`} name="batch_number" model={ model[name][index] } options={ DOSE } onChange={(value) => this.onChange(value, index)}/>,
+      <DateTimeInput key={`expiry_date-3-${name}`} name="expiry_date" model={ model[name][index] } onChange={(value) => this.onChange(value, index)}/>,
+      <Button key={ `remove-4-${name}` } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
   }
@@ -42,10 +42,10 @@ export default class AEFIDilutentTableComponent extends TableComponent {
     const { model, name } = this.props
 
     var row = [
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="diluent_name" type="" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="diluent_date" type="date" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } options={ DOSE } type="option"/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="expiry_date" type="date" model={ model[name][index] } options={ ROUTE } type="option"/>,
+      <ReadOnlyDataRenderer key={`diluent_name-0-readonly-${name}` } name="diluent_name" type="" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={`diluent_date-1-readonly-${name}`} name="diluent_date" type="date" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={`batch_number-2-readonly-${name}`} name="batch_number" model={ model[name][index] } options={ DOSE } type="option"/>,
+      <ReadOnlyDataRenderer key={`expiry_date-3-readonly-${name}`} name="expiry_date" type="date" model={ model[name][index] } options={ ROUTE } type="option"/>,
     ]
     return row
   }

@@ -35,8 +35,6 @@ export default class AgeAtOnsetInput extends Component {
 
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
 
-
-
   handleChange(value, fieldName) {
     const { name, model, onChange } = this.props
 

@@ -12,21 +12,37 @@ import { BOOLEAN_OPTIONS, BOOLEAN_UNKNOWN_OPTIONS } from '../../utils/FieldOptio
 
 export default class SectionGScene extends PureComponent {
 
+  constructor(props, context) {
+    super(props, context)
+    this.onChange = this.onChange.bind(this)
+    const { model } = this.props
+    this.state = { model }
+  }
+
+  onChange(value) {
+    this.setState((prevState) => ({
+      model: {...prevState.model, ...value}
+    }), () => {
+      this.props.handleModelChange(this.state.model)
+    })
+  }
+
   render() {
-    const { model, saveAndContinue, cancel, validate } = this.props
+    const { saveAndContinue, cancel, validate } = this.props
+    const { model } = this.state;
     return (
       <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
-        <SelectOneField model={ model } name="similar_events" options={ BOOLEAN_UNKNOWN_OPTIONS } label="Were any similar events reported within a time period similar to when the adverse event occurred and in the same locality?" />
-        <TextInputField model={ model } name="similar_events_describe" label="If yes, describe:" multiline={true} numberOfLines={4}/>
-        <TextInputField model={ model } name="similar_events_episodes" label="If yes, how many events/episodes?" multiline={true} numberOfLines={4} keyboardType="numeric"/>
+        <SelectOneField model={ model } name="similar_events" options={ BOOLEAN_UNKNOWN_OPTIONS } label="Were any similar events reported within a time period similar to when the adverse event occurred and in the same locality?"  onChange={this.onChange} />
+        <TextInputField model={ model } name="similar_events_describe" label="If yes, describe:" multiline={true} numberOfLines={4} onChange={this.onChange} />
+        <TextInputField model={ model } name="similar_events_episodes" label="If yes, how many events/episodes?" multiline={true} numberOfLines={4} keyboardType="numeric" onChange={this.onChange} />
         <Text>Of those affected, how many are </Text>
-        <TextInputField model={ model } name="affected_vaccinated" label="Vaccinated:" keyboardType="numeric"/>
-        <TextInputField model={ model } name="affected_not_vaccinated" label="Not vaccinated:" keyboardType="numeric"/>
-        <TextInputField model={ model } name="affected_unknown" label="Unknown:" keyboardType="numeric"/>
-        <TextInputField model={ model } name="community_comments" label="Other comments:" multiline={true} numberOfLines={4}/>
+        <TextInputField model={ model } name="affected_vaccinated" label="Vaccinated:" keyboardType="numeric" onChange={this.onChange} />
+        <TextInputField model={ model } name="affected_not_vaccinated" label="Not vaccinated:" keyboardType="numeric" onChange={this.onChange} />
+        <TextInputField model={ model } name="affected_unknown" label="Unknown:" keyboardType="numeric" onChange={this.onChange} />
+        <TextInputField model={ model } name="community_comments" label="Other comments:" multiline={true} numberOfLines={4} onChange={this.onChange} />
         <View style={ AppStyles.rowButtons }>
-          <Button onPress={ () => saveAndContinue(8) } title="Save changes"/>
-          <Button onPress={ () => cancel() } title="Close"/>
+          <Button onPress={ () => saveAndContinue(8) } title="Save changes" />
+          <Button onPress={ () => cancel() } title="Close" />
         </View>
       </KeyboardAwareScrollView>
     )

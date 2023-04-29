@@ -14,7 +14,6 @@ export default class ConcomitantTableComponent extends TableComponent {
     super(props)
     this.getRow = this.getRow.bind(this)
     this.getMinStopDate = this.getMinStopDate.bind(this)
-    this.onChange = this.onChange.bind(this)
   }
 
   getHeader() {
@@ -52,22 +51,13 @@ export default class ConcomitantTableComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] } />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] } maxDate={ new Date() } index={ index } onChange={ this.onChange }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] } minDate={ this.getMinStopDate(index) } maxDate={ new Date() }/>,
-      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
-      <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
+      <TextInputField key={`drug_name-0-${name}` } name="drug_name" model={ model[name][index] } onChange={(value) => this.onChange(value, index)} />,
+      <DateTimeInput key={`start_date-1-${name}`} name="start_date" model={ model[name][index] } maxDate={ new Date() } index={ index } onChange={(value) => this.onChange(value, index)}/>,
+      <DateTimeInput key={`stop_date-2-${name}`} name="stop_date" model={ model[name][index] } minDate={ this.getMinStopDate(index) } maxDate={ new Date() } onChange={(value) => this.onChange(value, index)}/>,
+      <CheckBoxInput key={`suspected_drug-3-${name}`} name="suspected_drug" model={ model[name][index] } onChange={(value) => this.onChange(value, index)}/>,
+      <Button key={ `remove-4-${name}` } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
-  }
-
-  onChange(value, index) {
-    var { start_dates } = this.getState()
-    if(start_dates == null) {
-      start_dates = []
-    }
-    start_dates[index] = value
-    this.updateState({ start_dates : start_dates })
   }
 
   /**
@@ -103,10 +93,10 @@ export default class ConcomitantTableComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="drug_name"  model={ model[name][index] } />,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="start_date" type="date" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="stop_date" type="date" model={ model[name][index] }/>,
-      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] } readonly={ true }/>,
+      <ReadOnlyDataRenderer key={`drug_name-0-readonly-${name}` } name="drug_name"  model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={`start_date-1-readonly-${name}`} name="start_date" type="date" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={`stop_date-2-readonly-${name}`} name="stop_date" type="date" model={ model[name][index] }/>,
+      <CheckBoxInput key={`suspected_drug-3-readonly-${name}`} name="suspected_drug" model={ model[name][index] } readonly={ true }/>,
     ]
     return row
   }

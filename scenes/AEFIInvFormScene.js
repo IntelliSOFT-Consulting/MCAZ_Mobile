@@ -100,16 +100,22 @@ _renderHeader = props => {
 };
 
   _renderScene = SceneMap({
-    '1': () => <SectionAScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } followUp={ this.state.followUp }/>,
-  '2': () => <SectionBScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
-'3' : () => <SectionCScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
-    '4' : () => <SectionDScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
-  '5' : () => <SectionEScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
-'6' : () => <SectionFScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
-    '7' : () => <SectionGScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }/>,
+    '1': () => <SectionAScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } followUp={ this.state.followUp } handleModelChange={this.handleModelChange}/>,
+  '2': () => <SectionBScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } handleModelChange={this.handleModelChange}/>,
+'3' : () => <SectionCScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } handleModelChange={this.handleModelChange}/>,
+    '4' : () => <SectionDScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } handleModelChange={this.handleModelChange}/>,
+  '5' : () => <SectionEScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } handleModelChange={this.handleModelChange}/>,
+'6' : () => <SectionFScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } handleModelChange={this.handleModelChange}/>,
+    '7' : () => <SectionGScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate } handleModelChange={this.handleModelChange}/>,
   '8' : () => <SectionHScene model={ this.state.model } saveAndContinue={ this.saveAndContinue } cancel={ this.cancel } validate={ this.state.validate }
-  saveAndSubmit={ this.saveAndSubmit }/>
+  saveAndSubmit={ this.saveAndSubmit } handleModelChange={this.handleModelChange}/>
   });
+
+  handleModelChange = (change) => {
+    const { model } = this.state;
+    const newModel = Object.assign({}, model, change);
+    this.setState({ model: newModel });
+  }
 
   render() {
     return (

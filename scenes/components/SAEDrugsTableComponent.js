@@ -27,14 +27,14 @@ export default class SAEDrugsTableComponent extends TableComponent {
     const inUtero = model['in_utero'];
     const minStartDate = inUtero != '1' && model['date_of_birth'] != null ? new Date(model['date_of_birth']) : undefined
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 100000000) } name="drug_name" model={ model[name][index] } hideLabel={true} />,
-      <TextInputField key={Math.floor(Math.random() * 100000000)} name="dosage" model={ model[name][index] } hideLabel={true}/>,
-      <SelectOneField key={Math.floor(Math.random() * 100000000)} name="dose_id" model={ model[name][index] } options={ DOSE } hideLabel={true}/>,
-      <SelectOneField key={Math.floor(Math.random() * 100000000)} name="route_id" model={ model[name][index] } options={ ROUTE } hideLabel={true}/>,
-      <SelectOneField key={Math.floor(Math.random() * 100000000)} name="frequency_id" model={ model[name][index] } options={ SAE_FREQUENCY } hideLabel={true}/>,
-      <DateTimeInput key={Math.floor(Math.random() * 100000000)} name="start_date" model={ model[name][index] } minDate={minStartDate} hideLabel={true}/>,
-      <SelectOneField options={ BOOLEAN_OPTIONS } key={Math.floor(Math.random() * 10000000)} name="taking_drug" model={ model[name][index] } hideLabel={true}/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE } model={ model[name][index] } hideLabel={true}/>,
+      <TextInputField key={`drug_name-0-${name}`} name="drug_name" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <TextInputField key={`dosage-1-${name}`} name="dosage" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <SelectOneField key={`dose_id-2-${name}`} name="dose_id" model={ model[name][index] } options={ DOSE } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <SelectOneField key={`route_id-3-${name}`} name="route_id" model={ model[name][index] } options={ ROUTE } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <SelectOneField key={`frequency_id-4-${name}`} name="frequency_id" model={ model[name][index] } options={ SAE_FREQUENCY } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <DateTimeInput key={`start_date-5-${name}`} name="start_date" model={ model[name][index] } minDate={minStartDate} hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <SelectOneField options={ BOOLEAN_OPTIONS } key={Math.floor(Math.random() * 10000000)} name="taking_drug" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <SelectOneField key={Math.floor(Math.random() * 10000000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE } model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
       <Button key={ Math.floor(Math.random() * 10000000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
@@ -49,14 +49,14 @@ export default class SAEDrugsTableComponent extends TableComponent {
     const { model, name } = this.props
 
     var row = [
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE } type="option"/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE } type="option"/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ SAE_FREQUENCY } type="option"/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] } type="date" />,
-      <ReadOnlyDataRenderer options={ BOOLEAN_OPTIONS } key={Math.floor(Math.random() * 10000)} name="taking_drug" model={ model[name][index] } type="option"/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" options={ RELATIONSHIP_SAE } model={ model[name][index] } type="option"/>
+      <ReadOnlyDataRenderer key={`drug_name-0-readonly-${name}` } name="drug_name" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={`dosage-1-readonly-${name}`} name="dosage" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={`dose_id-2-readonly-${name}`} name="dose_id" model={ model[name][index] } options={ DOSE } type="option"/>,
+      <ReadOnlyDataRenderer key={`route_id-3-readonly-${name}`} name="route_id" model={ model[name][index] } options={ ROUTE } type="option"/>,
+      <ReadOnlyDataRenderer key={`frequency_id-4-readonly-${name}`} name="frequency_id" model={ model[name][index] } options={ SAE_FREQUENCY } type="option"/>,
+      <ReadOnlyDataRenderer key={`start_date-5-readonly-${name}`} name="start_date" model={ model[name][index] } type="date" />,
+      <ReadOnlyDataRenderer options={ BOOLEAN_OPTIONS } key={`taking_drug-6-readonly-${name}`} name="taking_drug" model={ model[name][index] } type="option"/>,
+      <ReadOnlyDataRenderer key={`relationship_to_sae-7-readonly-${name}`} name="relationship_to_sae" options={ RELATIONSHIP_SAE } model={ model[name][index] } type="option"/>
     ]
     return row
   }

@@ -17,7 +17,6 @@ export default class SAEConcomitantTableComponent extends TableComponent {
     //this.state = { }
     this.getRow = this.getRow.bind(this)
     this.getMinStopDate = this.getMinStopDate.bind(this)
-    this.onChange = this.onChange.bind(this)
   }
 
   /**
@@ -26,22 +25,13 @@ export default class SAEConcomitantTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="drug_name" model={ model[name][index] }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] } maxDate={ new Date() } onChange={ this.onChange }/>,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] } maxDate={ new Date() } minDate={ this.getMinStopDate(index) }/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="relationship_to_sae" model={ model[name][index] } options={ RELATIONSHIP_SAE }/>,
-      <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
+      <TextInputField key={`drug_name-0-${name}`} name="drug_name" model={ model[name][index] } onChange={(value) => this.onChange(value, index)} />,
+      <DateTimeInput key={`start_date-1-${name}`} name="start_date" model={ model[name][index] } maxDate={ new Date() } onChange={(value) => this.onChange(value, index)} />,
+      <DateTimeInput key={`stop_date-2-${name}`} name="stop_date" model={ model[name][index] } maxDate={ new Date() } minDate={ this.getMinStopDate(index) }/>,
+      <SelectOneField key={`relationship_to_sae-3-${name}`} name="relationship_to_sae" model={ model[name][index] } options={ RELATIONSHIP_SAE } onChange={(value) => this.onChange(value, index)}/>,
+      <Button key={ `vaccine_name-0-${name}` } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
-  }
-
-  onChange(value, index) {
-    var { start_dates } = this.getState()
-    if(start_dates == null) {
-      start_dates = []
-    }
-    start_dates[index] = value
-    this.updateState({ start_dates : start_dates })
   }
 
   /**
@@ -72,10 +62,10 @@ export default class SAEConcomitantTableComponent extends TableComponent {
     const { model, name } = this.props
 
     var row = [
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="drug_name" model={ model[name][index] } />,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="start_date" model={ model[name][index] } type="date"/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="stop_date" model={ model[name][index] } type="date"/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] } options={ RELATIONSHIP_SAE } type="option"/>,
+      <ReadOnlyDataRenderer key={`drug_name-0-readonly-${name}`} name="drug_name" model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={`start_date-1-readonly-${name}`} name="start_date" model={ model[name][index] } type="date"/>,
+      <ReadOnlyDataRenderer key={`stop_date-2-readonly-${name}`} name="stop_date" model={ model[name][index] } type="date"/>,
+      <ReadOnlyDataRenderer key={`suspected_drug-3-readonly-${name}`} name="suspected_drug" model={ model[name][index] } options={ RELATIONSHIP_SAE } type="option"/>,
     ]
     return row
   }

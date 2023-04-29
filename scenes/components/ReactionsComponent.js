@@ -14,6 +14,34 @@ export default class ReactionsComponent extends Component {
     this.setModelValue = this.setModelValue.bind(this)
   }
 
+  addReaction() {
+    let reactions = this.state.reactions
+    reactions.push({ reaction_name : "" })
+    this.setState({ reactions : reactions })
+    this.setModelValue()
+  }
+
+  handleChange(i, value) {
+    let reactions = this.state.reactions
+    reactions[i] = { reaction_name : value }
+    this.setState({ reactions : reactions})
+    this.setModelValue()
+  }
+
+  removeReaction(i) {
+    let reactions = this.state.reactions
+    reactions.splice(i, 1)
+    const newReaction = Object.assign([], reactions)
+    this.setState({ reactions : newReaction })
+    this.setModelValue()
+  }
+
+  setModelValue() {
+    const { onChange, name } = this.props
+    const { reactions } = this.state
+    onChange({[name]: reactions });
+  }
+
   render() {
     const { readonly } = this.props
     if(readonly) {
@@ -55,37 +83,5 @@ export default class ReactionsComponent extends Component {
         { reactions }
       </View>
     )
-  }
-
-  addReaction() {
-    let reactions = this.state.reactions
-    reactions.push({ reaction_name : "" })
-    this.setState({ reactions : reactions })
-    this.setModelValue()
-  }
-
-  handleChange(i, value) {
-    let reactions = this.state.reactions
-    reactions[i] = { reaction_name : value }
-    this.setState({ reactions : reactions})
-    this.setModelValue()
-  }
-
-  removeReaction(i) {
-    let reactions = this.state.reactions
-    reactions.splice(i, 1)
-    const newReaction = Object.assign([], reactions)
-    this.setState({ reactions : newReaction })
-    this.setModelValue()
-  }
-
-  setModelValue() {
-    const { model, name } = this.props
-    const { reactions } = this.state
-    model[name] = reactions
-  }
-
-  componentWillReceiveProps(nextProps) {
-
   }
 }

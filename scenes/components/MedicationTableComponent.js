@@ -21,7 +21,7 @@ export default class MedicationTableComponent extends TableComponent {
     this.getRow = this.getRow.bind(this)
     this.getHeader = this.getHeader.bind(this)
     this.getReadOnlyRow = this.getReadOnlyRow.bind(this)
-    this.onChange = this.onChange.bind(this)
+    this.onStartChange = this.onStartChange.bind(this)
     //const { model, name } = this.props
   }
 
@@ -64,23 +64,23 @@ export default class MedicationTableComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] } hideLabel={true} />,
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } hideLabel={true} />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } hideLabel={true}/>,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="dose" model={ model[name][index] } hideLabel={true}/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="dose_id" model={ model[name][index] } options={ DOSE } hideLabel={true}/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="route_id" model={ model[name][index] } options={ ROUTE }/>,
-      <SelectOneField key={Math.floor(Math.random() * 10000)} name="frequency_id" model={ model[name][index] } options={ FREQUENCY}/>,
-      <DateSelectInput key={Math.floor(Math.random() * 10000)} name="start_date" hideLabel={ true } label="" model={ model[name][index] } index={ index } maxDate={ new Date() } onChange={ this.onChange }/>,
-      <DateSelectInput key={Math.floor(Math.random() * 10000)} name="stop_date" hideLabel={ true } label="" model={ model[name][index] } minDate={ this.getMinStopDate(index) } maxDate={ new Date() }/>,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="indication" model={ model[name][index] } hideLabel={true}/>,
-      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] }/>,
-      <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
+      <TextInputField key={`drug_name-0-${name}` } name="drug_name" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <TextInputField key={`brand_name-1-${name}` } name="brand_name" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <TextInputField key={`batch_number-2-${name}`} name="batch_number" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <TextInputField key={`dose-3-${name}`} name="dose" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <SelectOneField key={`dose_id-4-${name}`} name="dose_id" model={ model[name][index] } options={ DOSE } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <SelectOneField key={`route_id-5-${name}`} name="route_id" model={ model[name][index] } options={ ROUTE } onChange={(value) => this.onChange(value, index)} />,
+      <SelectOneField key={`frequency_id-6-${name}`} name="frequency_id" model={ model[name][index] } options={ FREQUENCY} onChange={(value) => this.onChange(value, index)} />,
+      <DateSelectInput key={`start_date-7-${name}`} name="start_date" hideLabel={ true } label="" model={ model[name][index] } index={ index } maxDate={ new Date() } onChange={(value) => this.onChange(value, index)} />,
+      <DateSelectInput key={`stop_date-8-${name}`} name="stop_date" hideLabel={ true } label="" model={ model[name][index] } minDate={ this.getMinStopDate(index) } maxDate={ new Date() } onChange={(value) => this.onChange(value, index)} />,
+      <TextInputField key={`indication-9-${name}`} name="indication" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <CheckBoxInput key={`suspected_drug-10-${name}`} name="suspected_drug" model={ model[name][index] } onChange={(value) => this.onChange(value, index)} />,
+      <Button key={ `remove-11-${name}` } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
   } // color="#841584"
 
-  onChange(value, index) {
+  onStartChange(value, index) {
     var { start_dates } = this.getState()
     if(start_dates == null) {
       start_dates = []
@@ -118,17 +118,17 @@ export default class MedicationTableComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
-      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="drug_name" model={ model[name][index] } />,
-      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="brand_name" model={ model[name][index] } />,
-      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="batch_number" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="dose" model={ model[name][index] } />,
-      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="dose_id" type="option" model={ model[name][index] } options={ DOSE }/>,
-      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="route_id" type="option" model={ model[name][index] } options={ ROUTE }/>,
-      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="frequency_id" type="option" model={ model[name][index] } options={ FREQUENCY }/>,
-      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="start_date" label="" type="date" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="stop_date" label="" type="date" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={ Math.floor(Math.random() * 10000) } name="indication" model={ model[name][index] }/>,
-      <CheckBoxInput key={ Math.floor(Math.random() * 10000) } name="suspected_drug" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={ `drug_name-0-readonly-${name}` } name="drug_name" model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={ `brand_name-1-readonly-${name}` } name="brand_name" model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={ `batch_number-2-readonly-${name}` } name="batch_number" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={ `dose-3-readonly-${name}` } name="dose" model={ model[name][index] } />,
+      <ReadOnlyDataRenderer key={ `dose_id-4-readonly-${name}` } name="dose_id" type="option" model={ model[name][index] } options={ DOSE }/>,
+      <ReadOnlyDataRenderer key={ `route_id-5-readonly-${name}` } name="route_id" type="option" model={ model[name][index] } options={ ROUTE }/>,
+      <ReadOnlyDataRenderer key={ `frequency_id-6-readonly-${name}` } name="frequency_id" type="option" model={ model[name][index] } options={ FREQUENCY }/>,
+      <ReadOnlyDataRenderer key={ `start_date-7-readonly-${name}` } name="start_date" label="" type="date" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={ `stop_date-8-readonly-${name}` } name="stop_date" label="" type="date" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={ `indication-9-readonly-${name}` } name="indication" model={ model[name][index] }/>,
+      <CheckBoxInput key={ `suspected_drug-10-readonly-${name}` } name="suspected_drug" model={ model[name][index] }/>,
     ]
     return row
   }

@@ -58,8 +58,9 @@ export default class AdverseReactionScene extends PureComponent {
           label="Description of ADR"
           multiline = {true}
           numberOfLines = {4}
+          onChange={ this.onChange }
          />
-        <ReactionsComponent model={ model } name="reactions" />
+        <ReactionsComponent model={ model } name="reactions" onChange={this.onChange} />
         <SelectOneField
           model={ model }
           name="severity"

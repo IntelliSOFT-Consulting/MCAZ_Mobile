@@ -19,7 +19,7 @@ export default class FileInputComponent extends Component{
   }
 
   async selectFile() {
-    const { model } = this.props
+    const { model, onChange, name } = this.props
     try {
       const res = await DocumentPicker.pick({
         // type: DocumentPicker.allFiles
@@ -32,7 +32,10 @@ export default class FileInputComponent extends Component{
      );
      model['filename'] = res.name;
      RNFS.readFile(res.uri, 'base64').then((data) => {
-       model['file'] = 'data:' + res.type + ';base64,' + data
+      if (onChange) {
+        onChange({ [name]: {...model, filename: res.name, file: 'data:' + res.type + ';base64,' + data }});
+      }
+       //model['file'] = 'data:' + res.type + ';base64,' + data
        this.setState({ filename : model['filename']})
      });
     } catch (err) {

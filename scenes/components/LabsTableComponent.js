@@ -24,13 +24,13 @@ export default class LabsTableComponent extends TableComponent {
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="lab_test" model={ model[name][index]} hideLabel={true} />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="abnormal_result" model={ model[name][index] } hideLabel={true} />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="site_normal_range" model={ model[name][index] } hideLabel={true} />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="collection_date" model={ model[name][index] } hideLabel={true} />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="lab_value" model={ model[name][index] } hideLabel={true} />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="lab_value_date" model={ model[name][index] } hideLabel={true} />,
-      <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
+      <TextInputField key={`lab_test-0-${name}`} name="lab_test" model={ model[name][index]} hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <TextInputField key={`abnormal_result-1-${name}`} name="abnormal_result" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <TextInputField key={`site_normal_range-2-${name}`} name="site_normal_range" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <DateTimeInput key={`collection_date-3-${name}`} name="collection_date" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <TextInputField key={`lab_value-4-${name}`} name="lab_value" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <DateTimeInput key={`lab_value_date-5-${name}`} name="lab_value_date" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <Button key={ `vaccine_name-0-${name}` } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
   }
@@ -44,12 +44,12 @@ export default class LabsTableComponent extends TableComponent {
     const { model, name } = this.props
 
     var row = [
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="lab_test" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="abnormal_result" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="site_normal_range" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="collection_date" model={ model[name][index] } type="date"/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="lab_value" model={ model[name][index] }/>,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="lab_value_date" model={ model[name][index] } type="date"/>
+      <ReadOnlyDataRenderer key={`lab_test-0-readonly-${name}`} name="lab_test" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={`abnormal_result-1-readonly-${name}`} name="abnormal_result" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={`site_normal_range-2-readonly-${name}`} name="site_normal_range" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={`collection_date-3-readonly-${name}`} name="collection_date" model={ model[name][index] } type="date"/>,
+      <ReadOnlyDataRenderer key={`lab_value-4-readonly-${name}`} name="lab_value" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={`lab_value_date-5-readonly-${name}`} name="lab_value_date" model={ model[name][index] } type="date"/>
     ]
     return row
   }

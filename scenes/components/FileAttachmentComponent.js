@@ -49,9 +49,9 @@ export default class FileAttachmentComponent extends TableComponent {
     const { model, name } = this.props
 
     var row = [
-      <FileInputComponent key={Math.floor(Math.random() * 10000) } name="file" model={ model[name][index] } hideLabel={ true }/>,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="description" model={ model[name][index] } hideLabel={true} />,
-      <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
+      <FileInputComponent key={`file-0-${name}` } name="file" model={ model[name][index] } hideLabel={ true } onChange={(value) => this.onChange(value, index)} />,
+      <TextInputField key={`description-1-${name}`} name="description" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <Button key={ `vaccine_name-0-${name}` } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row
   }
@@ -70,8 +70,8 @@ export default class FileAttachmentComponent extends TableComponent {
       model[name][index] = rowData
     }
     var row = [
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000) } name="file" model={ model[name][index] } type="file" />,
-      <ReadOnlyDataRenderer key={Math.floor(Math.random() * 10000)} name="description" model={ model[name][index] }/>,
+      <ReadOnlyDataRenderer key={`file-0-readonly-${name}` } name="file" model={ model[name][index] } type="file" />,
+      <ReadOnlyDataRenderer key={`description-1-readonly-${name}`} name="description" model={ model[name][index] }/>,
     ]
     return row
   }
@@ -79,24 +79,23 @@ export default class FileAttachmentComponent extends TableComponent {
   render() {
     const { label, readonly } = this.props
     const widthArr = [120, 120]
-    const flexArr=[2, 4, 2]
+    const flexArr=[2, 4]
     const headerEls = this.getHeader()
     const rows = this.initializeRows(readonly)
     var addRowBtn = null
     if(!readonly) {
-      widthArr.push(30)
+      widthArr.push(30);
+      flexArr.push(1)
       addRowBtn = (<Button onPress={this.addRow} title="Add file"  />)
     }
     return (
-      <View>
-        <ScrollView horizontal={true}>
-          <Table>
-            <Row data={ headerEls } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } widthArr={ widthArr }/>
+      <View style={{ flex: 1 }}>
+        <Table style={{ marginBottom: 20 }}>
+            <Row data={ headerEls } style={ AppStyles.tableHead } textStyle={ AppStyles.tableHeadText } flexArr={flexArr}/>
             <TableWrapper style={{flexDirection: 'row'}}>
-              <Rows data={ rows }  widthArr={ widthArr }/>
+              <Rows data={ rows }  flexArr={flexArr}/>
             </TableWrapper>
-          </Table>
-        </ScrollView>
+        </Table>
         { addRowBtn }
       </View>
     )

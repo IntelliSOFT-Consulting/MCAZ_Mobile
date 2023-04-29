@@ -17,23 +17,24 @@ export default class VaccineTableComponent extends TableComponent {
     this.getRow = this.getRow.bind(this)
   }
 
+  
   /**
     Returns a new row for the given index
   */
   getRow(index) {
     const { model, name } = this.props
     var row = [
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="vaccine_name" model={ model[name][index] } hideLabel={true} />,
-      <TextInputField key={Math.floor(Math.random() * 10000) } name="manufacturer" model={ model[name][index] } hideLabel={true} />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_date" model={ model[name][index] } showTime={ false } maxDate={ new Date() } hideLabel={true} />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="vaccination_time" model={ model[name][index] } mode={ "time" } hideLabel={true}  />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="dosage" model={ model[name][index] } hideLabel={true} />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="batch_number" model={ model[name][index] } hideLabel={true} />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="expiry_date" model={ model[name][index] } hideLabel={true} />,
-      <TextInputField key={Math.floor(Math.random() * 10000)} name="diluent_batch_number" model={ model[name][index] } hideLabel={true} />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_expiry_date" model={ model[name][index] } hideLabel={true} />,
-      <DateTimeInput key={Math.floor(Math.random() * 10000)} name="diluent_date" model={ model[name][index] } maxDate={ new Date() } showTime={ true } hideLabel={true} />,
-      <CheckBoxInput key={Math.floor(Math.random() * 10000)} name="suspected_drug" model={ model[name][index] } hideLabel={true} />,
+      <TextInputField key={`vaccine_name-0-${name}`} name="vaccine_name" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <TextInputField key={`manufacturer-1-${name}`} name="manufacturer" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <DateTimeInput key={`vaccination_date-1-${name}`} name="vaccination_date" model={ model[name][index] } showTime={ false } maxDate={ new Date() } hideLabel={true} onChange={(value) => this.onChange(value, index)} />,
+      <DateTimeInput key={`vaccination_time-1-${name}`} name="vaccination_time" model={ model[name][index] } mode={ "time" } hideLabel={true}  onChange={(value) => this.onChange(value, index)} />,
+      <TextInputField key={`dosage-1-${name}`} name="dosage" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <TextInputField key={`batch_number-1-${name}`} name="batch_number" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <DateTimeInput key={`expiry_date-1-${name}`} name="expiry_date" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <TextInputField key={`diluent_batch_number-1-${name}`} name="diluent_batch_number" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <DateTimeInput key={`diluent_expiry_date-1-${name}`} name="diluent_expiry_date" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <DateTimeInput key={`diluent_date-1-${name}`} name="diluent_date" model={ model[name][index] } maxDate={ new Date() } showTime={ true } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
+      <CheckBoxInput key={`suspected_drug-1-${name}`} name="suspected_drug" model={ model[name][index] } hideLabel={true} onChange={(value) => this.onChange(value, index)}/>,
       <Button key={ Math.floor(Math.random() * 10000) } title="-" onPress={ () => this.removeRow(index) } />
     ]
     return row

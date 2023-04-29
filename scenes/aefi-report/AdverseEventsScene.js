@@ -33,7 +33,7 @@ export default class AdverseEventsScene extends PureComponent {
     ) : null;
     return (
       <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
-        <SelectMultipleField label="Adverse event (s):" name="adverse_events" model={ model } options={ AEFI_ADVERSE_EVENTS }/>
+        <SelectMultipleField label="Adverse event (s):" name="adverse_events" model={ model } options={ AEFI_ADVERSE_EVENTS } onChange={this.onChange} />
         <AEFIEventsSelectOneField name="reactions" model={ model } label="Local reactions" options={ SEVERE_LOCAL_REACTIONS } onChange={this.onChange} />
         <AEFIEventsSelectOneField name="seizures" model={ model } label="Seizures" options={ SEIZURES } onChange={this.onChange} />
         <TextInputField label="Other" name="adverse_events_specify" model={ model } handleModelChange={this.props.handleModelChange}/>
@@ -46,7 +46,7 @@ export default class AdverseEventsScene extends PureComponent {
         {this.state.serious == 'Yes' && (<SelectOneField label="If yes:" options={ AEFI_SEVERITY_REASON } name="serious_yes" model={ model } onChange={this.onChange}/>)}
         <SelectOneField label="Outcome:" name="outcome" model={ model } options={ AEFI_OUTCOME } onChange={this.onChange}/>
         { autopsyDod }
-        <FileInputComponent name="reports" model={ model.reports[0] } label="Attach report"/>
+        <FileInputComponent name="reports" model={ model.reports[0] } label="Attach report" onChange={this.onChange} />
         <TextInputField label="Past medical history (including history of similar reaction or other allergies), concomitant medication
           and dates of administration (exclude those used to treat reaction) other relevant information
           (e.g. other cases). Use additional sheet if needed :" multiline={true} numberOfLines={4} name="past_medical_history" model={ model } handleModelChange={this.props.handleModelChange}/>

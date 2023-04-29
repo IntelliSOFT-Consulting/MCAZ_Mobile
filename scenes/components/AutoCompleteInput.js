@@ -24,14 +24,13 @@ export default class AutoCompleteInput extends Component {
   handleChange(value) {
     this.setState({ value })
     var { name, model } = this.props
-    if(model) {
-      if(typeof value == "object") {
-        model[name] = value.name
-      } else {
-        model[name] = value
-      }
-      this.setState({ value : model[name] })
+    const newVal = '';
+    if(typeof value == "object") {
+      newVal = value.name
+    } else {
+      newVal = value
     }
+    this.setState({ value : newVal })
     const { onChange } = this.props
     if(onChange) {
       onChange(value)

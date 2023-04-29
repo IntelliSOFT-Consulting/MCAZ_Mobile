@@ -10,6 +10,7 @@ export default class TableComponent extends Component {
     this.removeRow = this.removeRow.bind(this)
     this.updateState = this.updateState.bind(this)
     this.getState = this.getState.bind(this)
+    this.onChange = this.onChange.bind(this)
 
     const { model, name } = this.props
     var rows = []
@@ -23,10 +24,12 @@ export default class TableComponent extends Component {
     Adds a new row to the table.
   */
   addRow() {
-    const { model, name } = this.props
+    const { model, name,onChange } = this.props
     var { rows } = this.state
     rows.push({})
-    model[name] = rows
+    if (onChange) {
+      onChange({ [name]: rows });
+    }
     this.setState({ rows : rows })
   }
 
@@ -38,9 +41,22 @@ export default class TableComponent extends Component {
   removeRow(index) {
     var { rows } = this.state
     rows.splice(index, 1)
-    const { model, name } = this.props
-    model[name] = rows
+    const { model, name, onChange } = this.props
+    if (onChange) {
+      onChange({ [name]: rows });
+    }
     this.setState({ rows : rows })
+  }
+
+  onChange (value, index) {
+    const { model, name, onChange } = this.props;
+    const { rows } = this.state;
+    const newRows = [...rows];
+    newRows[index] = {...newRows[index], ...value};
+    if (onChange) {
+      onChange({ [name]: newRows });
+    }
+    this.setState({ rows : newRows })
   }
 
   initializeRows(readonly) {

@@ -12,13 +12,29 @@ import AEFIDilutentTableComponent from '../components/AEFIDilutentTableComponent
 
 export default class VaccinationScene extends PureComponent {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      model: this.props.model
+    }
+  }
+
+  onChange = (model) => {
+    this.setState((prevState) => ({
+      model: {...prevState.model, ...model}
+    }), () => {
+      this.props.handleModelChange(this.state.model)
+    })
+  }
+
   render() {
-    const { model, saveAndContinue, cancel } = this.props
+    const { saveAndContinue, cancel } = this.props;
+    const { model } = this.state;
     return (
       <KeyboardAwareScrollView style={ [AppStyles.scrollContainer, AppStyles.aefiBackground] } keyboardShouldPersistTaps={'handled'}>
-        <TextInputField label="Name of vaccination centre:" name="name_of_vaccination_center" model={ model } handleModelChange={this.props.handleModelChange}/>
+        <TextInputField label="Name of vaccination centre:" name="name_of_vaccination_center" model={ model } onChange={this.onChange}/>
         <Text style={ AppStyles.boldText }>Vaccine/Dilutent</Text>
-        <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" label="Vaccine"/>
+        <VaccineTableComponent model={ model } name="aefi_list_of_vaccines" label="Vaccine" onChange={this.onChange}/>
 
         <View style={ AppStyles.rowButtons }>
           <Button onPress={ () => saveAndContinue(3) } title="Save changes"/>
