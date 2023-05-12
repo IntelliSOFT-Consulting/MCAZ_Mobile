@@ -33,4 +33,4 @@ export const NEWS_URL = MAIN_URL + '/sites/news' // Url to fetch news
 export const RESET_PASSWORD_URL = MAIN_URL + '/users/forgotPassword'
 
 // Should be true for testing/non https
-export const DISABLE_ALL_SECURITY = false;
+export const DISABLE_ALL_SECURITY = true;
